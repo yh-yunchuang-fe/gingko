@@ -1,0 +1,18 @@
+import React, { Component } from 'react';
+import {
+    View
+} from 'react-native';
+import Samples from './expo-samples/index'
+
+export default class App extends Component {
+    constructor (props) {
+        super(props)
+    }
+    render() {
+        return (
+            <View>
+                <Samples/>
+            </View>
+        );
+    }
+}

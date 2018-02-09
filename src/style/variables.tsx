@@ -1,0 +1,73 @@
+import {
+    StyleSheet
+} from "react-native";
+
+const brandPrimary = '#24A8E8';
+
+export default {
+    // 颜色
+    // --
+    color_base: '#333',
+    color_link: brandPrimary,
+    color_white: '#fff',
+    color_disabled: '#999',
+    color_warning: '#FF0000',
+    border_color: '#ddd',
+    color_text_disable: '#999',
+
+    // 背景色
+    // ---
+    fill_base: '#fff',
+    fill_tap: '#bbb',
+
+    // 边框色
+    // ---
+    border_color_base: '#ddd',
+    border_color_primary: brandPrimary,
+
+    // 圆角
+    // ---
+    radius: 4,
+
+    // 边框尺寸
+    // ---
+    border_width: StyleSheet.hairlineWidth,
+
+    // 按钮
+    // ---
+    btn_height: 40,
+    btn_font_size: 18,
+
+    btn_height_sm: 30,
+    // btn_height_lg: 60,
+
+    btn_font_size_sm: 16,
+    // btn_font_size_lg: 20,
+
+    btn_default_fill: '#fff',
+    btn_default_fill_tap: 'rgba(13,141,203,0.05)',
+
+    btn_primary_fill: brandPrimary,
+    btn_primary_fill_tap: '#0D8DCB',
+
+    btn_warning_fill: '#fff',
+    btn_warning_fill_tap: 'rgba(234,0,0,0.05)',
+    btn_warning_tap_color: '#EA0000',
+
+    btn_disabled_fill: '#aaa',
+
+    // 间距
+    // ---
+    // 水平间距
+    h_spacing_sm: 5,
+    h_spacing_md: 8,
+    h_spacing_lg: 15,
+
+    // 垂直间距
+    v_spacing_xs: 3,
+    v_spacing_sm: 6,
+    v_spacing_md: 9,
+    v_spacing_lg: 15,
+    v_spacing_xl: 21,
+}
+
