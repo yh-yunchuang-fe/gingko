@@ -1,39 +1,35 @@
-import React, { Component } from 'react'
-import {
-    ScrollView,
-    Text
-} from "react-native";
-import { Font } from 'expo';
-import ButtonDemo from './demos/button'
-import IconDemo from './demos/icon'
-import gingkoIcon from '../src/assets/index'
+import React from 'react'
+import { StackNavigator } from 'react-navigation'
+import routes from './src/routes'
+import Home from './src/Home'
 
-export default class Samples extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            fontIsLoaded: false
-        }
-    }
+const getOptions = title => ({
+    title,
+    headerStyle: {
+        backgroundColor: '#24A8E8',
+    },
+    headerTintColor: 'white',
+});
 
-    async componentDidMount() {
-        await Font.loadAsync({
-            'gingkoIcon': require('../src/assets/fonts/gingkoIcon.ttf')
-        });
-        this.setState({
-            fontIsLoaded: true
-        })
-    }
 
-    render() {
-        if (!this.state.fontIsLoaded) {
-            return null
-        }
-        return (
-            <ScrollView>
-                <ButtonDemo/>
-                <IconDemo/>
-            </ScrollView>
-        );
+const scenes = {
+    Home: {
+        screen: Home,
+        navigationOptions: getOptions('GingoKo')
     }
-}
+};
+
+routes.forEach((component) => {
+    console.log('component:', component);
+   scenes[component.title] = {
+       screen: component.screen,
+       navigationOptions: getOptions(component.title)
+   }
+});
+
+console.log('scenes:', scenes);
+
+const App = StackNavigator(scenes);
+
+export default App;
+

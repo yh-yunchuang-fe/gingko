@@ -6,7 +6,7 @@ import {
 import {
     Icon,
     WhiteSpace
-} from '../../../components'
+} from '../../../components/index'
 
 export default class IconDemo extends Component {
     render() {

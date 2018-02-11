@@ -7,7 +7,7 @@ import {
 import {
     Button,
     WhiteSpace
-} from '../../../components'
+} from '../../../components/index'
 
 
 export default class ButtonDemo extends Component {
