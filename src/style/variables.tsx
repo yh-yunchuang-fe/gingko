@@ -64,10 +64,16 @@ export default {
     h_spacing_lg: 15,
 
     // 垂直间距
+    // ---
     v_spacing_xs: 3,
     v_spacing_sm: 6,
     v_spacing_md: 9,
     v_spacing_lg: 15,
     v_spacing_xl: 21,
+
+    // 字体尺寸
+    // ---
+    font_size_caption_sm: 12,
+    font_size_caption: 16,
 }
 

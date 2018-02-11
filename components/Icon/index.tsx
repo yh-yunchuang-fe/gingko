@@ -39,9 +39,12 @@ export default class Icon extends React.Component<IconProps, any> {
     render() {
         const { name, size, color } = this.props;
         const sizeMap = { 'xxs': 15, 'xs': 18, 'sm': 21, 'md': 22, 'lg': 36 };
-        const fontSize = typeof size === 'string' ? sizeMap[size] : size;
+        let fontSize = typeof size === 'string' ? sizeMap[size] : size;
+        fontSize = fontSize || 16;
+        const lineHeight = fontSize + 1;
         const TextIconStyle = {
             fontSize,
+            lineHeight: lineHeight,
             color: color,
             fontFamily: 'gingkoIcon',
             flexDirection: 'row',

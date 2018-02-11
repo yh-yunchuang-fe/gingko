@@ -1,21 +1,31 @@
 import React, { Component } from 'react'
 import {
-    View,
-    Alert
+    ScrollView
 } from 'react-native'
 import {
     Icon,
-    WhiteSpace
+    Grid,
 } from '../../../components/index'
 
+const list = ['arrow-down', 'arrow-left', 'arrow-right', 'arrow-up',
+    'back-home', 'back', 'camera', 'delete-circle', 'invisible',
+    'more', 'ok', 'scan', 'search', 'selected-multi-noraml',
+    'selected-single', 'unselected-normal', 'visible', 'warning'
+];
 export default class IconDemo extends Component {
     render() {
+        const data = list.map((item)=>{
+            return {
+                icon: (<Icon name={item} size="md"/>),
+                text: item
+            }
+        });
         return (
-            <View style={{marginVertical: 50, marginHorizontal: 20}}>
-                <Icon name="search"/>
-                <WhiteSpace/>
-                <Icon name="warning"/>
-            </View>
+            <ScrollView style={{flex: 1}}>
+                <Grid
+                    data={data}
+                />
+            </ScrollView>
         )
     }
 }
