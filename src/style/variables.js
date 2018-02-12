@@ -15,6 +15,7 @@ export default {
     color_warning: '#FF0000',
     border_color: '#ddd',
     color_text_disable: '#999',
+    color_label: '#666',
 
     // 背景色
     // ---
@@ -81,10 +82,18 @@ export default {
     font_size_base_sm: 14,
     font_size_tip: 12,      //错误提示等
 
+    // 行高lineHeight
+    // ---
+    line_height_plus_md: 6,
+
     // 指示器尺寸 Indicator TODO 大小待定
     // ---
     indicator_sm: 14,
     indicator_md: 18,
     indicator_lg: 24,
+
+    // modal
+    // ---
+    modal_zIndex: 999,
 }
 

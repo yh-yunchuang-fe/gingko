@@ -18,5 +18,20 @@ export default [
         title: 'Indicator',
         description: '指示器',
         screen: require('../demos/indicator').default
+    },
+    {
+        title: 'Picker',
+        description: '选择器',
+        screen: require('../demos/picker').default
+    },
+    {
+        title: 'InputItem',
+        description: '输入框',
+        screen: require('../demos/inputItem').default
+    },
+    {
+        title: 'Modal',
+        description: '模态窗',
+        screen: require('../demos/modal').default
     }
 ]
