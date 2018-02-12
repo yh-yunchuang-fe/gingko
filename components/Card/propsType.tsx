@@ -2,14 +2,22 @@ import React from 'react'
 
 export interface CardProps {
     full?: boolean;
+    style?: any;
+    children?: any;
 }
 
 export interface CardHeaderProps {
-    title?: any;
-    extra?: any;
+    children?: any;
+    // extra?: any;
+    style?: any;
+}
+
+export interface CardBodyProps {
+    children?: any;
     style?: any;
 }
 
 export interface CardFooterProps {
-    content?: any;
+    children?: any;
+    style?: any;
 }

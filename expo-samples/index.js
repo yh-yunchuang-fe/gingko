@@ -20,14 +20,12 @@ const scenes = {
 };
 
 routes.forEach((component) => {
-    console.log('component:', component);
    scenes[component.title] = {
        screen: component.screen,
        navigationOptions: getOptions(component.title)
    }
 });
 
-console.log('scenes:', scenes);
 
 const App = StackNavigator(scenes);
 

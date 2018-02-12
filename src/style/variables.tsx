@@ -8,6 +8,7 @@ export default {
     // 颜色
     // --
     color_base: '#333',
+    color_text_caption: '#888888',               // 辅助描述
     color_link: brandPrimary,
     color_white: '#fff',
     color_disabled: '#999',
@@ -73,7 +74,11 @@ export default {
 
     // 字体尺寸
     // ---
-    font_size_caption_sm: 12,
-    font_size_caption: 16,
+    font_size_caption_sm: 14,
+    font_size_caption: 18,
+    font_size_heading: 20,
+    font_size_base: 16,
+    font_size_base_sm: 14,
+    font_size_tip: 12,      //错误提示等
 }
 
