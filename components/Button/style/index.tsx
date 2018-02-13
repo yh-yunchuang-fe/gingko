@@ -82,5 +82,8 @@ export default StyleSheet.create({
     },
     smallText: {
         fontSize: variables.btn_font_size_sm,
+    },
+    indicator: {
+        marginRight: variables.h_spacing_md
     }
 })

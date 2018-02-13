@@ -5,6 +5,7 @@ import {
     StyleSheet,
     TouchableHighlight
 } from 'react-native';
+import { Indicator } from '../index'
 import ButtonProps from './propsType';
 import btnStyles from './style';
 
@@ -106,6 +107,9 @@ export default class Button extends React.Component<ButtonProps, any> {
                 {...restProps}
                 >
                 <View style={btnStyles.container}>
+                    {
+                        loading ? <Indicator style={btnStyles.indicator}/> : null
+                    }
                     <Text style={textSty}>{ children }</Text>
                 </View>
             </TouchableHighlight>

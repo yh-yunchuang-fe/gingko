@@ -45,6 +45,10 @@ export default class ButtonDemo extends Component {
                 <Button size="small">
                     small button
                 </Button>
+                <WhiteSpace/>
+                <Button loading>
+                    loading button
+                </Button>
             </View>
         )
     }
