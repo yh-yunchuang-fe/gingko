@@ -80,5 +80,11 @@ export default {
     font_size_base: 16,
     font_size_base_sm: 14,
     font_size_tip: 12,      //错误提示等
+
+    // 指示器尺寸 Indicator TODO 大小待定
+    // ---
+    indicator_sm: 14,
+    indicator_md: 18,
+    indicator_lg: 24,
 }
 

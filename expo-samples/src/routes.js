@@ -13,5 +13,10 @@ export default [
         title: 'Card',
         description: '卡片',
         screen: require('../demos/card').default
+    },
+    {
+        title: 'Indicator',
+        description: '指示器',
+        screen: require('../demos/indicator').default
     }
 ]

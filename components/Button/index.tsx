@@ -92,7 +92,6 @@ export default class Button extends React.Component<ButtonProps, any> {
             btnStyles[activeStyle ? `${type}TapSty` : `${type}Sty`],
         ) as any).backgroundColor;
 
-
         return (
             <TouchableHighlight
                 activeOpacity={1}

@@ -1,6 +1,6 @@
 import Images from './images'
 
-export default {
+export {
     Images,
     // gingkoIcon: require('./fonts/gingkoIcon.ttf')
 }
