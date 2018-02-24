@@ -3,15 +3,15 @@
  */
 export interface IModalProps {
    title?: string;
-   onShow?: () => void;
    onClose?: () => void;
    maskClosable?: boolean;
    transparent?: boolean;
    animationType?: any;
-   onAnimationEnd?: (visible: boolean) => void;
-   footer?: Array<{}>;
+   onCloseEnd?: (visible: boolean) => void;
+   footer?: Array<IActionButton>;
    visible?: boolean;
    style?: {};
+   bodyStyle?: {};
 }
 
 export interface IActionButton {
@@ -25,5 +25,5 @@ export interface IAlertProps {
     title: string;
     content: any;
     actions: IActionButton[];
-    onAnimationEnd?: (visible: boolean) => void;
+    onCloseEnd?: (visible: boolean) => void;
 }

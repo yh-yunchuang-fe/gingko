@@ -94,6 +94,8 @@ export default {
 
     // modal
     // ---
-    modal_zIndex: 999,
+    modal_mask_color: 'rgba(0, 0, 0, .3)',
+    modal_main_zIndex: 999,
+    modal_main_width: 270,
 }
 

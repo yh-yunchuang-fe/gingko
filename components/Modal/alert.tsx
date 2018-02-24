@@ -9,8 +9,6 @@ import topView from 'rn-topview';
 import Modal from './modal';
 import { IActionButton, IAlertProps } from './propsType';
 
-
-
 class Alert extends React.Component<IAlertProps, any> {
     state = {
         visible: true,
@@ -23,7 +21,7 @@ class Alert extends React.Component<IAlertProps, any> {
     };
 
     render() {
-        const { title, content, onAnimationEnd, actions } = this.props;
+        const { title, content, onCloseEnd, actions } = this.props;
         const footer = actions.map((action) => {
             const originPress = action.onPress || function () {};
             action.onPress = () => {
@@ -42,7 +40,9 @@ class Alert extends React.Component<IAlertProps, any> {
                 title={title}
                 visible={this.state.visible}
                 footer={footer}
-                onAnimationEnd={onAnimationEnd}
+                onClose={this.onClose}
+                onCloseEnd={onCloseEnd}
+                maskClosable
             >
                 <Text>{content}</Text>
             </Modal>
@@ -51,7 +51,7 @@ class Alert extends React.Component<IAlertProps, any> {
 }
 
 export default (title: string, content: string, actions: IActionButton[] = [{ text: '确定' }]) => {
-   const onAnimationEnd = (visible) => {
+   const onCloseEnd = (visible) => {
         if (!visible) {
             topView.remove();
         }
@@ -62,7 +62,7 @@ export default (title: string, content: string, actions: IActionButton[] = [{ te
            title={title}
            content={content}
            actions={actions}
-           onAnimationEnd={onAnimationEnd}
+           onCloseEnd ={onCloseEnd}
        />
    );
 };
