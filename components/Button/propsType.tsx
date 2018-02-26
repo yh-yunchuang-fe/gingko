@@ -7,9 +7,9 @@ export default interface buttonProps {
     disabled?: boolean;
     activeStyle?: Object;
     onClick?: (x?: any) => void;
-    loading: boolean;
-    onPressIn: (x?: any) => void;
-    onPressOut: (x?: any) => void;
-    onShowUnderlay: (x?: any) => void;
-    onHideUnderlay: (x?: any) => void;
+    loading?: boolean;
+    onPressIn?: (x?: any) => void;
+    onPressOut?: (x?: any) => void;
+    onShowUnderlay?: (x?: any) => void;
+    onHideUnderlay?: (x?: any) => void;
 }
