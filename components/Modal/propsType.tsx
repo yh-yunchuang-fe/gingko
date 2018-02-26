@@ -18,7 +18,7 @@ export interface IActionButton {
     text: string;
     onPress?: () => void;
     style?: {};
-    type?: string;
+    type?: 'default' | 'primary' | 'warning' | 'ghost';
 }
 
 export interface IAlertProps {
