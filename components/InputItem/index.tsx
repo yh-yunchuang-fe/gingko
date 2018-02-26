@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import styles from './style/index';
 import { IInputItemProps } from './propsType';
-import { Icon } from '../../components/index';
+import Icon from '../Icon';
 
 const fixControlledValue = (value: any): string => {
     if (typeof value === 'undefined' || value === null) {

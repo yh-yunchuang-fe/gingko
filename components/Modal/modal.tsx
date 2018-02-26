@@ -11,7 +11,7 @@ import {
     TouchableWithoutFeedback,
 } from 'react-native';
 import styles from './style/index';
-import Button from '../../components/Button';
+import Button from '../Button';
 import {IActionButton, IModalProps} from './propsType';
 
 const { height } = Dimensions.get('window');
