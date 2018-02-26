@@ -1,6 +1,6 @@
 {
   "name": "gingko",
-  "version": "0.1.4",
+  "version": "0.1.0",
   "private": false,
   "devDependencies": {
     "expo": "^25.0.0",
@@ -50,5 +50,6 @@
     ]
   },
   "dependencies": {
+    "rn-topview": "^0.1.6"
   }
 }
