@@ -1,7 +1,7 @@
 {
   "name": "gingko",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
   "devDependencies": {
     "@types/jest": "^22.1.1",
     "@types/react": "^16.0.36",
@@ -15,12 +15,15 @@
     "typescript": "^2.7.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "files": ["lib", "src"],
   "scripts": {
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node node_modules/jest/bin/jest.js",
+    "compile": "rm -rf lib && tsc",
+    "prepublish": "npm run compile"
   },
   "jest": {
     "preset": "jest-expo",
