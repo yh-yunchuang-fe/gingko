@@ -33,5 +33,10 @@ export default [
         title: 'Modal',
         description: '模态窗',
         screen: require('../demos/modal').default
+    },
+    {
+        title: 'Dialog',
+        description: '弹窗',
+        screen: require('../demos/dialog').default
     }
 ]

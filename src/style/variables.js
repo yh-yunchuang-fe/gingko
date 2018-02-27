@@ -21,6 +21,7 @@ export default {
     // ---
     fill_base: '#fff',
     fill_tap: '#bbb',
+    fill_mask: 'rgba(0, 0, 0, .5)',              // 遮罩背景
 
     // 边框色
     // ---
