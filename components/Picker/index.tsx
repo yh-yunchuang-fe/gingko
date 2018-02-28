@@ -7,10 +7,14 @@ import {
     Text,
     TouchableOpacity,
     View,
+    Platform,
 } from 'react-native';
+import AndroidPicker from './picker.android';
 import Popup from '../Popup';
 import { IPickerProps } from './propsType';
 import styles from './style';
+
+const isAndroid = Platform.OS === 'android';
 
 export default class extends React.Component<IPickerProps, any> {
     private static defaultProps: IPickerProps = {
@@ -79,22 +83,34 @@ export default class extends React.Component<IPickerProps, any> {
         return (data as string[]).map((value: string, idx: number) => <Picker.Item label={value} value={value} key={idx} />);
     }
 
-    render() {
+    renderPicker() {
+        const Pick = isAndroid ? AndroidPicker : Picker;
         const {
-            visible,
+            selectedValue,
             ...restProps,
         } = this.props;
         return (
-            <Popup visible={visible as boolean}>
+            <Pick
+                {...restProps}
+                onValueChange={this.onChange}
+                selectedValue={this.state.selectedValue || selectedValue}
+            >
+                {this.renderItems()}
+            </Pick>
+        );
+    }
+
+    render() {
+        const {
+            visible,
+        } = this.props;
+        return (
+            <Popup
+                visible={visible as boolean}
+            >
                 <View style={styles.container}>
                     {this.renderHeader()}
-                    <Picker
-                        {...restProps}
-                        onValueChange={this.onChange}
-                        selectedValue={this.state.selectedValue}
-                    >
-                        {this.renderItems()}
-                    </Picker>
+                    {this.renderPicker()}
                 </View>
             </Popup>
         );
