@@ -17,13 +17,14 @@ export default class Grid extends React.Component<GridProps, any> {
         columnNum: 3,
         hasLine: true,
         itemStyle: {},
+        onClick: ()=>{}
     };
 
     getFlexItemStyle () {
         const columnNum = this.props.columnNum || 0;
         return {
             width: width / columnNum,
-            height: width / 4
+            height: width / 3
         }
     }
 
@@ -44,7 +45,7 @@ export default class Grid extends React.Component<GridProps, any> {
     }
 
     render() {
-        const { data, hasLine, onClick = () => {}, itemStyle } = this.props;
+        const { data, hasLine, onClick, itemStyle } = this.props;
 
         const columnNum = this.props.columnNum || 0;
         const dataLength = data && data.length || 0;
@@ -68,13 +69,19 @@ export default class Grid extends React.Component<GridProps, any> {
                                 itemStyle,
                                 flexItemStyle
                             ]}
-                            onPress={() => onClick(item, index)}>
+                            onPress={() => onClick && onClick(item, index)}>
                             { this.renderItem(item, index) }
                         </TouchableOpacity>
                     )
                 } else {
                     arr.push(
-                        <View key={j} style={[styles.gridItem, flexItemStyle]}/>
+                        <View key={j}
+                              style={[
+                                  styles.gridItem,
+                                  { borderLeftWidth: hasLine && j !== 0 ? 1 : 0 },
+                                  flexItemStyle
+                              ]}
+                        />
                     )
                 }
             }
@@ -83,6 +90,7 @@ export default class Grid extends React.Component<GridProps, any> {
                 borderTopWidth: hasLine && i === 0 ? 1 : 0,
                 borderBottomWidth: hasLine ? 1 : 0,
             };
+            console.log('boxBorderStyle---:', boxBorderStyle)
             rowsArr.push(
                 <View key={i} style={[styles.gridRow, boxBorderStyle]}>
                     {arr}

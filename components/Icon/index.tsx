@@ -27,7 +27,8 @@ const iconMap = {
     'selected-single': '\ue90e',
     'unselected-normal': '\ue90f',
     'visible': '\ue910',
-    'warning': '\ue911'
+    'warning': '\ue911',
+    'reminder': '\ue912'
 };
 
 export default class Icon extends React.Component<IconProps, any> {
