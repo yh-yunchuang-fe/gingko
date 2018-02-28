@@ -8,7 +8,7 @@ import {
     Easing,
     Animated,
     Dimensions,
-    TouchableWithoutFeedback, Text
+    TouchableWithoutFeedback,
 } from 'react-native'
 import IDialogProps from './propsType';
 import styles from './style'

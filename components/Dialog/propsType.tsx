@@ -6,10 +6,10 @@ export default interface IDialogProps {
     maskStyle?: any;
     animationType?: 'none' | 'fade' | 'slide-up' | 'slide-down';
     animationDuration?: number;
-    animateAppear: boolean;
+    animateAppear?: boolean;
     visible: boolean;
-    transparent: boolean;
-    maskClosable: boolean;
+    transparent?: boolean;
+    maskClosable?: boolean;
     onClose?: (x?: any) => void;
     onAnimationEnd?: (x?: any) => void;
 }
