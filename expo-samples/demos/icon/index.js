@@ -10,7 +10,8 @@ import {
 const list = ['arrow-down', 'arrow-left', 'arrow-right', 'arrow-up',
     'back-home', 'back', 'camera', 'delete-circle', 'invisible',
     'more', 'ok', 'scan', 'search', 'selected-multi-noraml',
-    'selected-single', 'unselected-normal', 'visible', 'warning'
+    'selected-single', 'unselected-normal', 'visible', 'warning',
+    'reminder'
 ];
 export default class IconDemo extends Component {
     render() {
