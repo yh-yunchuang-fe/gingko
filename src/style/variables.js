@@ -21,6 +21,7 @@ export default {
     // ---
     fill_base: '#fff',
     fill_tap: '#bbb',
+    fill_mask: 'rgba(0, 0, 0, .5)',              // 遮罩背景
 
     // 边框色
     // ---
@@ -81,6 +82,7 @@ export default {
     font_size_base: 16,
     font_size_base_sm: 14,
     font_size_tip: 12,      //错误提示等
+    font_size_alert: 15,
 
     // 行高lineHeight
     // ---
@@ -97,5 +99,7 @@ export default {
     modal_mask_color: 'rgba(0, 0, 0, .3)',
     modal_main_zIndex: 999,
     modal_main_width: 270,
+    modal_single_btn_width: 180,
+    modal_group_btn_width: 112,
 }
 

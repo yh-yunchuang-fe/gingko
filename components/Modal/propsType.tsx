@@ -1,17 +1,21 @@
 /**
- * Created by beilunyang on 2018/2/23
+ * @author zhangyi
+ * @date 2018-02-28
  */
+
 export interface IModalProps {
-   title?: string;
-   onClose?: () => void;
-   maskClosable?: boolean;
-   transparent?: boolean;
-   animationType?: any;
-   onCloseEnd?: (visible: boolean) => void;
-   footer?: Array<IActionButton>;
-   visible?: boolean;
-   style?: {};
-   bodyStyle?: {};
+    visible: boolean;
+    title?: string;
+    maskClosable?: boolean;
+    footer?: Array<IActionButton>;
+    onClose?: () => void;
+    transparent?: boolean;
+    animationType?: 'none' | 'fade' | 'slide-up' | 'slide-down';
+    animationDuration?: number;
+    animateAppear?: boolean;
+    onAnimationEnd?: (x?: any) => void;
+    style?: any;
+    bodyStyle?: any;
 }
 
 export interface IActionButton {
@@ -22,8 +26,8 @@ export interface IActionButton {
 }
 
 export interface IAlertProps {
-    title: string;
-    content: any;
-    actions: IActionButton[];
-    onCloseEnd?: (visible: boolean) => void;
+    title?: string,
+    content?: string;
+    actions: Array<IActionButton>;
+    onAnimationEnd?: (visible: boolean) => void;
 }
