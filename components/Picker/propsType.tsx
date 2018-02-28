@@ -13,4 +13,5 @@ export interface IPickerProps {
     title?: string;
     children?: React.ReactNode;
     headerStyle?: {};
+    visible?: boolean;
 };
