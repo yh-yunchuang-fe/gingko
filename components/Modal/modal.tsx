@@ -10,7 +10,7 @@ import Dialog from '../Dialog'
 import Button from '../Button'
 import { IModalProps } from './propsType';
 import styles from './style'
-import {IActionButton} from "../Modal-old/propsType";
+import {IActionButton} from "../Modal/propsType";
 import variables from '../../src/style/variables';
 
 export default class GkModal extends React.Component<IModalProps, any> {
