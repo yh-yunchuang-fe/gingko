@@ -30,13 +30,18 @@ export default [
         screen: require('../demos/inputItem').default
     },
     {
+        title: 'Dialog',
+        description: '底层弹窗',
+        screen: require('../demos/dialog').default
+    },
+    {
         title: 'Modal',
         description: '模态窗',
         screen: require('../demos/modal').default
     },
     {
-        title: 'Dialog',
+        title: 'Popup',
         description: '弹窗',
-        screen: require('../demos/dialog').default
+        screen: require('../demos/popup').default
     }
 ]
