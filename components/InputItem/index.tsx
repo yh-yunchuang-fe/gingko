@@ -81,18 +81,18 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
         } = this.props;
         if (error) {
             return (
-                <Icon name="warning" color="#f00" size="lg" />
+                <Icon name="alert" color="#f00" size="lg" />
             );
         }
         if (ok) {
             return (
-                <Icon name="ok" color="#589c3e" size="lg" />
+                <Icon name="unchecked" color="#589c3e" size="lg" />
             );
         }
         if (value && value.length > 0) {
             return (
                 <TouchableOpacity onPress={this.clear}>
-                    <Icon name="delete-circle" color="#c2c2c2" size="lg" />
+                    <Icon name="close-circle" color="#c2c2c2" size="lg" />
                 </TouchableOpacity>
             );
         }
