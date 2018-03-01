@@ -8,6 +8,7 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
+import Popup from '../Popup';
 import { IPickerProps } from './propsType';
 import styles from './style';
 
@@ -19,6 +20,7 @@ export default class extends React.Component<IPickerProps, any> {
         onOk: () => {},
         title: '',
         data: [],
+        visible: false,
     };
 
     state = {
@@ -79,19 +81,22 @@ export default class extends React.Component<IPickerProps, any> {
 
     render() {
         const {
+            visible,
             ...restProps,
         } = this.props;
         return (
-            <View style={styles.container}>
-                {this.renderHeader()}
-                <Picker
-                    {...restProps}
-                    onValueChange={this.onChange}
-                    selectedValue={this.state.selectedValue}
+            <Popup visible={visible as boolean}>
+                <View style={styles.container}>
+                    {this.renderHeader()}
+                    <Picker
+                        {...restProps}
+                        onValueChange={this.onChange}
+                        selectedValue={this.state.selectedValue}
                     >
-                    {this.renderItems()}
-                </Picker>
-            </View>
+                        {this.renderItems()}
+                    </Picker>
+                </View>
+            </Popup>
         );
     }
 }

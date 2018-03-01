@@ -14,21 +14,22 @@ const iconMap = {
     'arrow-left': '\ue901',
     'arrow-right': '\ue902',
     'arrow-up': '\ue903',
-    'back-home': '\ue904',
+    'close': '\ue904',
     'back': '\ue905',
     'camera': '\ue906',
-    'delete-circle': '\ue907',
-    'invisible': '\ue908',
+    'close-circle': '\ue907',
+    'eye-off': '\ue908',
     'more': '\ue909',
-    'ok': '\ue90a',
+    'unchecked': '\ue90a',
     'scan': '\ue90b',
     'search': '\ue90c',
-    'selected-multi-noraml': '\ue90d',
-    'selected-single': '\ue90e',
-    'unselected-normal': '\ue90f',
-    'visible': '\ue910',
-    'warning': '\ue911',
-    'reminder': '\ue912'
+    'checked': '\ue90d',
+    'radio-on': '\ue90e',
+    'radio-off': '\ue90f',
+    'eye': '\ue910',
+    'alert': '\ue911',
+    'flash-circle': '\ue912',
+    'checkmark': '\ue913'
 };
 
 export default class Icon extends React.Component<IconProps, any> {

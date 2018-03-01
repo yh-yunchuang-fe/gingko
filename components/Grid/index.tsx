@@ -90,7 +90,6 @@ export default class Grid extends React.Component<GridProps, any> {
                 borderTopWidth: hasLine && i === 0 ? 1 : 0,
                 borderBottomWidth: hasLine ? 1 : 0,
             };
-            console.log('boxBorderStyle---:', boxBorderStyle)
             rowsArr.push(
                 <View key={i} style={[styles.gridRow, boxBorderStyle]}>
                     {arr}
