@@ -110,7 +110,7 @@ export default class Button extends React.Component<ButtonProps, any> {
                     {
                         loading ? <Indicator style={btnStyles.indicator}/> : null
                     }
-                    <Text style={textSty}>{ children }</Text>
+                    <Text style={textSty} numberOfLines={1}>{ children }</Text>
                 </View>
             </TouchableHighlight>
         )
