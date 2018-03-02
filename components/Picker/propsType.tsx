@@ -14,4 +14,12 @@ export interface IPickerProps {
     children?: React.ReactNode;
     headerStyle?: {};
     visible?: boolean;
+    selectedValue?: string;
 };
+
+export type IAndroidPickerProps = {
+    selectedValue?: any;
+    onValueChange?: (value: any) => void;
+    style?: any;
+    itemStyle?: any;
+}
