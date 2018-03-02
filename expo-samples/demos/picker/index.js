@@ -6,12 +6,20 @@ import {
     View,
     Text,
     Picker,
+    StyleSheet,
 } from 'react-native';
 import {
     Button,
     WhiteSpace,
     Picker as YHPicker,
 } from '../../../components/index';
+
+const styles = StyleSheet.create({
+    picker: {
+        backgroundColor: 'green',
+        height: 217,
+    },
+});
 
 export default class PickerDemo extends Component {
     state = {
@@ -58,6 +66,9 @@ export default class PickerDemo extends Component {
                     data={['java', 'js', 'c++', 'c#', 'python', 'lisp', 'php', 'go']}
                     onOk={this.handleOk}
                     onDismiss={this.handleDismiss}
+                    selectedValue="lisp"
+                    style={styles.picker}
+                    headerStyle={{ backgroundColor: 'red' }}
                 />
                 <YHPicker
                     visible={this.state.visible2}
