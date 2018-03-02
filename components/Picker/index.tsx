@@ -17,6 +17,9 @@ import styles from './style';
 const isAndroid = Platform.OS === 'android';
 
 export default class extends React.Component<IPickerProps, any> {
+
+    static Item = Picker.Item;
+
     private static defaultProps: IPickerProps = {
         dismissText: '取消',
         okText: '确定',
