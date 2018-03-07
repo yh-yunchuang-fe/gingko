@@ -31,6 +31,32 @@ export default class extends Component {
                     <Text>content text</Text>
                 </Badge>
                 <WhiteSpace />
+                <Badge text={30} overflowCount={25}>
+                    <Text>数字+</Text>
+                </Badge>
+                <WhiteSpace />
+                <Badge
+                    text={18}
+                    overflowCount={10}
+                    style={{
+                        borderRadius: 20,
+                        position: 'absolute',
+                        right: 0,
+                        top: 0,
+                    }}
+                >
+                    <View style={{
+                        height: 40,
+                        width: 200,
+                        backgroundColor: '#fff',
+                        paddingHorizontal: 20,
+                        marginTop: 5,
+                        marginRight: 10,
+                    }}>
+                        <Text>仙贝tomato</Text>
+                    </View>
+                </Badge>
+                <WhiteSpace />
                 <Badge text="促" corner>
                     <View style={{ backgroundColor: '#f2f2f2', width: 100, height: 50, justifyContent: 'center' }}>
                         <Text style={{ color: '#000', fontSize: 14 }}>corner badge</Text>
