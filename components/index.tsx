@@ -18,3 +18,5 @@ export { default as Popup } from './Popup'
 export { default as WhiteSpace } from './WhiteSpace'
 export { default as WingBlank } from './WingBlank'
 
+export { default as Badge } from './Badge';
+
