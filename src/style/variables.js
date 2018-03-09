@@ -22,6 +22,7 @@ export default {
     fill_base: '#fff',
     fill_tap: '#bbb',
     fill_mask: 'rgba(0, 0, 0, .5)',              // 遮罩背景
+    fill_badge: '#ff0000',  // 用于小红点背景色
 
     // 边框色
     // ---

@@ -12,57 +12,45 @@ import { IBadge } from './propsType';
 
 export default class Badge extends React.Component<IBadge, any> {
     static defaultProps = {
-        size: 'small',
         text: '',
         style: {},
-        textStyle: {},
-        corner: false,
-        bgColor: variables.color_link,
+        dot: false,
+        overflowCount: 99,
+        bgColor: variables.fill_badge,
         color: variables.color_white,
     };
 
     render() {
         const {
-            size,
-            bgColor,
-            color,
-            style,
-            textStyle,
-            overflowCount,
-            children,
-            corner,
+            bgColor, color, style, overflowCount,
+            children, dot, ...restProps
         } = this.props;
+
         let { text } = this.props;
-        let sty: any = null;
-        if (size === 'small') {
-            sty = {
-                borderRadius: variables.radius_sm,
-            };
-        }
+
         if (overflowCount && typeof text === 'number' && text > overflowCount) {
             text = `${overflowCount}+`;
         }
-        let contentElements: any = null;
-        if (corner) {
-            contentElements = (
-               <View style={[styles.cornerContainer, style]}>
-                   <Text style={[styles.cornerText, { color, backgroundColor: bgColor }, textStyle]}>{text}</Text>
-               </View>
-            );
+        let contentElement: any = null;
+
+        if (dot) {
+            contentElement = (
+                <View {...restProps} style={[styles.dot]}/>
+            )
         } else {
-            contentElements = (
-                <View style={[styles.contentContainer, sty, style]}>
-                    <Text style={[styles[size as string], { color, backgroundColor: bgColor }, textStyle]}>
-                        {text}
-                    </Text>
+            contentElement = (
+                <View {...restProps} style={[styles.cornerDom, { backgroundColor: bgColor }]}>
+                    <Text style={[styles.text, {color: color}]}>{text}</Text>
                 </View>
-            );
+            )
         }
 
         return (
-            <View style={styles.container}>
-                {children}
-                {contentElements}
+            <View style={[styles.wrap, style]}>
+                <View>
+                    {children}
+                    {contentElement}
+                </View>
             </View>
         );
     }
