@@ -49,4 +49,9 @@ export default [
         description: '徽标',
         screen: require('../demos/badge').default
     },
+    {
+        title: 'Tag',
+        description: '标签',
+        screen: require('../demos/tag').default
+    },
 ]
