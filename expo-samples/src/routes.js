@@ -43,5 +43,15 @@ export default [
         title: 'Popup',
         description: '弹窗',
         screen: require('../demos/popup').default
-    }
+    },
+    {
+        title: 'Badge',
+        description: '徽标',
+        screen: require('../demos/badge').default
+    },
+    {
+        title: 'Tag',
+        description: '标签',
+        screen: require('../demos/tag').default
+    },
 ]

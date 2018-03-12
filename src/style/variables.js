@@ -22,6 +22,7 @@ export default {
     fill_base: '#fff',
     fill_tap: '#bbb',
     fill_mask: 'rgba(0, 0, 0, .5)',              // 遮罩背景
+    fill_badge: '#ff0000',  // 用于小红点背景色
 
     // 边框色
     // ---
@@ -31,6 +32,7 @@ export default {
     // 圆角
     // ---
     radius: 4,
+    radius_sm: 2,
 
     // 边框尺寸
     // ---
@@ -81,6 +83,7 @@ export default {
     font_size_heading: 20,
     font_size_base: 16,
     font_size_base_sm: 14,
+    font_size_base_xs: 10,
     font_size_tip: 12,      //错误提示等
     font_size_alert: 15,
 
