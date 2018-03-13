@@ -1,4 +1,8 @@
 ### gingko
+
+#### 介绍
+gingko是基于React Native的UI组件库，为永辉云创RN项目提供支撑。
+
 #### 安装
 ```
 npm install
