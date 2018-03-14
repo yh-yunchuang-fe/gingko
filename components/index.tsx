@@ -31,3 +31,4 @@ export { default as WingBlank } from './WingBlank'
 
 
 
+export { default as Checkbox } from './Checkbox';

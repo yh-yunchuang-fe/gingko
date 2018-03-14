@@ -69,5 +69,10 @@ export default [
         description: '搜索栏',
         screen: require('../demos/searchBar').default
     },
+    {
 
+        title: 'Checkbox',
+        description: '选择框',
+        screen: require('../demos/checkbox').default
+    },
 ]
