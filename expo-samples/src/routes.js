@@ -54,4 +54,9 @@ export default [
         description: '标签',
         screen: require('../demos/tag').default
     },
+    {
+        title: 'SearchBar',
+        description: '搜索栏',
+        screen: require('../demos/searchBar').default
+    },
 ]
