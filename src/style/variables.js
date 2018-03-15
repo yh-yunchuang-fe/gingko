@@ -104,5 +104,15 @@ export default {
     modal_main_width: 270,
     modal_single_btn_width: 180,
     modal_group_btn_width: 112,
+
+    // searchbar
+    // ---
+    search_bar_fill: '#fff',
+    search_bar_height: 52,
+    search_bar_input_height: 32,
+    search_bar_input_fill: '#F2F2F2',
+    // search_bar_input_color: '#999',
+    
+    
 }
 

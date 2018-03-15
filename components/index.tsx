@@ -16,10 +16,14 @@ export { default as Modal } from './Modal'
 export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 
+export { default as SearchBar } from './SearchBar'
+
+export { default as Tag } from './Tag'
+
 export { default as WhiteSpace } from './WhiteSpace'
 export { default as WingBlank } from './WingBlank'
 
-export { default as Tag } from './Tag'
+
 
 
 
