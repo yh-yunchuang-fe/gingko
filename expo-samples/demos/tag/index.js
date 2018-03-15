@@ -44,6 +44,45 @@ export default class extends Component {
                     </Tag>
                     <Text style={{marginLeft: 10}}>可点击</Text>
                 </View>
+                <WhiteSpace/>
+                <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+                    <Tag
+                        color="#666"
+                        activeColor="#24A8E8"
+                        size="large"
+                        readonly={false}
+                        style={{
+                            paddingHorizontal: 24,
+                            paddingVertical: 8,
+                        }}
+                    >
+                        模版一
+                    </Tag>
+                    <Tag
+                        color="#666"
+                        activeColor="#24A8E8"
+                        size="large"
+                        readonly={false}
+                        style={{
+                            paddingHorizontal: 24,
+                            paddingVertical: 8,
+                        }}
+                    >
+                        模版二
+                    </Tag>
+                    <Tag
+                        color="#666"
+                        activeColor="#24A8E8"
+                        size="large"
+                        readonly={false}
+                        style={{
+                            paddingHorizontal: 24,
+                            paddingVertical: 8,
+                        }}
+                    >
+                        模版三
+                    </Tag>
+                </View>
             </WingBlank>
         )
     }
