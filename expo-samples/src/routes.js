@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'NoticeBar',
+        description: '通知栏',
+        screen: require('../demos/noticeBar').default
+    },
+    {
         title: 'Button',
         description: '按钮',
         screen: require('../demos/button').default
@@ -59,4 +64,5 @@ export default [
         description: '搜索栏',
         screen: require('../demos/searchBar').default
     },
+
 ]

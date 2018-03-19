@@ -13,6 +13,8 @@ export { default as InputItem } from './InputItem'
 
 export { default as Modal } from './Modal'
 
+export { default as NoticeBar } from './NoticeBar'
+
 export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 
