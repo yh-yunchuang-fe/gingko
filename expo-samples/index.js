@@ -12,7 +12,7 @@ const getOptions = title => ({
 const scenes = {
     Home: {
         screen: Home,
-        navigationOptions: getOptions('GingoKo')
+        navigationOptions: getOptions('GingKo')
     }
 };
 
