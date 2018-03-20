@@ -12,6 +12,7 @@ export default interface TagProps {
     readonly?: boolean;
     fill?: boolean;
     color?: string;
+    textColor?: string;
     activeColor?: string;
     style?: any;
 

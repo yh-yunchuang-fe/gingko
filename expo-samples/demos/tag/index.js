@@ -83,6 +83,22 @@ export default class extends Component {
                         模版三
                     </Tag>
                 </View>
+                <WhiteSpace/>
+                <Tag
+                    fill
+                    color="#FFF3EC"
+                    textColor="#FD7622"
+                >
+                    请更换电池
+                </Tag>
+                <WhiteSpace/>
+                <Tag
+                    fill
+                    color="#E7F7FF"
+                    textColor="#24A8E8"
+                >
+                    已报障，等待维修
+                </Tag>
             </WingBlank>
         )
     }
