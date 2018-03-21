@@ -27,6 +27,7 @@ export default StyleSheet.create({
         color: variables.color_base,
         height: variables.font_size_base + variables.line_height_plus_md,
         flex: 1,
+        padding: 0,
     },
     hintIcon: {
         marginHorizontal: variables.h_spacing_md,
