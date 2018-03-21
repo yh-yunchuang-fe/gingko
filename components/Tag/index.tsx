@@ -15,7 +15,7 @@ export default class Tag extends React.Component<TagProps, any> {
     constructor(props: TagProps) {
         super(props);
         this.state = {
-            selected: props.selected
+            selected: props.selected,
         }
     }
 
@@ -23,6 +23,7 @@ export default class Tag extends React.Component<TagProps, any> {
         readonly: true,
         fill: false,
         color: variables.color_label,
+        textColor: '',
         activeColor: variables.color_link,
         style: null,
         size: 'default',
@@ -55,7 +56,7 @@ export default class Tag extends React.Component<TagProps, any> {
 
     render() {
         const {
-            readonly, fill, color, children, style, size,
+            readonly, fill, color, children, style, size, textColor,
             activeColor, ...restProps
         } = this.props;
         const selected = this.state.selected;
@@ -69,7 +70,7 @@ export default class Tag extends React.Component<TagProps, any> {
                 borderWidth: 0
             };
             textSty = {
-                color: '#fff'
+                color: textColor ? textColor : '#fff'
             };
         } else {
             sty = {
