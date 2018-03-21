@@ -11,6 +11,8 @@ import {
     Text,
     TouchableOpacity,
 } from "react-native";
+
+
 import styles from './style/index'
 import RadioGroupProps from './propsType'
 
@@ -42,6 +44,11 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
             ...restProps
         } = this.props;
 
+        if (mode !== 'button') {
+            console.warn('暂支持button模式');
+            return null
+        }
+
         const { activeIndex } = this.state;
 
         let dom = radios.map((item, index) => {
@@ -63,7 +70,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
             }
 
             return (
-                <View style={cutLineSty}>
+                <View style={cutLineSty} key={index}>
                     <TouchableOpacity onPress={this.onChange.bind(this, index, item)}>
                         <View style={[styles.radioBtn, itemSty, activeSty]}>
                             <Text style={[styles.radioBtnText, activeText]}>

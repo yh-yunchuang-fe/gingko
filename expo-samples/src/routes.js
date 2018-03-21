@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'RadioGroup',
+        description: '单选组',
+        screen: require('../demos/radioGroup').default
+    },
+    {
         title: 'NoticeBar',
         description: '通知栏',
         screen: require('../demos/noticeBar').default

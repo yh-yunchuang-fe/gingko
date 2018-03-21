@@ -18,6 +18,8 @@ export { default as NoticeBar } from './NoticeBar'
 export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 
+export { default as RadioGroup } from './RadioGroup'
+
 export { default as SearchBar } from './SearchBar'
 
 export { default as Tag } from './Tag'

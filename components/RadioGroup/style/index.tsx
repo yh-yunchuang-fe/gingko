@@ -12,7 +12,9 @@ export default StyleSheet.create({
     },
     radioBtn: {
         paddingHorizontal: variables.h_spacing_lg,
-        paddingVertical: variables.v_spacing_xs,
+        // paddingVertical: variables.v_spacing_sm,
+        height: 28,
+        justifyContent: 'center',
         backgroundColor: variables.fill_base,
         borderColor: variables.color_link,
         borderTopWidth: hairlineWidth,
@@ -20,7 +22,8 @@ export default StyleSheet.create({
     },
     radioBtnText: {
         fontSize: variables.font_size_base_sm,
-        color: variables.color_link
+        color: variables.color_link,
+        // lineHeight: 20,
     },
     firstRadioBtn: {
         borderTopLeftRadius: variables.radius_sm,
@@ -36,7 +39,7 @@ export default StyleSheet.create({
         backgroundColor: variables.color_link,
     },
     activeRadioBtnText: {
-        color: variables.color_white
+        color: variables.color_white,
     },
     cutLineSty: {
         borderRightWidth: hairlineWidth,
