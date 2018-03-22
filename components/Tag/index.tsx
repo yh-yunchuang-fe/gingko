@@ -70,7 +70,7 @@ export default class Tag extends React.Component<TagProps, any> {
                 borderWidth: 0
             };
             textSty = {
-                color: textColor ? textColor : '#fff'
+                color: textColor ? textColor : '#ffffff'
             };
         } else {
             sty = {

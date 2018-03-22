@@ -20,6 +20,8 @@ export default StyleSheet.create({
         paddingVertical: variables.v_spacing_xs,
         flexDirection: 'row',
         overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     text: {
         fontSize: variables.font_size_base_xs,

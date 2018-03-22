@@ -19,8 +19,8 @@ export default class extends Component {
             <WingBlank>
                 <WhiteSpace/>
                 <View style={{flexDirection: 'row'}}>
-                    <Tag>zhangyi</Tag>
-                    <Text style={{marginLeft: 10}}>default</Text>
+                    <Text style={{fontSize: 20, color: '#333'}}>高一些</Text>
+                    <Tag color="#FD7622" fill>zhangyi</Tag>
                 </View>
                 <WhiteSpace/>
                 <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
@@ -29,7 +29,11 @@ export default class extends Component {
                     <Tag color="#24A8E8" fill>配送</Tag>
                 </View>
                 <WhiteSpace/>
-                <Tag color="#FD7622" fill>扫码购</Tag>
+                <View style={{flexDirection: 'row'}}>
+                    <Text style={{fontSize: 20, color: '#333'}}>高一些</Text>
+                    <Tag color="#FD7622" fill>扫码购</Tag>
+                </View>
+
                 <WhiteSpace/>
                 <Tag color="#589C3E" fill>门店</Tag>
                 <WhiteSpace/>
@@ -99,6 +103,7 @@ export default class extends Component {
                 >
                     已报障，等待维修
                 </Tag>
+                <WhiteSpace/>
             </WingBlank>
         )
     }
