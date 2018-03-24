@@ -114,6 +114,9 @@ export default {
     search_bar_input_fill: '#F2F2F2',
     // search_bar_input_color: '#999',
     
-    
+    // inputNumber
+    input_number_height: 40,
+    input_number_fill: '#F9F9F9',
+    input_number_active_fill: 'rgba(36, 168, 232, 0.05)',
 }
 
