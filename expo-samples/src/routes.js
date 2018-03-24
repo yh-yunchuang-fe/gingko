@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'InputNumber',
+        description: '数字输入框',
+        screen: require('../demos/inputNumber').default
+    },
+    {
         title: 'RadioGroup',
         description: '单选组',
         screen: require('../demos/radioGroup').default

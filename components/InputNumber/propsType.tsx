@@ -18,4 +18,5 @@ export default interface InputNumberProps {
     onBlur?: ()=>void;
 
     style?: any;
+    width?: string | number;
 };

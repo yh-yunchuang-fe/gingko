@@ -22,12 +22,13 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         size: 'default',
         disabled: false,
         editable: true,
-        autoFocus: false
+        autoFocus: false,
+        width: 110
     };
 
     state = {
-        canPlus: true,
-        canMinus: true,
+        // canPlus: true,
+        // canMinus: true,
         modified: false
     };
 
@@ -36,11 +37,21 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     }
 
     onChange = (value) => {
-        this.setState({
-            modified: true
-        });
-        const { onChange } = this.props;
-        onChange && onChange(value)
+        const { onChange, min = -Infinity, max = Infinity } = this.props;
+        let num = parseInt(value, 10);
+
+
+        console.log('num:', num);
+        console.log('min:', min);
+        console.log('max:', max);
+        if (num >= min && num <= max) {
+
+            this.setState({
+                modified: true
+            });
+
+            onChange && onChange(value)
+        }
     };
 
     onBlur = () => {
@@ -53,16 +64,27 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         onFocus && onFocus()
     };
 
+    // onPlus = (value) => {
+    //     this.onChange(parseInt(value, 10) + step)
+    // };
+
     render() {
         let {
-            value, max, min, unit, step, disabled, style, editable, autoFocus,
+            value, max, min, unit, step,
+            disabled, style, editable, autoFocus, width = 110,
             ...restProps
         } = this.props;
 
         let newValue:string = value+'' || '0';
         step = step || 1;
 
-        const { canPlus, canMinus, modified } = this.state;
+        const { modified } = this.state;
+
+        console.log('min:', min);
+        console.log('max:', max);
+
+        let canMinus = value >= min;
+        let canPlus = value <= max;
 
         let activeWrap = modified ? styles.activeWrap : null;
         let activeAction = modified ? styles.activeAction : null;
@@ -70,15 +92,17 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
         let minusDom: any = null;
         if (!canMinus || disabled) {
-            minusDom = (<View style={styles.action}>
+            minusDom = (<View style={[styles.action]}>
                 <Text style={[styles.actionText, styles.actionDisabled]}>-</Text>
             </View>)
         } else {
-            minusDom = (<TouchableOpacity onPress={this.onChange.bind(this, -step)}>
-                <View style={styles.action}>
-                    <Text style={[styles.actionText, activeAction]}>-</Text>
-                </View>
-            </TouchableOpacity>)
+            minusDom = (
+                <TouchableOpacity onPress={()=>this.onChange(value - step)}>
+                    <View style={[styles.action]}>
+                        <Text style={[styles.actionText, activeAction]}>-</Text>
+                    </View>
+                </TouchableOpacity>
+            )
         }
 
         let plusDom:any = null;
@@ -87,32 +111,32 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
                 <Text style={[styles.actionText, styles.actionDisabled]}>+</Text>
             </View>)
         } else {
-            plusDom = (<TouchableOpacity onPress={this.onChange.bind(this, step)}>
-                <View style={styles.action}>
-                    <Text style={[styles.actionText, activeAction]}>+</Text>
-                </View>
-            </TouchableOpacity>)
+            plusDom = (
+                <TouchableOpacity onPress={()=>this.onChange(value + step)}>
+                    <View style={[styles.action]}>
+                        <Text style={[styles.actionText, activeAction]}>+</Text>
+                    </View>
+                </TouchableOpacity>
+            )
         }
 
         let inputEditable = !disabled && editable;
 
         return (
-            <View style={[styles.wrap, style, activeWrap]}>
+            <View style={[styles.wrap, style, activeWrap, {width: width}]} {...restProps}>
                 {minusDom}
-                <View style={styles.content}>
-                    <TextInput
-                        style={[styles.textInput, activeInput]}
-                        value={newValue}
-                        editable={inputEditable}
-                        autoFocus={autoFocus}
-                        keyboardType="numbers-and-punctuation"
-                        onChangeText={this.onChange}
-                        onBlur={this.onBlur}
-                        onFocus={this.onFocus}
-                        selectTextOnFocus={true}
-                    />
-                    <Text style={[styles.unit, activeInput]}>{unit}</Text>
-                </View>
+                <TextInput
+                    style={[styles.textInput, activeInput]}
+                    value={newValue}
+                    editable={inputEditable}
+                    autoFocus={autoFocus}
+                    keyboardType="numbers-and-punctuation"
+                    onChangeText={this.onChange}
+                    onBlur={this.onBlur}
+                    onFocus={this.onFocus}
+                    selectTextOnFocus={true}
+                />
+                <Text style={[styles.unit, activeInput]}>{unit}</Text>
                 {plusDom}
             </View>
         )

@@ -65,6 +65,7 @@ export default {
     // 间距
     // ---
     // 水平间距
+    h_spacing_xs: 3,
     h_spacing_sm: 5,
     h_spacing_md: 8,
     h_spacing_lg: 15,

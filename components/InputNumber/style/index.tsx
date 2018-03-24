@@ -11,21 +11,23 @@ export default StyleSheet.create({
         height: variables.input_number_height,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: variables.input_numbser_fill,
+        backgroundColor: variables.input_number_fill,
         borderRadius: variables.radius,
+        overflow: 'hidden'
     },
     activeWrap: {
         backgroundColor: variables.input_number_active_fill
     },
     action: {
         width: 30,
-        backgroundColor: 'skyblue',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        height: "100%"
     },
     actionText: {
         color: variables.color_base,
-        fontSize: 10,
+        fontSize: 22,
+        lineHeight: 22
     },
     activeAction: {
         color: variables.color_link
@@ -34,17 +36,21 @@ export default StyleSheet.create({
         color: variables.color_disabled
     },
     content: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flex: 1,
     },
     textInput: {
         fontSize: variables.font_size_base,
-        color: variables.color_disabled
+        color: variables.color_disabled,
+        flex: 1,
+        textAlign: 'right'
     },
     activeInput: {
         color: variables.color_link
     },
     unit: {
         fontSize: variables.font_size_tip,
-        color: variables.color_disabled
+        color: variables.color_disabled,
+        marginLeft: variables.h_spacing_xs
     }
 })

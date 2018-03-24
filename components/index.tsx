@@ -10,6 +10,7 @@ export { default as Grid } from './Grid'
 export { default as Icon } from './Icon'
 export { default as Indicator } from './Indicator'
 export { default as InputItem } from './InputItem'
+export { default as InputNumber } from './InputNumber'
 
 export { default as Modal } from './Modal'
 
