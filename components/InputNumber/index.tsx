@@ -37,7 +37,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     }
 
     onChange = (value) => {
-        const { onChange, min = -Infinity, max = Infinity } = this.props;
+        const { onChange, min, max } = this.props;
         let num = parseInt(value, 10);
 
 
@@ -80,11 +80,15 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
         const { modified } = this.state;
 
+        console.log('value:', value);
         console.log('min:', min);
         console.log('max:', max);
 
-        let canMinus = value >= min;
-        let canPlus = value <= max;
+        let canMinus = (value > min);
+        let canPlus = (value < max);
+
+        console.log('canMinus:', canMinus);
+        console.log('canPlus:', canPlus);
 
         let activeWrap = modified ? styles.activeWrap : null;
         let activeAction = modified ? styles.activeAction : null;
@@ -97,7 +101,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
             </View>)
         } else {
             minusDom = (
-                <TouchableOpacity onPress={()=>this.onChange(value - step)}>
+                <TouchableOpacity onPress={this.onChange.bind(this, value - step)}>
                     <View style={[styles.action]}>
                         <Text style={[styles.actionText, activeAction]}>-</Text>
                     </View>
@@ -112,7 +116,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
             </View>)
         } else {
             plusDom = (
-                <TouchableOpacity onPress={()=>this.onChange(value + step)}>
+                <TouchableOpacity onPress={this.onChange.bind(this, value + step)}>
                     <View style={[styles.action]}>
                         <Text style={[styles.actionText, activeAction]}>+</Text>
                     </View>
