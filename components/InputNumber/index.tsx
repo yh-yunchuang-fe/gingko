@@ -37,13 +37,9 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     }
 
     onChange = (value) => {
-        const { onChange, min, max } = this.props;
+        const { onChange, min = -Infinity, max = Infinity } = this.props;
         let num = parseInt(value, 10);
 
-
-        console.log('num:', num);
-        console.log('min:', min);
-        console.log('max:', max);
         if (num >= min && num <= max) {
 
             this.setState({
@@ -70,7 +66,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
     render() {
         let {
-            value, max, min, unit, step,
+            value = 0, max = Infinity, min = -Infinity, unit, step,
             disabled, style, editable, autoFocus, width = 110,
             ...restProps
         } = this.props;
@@ -80,15 +76,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
         const { modified } = this.state;
 
-        console.log('value:', value);
-        console.log('min:', min);
-        console.log('max:', max);
-
         let canMinus = (value > min);
         let canPlus = (value < max);
-
-        console.log('canMinus:', canMinus);
-        console.log('canPlus:', canPlus);
 
         let activeWrap = modified ? styles.activeWrap : null;
         let activeAction = modified ? styles.activeAction : null;
