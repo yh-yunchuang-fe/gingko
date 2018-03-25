@@ -6,7 +6,7 @@ import {
     Text,
     View,
 } from 'react-native';
-import { Badge, WhiteSpace } from '../../../components';
+import { Badge, WhiteSpace, Tag } from '../../../components';
 
 export default class extends Component {
     render() {
@@ -23,6 +23,38 @@ export default class extends Component {
                 <Badge text={30} overflowCount={10} style={{marginTop: 20}}>
                     <View style={{width: 50, height: 50, backgroundColor: '#666'}}/>
                 </Badge>
+                <WhiteSpace />
+                <Badge
+                    style={{marginTop: 20}}
+                    cornerContent={
+                        <View style={{
+                            width: 15,
+                            height: 15,
+                            backgroundColor: 'red',
+                            borderTopLeftRadius: 2,
+                            borderBottomRightRadius: 5,
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <Text style={{color: '#fff', fontSize: 10}}>促</Text>
+                        </View>
+                    }
+                >
+                    <View style={{width: 50, height: 50, backgroundColor: '#666', borderRadius: 2}}/>
+                </Badge>
+
+                {/*<View style={{*/}
+                    {/*width: 15,*/}
+                    {/*height: 14,*/}
+                    {/*backgroundColor: 'red',*/}
+                    {/*borderLeftTopRadius: 2,*/}
+                    {/*borderRightBottomRadius: 5,*/}
+                {/*}}>*/}
+                    {/*<Text style={{color: '#fff', fontSize: 12}}>促</Text>*/}
+                {/*</View>*/}
                 {/*<Badge text="配送" />*/}
                 {/*<WhiteSpace />*/}
                 {/*<Badge color="#ccc" bgColor="red" text="堂食" />*/}
