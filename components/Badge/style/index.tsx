@@ -13,10 +13,10 @@ export default StyleSheet.create({
     wrap: {
         flexDirection: 'row',
     },
-    cornerWrap: {
-        overflow: 'hidden',
-    },
-    cornerDom: {
+    // cornerWrap: {
+    //     overflow: 'hidden',
+    // },
+    textDom: {
         paddingVertical: 0.5 * grid,
         paddingHorizontal: (Platform.OS === 'ios' ? 1.5 : 2) * grid,
         backgroundColor: variables.fill_badge,
@@ -40,6 +40,8 @@ export default StyleSheet.create({
         color: variables.color_white,
         fontSize: variables.font_size_tip
     },
+
+
 
 
     // cornerContainer: {

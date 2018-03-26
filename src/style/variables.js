@@ -65,6 +65,7 @@ export default {
     // 间距
     // ---
     // 水平间距
+    h_spacing_xs: 3,
     h_spacing_sm: 5,
     h_spacing_md: 8,
     h_spacing_lg: 15,
@@ -114,6 +115,14 @@ export default {
     search_bar_input_fill: '#F2F2F2',
     // search_bar_input_color: '#999',
     
-    
+    // inputNumber
+    input_number_height: 40,
+    input_number_fill: '#F9F9F9',
+    input_number_active_fill: 'rgba(36, 168, 232, 0.05)',
+
+    // navbar
+    nav_bar_fill: '#f9f9f9',
+    nav_bar_height: 45,
+    nav_bar_icon_size: 20,
 }
 
