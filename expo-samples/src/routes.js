@@ -1,5 +1,15 @@
 export default [
     {
+        title: 'NavBar',
+        description: '导航栏',
+        screen: require('../demos/navbar').default
+    },
+    {
+        title: 'InputNumber',
+        description: '数字输入框',
+        screen: require('../demos/inputNumber').default
+    },
+    {
         title: 'RadioGroup',
         description: '单选组',
         screen: require('../demos/radioGroup').default
@@ -69,5 +79,10 @@ export default [
         description: '搜索栏',
         screen: require('../demos/searchBar').default
     },
+    {
 
+        title: 'Checkbox',
+        description: '选择框',
+        screen: require('../demos/checkbox').default
+    },
 ]

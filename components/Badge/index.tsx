@@ -18,32 +18,47 @@ export default class Badge extends React.Component<IBadge, any> {
         overflowCount: 99,
         bgColor: variables.fill_badge,
         color: variables.color_white,
+        cornerContent: null,
+        // corner: false,
+        // cornerContent: null
     };
 
     render() {
         const {
-            bgColor, color, style, overflowCount,
+            bgColor, color, style, overflowCount, cornerContent,
             children, dot, ...restProps
         } = this.props;
 
         let { text } = this.props;
-
-        if (overflowCount && typeof text === 'number' && text > overflowCount) {
-            text = `${overflowCount}+`;
-        }
         let contentElement: any = null;
 
-        if (dot) {
-            contentElement = (
-                <View {...restProps} style={[styles.dot]}/>
-            )
+        // if (corner && cornerContent) {
+        //     contentElement = (
+        //         <View style={styles}>
+        //
+        //         </View>
+        //     )
+        // } else {
+        if (cornerContent) {
+            contentElement = cornerContent;
         } else {
-            contentElement = (
-                <View {...restProps} style={[styles.cornerDom, { backgroundColor: bgColor }]}>
-                    <Text style={[styles.text, {color: color}]}>{text}</Text>
-                </View>
-            )
+            if (overflowCount && typeof text === 'number' && text > overflowCount) {
+                text = `${overflowCount}+`;
+            }
+
+            if (dot) {
+                contentElement = (
+                    <View {...restProps} style={[styles.dot]}/>
+                )
+            } else {
+                contentElement = (
+                    <View {...restProps} style={[styles.textDom, { backgroundColor: bgColor }]}>
+                        <Text style={[styles.text, {color: color}]}>{text}</Text>
+                    </View>
+                )
+            }
         }
+
 
         return (
             <View style={[styles.wrap, style]}>

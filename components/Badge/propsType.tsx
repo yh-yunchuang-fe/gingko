@@ -1,9 +1,9 @@
 /**
  * Created by beilunyang on 2018/3/7
  */
+import React from 'react';
 import {
     ViewStyle,
-    TextStyle,
 } from 'react-native';
 
 export interface IBadge {
@@ -15,6 +15,9 @@ export interface IBadge {
     style?: ViewStyle;
     // textStyle?: TextStyle;
     overflowCount?: number;
-    // corner?: boolean;
     dot?: boolean;
+    cornerContent?: React.ReactNode;
+
+    // corner?: 'leftTop' | 'rightTop' | 'leftBottom' | 'rightBottom' | '';
+    // cornerContent?: React.ReactNode;
 }
