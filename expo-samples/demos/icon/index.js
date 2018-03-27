@@ -11,7 +11,7 @@ const list = ['arrow-down', 'arrow-left', 'arrow-right', 'arrow-up',
     'close', 'back', 'camera', 'close-circle', 'eye-off',
     'more', 'unchecked', 'scan', 'search', 'checked',
     'radio-on', 'radio-off', 'eye', 'alert',
-    'flash-circle', 'checkmark'
+    'flash-circle', 'checkmark', 'left-circle', 'right-circle'
 ];
 export default class IconDemo extends Component {
     render() {

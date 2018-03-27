@@ -30,7 +30,9 @@ const iconMap = {
     'eye': '\ue910',
     'alert': '\ue911',
     'flash-circle': '\ue912',
-    'checkmark': '\ue913'
+    'checkmark': '\ue913',
+    'left-circle': '\ue914',
+    'right-circle': '\ue915'
 };
 
 export default class Icon extends React.Component<IconProps, any> {
