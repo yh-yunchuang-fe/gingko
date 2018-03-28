@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'Result',
+        description: '结果页',
+        screen: require('../demos/result').default
+    },
+    {
         title: 'NavBar',
         description: '导航栏',
         screen: require('../demos/navbar').default

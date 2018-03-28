@@ -22,6 +22,7 @@ export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 
 export { default as RadioGroup } from './RadioGroup'
+export { default as Result } from './Result'
 
 export { default as SearchBar } from './SearchBar'
 
