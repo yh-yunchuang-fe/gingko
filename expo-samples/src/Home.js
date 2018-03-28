@@ -38,7 +38,7 @@ export default class Home extends Component {
             <TouchableOpacity onPress={this.toItem.bind(this, item)}>
                 <View style={styles.item}>
                     <Text>{item.title} &nbsp; {item.description}</Text>
-                    <Icon name="arrow-right" size={12} color="#666"/>
+                    <Icon name="chevron-right" size={12} color="#666"/>
                 </View>
             </TouchableOpacity>
         )
