@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'Grid',
+        description: '宫格',
+        screen: require('../demos/grid').default
+    },
+    {
         title: 'Result',
         description: '结果页',
         screen: require('../demos/result').default
