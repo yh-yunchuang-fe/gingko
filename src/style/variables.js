@@ -102,6 +102,7 @@ export default {
     indicator_sm: 14,
     indicator_md: 18,
     indicator_lg: 24,
+    indicator_xl: 30,
 
     // modal
     // ---
