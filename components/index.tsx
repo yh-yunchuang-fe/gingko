@@ -29,10 +29,7 @@ export { default as SearchBar } from './SearchBar'
 export { default as Tag } from './Tag'
 
 export { default as WhiteSpace } from './WhiteSpace'
+
 export { default as WingBlank } from './WingBlank'
 
-
-
-
-
-
+export { default as Toast } from './Toast';

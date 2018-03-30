@@ -129,5 +129,9 @@ export default {
     nav_bar_fill: '#f9f9f9',
     nav_bar_height: 45,
     nav_bar_icon_size: 20,
+
+    // toast
+    // ---
+    toast_zIndex: 1000,
 }
 
