@@ -95,4 +95,9 @@ export default [
         description: '选择框',
         screen: require('../demos/checkbox').default
     },
+    {
+        title: 'Toast',
+        description: 'toast',
+        screen: require('../demos/toast').default
+    }
 ]
