@@ -46,6 +46,7 @@ const list = [
     'triangle-down',
     'triangle-up',
     'chevron-up-circle',
+    'close-circle-o'
 ];
 export default class IconDemo extends Component {
     render() {
