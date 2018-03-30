@@ -1,5 +1,15 @@
 export default [
     {
+        title: 'Grid',
+        description: '宫格',
+        screen: require('../demos/grid').default
+    },
+    {
+        title: 'Result',
+        description: '结果页',
+        screen: require('../demos/result').default
+    },
+    {
         title: 'NavBar',
         description: '导航栏',
         screen: require('../demos/navbar').default
@@ -85,4 +95,9 @@ export default [
         description: '选择框',
         screen: require('../demos/checkbox').default
     },
+    {
+        title: 'Toast',
+        description: 'toast',
+        screen: require('../demos/toast').default
+    }
 ]

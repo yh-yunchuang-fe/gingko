@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import variables from '../../../src/style/variables';
 
-const grid = 3;
+const grid = 4;
 
 export default StyleSheet.create({
     wrap: {
@@ -20,7 +20,7 @@ export default StyleSheet.create({
         paddingVertical: 0.5 * grid,
         paddingHorizontal: (Platform.OS === 'ios' ? 1.5 : 2) * grid,
         backgroundColor: variables.fill_badge,
-        borderRadius: 4 * grid,
+        borderRadius: 4 * (variables.radius_sm + 1),
         borderStyle: 'solid',
         position: 'absolute',
         top: -10,
@@ -38,7 +38,7 @@ export default StyleSheet.create({
     text: {
         textAlign: 'center',
         color: variables.color_white,
-        fontSize: variables.font_size_tip
+        fontSize: variables.font_size_tip + 1
     },
 
 

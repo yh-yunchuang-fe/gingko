@@ -10,9 +10,11 @@ export default {
     color_base: '#333',
     color_text_caption: '#888888',               // 辅助描述
     color_link: brandPrimary,
+    color_link_tap: '#0D8DCB',
     color_white: '#fff',
     color_disabled: '#999',
     color_warning: '#FF0000',
+    color_warning_tap: '#EA0000',
     border_color: '#ddd',
     color_text_disable: '#999',
     color_label: '#666',
@@ -50,17 +52,19 @@ export default {
     btn_font_size_sm: 16,
     // btn_font_size_lg: 20,
 
-    btn_default_fill: '#fff',
+    btn_default_fill: 'transparent',
     btn_default_fill_tap: 'rgba(13,141,203,0.05)',
+    btn_default_disabled: '#ddd',
 
     btn_primary_fill: brandPrimary,
     btn_primary_fill_tap: '#0D8DCB',
+    btn_primary_disabled: '#aaa',
 
-    btn_warning_fill: '#fff',
+    btn_warning_fill: 'transparent',
     btn_warning_fill_tap: 'rgba(234,0,0,0.05)',
-    btn_warning_tap_color: '#EA0000',
+    btn_warning_disabled: 'rgba(255, 0, 0, 0.3)',
 
-    btn_disabled_fill: '#aaa',
+    // btn_disabled_fill: '#aaa',
 
     // 间距
     // ---
@@ -98,6 +102,7 @@ export default {
     indicator_sm: 14,
     indicator_md: 18,
     indicator_lg: 24,
+    indicator_xl: 30,
 
     // modal
     // ---
@@ -124,5 +129,9 @@ export default {
     nav_bar_fill: '#f9f9f9',
     nav_bar_height: 45,
     nav_bar_icon_size: 20,
+
+    // toast
+    // ---
+    toast_zIndex: 1000,
 }
 

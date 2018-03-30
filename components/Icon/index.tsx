@@ -11,11 +11,11 @@ export interface IconProps {
 }
 
 const iconMap = {
-    'arrow-down': '\ue900',
-    'arrow-left': '\ue901',
-    'arrow-right': '\ue902',
-    'arrow-up': '\ue903',
-    'close': '\ue904',
+    'chevron-down': '\ue900',
+    'chevron-left': '\ue901',
+    'chevron-right': '\ue902',
+    'chevron-up': '\ue903',
+    'back-home': '\ue904',
     'back': '\ue905',
     'camera': '\ue906',
     'close-circle': '\ue907',
@@ -31,8 +31,25 @@ const iconMap = {
     'alert': '\ue911',
     'flash-circle': '\ue912',
     'checkmark': '\ue913',
-    'left-circle': '\ue914',
-    'right-circle': '\ue915'
+    'chevron-left-circle': '\ue914',
+    'chevron-right-circle': '\ue915',
+    'trashcan': '\ue916',
+    'close': '\ue917',
+    'chevron-down-circle': '\ue918',
+    'edit': '\ue919',
+    'arrow-down': '\ue91a',
+    'light-off': '\ue91b',
+    'light-on': '\ue91c',
+    'arrow-up': '\ue91d',
+    'minus': '\ue91e',
+    'order': '\ue91f',
+    'plus': '\ue920',
+    'remark-active': '\ue921',
+    'remark': '\ue922',
+    'triangle-down': '\ue923',
+    'triangle-up': '\ue924',
+    'chevron-up-circle': '\ue925',
+    'close-circle-o': '\ue926',
 };
 
 export default class Icon extends React.Component<IconProps, any> {

@@ -23,6 +23,7 @@ export default class IndicatorDemo extends Component {
                 <WhiteSpace/>
                 <Indicator size="lg"/>
                 <WhiteSpace/>
+                <Indicator size="xl"/>
                 <WhiteSpace/>
                 <Indicator text="Loading..."/>
                 <WhiteSpace/>

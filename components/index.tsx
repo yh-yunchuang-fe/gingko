@@ -22,16 +22,14 @@ export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 
 export { default as RadioGroup } from './RadioGroup'
+export { default as Result } from './Result'
 
 export { default as SearchBar } from './SearchBar'
 
 export { default as Tag } from './Tag'
 
 export { default as WhiteSpace } from './WhiteSpace'
+
 export { default as WingBlank } from './WingBlank'
 
-
-
-
-
-
+export { default as Toast } from './Toast';
