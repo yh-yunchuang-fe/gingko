@@ -18,7 +18,7 @@
     "ts-jest": "^22.0.3",
     "typescript": "^2.7.1"
   },
-  "main": "./lib/index",
+  "main": "./index.js",
   "types": "./lib/index.d.ts",
   "files": [
     "lib",
