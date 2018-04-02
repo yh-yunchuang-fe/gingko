@@ -70,7 +70,7 @@ export default class ButtonDemo extends Component {
                             }}>
                                 展开明细
                             </Text>
-                            <Icon name="arrow-down" color="#666" size="xs"/>
+                            <Icon name="chevron-down" color="#666" size="xs"/>
                         </TouchableOpacity>
                     </Card.Footer>
                 </Card>

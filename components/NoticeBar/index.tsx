@@ -65,7 +65,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
         if (mode === "link") {
             operationDom = (
                 <View style={styles.actionWrap}>
-                    { action ? actionDom : <Icon name="arrow-right" size={12} style={colorSty}/>}
+                    { action ? actionDom : <Icon name="chevron-right" size={12} style={colorSty}/>}
                 </View>
             )
         } else if(mode === 'closeable') {
