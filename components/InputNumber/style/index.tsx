@@ -24,11 +24,11 @@ export default StyleSheet.create({
         alignItems: 'center',
         height: "100%"
     },
-    actionText: {
-        color: variables.color_base,
-        fontSize: 22,
-        lineHeight: 22
-    },
+    // actionText: {
+    //     color: variables.color_base,
+    //     fontSize: 22,
+    //     lineHeight: 22
+    // },
     activeAction: {
         color: variables.color_link
     },
