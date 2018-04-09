@@ -26,6 +26,7 @@ export { default as Result } from './Result'
 
 export { default as SearchBar } from './SearchBar'
 
+export { default as Tabs } from './Tabs/Tabs'
 export { default as Tag } from './Tag'
 
 export { default as WhiteSpace } from './WhiteSpace'
