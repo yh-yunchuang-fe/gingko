@@ -12,6 +12,9 @@ import {
     WhiteSpace,
     Tabs
 } from "../../../components";
+import styles from "../../../components/Tabs/style";
+
+const DefaultTabBar = Tabs.DefaultTabBar;
 
 export default class TabsDemo extends Component {
     render() {
@@ -52,7 +55,41 @@ export default class TabsDemo extends Component {
                     style={{
                         height: 150,
                     }}
+                    tabBarFillColor="#ddd"
                     tabs={[{ title: '全部分类' },{ title: '食品部' },{ title: '加工部' }]}
+                    renderTabBar={(props) =>
+                        <DefaultTabBar
+                            {...props}
+                            renderTab={(tab, isTabActive) => {
+                                const sty = isTabActive ? {
+                                    color: '#24A8E8',
+                                    fontWeight: 'bold',
+                                } : {
+                                    color: '#666',
+                                    fontWeight: 'normal'
+                                };
+                                return (
+                                    <View style={{height: 20, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                                        {
+                                            isTabActive &&
+                                            <View style={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: 4,
+                                                height: '100%',
+                                                backgroundColor: '#24A8E8'
+                                            }}/>
+                                        }
+                                        <Text style={sty}>
+                                            { tab.title }
+                                        </Text>
+                                    </View>
+                                )
+                            }}
+                        >
+                        </DefaultTabBar>
+                    }
                 >
                     <View style={{
                         paddingVertical: 15,

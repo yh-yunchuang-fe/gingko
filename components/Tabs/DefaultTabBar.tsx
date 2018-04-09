@@ -41,14 +41,19 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
             tabBarActiveTextColor: activeTextColor,
             tabBarInactiveTextColor: inactiveTextColor,
             tabBarTextStyle: textStyle,
-            activeTab, renderTab,
+            tabBarFillColor: fillColor,
+            tabBarActionFillColor: activeFillColor,
+            activeTab,
+            renderTab,
         } = this.props;
 
         const isTabActive = activeTab === index;
         const textColor = isTabActive ?
             (activeTextColor || styles.TabBar.activeTextColor) :
             (inactiveTextColor || styles.TabBar.inactiveTextColor);
-        const bgColor = isTabActive ? styles.TabBar.activeFillColor : styles.TabBar.inactiveFillColor;
+        const bgColor = isTabActive ?
+            (activeFillColor || styles.TabBar.activeFillColor) :
+            (fillColor || styles.TabBar.fillColor);
 
         return (
             <TouchableOpacity
@@ -60,7 +65,7 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
                     backgroundColor: bgColor
                 }}>
                     {
-                        renderTab ? renderTab(tab) :
+                        renderTab ? renderTab(tab, isTabActive) :
                             <Text style={{
                                 color: textColor,
                                 ...styles.TabBar.textStyle,
@@ -76,7 +81,8 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
 
     render() {
         const {
-            tabs, tabBarBackgroundColor
+            tabs,
+            tabBarFillColor,
         } = this.props;
 
         return (
@@ -92,7 +98,7 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
                 >
                     <View style={{
                         ...styles.TabBar.tabs,
-                        backgroundColor: styles.TabBar.inactiveFillColor
+                        backgroundColor: tabBarFillColor || styles.TabBar.fillColor
                     }}>
                         {
                             tabs.map((name, index) => {

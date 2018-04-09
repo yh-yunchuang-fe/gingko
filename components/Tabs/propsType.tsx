@@ -12,13 +12,14 @@ export interface TabProps {
 
 export interface TabBarProps {
     tabs: TabProps[];
-    renderTab?: (tab: TabProps) => React.ReactNode;
+    renderTab?: (tab: TabProps, isTabActive: boolean) => React.ReactNode;
     activeTab: number;
     tabBarPosition?: 'left';
     onTabClick?: (tab: TabProps, index: number) => void;
     goToTab: (index: number) => void;
 
-    tabBarBackgroundColor?: string;
+    tabBarFillColor?: string;
+    tabBarActionFillColor?: string;
     tabBarActiveTextColor?: string;
     tabBarInactiveTextColor?: string;
     tabBarTextStyle?: React.CSSProperties | any;
@@ -37,7 +38,8 @@ export interface TabsProps {
     onTabClick?: (tab: TabProps, index: number) => void;
     style?: RN.ViewStyle;
 
-    tabBarBackgroundColor?: string;
+    tabBarFillColor?: string;
+    tabBarActionFillColor?: string;
     tabBarActiveTextColor?: string;
     tabBarInactiveTextColor?: string;
     tabBarTextStyle?: React.CSSProperties | any;

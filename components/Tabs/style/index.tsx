@@ -19,7 +19,7 @@ export default {
     TabBar: {
         container: {
             // height: 43.5,
-            width: 100,
+            // width: 100,
             // flex: 1,
         } as RN.ViewStyle,
         tabs: {
@@ -30,7 +30,7 @@ export default {
             justifyContent: 'space-around',
         } as RN.ViewStyle,
         tab: {
-            // width: 100,
+            width: 100,
             alignItems: 'center',
             justifyContent: 'center',
             paddingTop: 0,
@@ -44,6 +44,6 @@ export default {
         activeTextColor: variables.color_base,
         inactiveTextColor: variables.color_label,
         activeFillColor: '#fff',
-        inactiveFillColor: '#f9f9f9'
+        fillColor: '#f9f9f9'
     }
 }
