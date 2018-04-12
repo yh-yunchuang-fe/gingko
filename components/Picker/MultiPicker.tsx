@@ -29,7 +29,7 @@ export default class MultiPicker extends React.Component<any, any> {
 
     onChange = (idx, val, cb) => {
         const values = this.getValue();
-        values[idx] = String(val);
+        values[idx] = val;
         if (cb) {
            cb(values, idx);
         }

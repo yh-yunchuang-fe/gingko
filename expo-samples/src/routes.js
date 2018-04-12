@@ -109,5 +109,10 @@ export default [
         title: 'Toast',
         description: 'toast',
         screen: require('../demos/toast').default
-    }
+    },
+    {
+        title: 'DatePicker',
+        description: '日期选择器',
+        screen: require('../demos/datePicker').default
+    },
 ]
