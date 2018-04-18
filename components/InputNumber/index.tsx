@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import InputNumberProps from './propsType'
 import styles from './style'
+import Icon from "../Icon";
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
     static defaultProps = {
@@ -86,13 +87,13 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         let minusDom: any = null;
         if (!canMinus || disabled) {
             minusDom = (<View style={[styles.action]}>
-                <Text style={[styles.actionText, styles.actionDisabled]}>-</Text>
+                <Icon name="minus" size={10} style={styles.actionDisabled}/>
             </View>)
         } else {
             minusDom = (
                 <TouchableOpacity onPress={this.onChange.bind(this, value - step)}>
                     <View style={[styles.action]}>
-                        <Text style={[styles.actionText, activeAction]}>-</Text>
+                        <Icon name="minus" size={10} style={activeAction}/>
                     </View>
                 </TouchableOpacity>
             )
@@ -101,13 +102,13 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         let plusDom:any = null;
         if (!canPlus || disabled) {
             plusDom = (<View style={[styles.action]}>
-                <Text style={[styles.actionText, styles.actionDisabled]}>+</Text>
+                <Icon name="plus" size={10} style={styles.actionDisabled}/>
             </View>)
         } else {
             plusDom = (
                 <TouchableOpacity onPress={this.onChange.bind(this, value + step)}>
                     <View style={[styles.action]}>
-                        <Text style={[styles.actionText, activeAction]}>+</Text>
+                        <Icon name="plus" size={10} style={activeAction}/>
                     </View>
                 </TouchableOpacity>
             )
