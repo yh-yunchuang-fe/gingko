@@ -49,6 +49,7 @@ exp://localhost:19000
 - [x] Popup 底部弹窗窗
 - [x] RadioGroup 单选组
 - [x] SearchBar 搜索栏
+- [x] SearchInput 搜索框
 - [x] Tag 标签
 - [x] WhiteSpace 上下留白
 - [x] WingBlank 左右留白  

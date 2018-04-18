@@ -90,6 +90,11 @@ export default [
         screen: require('../demos/tag').default
     },
     {
+        title: 'SearchInput',
+        description: '搜索框',
+        screen: require('../demos/searchInput').default
+    },
+    {
         title: 'SearchBar',
         description: '搜索栏',
         screen: require('../demos/searchBar').default

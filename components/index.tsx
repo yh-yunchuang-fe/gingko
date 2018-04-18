@@ -25,6 +25,7 @@ export { default as RadioGroup } from './RadioGroup'
 export { default as Result } from './Result'
 
 export { default as SearchBar } from './SearchBar'
+export { default as SearchInput } from './SearchInput'
 
 export { default as Tabs } from './Tabs/Tabs'
 export { default as Tag } from './Tag'
