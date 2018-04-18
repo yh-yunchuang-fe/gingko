@@ -53,9 +53,9 @@ exp://localhost:19000
 - [x] WhiteSpace 上下留白
 - [x] WingBlank 左右留白  
 - [x] NavBar 导航栏
-- [ ] Result 结果页
-- [ ] Toast 轻提示
-- [ ] DatePicker 日期选择
-- [ ] Tabs 标签页
+- [x] Result 结果页
+- [x] Toast 轻提示
+- [x] DatePicker 日期选择
+- [x] Tabs 标签页
 - [ ] Steps 步骤条
 - [ ] Select 下拉选择器

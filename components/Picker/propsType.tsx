@@ -15,7 +15,7 @@ export interface IPickerProps {
     headerStyle?: {};
     visible?: boolean;
     selectedValue?: string;
-};
+}
 
 export type IAndroidPickerProps = {
     selectedValue?: any;
