@@ -31,3 +31,4 @@ export default StyleSheet.create({
         fontSize: variables.btn_font_size_sm,
     },
 });
+

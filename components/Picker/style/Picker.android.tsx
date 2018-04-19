@@ -6,10 +6,6 @@ import {
 } from 'react-native';
 
 export default StyleSheet.create({
-    container: {
-        paddingVertical: 20,
-    },
-
     indicator: {
         position: 'absolute',
         left: 0,

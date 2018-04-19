@@ -1,13 +1,12 @@
 /**
  * Created by beilunyang on 2018/3/2
  *
- * Copy from https://github.com/react-component/m-picker/blob/master/src/PickerMixin.tsx
+ * modify from https://github.com/react-component/m-picker/blob/master/src/PickerMixin.tsx
  */
 import React from 'react';
 import { IAndroidPickerProps } from './propsType';
 
 export default function(ComposedComponent) {
-
     return class extends React.Component<IAndroidPickerProps, any> {
         select = (value, itemHeight, scrollTo) => {
             const children: any = React.Children.toArray(this.props.children);
@@ -27,7 +26,7 @@ export default function(ComposedComponent) {
             zscrollTo(index * itemHeight);
         }
 
-        coumputeChildIndex(top, itemHeight, childrenLength) {
+        computeChildIndex(top, itemHeight, childrenLength) {
             let index = top / itemHeight;
             const floor = Math.floor(index);
             if (index - floor > 0.5) {
@@ -40,7 +39,7 @@ export default function(ComposedComponent) {
 
         doScrollingComplete = (top, itemHeight, fireValueChange) => {
             const children = React.Children.toArray(this.props.children);
-            const index = this.coumputeChildIndex(top, itemHeight, children.length);
+            const index = this.computeChildIndex(top, itemHeight, children.length);
             const child: any = children[index];
             if (child) {
                 fireValueChange(child.props.value);
@@ -53,11 +52,11 @@ export default function(ComposedComponent) {
             return (
                 <ComposedComponent
                     {...this.props}
-            doScrollingComplete={this.doScrollingComplete}
-            coumputeChildIndex={this.coumputeChildIndex}
-            select={this.select}
-            />
-        );
+                    doScrollingComplete={this.doScrollingComplete}
+                    computeChildIndex={this.computeChildIndex}
+                    select={this.select}
+                />
+            );
         }
     };
 }
