@@ -2,22 +2,35 @@
  * Created by beilunyang on 2018/2/11
  */
 import React from 'react';
+import {
+    ViewStyle,
+    TextStyle,
+} from 'react-native';
+
+export interface IItemProps {
+    label?: string | number;
+    value: string | number;
+}
 
 export interface IPickerProps {
-    data?: string[];
+    data?: Array<IItemProps>[];
+    value?: number|string[];
+    defaultValue?: number | string[];
     dismissText?: string;
     okText?: string;
-    onChange?: (value?: any) => any;
+    onChange?: (values?: any, idx?: number) => any;
     onDismiss?: (value?: any) => any;
     onOk?: (value?: any) => any;
     title?: string;
     children?: React.ReactNode;
-    headerStyle?: {};
+    style?: ViewStyle;
     visible?: boolean;
     selectedValue?: string;
-}
+    itemStyle?: TextStyle[] | TextStyle,
+    columnStyle?: ViewStyle[] | ViewStyle,
+};
 
-export type IAndroidPickerProps = {
+export interface IAndroidPickerProps {
     selectedValue?: any;
     onValueChange?: (value: any) => void;
     style?: any;

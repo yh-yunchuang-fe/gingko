@@ -5,13 +5,18 @@ import * as React from 'react';
 import {
     Picker,
     Text,
-    TouchableOpacity,
     View,
     Platform,
+    StyleSheet,
+    TouchableOpacity,
 } from 'react-native';
-import AndroidPicker from './picker.android';
+import AndroidPicker from './Picker.android';
+import MultiPicker from './MultiPicker';
 import Popup from '../Popup';
-import { IPickerProps } from './propsType';
+import {
+    IItemProps,
+    IPickerProps,
+} from './propsType';
 import styles from './style';
 
 const isAndroid = Platform.OS === 'android';
@@ -20,86 +25,131 @@ export default class extends React.Component<IPickerProps, any> {
 
     static Item = Picker.Item;
 
-    private static defaultProps: IPickerProps = {
+    static defaultProps: IPickerProps = {
         dismissText: '取消',
         okText: '确定',
         onDismiss: () => {},
         onOk: () => {},
         title: '',
         data: [],
+        style: {},
+        itemStyle: [],
+        columnStyle: [],
         visible: false,
     };
 
     state = {
-        selectedValue: '',
+        value: this.props.value || this.props.defaultValue,
     };
 
-    private onChange = (value) => {
-        this.setState({
-            selectedValue: value,
-        });
-    };
+    componentWillReceiveProps(nextProps) {
+        if ('value' in nextProps) {
+            this.setState({
+                value: nextProps.value,
+            });
+        }
+    }
 
-    private renderHeader() {
+    renderHeader = () => {
         const {
             dismissText,
             onOk,
             onDismiss,
             okText,
             title,
-            headerStyle,
         } = this.props;
         return (
-            <View style={[styles.header, headerStyle]}>
+            <View style={styles.header}>
                 <TouchableOpacity onPress={onDismiss}>
                     <Text style={styles.dismiss}>{dismissText}</Text>
                 </TouchableOpacity>
                 <Text style={styles.title}>{title}</Text>
-                <TouchableOpacity onPress={(onOk as Function).bind(null, this.state.selectedValue)}>
+                <TouchableOpacity onPress={(onOk as Function).bind(null, this.state.value)}>
                     <Text style={styles.ok}>{okText}</Text>
                 </TouchableOpacity>
             </View>
         );
     }
 
-    private renderItems() {
-        const {
-            children,
-            data,
-        } = this.props;
-        if (children) {
-            if (Array.isArray(children)) {
-                for (const node of children) {
-                    if (!React.isValidElement(node)) {
-                        console.warn('Children contains invalid react element');
-                        return null;
-                    }
-                }
-            } else {
-                if (!React.isValidElement(children)) {
-                    console.warn('Children contains invalid react element');
-                    return null;
-                }
+    renderItems = (group: IItemProps[]) => {
+        return group.map(({ label, value }, idx) => {
+            if (label === undefined || label === null) {
+                return (
+                    <Picker.Item label={String(value)} value={value} key={idx} />
+                );
             }
-            return children;
-        }
-        return (data as string[]).map((value: string, idx: number) => <Picker.Item label={value} value={value} key={idx} />);
+            return (
+                <Picker.Item label={String(label)} value={value} key={idx} />
+            );
+        });
     }
 
-    renderPicker() {
+    renderCols = () => {
+        const { data } = this.props;
+        if (Array.isArray(data)) {
+            const Pick = isAndroid ? AndroidPicker : Picker;
+            return data.map((group, idx) => {
+                return (
+                    <Pick key={idx}>
+                        {this.renderItems(group)}
+                    </Pick>
+                );
+            });
+        }
+        return null;
+    }
+
+    onChange = (values, idx) => {
+        const { onChange } = this.props;
+        if (!('value' in this.props)) {
+            this.setState({
+                value: values,
+            });
+        }
+        if (onChange) {
+            onChange(values, idx);
+        }
+    }
+
+    renderPicker = () => {
         const Pick = isAndroid ? AndroidPicker : Picker;
         const {
-            selectedValue,
-            ...restProps,
+            value,
+            onChange,
+            children,
+            style,
+            itemStyle,
+            columnStyle,
+            ...rest,
         } = this.props;
+        if (children) {
+            const itemSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle;
+            const columnSty = Array.isArray(columnStyle) ? columnStyle[0] : columnStyle;
+            return (
+                <Pick
+                    {...rest}
+                    itemStyle={StyleSheet.flatten(itemSty)}
+                    style={StyleSheet.flatten([style, columnSty])}
+                    onValueChange={this.onChange}
+                    selectedValue={this.state.value}
+                >
+                    {children}
+                </Pick>
+            );
+        }
+        const itemSty = Array.isArray(itemStyle) ? itemStyle : [itemStyle];
+        const columnSty = Array.isArray(columnStyle) ? columnStyle : [columnStyle];
         return (
-            <Pick
-                {...restProps}
-                onValueChange={this.onChange}
-                selectedValue={this.state.selectedValue || selectedValue}
+            <MultiPicker
+                {...rest}
+                style={style}
+                itemStyle={itemSty}
+                columnStyle={columnSty}
+                onChange={this.onChange}
+                value={this.state.value}
             >
-                {this.renderItems()}
-            </Pick>
+                {this.renderCols()}
+            </MultiPicker>
         );
     }
 
