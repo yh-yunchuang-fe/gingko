@@ -56,7 +56,7 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
         if (this.props.onChange) {
             this.props.onChange(checked);
         }
-    }
+    };
 
     renderIcon() {
         const { icon } = this.props;
@@ -76,7 +76,7 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
                         <Icon name={icon} color={variables.color_link} />
                     </View>
                 );
-            }
+            };
             return defaultIcon(this.state.checked);
         }
 

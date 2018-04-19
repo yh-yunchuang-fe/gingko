@@ -11,6 +11,7 @@ import variables from '../../../src/style/variables';
 
 export default StyleSheet.create({
     inputWrapper: {
+        flex: 1,
         flexDirection: 'row',
         borderRadius: variables.radius,
         backgroundColor: variables.search_bar_input_fill,
