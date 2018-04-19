@@ -16,7 +16,7 @@ import {
 export default class SearchInputDemo extends Component {
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: '#fff'}}>
+            <View style={{flex:1, backgroundColor: '#fff'}}>
                 <WingBlank>
                 <WhiteSpace/>
                 <SearchInput
