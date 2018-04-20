@@ -1,17 +1,17 @@
 /**
  * Created by beilunyang on 2018/3/2
  *
- * Copy from https://github.com/react-component/m-picker/blob/master/src/NativePicker.android.tsx
+ * modify from https://github.com/react-component/m-picker/blob/master/src/NativePicker.android.tsx
  */
+
 import React from 'react';
 import {
     ScrollView,
     View,
     Text,
-    StyleSheet,
 } from 'react-native';
-import PickerMixin from './mixinPicker.android';
-import styles from './style/picker.android';
+import PickerMixin from './PickerMixin.android';
+import styles from './style/Picker.android';
 import { IAndroidPickerProps } from './propsType';
 
 
@@ -67,7 +67,7 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
         this.props.select(this.props.selectedValue, this.itemHeight, this.scrollTo);
     }
 
-    componentWillUnMount() {
+    componentWillUnmount() {
         this.clearScrollBuffer();
     }
 
@@ -116,30 +116,19 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
                 </View>
             );
         });
-        let sty: any = {};
-        if (typeof style === 'number') {
-            const styleObj: any = StyleSheet.flatten(style as any);
-            if (styleObj.backgroundColor) {
-                sty.backgroundColor = styleObj.backgroundColor;
-            }
-        } else if (style && style.backgroundColor) {
-            sty.backgroundColor = style.backgroundColor;
-        }
         return (
-            <View style={[styles.container, sty]}>
-                <View style={[style]}>
-                    <ScrollView
-                        style={styles.scrollView}
-                        ref={el => this.scrollerRef = el}
-                        onScroll={this.onScroll}
-                        showsVerticalScrollIndicator={false}
-                        overScrollMode="never">
-                        <View ref={el => this.contentRef = el}>
-                            {items}
-                        </View>
-                    </ScrollView>
-                    <View ref={el => this.indicatorRef = el} style={styles.indicator}/>
-                </View>
+            <View style={style}>
+                <ScrollView
+                    style={styles.scrollView}
+                    ref={el => this.scrollerRef = el}
+                    onScroll={this.onScroll}
+                    showsVerticalScrollIndicator={false}
+                    overScrollMode="never">
+                    <View ref={el => this.contentRef = el}>
+                        {items}
+                    </View>
+                </ScrollView>
+                <View ref={el => this.indicatorRef = el} style={styles.indicator}/>
             </View>
         );
     }

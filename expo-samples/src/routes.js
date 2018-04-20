@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'OptionTag',
+        description: '选项标签',
+        screen: require('../demos/optionTag').default
+    },
+    {
         title: 'Tabs',
         description: '标签页',
         screen: require('../demos/tabs').default
@@ -109,5 +114,10 @@ export default [
         title: 'Toast',
         description: 'toast',
         screen: require('../demos/toast').default
-    }
+    },
+    {
+        title: 'DatePicker',
+        description: '日期选择器',
+        screen: require('../demos/datePicker').default
+    },
 ]

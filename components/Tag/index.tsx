@@ -87,7 +87,7 @@ export default class Tag extends React.Component<TagProps, any> {
 
         if (readonly) {
             return (
-                <View style={[styles.wrap]}>
+                <View style={styles.wrap}>
                     <View style={[styles.content, sty, style]} {...restProps}>
                         <Text style={[styles.text, textSizeSty, textSty]}>
                             { children }
@@ -97,7 +97,7 @@ export default class Tag extends React.Component<TagProps, any> {
             )
         } else {
             return (
-                <View style={[styles.wrap]}>
+                <View style={styles.wrap}>
                     <TouchableWithoutFeedback onPress={this.onClick}>
                         <View style={[styles.content, sty, style]} {...restProps}>
                             <Text style={[styles.text, textSizeSty, textSty]}>

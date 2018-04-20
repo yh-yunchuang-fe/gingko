@@ -18,6 +18,8 @@ export { default as Modal } from './Modal'
 export { default as NavBar } from './NavBar'
 export { default as NoticeBar } from './NoticeBar'
 
+export { default as OptionTag } from './OptionTag'
+
 export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 
@@ -35,3 +37,5 @@ export { default as WhiteSpace } from './WhiteSpace'
 export { default as WingBlank } from './WingBlank'
 
 export { default as Toast } from './Toast';
+
+export { default as DatePicker } from './DatePicker';
