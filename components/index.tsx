@@ -18,6 +18,8 @@ export { default as Modal } from './Modal'
 export { default as NavBar } from './NavBar'
 export { default as NoticeBar } from './NoticeBar'
 
+export { default as OptionTag } from './OptionTag'
+
 export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 

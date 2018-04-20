@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'OptionTag',
+        description: '选项标签',
+        screen: require('../demos/optionTag').default
+    },
+    {
         title: 'Tabs',
         description: '标签页',
         screen: require('../demos/tabs').default
