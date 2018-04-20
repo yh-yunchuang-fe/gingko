@@ -2,7 +2,9 @@
  * @author zhangyi
  * @date 2018/4/20
  */
+import React from 'react'
 import { ViewStyle } from 'react-native'
+
 
 export default interface OptionTagProps {
     width?: string | number;
@@ -14,4 +16,5 @@ export default interface OptionTagProps {
 
     selected?: boolean;
     onChange?: (_x:any) => void;
+    renderText?: (selected: boolean) => React.ReactNode
 }
