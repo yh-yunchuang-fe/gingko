@@ -1,6 +1,6 @@
 {
   "name": "gingko",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "private": false,
   "devDependencies": {
     "expo": "^25.0.0",
