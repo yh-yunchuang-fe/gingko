@@ -318,13 +318,13 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         }
         onValueChange && onValueChange(values, idx);
         onDateChange && onDateChange(date);
-    }
+    };
 
     onOk = (values) => {
         const { onOk } = this.props;
         if (onOk) {
             // 求解，spread时好像不能正确检测
-            const date = new Date(...values);
+            const date = new (Date.bind(null, ...values));
             onOk(date, values);
         }
     };
