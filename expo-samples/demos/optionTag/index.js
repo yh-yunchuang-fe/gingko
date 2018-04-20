@@ -4,7 +4,8 @@
  */
 import React, { Component } from 'react'
 import {
-    View
+    View,
+    Text
 } from 'react-native'
 import {
     WhiteSpace,
@@ -54,6 +55,40 @@ export default class OptionTagDemo extends Component {
                         <OptionTag multiple>多选1</OptionTag>
                         <OptionTag multiple>多选2</OptionTag>
                         <OptionTag multiple>多选3</OptionTag>
+                    </View>
+                    <WhiteSpace/>
+                    <Text>自定义Text内容</Text>
+                    <View>
+                        <OptionTag style={{marginTop: 10}} width={315}
+                            renderText={(selected)=>{
+                                return (
+                                    <View style={{flexDirection: 'row'}}>
+                                        <Text style={{
+                                            width: 58,
+                                            marginRight: 15,
+                                            textAlign: 'right',
+                                            color: selected ? '#049CDB' : '#666'
+                                        }}>我是</Text>
+                                        <Text style={{color: selected ? '#049CDB' : '#666'}}>从多到少</Text>
+                                    </View>
+                                )
+                            }}
+                        />
+                        <OptionTag style={{marginTop: 10}} width={315}
+                                   renderText={(selected)=>{
+                                       return (
+                                           <View style={{flexDirection: 'row'}}>
+                                               <Text style={{
+                                                   width: 58,
+                                                   marginRight: 15,
+                                                   textAlign: 'right',
+                                                   color: selected ? '#049CDB' : '#666'
+                                               }}>建议补货</Text>
+                                               <Text style={{color: selected ? '#049CDB' : '#666'}}>从多到少</Text>
+                                           </View>
+                                       )
+                                   }}
+                        />
                     </View>
                 </WingBlank>
             </View>

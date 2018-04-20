@@ -48,7 +48,7 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
     render() {
         const {
             width, height, children, style, textStyle,
-            disabled, multiple, onChange,
+            disabled, multiple, onChange, renderText,
             ...restProps
         } = this.props;
         const selected = this.state.selected;
@@ -58,13 +58,14 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
             height
         };
 
-
-
         if (disabled) {
             return (
                 <View style={styles.wrap}>
                     <View style={[styles.content, style, styles.disabled, offsetSty]}>
-                        <Text style={[styles.text, textStyle, styles.disabledText]}>{ children }</Text>
+                        {
+                            renderText ? renderText(selected) :
+                                <Text style={[styles.text, textStyle, styles.disabledText]}>{ children }</Text>
+                        }
                     </View>
                 </View>
             )
@@ -91,7 +92,10 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
             <View style={styles.wrap}>
                 <TouchableOpacity onPress={this.onChange}>
                     <View style={[styles.content, style, activeSty, offsetSty]} {...restProps}>
-                        <Text style={[styles.text, textStyle, activeTextSty]}>{ children }</Text>
+                        {
+                            renderText ? renderText(selected) :
+                                <Text style={[styles.text, textStyle, activeTextSty]}>{ children }</Text>
+                        }
                         { multipleNode }
                     </View>
                 </TouchableOpacity>
