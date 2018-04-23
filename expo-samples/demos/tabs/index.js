@@ -53,7 +53,7 @@ export default class TabsDemo extends Component {
                 <WhiteSpace/>
                 <Tabs
                     style={{
-                        height: 150,
+                        height: 250,
                     }}
                     tabBarFillColor="#ddd"
                     tabs={[{ title: '全部分类' },{ title: '食品部' },{ title: '加工部' }]}
