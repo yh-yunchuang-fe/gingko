@@ -88,6 +88,7 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
         return (
             <View style={{
                 ...styles.TabBar.container,
+                backgroundColor: tabBarFillColor || styles.TabBar.fillColor
             }}>
                 <ScrollView
                     ref={(scrollView: any) => { this._scrollView = scrollView; }}
