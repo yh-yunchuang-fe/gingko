@@ -46,6 +46,9 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
             value: '',
             showDelete: false
         })
+        if (this.props.onClear) {
+            this.props.onClear();
+        }
     };
 
     onChangeText = (value) => {
