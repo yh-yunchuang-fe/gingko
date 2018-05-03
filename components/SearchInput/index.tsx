@@ -49,6 +49,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         if (this.isControlledComponent() && nextProps.value !== this.state.value) {
             this.setState({
                 value: nextProps.value,
+                showDelete: nextProps.value != ''
             });
         }
     }
