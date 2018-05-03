@@ -32,12 +32,24 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
 
     constructor(props) {
         super(props);
-        const value = this.props.defaultValue || '';
+        const value = (this.isControlledComponent() ? props.value : this.props.defaultValue) || '';
         const showDelete = !!(value && this.props.autoFocus);
         this.state = {
             value,
             showDelete,
             focus: false,
+        }
+    }
+
+    isControlledComponent = () => {
+        return this.props.hasOwnProperty('value')
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.isControlledComponent() && nextProps.value !== this.state.value) {
+            this.setState({
+                value: nextProps.value,
+            });
         }
     }
 
