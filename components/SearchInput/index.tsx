@@ -33,7 +33,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
     constructor(props) {
         super(props);
         const value = (this.isControlledComponent() ? props.value : this.props.defaultValue) || '';
-        const showDelete = !!(value && this.props.autoFocus);
+        const showDelete = !!value;
         this.state = {
             value,
             showDelete,
@@ -43,7 +43,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
 
     isControlledComponent = () => {
         return this.props.hasOwnProperty('value')
-    }
+    };
 
     componentWillReceiveProps(nextProps) {
         if (this.isControlledComponent() && nextProps.value !== this.state.value) {
@@ -58,7 +58,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         this.setState({
             value: '',
             showDelete: false
-        })
+        });
         if (this.props.onClear) {
             this.props.onClear();
         }
