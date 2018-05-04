@@ -50,6 +50,8 @@ const iconMap = {
     'triangle-up': '\ue924',
     'chevron-up-circle': '\ue925',
     'close-circle-o': '\ue926',
+    'user-check': '\ue927',
+    'edit-plus': '\ue928',
 };
 
 export default class Icon extends React.Component<IconProps, any> {
