@@ -32,7 +32,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
 
     constructor(props) {
         super(props);
-        const value = (this.isControlledComponent() ? props.value : this.props.defaultValue) || '';
+        const value = (this.isControlledComponent() ? props.value : props.defaultValue) || '';
         const showDelete = !!value;
         this.state = {
             value,
