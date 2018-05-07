@@ -107,6 +107,8 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
             error,
             errorHint,
             children,
+            style,
+            inputStyle,
             ...restProps,
         } = this.props;
 
@@ -134,10 +136,10 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
         }
 
         return (
-            <View style={{ flexDirection: 'row' }}>
+            <View style={[{ flexDirection: 'row' }, style]}>
                 <View style={styles.container}>
                     <Text style={styles.label}>{children}</Text>
-                    <View style={styles.input}>
+                    <View style={[styles.input, inputStyle]}>
                         <TextInput
                             {...restProps}
                             {...valueProps}
