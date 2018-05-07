@@ -93,6 +93,8 @@ export default class Button extends React.Component<ButtonProps, any> {
             btnStyles[activeStyle ? `${type}TapSty` : `${type}Sty`],
         ) as any).backgroundColor;
 
+        let indicatorColor: string = type === 'primary' ? 'white' : 'blue';
+
         return (
             <TouchableHighlight
                 activeOpacity={1}
@@ -108,7 +110,7 @@ export default class Button extends React.Component<ButtonProps, any> {
                 >
                 <View style={btnStyles.container}>
                     {
-                        loading ? <Indicator style={btnStyles.indicator}/> : null
+                        loading ? <Indicator style={btnStyles.indicator} color={indicatorColor}/> : null
                     }
                     <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
                 </View>

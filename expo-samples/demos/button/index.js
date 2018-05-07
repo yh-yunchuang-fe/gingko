@@ -49,6 +49,9 @@ export default class ButtonDemo extends Component {
                 <Button loading>
                     loading button
                 </Button>
+                <Button type="primary" loading>
+                    下一步
+                </Button>
             </View>
         )
     }
