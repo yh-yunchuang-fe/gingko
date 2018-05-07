@@ -7,7 +7,7 @@ import {
     View,
     TextInput
 } from "react-native";
-import styles from './style/'
+// import styles from './style/'
 import IProps from './propsType'
 
 function noop() {}
@@ -57,7 +57,7 @@ export default class VerifyInputGroup extends React.Component<IProps, any> {
             node.push(
                 <TextInput
                     key={i}
-                    style={[styles.input, inputStyle]}
+                    // style={[styles.input, inputStyle]}
                     autoCapitalize="characters"
                     autoFocus={isAutoFocus}
                     blurOnSubmit={true}
@@ -69,11 +69,12 @@ export default class VerifyInputGroup extends React.Component<IProps, any> {
                 />
             )
         }
+        return null
 
-        return (
-            <View style={[styles.wrap, style]} {...restProps}>
-
-            </View>
-        )
+        // return (
+        //     <View style={[styles.wrap, style]} {...restProps}>
+        //
+        //     </View>
+        // )
     }
 }
