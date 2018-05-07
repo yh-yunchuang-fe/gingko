@@ -25,23 +25,31 @@ export default class VerifyInputGroup extends React.Component<IProps, any> {
 
     constructor(props) {
         super(props);
-        let value: any = [];
+        let values: any = [];
         let defaultValue = props.defaultValue+'' || '';
         if (defaultValue) {
-            value = defaultValue.split('');
+            values = defaultValue.split('');
         }
         this.state = {
-            value
+            values
         };
     }
 
+    onChange = () => {
+
+    };
+
+    onBlur = () => {
+
+    };
+
     render() {
         const {
-            style, inputStyle, textStyle, size = 0, autoFocus,
+            style, inputStyle, size = 0, autoFocus,
             ...restProps
         } = this.props;
 
-        const { value } = this.state;
+        const { values } = this.state;
 
         let node: any = null;
         for(let i = 0; i < size; i++) {
@@ -53,13 +61,17 @@ export default class VerifyInputGroup extends React.Component<IProps, any> {
                     autoCapitalize="characters"
                     autoFocus={isAutoFocus}
                     blurOnSubmit={true}
-                    value={value[i] || ''}
+                    value={values[i] || ''}
+                    keyboardType="numeric"
+                    onChangeText={this.onChange}
+                    onBlur={this.onBlur}
+                    onSubmitEditing={()=>{ console.log('onSubmitEditing') }}
                 />
             )
         }
 
         return (
-            <View style={[styles.wrap, style]}>
+            <View style={[styles.wrap, style]} {...restProps}>
 
             </View>
         )

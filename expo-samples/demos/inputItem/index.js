@@ -4,9 +4,9 @@
 import React, { Component } from 'react';
 import {
     View,
+    StyleSheet
 } from 'react-native';
-import { InputItem } from '../../../components/index';
-import WhiteSpace from "../../../components/WhiteSpace/index";
+import { InputItem, WingBlank, WhiteSpace } from '../../../components/index';
 
 export default class InputItemDemo extends Component {
     state = {
@@ -84,35 +84,56 @@ export default class InputItemDemo extends Component {
     render() {
         // InputItem为受控组件，请务必设置value属性
         return (
-            <View style={{ alignItems: 'center' }}>
-                <InputItem
-                    type="phone"
-                    onChange={this.onChange}
-                    onBlur={this.onBlur}
-                    onFocus={this.onFocus}
-                    ok={this.state.ok}
-                    error={this.state.error}
-                    errorHint={this.state.errorHint}
-                    placeholder="请输入正确的手机号码"
-                    value={this.state.value}
-                >手机号码</InputItem>
-                <WhiteSpace />
-                <InputItem
-                    onChange={this.onChange2}
-                    onBlur={this.onBlur2}
-                    onFocus={this.onFocus2}
-                    ok={this.state.ok2}
-                    error={this.state.error2}
-                    errorHint={this.state.errorHint2}
-                    placeholder="请输入合适的用户名"
-                    value={this.state.value2}
-                >用户名</InputItem>
-                <WhiteSpace />
-                <InputItem
-                    type="password"
-                    placeholder="请输入密码"
-                    // ... value, onChange, onBlur, onFocus等等
-                >密码</InputItem>
+            <View>
+                <WingBlank>
+                    <InputItem
+                        type="phone"
+                        onChange={this.onChange}
+                        onBlur={this.onBlur}
+                        onFocus={this.onFocus}
+                        ok={this.state.ok}
+                        error={this.state.error}
+                        errorHint={this.state.errorHint}
+                        placeholder="请输入正确的手机号码"
+                        value={this.state.value}
+                    >手机号码</InputItem>
+                    <WhiteSpace />
+                    <InputItem
+                        onChange={this.onChange2}
+                        onBlur={this.onBlur2}
+                        onFocus={this.onFocus2}
+                        ok={this.state.ok2}
+                        error={this.state.error2}
+                        errorHint={this.state.errorHint2}
+                        placeholder="请输入合适的用户名"
+                        value={this.state.value2}
+                    >用户名</InputItem>
+                    <WhiteSpace />
+                    <InputItem
+                        type="password"
+                        placeholder="请输入密码"
+                        // ... value, onChange, onBlur, onFocus等等
+                    >密码</InputItem>
+                </WingBlank>
+                <WhiteSpace/>
+                <View style={{backgroundColor: '#fff', paddingVertical: 10, paddingHorizontal: 15}}>
+                    <InputItem
+                        inputStyle={{
+                            backgroundColor: 'transparent',
+                            borderBottomWidth: StyleSheet.hairlineWidth,
+                            borderColor: '#ddd'
+                        }}
+                        type="phone"
+                        onChange={this.onChange}
+                        onBlur={this.onBlur}
+                        onFocus={this.onFocus}
+                        ok={this.state.ok}
+                        error={this.state.error}
+                        errorHint={this.state.errorHint}
+                        placeholder="请输入正确的手机号码"
+                        value={this.state.value}
+                    >手机号码</InputItem>
+                </View>
             </View>
         );
     }

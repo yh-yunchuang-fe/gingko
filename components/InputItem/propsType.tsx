@@ -1,6 +1,7 @@
 /**
  * Created by beilunyang on 2018/2/11
  */
+import { ViewStyle } from 'react-native'
 export interface IInputItemProps {
     ok?: boolean;
     error?: boolean;
@@ -13,4 +14,7 @@ export interface IInputItemProps {
     onFocus?: (value?: any) => any;
     onBlur?: (value?: any) => any;
     type?: string;
+
+    style?: ViewStyle;
+    inputStyle?: ViewStyle;
 };
