@@ -17,11 +17,23 @@ import {
 
 
 export default class CodeInputGroupDemo extends Component {
+    state = {
+        value: ''
+    };
+
     render() {
+        console.log('this.state.value:', this.state.value);
         return (
             <WingBlank>
                 <WhiteSpace/>
-                <CodeInputGroup/>
+                <CodeInputGroup
+                    onChange={(value)=>{
+                        console.log('value:', value);
+                        this.setState({ value })
+                    }}
+                />
+                <WhiteSpace/>
+                <Text>{ this.state.value }</Text>
             </WingBlank>
         )
     }

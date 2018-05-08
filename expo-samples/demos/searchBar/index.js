@@ -15,16 +15,22 @@ import {
 
 export default class SearchBarDemo extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            value: ''
+        }
     }
 
     render() {
+        console.log('this.state.value:', this.state.value);
         return (
             <View style={{backgroundColor: '#f8f8f8'}}>
                 <SearchBar
                     placeholder="输入商品名称、条码或编号"
                     onSubmit={(value)=>{ console.log('onSubmit value:', value) }}
-                    onChange={(value)=>{ console.log('onChange value:', value) }}
+                    onChange={(value)=>{
+                        this.setState({ value })
+                    }}
                     onFocus={()=>{ console.log('onFocus') }}
                     onBlur={()=>{ console.log('onBlur') }}
                     onCancel={()=>{ console.log('onCancel') }}
