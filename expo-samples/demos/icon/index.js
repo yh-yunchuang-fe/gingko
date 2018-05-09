@@ -48,7 +48,8 @@ const list = [
     'chevron-up-circle',
     'close-circle-o',
     'user-check',
-    'edit-plus'
+    'edit-plus',
+    'bell'
 ];
 export default class IconDemo extends Component {
     render() {
