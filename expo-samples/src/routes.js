@@ -1,5 +1,10 @@
 export default [
     {
+        title: 'CodeInputGroup',
+        description: '短信验证码',
+        screen: require('../demos/codeInputGroup').default
+    },
+    {
         title: 'OptionTag',
         description: '选项标签',
         screen: require('../demos/optionTag').default
