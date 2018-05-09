@@ -14,7 +14,7 @@ export default StyleSheet.create({
         borderColor: variables.border_color_base,
         backgroundColor: variables.fill_base,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     icon: {
         width: 22,

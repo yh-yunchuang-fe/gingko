@@ -24,7 +24,7 @@ export default class Grid extends React.Component<GridProps, any> {
         const columnNum = this.props.columnNum || 0;
         return {
             width: width / columnNum,
-            height: width / 3
+            height: width / columnNum
         }
     }
 
@@ -66,8 +66,8 @@ export default class Grid extends React.Component<GridProps, any> {
                             style={[
                                 styles.gridItem,
                                 { borderLeftWidth: hasLine && j !== 0 ? 1 : 0 },
-                                itemStyle,
-                                flexItemStyle
+                                flexItemStyle,
+                                itemStyle
                             ]}
                             onPress={() => onClick && onClick(item, index)}>
                             { this.renderItem(item, index) }
@@ -79,7 +79,8 @@ export default class Grid extends React.Component<GridProps, any> {
                               style={[
                                   styles.gridItem,
                                   { borderLeftWidth: hasLine && j !== 0 ? 1 : 0 },
-                                  flexItemStyle
+                                  flexItemStyle,
+                                  itemStyle
                               ]}
                         />
                     )
