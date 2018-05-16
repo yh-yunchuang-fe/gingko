@@ -51,10 +51,12 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
     }
 
     clearInput = () => {
+        const { onClear } = this.props;
         this.setState({
             value: '',
             showDelete: false
-        })
+        });
+        onClear && onClear()
     };
 
     onChangeText = (value) => {
