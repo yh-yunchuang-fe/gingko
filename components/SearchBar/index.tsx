@@ -40,13 +40,22 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
 
     constructor(props) {
         super(props);
-        const value = this.props.defaultValue || '';
+        const value = (props.value || props.defaultValue) || '';
         const showDelete = !!(value && this.props.autoFocus);
         this.state = {
             value,
             showDelete,
             focus: false,
             rightAnim: new Animated.Value(0),
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.value && nextProps.value !== this.state.value) {
+            this.setState({
+                value: nextProps.value,
+                showDelete: nextProps.value != ''
+            });
         }
     }
 

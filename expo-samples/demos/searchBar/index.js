@@ -5,7 +5,7 @@
 import React, { Component } from 'react'
 import {
     View,
-    Text
+    Slider
 } from 'react-native'
 import {
     WingBlank,
@@ -17,8 +17,15 @@ export default class SearchBarDemo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: '',
+            value2: 0
         }
+    }
+
+    changeValue = (value) => {
+        this.setState({
+            value2: value
+        })
     }
 
     render() {
@@ -47,6 +54,12 @@ export default class SearchBarDemo extends Component {
                     onBlur={()=>{ console.log('onBlur') }}
                     onCancel={()=>{ console.log('onCancel') }}
                     onClear={()=>{ console.log('onClear') }}
+                />
+                <WhiteSpace/>
+                <Slider value={this.state.value2} onValueChange={this.changeValue}/>
+                <SearchBar
+                    value={this.state.value2.toString()}
+                    placeholder="value props"
                 />
             </View>
         )
