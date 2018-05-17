@@ -5,6 +5,7 @@
 
 export default interface ISearchBarProps {
     defaultValue?: string;
+    value?: string;
     placeholder?: string;
     style?: any;
     wrapStyle?: any;
