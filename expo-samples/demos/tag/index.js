@@ -104,6 +104,15 @@ export default class extends Component {
                     已报障，等待维修
                 </Tag>
                 <WhiteSpace/>
+                <Tag
+                    color="#666"
+                    activeColor="#24A8E8"
+                    textStyle={{fontSize: 16}}
+                    readonly={false}
+                >
+                    16的字体
+                </Tag>
+                <WhiteSpace/>
             </WingBlank>
         )
     }

@@ -56,7 +56,7 @@ export default class Tag extends React.Component<TagProps, any> {
 
     render() {
         const {
-            readonly, fill, color, children, style, size, textColor,
+            readonly, fill, color, children, style, size, textColor, textStyle,
             activeColor, ...restProps
         } = this.props;
         const selected = this.state.selected;
@@ -89,7 +89,7 @@ export default class Tag extends React.Component<TagProps, any> {
             return (
                 <View style={styles.wrap}>
                     <View style={[styles.content, sty, style]} {...restProps}>
-                        <Text style={[styles.text, textSizeSty, textSty]}>
+                        <Text style={[styles.text, textSizeSty, textSty, textStyle]}>
                             { children }
                         </Text>
                     </View>
@@ -100,7 +100,7 @@ export default class Tag extends React.Component<TagProps, any> {
                 <View style={styles.wrap}>
                     <TouchableWithoutFeedback onPress={this.onClick}>
                         <View style={[styles.content, sty, style]} {...restProps}>
-                            <Text style={[styles.text, textSizeSty, textSty]}>
+                            <Text style={[styles.text, textSizeSty, textSty, textStyle]}>
                                 { children }
                             </Text>
                         </View>
