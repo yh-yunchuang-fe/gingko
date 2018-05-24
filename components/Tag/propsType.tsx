@@ -15,6 +15,7 @@ export default interface TagProps {
     textColor?: string;
     activeColor?: string;
     style?: any;
+    textStyle?: any;
 
     selected?: boolean;
     onChange?: (_x:any) => void;
