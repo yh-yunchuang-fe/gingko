@@ -25,9 +25,18 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
 
     constructor(props) {
         super(props);
+        let index = props.index ? props.index : (props.defaultIndex || 0);
         this.state = {
-            activeIndex: props.defaultIndex || 0
+            activeIndex: index
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.index != nextProps.index) {
+            this.setState({
+                index: nextProps.index
+            })
+        }
     }
 
     onChange = (index, item) => {
