@@ -13,6 +13,11 @@ export default StyleSheet.create({
     wrap: {
         flexDirection: 'row',
     },
+    content: {
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingTop: 10
+    },
     // cornerWrap: {
     //     overflow: 'hidden',
     // },
@@ -23,8 +28,8 @@ export default StyleSheet.create({
         borderRadius: 4 * (variables.radius_sm + 1),
         borderStyle: 'solid',
         position: 'absolute',
-        top: -10,
-        right: -10,
+        top: Platform.OS === 'ios' ? -10 : 0,
+        right: Platform.OS === 'ios' ? -10 : 0,
     },
     dot: {
         width: 2 * grid,

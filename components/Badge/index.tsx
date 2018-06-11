@@ -5,6 +5,7 @@ import * as React from 'react';
 import {
     View,
     Text,
+    Platform
 } from 'react-native';
 import styles from './style';
 import variables from '../../src/style/variables';
@@ -62,7 +63,7 @@ export default class Badge extends React.Component<IBadge, any> {
 
         return (
             <View style={[styles.wrap, style]}>
-                <View>
+                <View style={Platform.OS === 'ios' ? {} : styles.content}>
                     {children}
                     {contentElement}
                 </View>
