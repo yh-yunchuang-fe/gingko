@@ -38,8 +38,11 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     }
 
     onChange = (value) => {
+        if(value ===''){
+            value = 0
+        }
         const { onChange, min = -Infinity, max = Infinity } = this.props;
-        let num = parseInt(value, 10);
+        let num = parseFloat(value);
 
         if (num >= min && num <= max) {
 
