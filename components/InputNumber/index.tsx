@@ -28,8 +28,6 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     };
 
     state = {
-        // canPlus: true,
-        // canMinus: true,
         modified: false
     };
 
@@ -41,6 +39,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         if(value ===''){
             value = 0
         }
+
         const { onChange, min = -Infinity, max = Infinity } = this.props;
         let num = parseFloat(value);
 
@@ -68,14 +67,81 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     //     this.onChange(parseInt(value, 10) + step)
     // };
 
+    /**
+     ** 加法函数，用来得到精确的加法结果
+     ** 说明：javascript的加法结果会有误差，在两个浮点数相加的时候会比较明显。这个函数返回较为精确的加法结果。
+     ** 调用：accAdd(arg1,arg2)
+     ** 返回值：arg1加上arg2的精确结果
+     **/
+    add = (arg1, arg2) => {
+        let r1, r2, m, c;
+        try {
+            r1 = arg1.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r1 = 0;
+        }
+        try {
+            r2 = arg2.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r2 = 0;
+        }
+        c = Math.abs(r1 - r2);
+        m = Math.pow(10, Math.max(r1, r2));
+        if (c > 0) {
+            let cm = Math.pow(10, c);
+            if (r1 > r2) {
+                arg1 = Number(arg1.toString().replace(".", ""));
+                arg2 = Number(arg2.toString().replace(".", "")) * cm;
+            } else {
+                arg1 = Number(arg1.toString().replace(".", "")) * cm;
+                arg2 = Number(arg2.toString().replace(".", ""));
+            }
+        } else {
+            arg1 = Number(arg1.toString().replace(".", ""));
+            arg2 = Number(arg2.toString().replace(".", ""));
+        }
+        return (arg1 + arg2) / m;
+    };
+
+    sub = (arg1, arg2) => {
+        let r1, r2, m, n;
+        try {
+            r1 = arg1.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r1 = 0;
+        }
+        try {
+            r2 = arg2.toString().split(".")[1].length;
+        }
+        catch (e) {
+            r2 = 0;
+        }
+        m = Math.pow(10, Math.max(r1, r2)); //last modify by deeka //动态控制精度长度
+        n = (r1 >= r2) ? r1 : r2;
+        return ((arg1 * m - arg2 * m) / m).toFixed(n);
+    };
+
+    minus = (value, step) => {
+        value = parseFloat(value+'');
+        this.onChange(this.sub(value,  step));
+    };
+
+    plus = (value, step) => {
+        value = parseFloat(value+'');
+        this.onChange(this.add(value, step));
+    };
+
     render() {
         let {
-            value = 0, max = Infinity, min = -Infinity, unit, step,
-            disabled, style, editable, autoFocus, width = 110,
+            value:strValue, max = Infinity, min = -Infinity, unit, step,
+            disabled, style, editable, autoFocus, width = 110, onChange,
             ...restProps
         } = this.props;
 
-        let newValue:string = value+'' || '0';
+        let value:number = parseFloat(strValue+'') ? 0 : parseFloat(strValue+'');
         step = step || 1;
 
         const { modified } = this.state;
@@ -94,7 +160,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
             </View>)
         } else {
             minusDom = (
-                <TouchableOpacity onPress={this.onChange.bind(this, value - step)}>
+                <TouchableOpacity onPress={this.minus.bind(this, value, step)}>
                     <View style={[styles.action]}>
                         <Icon name="minus" size={10} style={activeAction}/>
                     </View>
@@ -109,7 +175,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
             </View>)
         } else {
             plusDom = (
-                <TouchableOpacity onPress={this.onChange.bind(this, value + step)}>
+                <TouchableOpacity onPress={this.plus.bind(this, value, step)}>
                     <View style={[styles.action]}>
                         <Icon name="plus" size={10} style={activeAction}/>
                     </View>
@@ -118,6 +184,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         }
 
         let inputEditable = !disabled && editable;
+
+        let newValue:string = value+'' || '0';
 
         return (
             <View style={[styles.wrap, style, activeWrap, {width: width}]} {...restProps}>
@@ -128,7 +196,9 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
                     editable={inputEditable}
                     autoFocus={autoFocus}
                     keyboardType="numbers-and-punctuation"
-                    onChangeText={this.onChange}
+                    onChangeText={(text)=>{
+                        this.onChange(text)
+                    }}
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
                     selectTextOnFocus={true}
