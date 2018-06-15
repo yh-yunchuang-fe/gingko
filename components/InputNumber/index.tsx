@@ -196,6 +196,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
                     editable={inputEditable}
                     autoFocus={autoFocus}
                     keyboardType="numbers-and-punctuation"
+                    underlineColorAndroid="transparent"
                     onChangeText={(text)=>{
                         this.onChange(text)
                     }}
