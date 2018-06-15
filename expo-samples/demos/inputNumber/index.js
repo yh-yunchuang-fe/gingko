@@ -25,12 +25,12 @@ export default class InputNumberDemo extends Component {
 
     render() {
         const { value1, value2, value3 } = this.state;
-
         return (
             <View style={{flex: 1, backgroundColor: '#fff'}}>
                 <WingBlank>
                     <WhiteSpace/>
                     <InputNumber
+                        width={175}
                         value={value1}
                         unit="份"
                         onChange={(value)=>{
