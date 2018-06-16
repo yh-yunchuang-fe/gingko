@@ -28,33 +28,53 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     };
 
     state = {
-        modified: false
+        modified: false,
+        value: '0'
     };
 
     constructor(props) {
         super(props)
     }
 
-    onChange = (value) => {
-        if(value ===''){
-            value = 0
-        }
+    isControlledComponent = () => {
+        return this.props.hasOwnProperty('value')
+    };
 
+    componentWillReceiveProps(nextProps) {
+        if (this.isControlledComponent() && nextProps.value !== this.state.value) {
+            this.setState({
+                value: nextProps.value
+            });
+        }
+    }
+
+    onChange = (num) => {
+        // if(value ===''){
+        //     value = 0
+        // }
         const { onChange, min = -Infinity, max = Infinity } = this.props;
-        let num = parseFloat(value);
+        // let num = parseFloat(value);
+        //
+        // if (!num) {
+        //     onChange && onChange(value)
+        // }
+        num = num < min ? min : num;
+        num = num > max ? max : num;
 
         if (num >= min && num <= max) {
 
             this.setState({
                 modified: true
             });
-
-            onChange && onChange(value)
         }
+        onChange && onChange(num)
     };
 
     onBlur = () => {
         const { onBlur } = this.props;
+        let { value } = this.state;
+        let num:number = parseFloat(value+'') || 0;
+        this.onChange(num);
         onBlur && onBlur()
     };
 
@@ -136,12 +156,18 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
     render() {
         let {
-            value:strValue, max = Infinity, min = -Infinity, unit, step,
+            max = Infinity, min = -Infinity, unit, step,
             disabled, style, editable, autoFocus, width = 110, onChange,
             ...restProps
         } = this.props;
 
-        let value:number = parseFloat(strValue+'') ? 0 : parseFloat(strValue+'');
+        let { value:stateValue } = this.state;
+        let value:number = parseFloat(stateValue+'');
+
+        // let strValue:string = proValue+'';
+        // let newValue:string = '';
+
+        // let value:number = parseFloat(strValue+'') ? 0 : parseFloat(strValue+'');
         step = step || 1;
 
         const { modified } = this.state;
@@ -185,20 +211,26 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
         let inputEditable = !disabled && editable;
 
-        let newValue:string = value+'' || '0';
-
+        // if (strValue === '-' || /(\.|([1-9]|\.|-)0)$/g.test(strValue) || strValue === '') {
+        //     newValue = strValue;
+        // } else {
+        //     newValue = value+'';
+        // }
         return (
             <View style={[styles.wrap, style, activeWrap, {width: width}]} {...restProps}>
                 {minusDom}
                 <TextInput
                     style={[styles.textInput, activeInput]}
-                    value={newValue}
+                    value={stateValue+''}
                     editable={inputEditable}
                     autoFocus={autoFocus}
-                    keyboardType="numbers-and-punctuation"
+                    // keyboardType="numbers-and-punctuation"
                     underlineColorAndroid="transparent"
                     onChangeText={(text)=>{
-                        this.onChange(text)
+                        // if (text.split('.').length >= 3) {
+                        //     text = value+''
+                        // }
+                        onChange && onChange(text)
                     }}
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
