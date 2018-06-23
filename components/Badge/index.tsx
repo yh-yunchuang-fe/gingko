@@ -5,6 +5,7 @@ import * as React from 'react';
 import {
     View,
     Text,
+    Image,
     Platform
 } from 'react-native';
 import styles from './style';
@@ -16,10 +17,17 @@ export default class Badge extends React.Component<IBadge, any> {
         text: '',
         style: {},
         dot: false,
+        image: false,
+        source: '',
         overflowCount: 99,
         bgColor: variables.fill_badge,
         color: variables.color_white,
         cornerContent: null,
+        badgeStyle: {},
+        badgeTextStyle: {},
+        imageBadgeStyle: {},
+        top: -10,
+        right: -10 //不要超过容器宽度的1/2 to do 兼容任何数字
         // corner: false,
         // cornerContent: null
     };
@@ -27,11 +35,22 @@ export default class Badge extends React.Component<IBadge, any> {
     render() {
         const {
             bgColor, color, style, overflowCount, cornerContent,
-            children, dot, ...restProps
+            children, dot, image, source, badgeStyle, badgeTextStyle,
+            imageBadgeStyle, top, right, ...restProps
         } = this.props;
 
         let { text } = this.props;
         let contentElement: any = null;
+
+        let contentStyle = {
+            paddingHorizontal: Math.abs(right),
+            paddingTop: Math.abs(top)
+        }
+
+        let textDomExtraStyle = {
+            top: Platform.OS === 'ios' ? top : 0,
+            right: Platform.OS === 'ios' ? right : 0,
+        }
 
         // if (corner && cornerContent) {
         //     contentElement = (
@@ -51,10 +70,17 @@ export default class Badge extends React.Component<IBadge, any> {
                 contentElement = (
                     <View {...restProps} style={[styles.dot]}/>
                 )
+            } else if(image) {
+                contentElement = (
+                    <View {...restProps} style={[styles.textDom, styles.imageTextDom, textDomExtraStyle, badgeStyle]}>
+                        <Image source={source} style={[styles.imageBadge, imageBadgeStyle]} />
+                        <Text style={[styles.text, {color: color}, styles.imageTextBadge, badgeTextStyle]}>{text}</Text>
+                    </View>
+                )
             } else {
                 contentElement = (
-                    <View {...restProps} style={[styles.textDom, { backgroundColor: bgColor }]}>
-                        <Text style={[styles.text, {color: color}]}>{text}</Text>
+                    <View {...restProps} style={[styles.textDom, textDomExtraStyle, { backgroundColor: bgColor }, badgeStyle]}>
+                        <Text style={[styles.text, {color: color}, badgeTextStyle]}>{text}</Text>
                     </View>
                 )
             }
@@ -62,11 +88,9 @@ export default class Badge extends React.Component<IBadge, any> {
 
 
         return (
-            <View style={[styles.wrap, style]}>
-                <View style={Platform.OS === 'ios' ? {} : styles.content}>
-                    {children}
-                    {contentElement}
-                </View>
+            <View style={[styles.wrap, Platform.OS === 'ios' ? {} : contentStyle, style]}>
+                {children}
+                {contentElement}
             </View>
         );
     }

@@ -13,11 +13,6 @@ export default StyleSheet.create({
     wrap: {
         flexDirection: 'row',
     },
-    content: {
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingTop: 10
-    },
     // cornerWrap: {
     //     overflow: 'hidden',
     // },
@@ -30,6 +25,8 @@ export default StyleSheet.create({
         position: 'absolute',
         top: Platform.OS === 'ios' ? -10 : 0,
         right: Platform.OS === 'ios' ? -10 : 0,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     dot: {
         width: 2 * grid,
@@ -45,6 +42,22 @@ export default StyleSheet.create({
         color: variables.color_white,
         fontSize: variables.font_size_tip + 1
     },
+    imageTextDom: {
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+        backgroundColor: 'transparent',
+        borderRadius: 0
+    },
+    imageBadge: {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        zIndex: 1
+    },
+    imageTextBadge: {
+        position: 'absolute',
+        zIndex: 2
+    }
 
 
 
