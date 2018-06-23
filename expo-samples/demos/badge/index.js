@@ -59,7 +59,6 @@ export default class extends Component {
                     image={true}
                     source={require('../../../src/assets/imgs/loading-blue.png')}
                     imageBadgeStyle={{width: 30, height: 30}}
-                    badgeStyle={{width: 30, height: 30}}
                 >
                     <View style={{width: 50, height: 50, backgroundColor: '#666'}}/>
                 </Badge>
