@@ -128,7 +128,7 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
                         {items}
                     </View>
                 </ScrollView>
-                <View ref={el => this.indicatorRef = el} style={styles.indicator}/>
+                <View ref={el => this.indicatorRef = el} style={styles.indicator} pointerEvents="box-none" />
             </View>
         );
     }
