@@ -45,6 +45,23 @@ export default class extends Component {
                 >
                     <View style={{width: 50, height: 50, backgroundColor: '#666', borderRadius: 2}}/>
                 </Badge>
+                <WhiteSpace />
+                <Badge text={3} badgeStyle={{width: 30, height: 30, backgroundColor: 'green'}}>
+                    <View style={{width: 50, height: 50, backgroundColor: '#666'}}/>
+                </Badge>
+                <WhiteSpace />
+                <Badge text={3000} top={10} badgeStyle={{height: 30, backgroundColor: 'green'}}>
+                    <View style={{width: 50, height: 50, backgroundColor: '#666'}}/>
+                </Badge>
+                <WhiteSpace />
+                <Badge 
+                    text={3} 
+                    image={true}
+                    source={require('../../../src/assets/imgs/loading-blue.png')}
+                    imageBadgeStyle={{width: 30, height: 30}}
+                >
+                    <View style={{width: 50, height: 50, backgroundColor: '#666'}}/>
+                </Badge>
 
                 {/*<View style={{*/}
                     {/*width: 15,*/}

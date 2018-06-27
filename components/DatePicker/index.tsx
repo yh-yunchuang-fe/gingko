@@ -55,7 +55,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
                 return this.cloneDate(minDate);
             }
 
-            if (+date + ONE_DAY >= +maxDate) {
+            if (+date >= +maxDate + ONE_DAY) {
                 return this.cloneDate(maxDate);
             }
         } else {
@@ -101,7 +101,6 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
                 value: i,
             });
         }
-        // const yearCol = { key: 'year', values: years };
         const yearCol = years;
         if (mode === Mode.Year) {
             return [yearCol];
@@ -121,7 +120,6 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
                 value: i,
             });
         }
-        // const monthCol = { key: 'month', values: months };
         const monthCol = months;
         if (mode === Mode.Month) {
             return [yearCol, monthCol];
@@ -141,7 +139,6 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
                 value: i,
             });
         }
-        // const dateCol = { key: 'day', values: days };
         const dateCol = days;
         return [
             yearCol,
@@ -213,14 +210,6 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
             });
         }
         const cols = [
-            // {
-            //     key: 'hour',
-            //     values: hours,
-            // },
-            // {
-            //     key: 'minutes',
-            //     values: minutes,
-            // },
             hours,
             minutes,
         ];
@@ -323,7 +312,6 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
     onOk = (values) => {
         const { onOk } = this.props;
         if (onOk) {
-            // 求解，spread时好像不能正确检测
             const date = new (Date.bind(null, ...values));
             onOk(date, values);
         }
