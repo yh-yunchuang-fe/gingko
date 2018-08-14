@@ -45,7 +45,7 @@ export default class GkModal extends React.Component<IModalProps, any> {
 
         if (footer && footer.length) {
             if (footer.length === 1) {
-                const { text, type, onPress, style } = footer[0] as IActionButton;
+                const { text, type, onPress, style, ...restProps } = footer[0] as IActionButton;
                 const onPressFn = () => {
                     if (onPress) {
                         onPress();
@@ -57,7 +57,8 @@ export default class GkModal extends React.Component<IModalProps, any> {
                 let newType = type || 'primary';
                 footerDom = (
                     <View style={[styles.btnGroup, styles.singleBtn]}>
-                        <Button type={newType}
+                        <Button {...restProps}
+                                type={newType}
                                 style={{ width: variables.modal_single_btn_width, ...style }}
                                 onClick={onPressFn}>{text}</Button>
                     </View>
@@ -66,7 +67,7 @@ export default class GkModal extends React.Component<IModalProps, any> {
 
             if (footer.length === 2) {
                 const buttons = footer.map((button, idx) => {
-                    const { text, type, onPress, style } = button as IActionButton;
+                    const { text, type, onPress, style, ...restProps } = button as IActionButton;
                     const onPressFn = () => {
                         if (onPress) {
                             onPress();
@@ -76,7 +77,8 @@ export default class GkModal extends React.Component<IModalProps, any> {
                         }
                     };
                     return (
-                        <Button type={type} key={idx}
+                        <Button {...restProps}     
+                                type={type} key={idx}
                                 style={{ width: variables.modal_group_btn_width, ...style }}
                                 onClick={onPressFn}>{text}</Button>
                     );
