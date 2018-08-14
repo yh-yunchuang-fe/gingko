@@ -31,7 +31,7 @@
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js",
     "compile": "rm -rf lib && tsc",
-    "prepublish": "npm run compile && npm version patch"
+    "prepublish": "npm version patch && npm run compile "
   },
   "jest": {
     "preset": "jest-expo",
