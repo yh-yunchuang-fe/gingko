@@ -4,6 +4,7 @@ export default interface buttonProps {
     type?: 'default' | 'primary' | 'warning' | 'ghost';
     size?: 'default' | 'large' | 'small';
     style?: React.CSSProperties;
+    textStyle?: React.CSSProperties;
     disabled?: boolean;
     activeStyle?: Object;
     onClick?: (x?: any) => void;

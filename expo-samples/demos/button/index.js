@@ -49,8 +49,13 @@ export default class ButtonDemo extends Component {
                 <Button loading>
                     loading button
                 </Button>
+                <WhiteSpace/>
                 <Button type="primary" loading>
                     下一步
+                </Button>
+                <WhiteSpace/>
+                <Button style={{height: 28}} textStyle={{fontSize: 12, color: 'red'}}>
+                    自定义按钮
                 </Button>
             </View>
         )

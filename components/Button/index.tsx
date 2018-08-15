@@ -23,6 +23,7 @@ export default class Button extends React.Component<ButtonProps, any> {
         type: 'default',
         disabled: false,
         style: {},
+        textStyle: {},
         loading: false,
         activeStyle: {},
         onClick: (_x?: any) => {},
@@ -61,7 +62,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     render() {
 
         const {
-            size, type, style, disabled, activeStyle, onClick, loading,
+            size, type, style, textStyle, disabled, activeStyle, onClick, loading,
             children, ...restProps
         } = this.props;
 
@@ -87,6 +88,7 @@ export default class Button extends React.Component<ButtonProps, any> {
             btnStyles[`${type}Text`],
             disabled && btnStyles[`${type}DisabledText`],
             this.state.pressIn && btnStyles[`${type}TapText`],
+            textStyle
         ];
 
         const underlayColor = (StyleSheet.flatten(
