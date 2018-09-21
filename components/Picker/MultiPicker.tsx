@@ -42,7 +42,7 @@ export default class MultiPicker extends React.Component<any, any> {
             style,
             itemStyle,
             columnStyle,
-            ...rest,
+            ...rest
         } = this.props;
         const elements = React.Children.map(children, (col: any, idx) => {
             return React.cloneElement(col, {

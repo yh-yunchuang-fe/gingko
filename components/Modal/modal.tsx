@@ -38,7 +38,7 @@ export default class GkModal extends React.Component<IModalProps, any> {
     render () {
         const {
             visible, style, title, bodyStyle, children, footer, onClose,
-            ...restProps,
+            ...restProps
         } = this.props;
 
         let footerDom: any = null;

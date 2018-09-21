@@ -109,7 +109,7 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
             children,
             style,
             inputStyle,
-            ...restProps,
+            ...restProps
         } = this.props;
 
         const keyboardTypeArray: string[] = ['default', 'email-address',
