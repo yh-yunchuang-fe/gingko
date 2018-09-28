@@ -94,7 +94,7 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
             textStyle,
             disabled,
             children,
-            ...restProps,
+            ...restProps
         } = this.props;
         let elements: any = null;
         if (React.isValidElement(children)) {

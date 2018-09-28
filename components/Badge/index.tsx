@@ -6,7 +6,7 @@ import {
     View,
     Text,
     Image,
-    Platform
+    Platform, ViewStyle
 } from 'react-native';
 import styles from './style';
 import variables from '../../src/style/variables';
@@ -71,9 +71,15 @@ export default class Badge extends React.Component<IBadge, any> {
                     <View {...restProps} style={[styles.dot]}/>
                 )
             } else if(image) {
+                const imgStyle = {
+                    width: '100%',
+                    height: '100%',
+                    ...imageBadgeStyle
+                } as any
+
                 contentElement = (
                     <View {...restProps} style={[styles.textDom, styles.imageTextDom, textDomExtraStyle, badgeStyle]}>
-                        <Image source={source} style={[styles.imageBadge, imageBadgeStyle]} />
+                        <Image source={source} style={imgStyle} />
                         <Text style={[styles.text, {color: color}, styles.imageTextBadge, badgeTextStyle]}>{text}</Text>
                     </View>
                 )

@@ -7,7 +7,7 @@ export enum Mode {
     DateTime = 'datetime',
     Year = 'year',
     Month = 'month',
-};
+}
 
 export interface IDatePickerProps {
     mode: Mode;
@@ -20,4 +20,4 @@ export interface IDatePickerProps {
     title: string;
     onOk: (date?: Date, val?: any[]) => any;
     onDismiss: () => any;
-};
+}

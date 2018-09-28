@@ -120,7 +120,7 @@ export default class extends React.Component<IPickerProps, any> {
             style,
             itemStyle,
             columnStyle,
-            ...rest,
+            ...rest
         } = this.props;
         if (children) {
             const itemSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle;

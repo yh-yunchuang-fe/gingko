@@ -6,7 +6,6 @@ import {
     TextStyle,
 } from 'react-native';
 
-
 export interface ICheckbox {
     icon?: boolean | Function;
     dir?: 'left' | 'right';
