@@ -17,13 +17,18 @@
     "react-navigation": "^1.0.3",
     "react-test-renderer": "16.2.0"
   },
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "compile": "rm -rf lib && tsc"
+    "compile": "rm -rf lib && tsc",
+    "prepublish": "npm run compile "
   },
   "dependencies": {
     "react-native-root-view": "^0.1.3",
