@@ -1,0 +1,28 @@
+declare const _default: {
+    wrapperSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    container: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    text: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    defaultSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    defaultTapSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    defaultDisabledSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    defaultText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    defaultTapText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    defaultDisabledText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    primarySty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    primaryTapSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    primaryDisabledSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    primaryText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    primaryTapText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    primaryDisabledText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    warningSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    warningTapSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    warningDisabledSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    warningText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    warningTapText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    largeSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    smallSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    largeText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    smallText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    indicator: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+};
+export default _default;
