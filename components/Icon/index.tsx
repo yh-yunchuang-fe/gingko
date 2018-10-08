@@ -52,7 +52,8 @@ const iconMap = {
     'close-circle-o': '\ue926',
     'user-check': '\ue927',
     'edit-plus': '\ue928',
-    'bell': '\ue929'
+    'bell': '\ue929',
+    'clock-circle-o': '\ue92a'
 };
 
 export default class Icon extends React.Component<IconProps, any> {

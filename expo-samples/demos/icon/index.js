@@ -49,7 +49,8 @@ const list = [
     'close-circle-o',
     'user-check',
     'edit-plus',
-    'bell'
+    'bell',
+    'clock-circle-o'
 ];
 export default class IconDemo extends Component {
     render() {
