@@ -27,17 +27,13 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         width: 110
     };
 
-    state = {
-        modified: false,
-        value: '0'
-    };
-
-    constructor(props) {
-        super(props)
-    }
-
     isControlledComponent = () => {
         return this.props.hasOwnProperty('value')
+    };
+
+    state = {
+        modified: false,
+        value: this.isControlledComponent() ? this.props.value : 0,
     };
 
     componentWillReceiveProps(nextProps) {
@@ -49,15 +45,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     }
 
     onChange = (num) => {
-        // if(value ===''){
-        //     value = 0
-        // }
         const { onChange, min = -Infinity, max = Infinity } = this.props;
-        // let num = parseFloat(value);
-        //
-        // if (!num) {
-        //     onChange && onChange(value)
-        // }
         num = num < min ? min : num;
         num = num > max ? max : num;
 
@@ -82,10 +70,6 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         const { onFocus } = this.props;
         onFocus && onFocus()
     };
-
-    // onPlus = (value) => {
-    //     this.onChange(parseInt(value, 10) + step)
-    // };
 
     /**
      ** 加法函数，用来得到精确的加法结果
@@ -139,7 +123,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         catch (e) {
             r2 = 0;
         }
-        m = Math.pow(10, Math.max(r1, r2)); //last modify by deeka //动态控制精度长度
+        m = Math.pow(10, Math.max(r1, r2));
         n = (r1 >= r2) ? r1 : r2;
         return ((arg1 * m - arg2 * m) / m).toFixed(n);
     };
@@ -164,10 +148,6 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         let { value:stateValue } = this.state;
         let value:number = parseFloat(stateValue+'');
 
-        // let strValue:string = proValue+'';
-        // let newValue:string = '';
-
-        // let value:number = parseFloat(strValue+'') ? 0 : parseFloat(strValue+'');
         step = step || 1;
 
         const { modified } = this.state;
@@ -211,11 +191,6 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
         let inputEditable = !disabled && editable;
 
-        // if (strValue === '-' || /(\.|([1-9]|\.|-)0)$/g.test(strValue) || strValue === '') {
-        //     newValue = strValue;
-        // } else {
-        //     newValue = value+'';
-        // }
         return (
             <View style={[styles.wrap, style, activeWrap, {width: width}]} {...restProps}>
                 {minusDom}
@@ -224,12 +199,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
                     value={stateValue+''}
                     editable={inputEditable}
                     autoFocus={autoFocus}
-                    // keyboardType="numbers-and-punctuation"
                     underlineColorAndroid="transparent"
-                    onChangeText={(text)=>{
-                        // if (text.split('.').length >= 3) {
-                        //     text = value+''
-                        // }
+                    onChangeText={(text) => {
                         onChange && onChange(text)
                     }}
                     onBlur={this.onBlur}
