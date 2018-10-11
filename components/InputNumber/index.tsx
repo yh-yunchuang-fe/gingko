@@ -27,13 +27,13 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         width: 110
     };
 
-    state = {
-        modified: false,
-        value: '0'
-    };
-
     isControlledComponent = () => {
         return this.props.hasOwnProperty('value')
+    };
+
+    state = {
+        modified: false,
+        value: this.isControlledComponent() ? this.props.value : 0,
     };
 
     componentWillReceiveProps(nextProps) {
