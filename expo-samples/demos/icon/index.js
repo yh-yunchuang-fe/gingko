@@ -50,7 +50,8 @@ const list = [
     'user-check',
     'edit-plus',
     'bell',
-    'clock-circle-o'
+    'clock-circle-o',
+    'store',
 ];
 export default class IconDemo extends Component {
     render() {
