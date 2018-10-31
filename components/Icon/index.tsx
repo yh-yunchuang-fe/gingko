@@ -53,7 +53,8 @@ const iconMap = {
     'user-check': '\ue927',
     'edit-plus': '\ue928',
     'bell': '\ue929',
-    'clock-circle-o': '\ue92a'
+    'clock-circle-o': '\ue92a',
+    'store': '\ue92b',
 };
 
 export default class Icon extends React.Component<IconProps, any> {

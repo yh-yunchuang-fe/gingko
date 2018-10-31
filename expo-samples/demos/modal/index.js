@@ -6,6 +6,8 @@ import React, { Component } from 'react'
 import {
     View,
     Text,
+    TextInput,
+    StyleSheet
 } from 'react-native'
 import {
     Modal,
@@ -21,6 +23,7 @@ export default class ButtonDemo extends Component {
         super(props);
         this.state = {
             visibleBasic: false,
+            visibleInput: false,
             animationType: ''
         }
     }
@@ -38,6 +41,12 @@ export default class ButtonDemo extends Component {
                     <WhiteSpace/>
                     <Button
                         onClick={()=>{
+                            this.setState({ visibleInput: true, animationType: 'none' })
+                        }}
+                    >Modal TextInput</Button>
+                    <WhiteSpace/>
+                    <Button
+                        onClick={()=>{
                             alert('Title', 'This is content???', [
                                 { text: 'Cancel', onPress: () => console.log('cancel') },
                                 { text: 'Ok', type: 'primary', onPress: () => console.log('ok') },
@@ -52,18 +61,6 @@ export default class ButtonDemo extends Component {
                             ])}
                         }
                     >alert title empty</Button>
-                    {/*<WhiteSpace/>*/}
-                    {/*<Button*/}
-                        {/*onClick={()=>{*/}
-                            {/*this.setState({ visible: true, animationType: 'slide-up' })*/}
-                        {/*}}*/}
-                    {/*>open slide-up Dialog</Button>*/}
-                    {/*<WhiteSpace/>*/}
-                    {/*<Button*/}
-                        {/*onClick={()=>{*/}
-                            {/*this.setState({ visible: true, animationType: 'slide-down' })*/}
-                        {/*}}*/}
-                    {/*>open slide-up Dialog</Button>*/}
                 </WingBlank>
 
                 <Modal
@@ -78,6 +75,30 @@ export default class ButtonDemo extends Component {
                     }]}
                 >
                     <Text>这是内容</Text>
+                    <Text>content</Text>
+                </Modal>
+
+                <Modal
+                    visible={this.state.visibleInput}
+                    onClose={()=>{
+                        this.setState({ visibleInput: false })
+                    }}
+                    title={'这是title'}
+                    footer={[{
+                        text: '知道了',
+                        type: 'primary'
+                    }]}
+                    style={{top: -100}}
+                >
+                    <Text>这是内容</Text>
+                    <TextInput
+                        style={{
+                            height: 28,
+                            lineHeight: 28,
+                            borderColor: '#333',
+                            borderWidth: StyleSheet.hairlineWidth
+                        }}
+                        placeholder="文本框"/>
                     <Text>content</Text>
                 </Modal>
             </View>

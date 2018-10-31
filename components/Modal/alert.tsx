@@ -3,10 +3,9 @@
  */
 import React  from 'react'
 import {
-    View,
-    Text, ScrollView,
+    Text,
 } from 'react-native'
-import topView from 'rn-topview';
+import rootView from 'react-native-root-view';
 import Modal from './modal';
 import variables from '../../src/style/variables';
 import { IActionButton, IAlertProps } from './propsType';
@@ -61,19 +60,27 @@ class Alert extends React.Component<IAlertProps, any> {
     }
 }
 
+type Reference = {
+   id: number | null
+};
+
+const reference: Reference = {
+    id: null
+};
+
 export default function a(title: string, content: string, actions: IActionButton[] = [{ text: '确定' }]) {
-    const onAnimationEnd = (visible) => {
+    const onAnimationEnd = (reference, visible) => {
         if (!visible) {
-            topView.remove();
+            rootView.remove(reference.id);
         }
     };
 
-    topView.set(
+    reference.id = rootView.set(
         <Alert
             title={title}
             content={content}
             actions={actions}
-            onAnimationEnd={onAnimationEnd}
+            onAnimationEnd={onAnimationEnd.bind(null, reference)}
         />,
     );
 }
