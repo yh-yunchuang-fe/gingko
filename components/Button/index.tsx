@@ -8,6 +8,7 @@ import {
 import { Indicator } from '../index'
 import ButtonProps from './propsType';
 import btnStyles from './style';
+import Icon from "../Icon";
 
 export default class Button extends React.Component<ButtonProps, any> {
     constructor(props: ButtonProps) {
@@ -28,7 +29,9 @@ export default class Button extends React.Component<ButtonProps, any> {
         activeStyle: {},
         onClick: (_x?: any) => {},
         onPressIn: (_x?: any) => {},
-        onPressOut: (_x?: any) => {}
+        onPressOut: (_x?: any) => {},
+
+        icon: {}
     };
 
     onPressIn = (...args: any[]) => {
@@ -63,7 +66,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
         const {
             size, type, style, textStyle, disabled, activeStyle, onClick, loading,
-            children, ...restProps
+            icon, children, ...restProps
         } = this.props;
 
         ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
@@ -96,6 +99,24 @@ export default class Button extends React.Component<ButtonProps, any> {
         ) as any).backgroundColor;
 
 
+        let iconDom
+        if (icon) {
+            if (typeof icon === 'string') {
+                iconDom = (
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Icon name={icon} style={btnStyles.iconSty}/>
+                    </View>
+                )
+            } else if (typeof icon === 'object') {
+                iconDom = (
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Icon name={icon.name} color={icon.color} size={icon.size} style={[btnStyles.iconSty, icon.style]}/>
+                    </View>
+                )
+            }
+        }
+
+
         return (
             <TouchableHighlight
                 activeOpacity={1}
@@ -113,6 +134,7 @@ export default class Button extends React.Component<ButtonProps, any> {
                     {
                         loading ? <Indicator style={btnStyles.indicator} color={type === 'primary' ? 'white' : 'blue'}/> : null
                     }
+                    { iconDom }
                     <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
                 </View>
             </TouchableHighlight>

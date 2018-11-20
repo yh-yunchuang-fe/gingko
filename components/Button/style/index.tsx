@@ -98,5 +98,8 @@ export default StyleSheet.create({
     },
     indicator: {
         marginRight: variables.h_spacing_md
+    },
+    iconSty: {
+        marginRight: variables.h_spacing_md
     }
 })

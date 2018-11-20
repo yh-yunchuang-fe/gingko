@@ -14,7 +14,9 @@ export default class ButtonDemo extends Component {
     render() {
         return (
             <View style={{marginVertical: 50, marginHorizontal: 20}}>
-                <Button onClick={()=>{ Alert.alert('button') }}>
+                <Button
+                    icon="scan"
+                    onClick={()=>{ Alert.alert('button') }}>
                     default button
                 </Button>
                 <WhiteSpace/>
@@ -22,7 +24,13 @@ export default class ButtonDemo extends Component {
                     default button
                 </Button>
                 <WhiteSpace/>
-                <Button type="primary">
+                <Button
+                    icon={{
+                        name: 'search',
+                        color: '#fff',
+                        size: 'lg'
+                    }}
+                    type="primary">
                     primary button
                 </Button>
                 <WhiteSpace/>
