@@ -13,6 +13,7 @@ export default class Button extends React.Component<ButtonProps, any> {
         onClick: (_x?: any) => void;
         onPressIn: (_x?: any) => void;
         onPressOut: (_x?: any) => void;
+        icon: {};
     };
     onPressIn: (...args: any[]) => void;
     onPressOut: (...args: any[]) => void;
