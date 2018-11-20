@@ -1,6 +1,6 @@
 {
   "name": "gingko",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "devDependencies": {
     "@types/react-test-renderer": "^16.0.0",
