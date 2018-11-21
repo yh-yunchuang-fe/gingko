@@ -115,6 +115,12 @@ export default class Button extends React.Component<ButtonProps, any> {
                 )
             }
         }
+        let childrenDom
+        if (React.isValidElement(children)) {
+            childrenDom = children
+        } else {
+            childrenDom = <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
+        }
 
 
         return (
@@ -135,7 +141,7 @@ export default class Button extends React.Component<ButtonProps, any> {
                         loading ? <Indicator style={btnStyles.indicator} color={type === 'primary' ? 'white' : 'blue'}/> : null
                     }
                     { iconDom }
-                    <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
+                    { childrenDom }
                 </View>
             </TouchableHighlight>
         )

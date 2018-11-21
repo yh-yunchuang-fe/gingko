@@ -8,7 +8,7 @@ interface IconProps {
 }
 
 export default interface buttonProps {
-    type?: 'default' | 'primary' | 'warning' | 'ghost';
+    type?: 'default' | 'primary' | 'warning';
     size?: 'default' | 'large' | 'small';
     style?: React.CSSProperties;
     textStyle?: React.CSSProperties;
