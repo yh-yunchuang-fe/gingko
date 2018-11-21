@@ -62,8 +62,13 @@ export default class ButtonDemo extends Component {
                     下一步
                 </Button>
                 <WhiteSpace/>
-                <Button style={{height: 28}} textStyle={{fontSize: 12, color: 'red'}}>
-                    自定义按钮
+                <Button
+                    type="primary"
+                    style={{height: 60}} textStyle={{fontSize: 12, color: 'red'}}>
+                    <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                        <Text style={{color: '#fff', marginBottom: 5, fontSize: 18}}>早班考勤</Text>
+                        <Text style={{color: '#fff', fontSize: 12}}>请在7：45前考勤</Text>
+                    </View>
                 </Button>
             </View>
         )
