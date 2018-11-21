@@ -22,7 +22,7 @@ export interface IActionButton {
     text: string;
     onPress?: () => void;
     style?: {};
-    type?: 'default' | 'primary' | 'warning' | 'ghost';
+    type?: 'default' | 'primary' | 'warning';
 }
 
 export interface IAlertProps {
