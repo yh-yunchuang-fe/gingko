@@ -46,13 +46,19 @@ export default class ButtonDemo extends Component {
                     warning button
                 </Button>
                 <WhiteSpace/>
-                <Button size="large">
-                    large button
-                </Button>
-                <WhiteSpace/>
-                <Button size="small">
-                    small button
-                </Button>
+                <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+                    <Button size="large">
+                        大按钮
+                    </Button>
+                    <Button>
+                        按钮
+                    </Button>
+                    <WhiteSpace/>
+                    <Button size="small" type="primary">
+                        小按钮
+                    </Button>
+                </View>
+
                 <WhiteSpace/>
                 <Button loading>
                     loading button
