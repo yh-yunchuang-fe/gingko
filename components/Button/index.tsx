@@ -107,7 +107,7 @@ export default class Button extends React.Component<ButtonProps, any> {
                         <Icon name={icon} style={btnStyles.iconSty}/>
                     </View>
                 )
-            } else if (typeof icon === 'object') {
+            } else if (typeof icon === 'object' && !!icon.name) {
                 iconDom = (
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                         <Icon name={icon.name} color={icon.color} size={icon.size} style={[btnStyles.iconSty, icon.style]}/>

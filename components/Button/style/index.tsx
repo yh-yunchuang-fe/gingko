@@ -83,11 +83,11 @@ export default StyleSheet.create({
 
     largeSty: {
         height: variables.btn_height,
-        paddingHorizontal: variables.h_spacing_md,
+        paddingHorizontal: variables.btn_h_spacing_md,
     },
     smallSty: {
         height: variables.btn_height_sm,
-        paddingHorizontal: variables.h_spacing_sm
+        paddingHorizontal: variables.btn_h_spacing_sm
     },
 
     largeText: {

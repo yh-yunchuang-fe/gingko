@@ -47,9 +47,11 @@ export default {
     btn_font_size: 18,
 
     btn_height_sm: 30,
+    btn_h_spacing_md: 12,
+    btn_h_spacing_sm: 10,
     // btn_height_lg: 60,
 
-    btn_font_size_sm: 16,
+    btn_font_size_sm: 14,
     // btn_font_size_lg: 20,
 
     btn_default_fill: 'transparent',
