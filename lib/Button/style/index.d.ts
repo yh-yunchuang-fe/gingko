@@ -24,5 +24,6 @@ declare const _default: {
     largeText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
     smallText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
     indicator: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    iconSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
 };
 export default _default;

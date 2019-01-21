@@ -17,12 +17,11 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         autoFocus: boolean;
         width: number;
     };
+    isControlledComponent: () => boolean;
     state: {
         modified: boolean;
-        value: string;
+        value: number | undefined;
     };
-    constructor(props: any);
-    isControlledComponent: () => boolean;
     componentWillReceiveProps(nextProps: any): void;
     onChange: (num: any) => void;
     onBlur: () => void;
