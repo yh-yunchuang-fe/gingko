@@ -30,9 +30,9 @@ class Alert extends React.Component<IAlertProps, any> {
         const footer = actions.map((button) => {
             const originPress = button.onPress || function () {};
             button.onPress = () => {
-                const res: any = originPress();
-                if (res && res.then) {
-                    res.then(() => {
+                const res:any = originPress();
+                if (res && (res as any).then) {
+                    (res as any).then(() => {
                         this.onClose();
                     });
                 } else {

@@ -5,6 +5,11 @@ export default [
         screen: require('../demos/codeInputGroup').default
     },
     {
+        title: 'Body',
+        description: '容器',
+        screen: require('../demos/body').default
+    },
+    {
         title: 'OptionTag',
         description: '选项标签',
         screen: require('../demos/optionTag').default
