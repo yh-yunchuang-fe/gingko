@@ -19,7 +19,7 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
         style,
         mask,
     } = options;
-    let id = null;
+    let id:number = 0;
     const animationEnd = () => {
         rootView.remove(id);
     };
