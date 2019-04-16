@@ -2,9 +2,11 @@ import {
     StyleSheet
 } from "react-native";
 
-const brandPrimary = '#24A8E8';
+let externalConfig = {}
 
-export default {
+const brandPrimary = externalConfig && externalConfig.brandPrimary || '#24A8E8';
+
+const config = {
     // 颜色
     // --
     color_base: '#333',
@@ -137,3 +139,4 @@ export default {
     toast_zIndex: 1000,
 }
 
+export default Object.assign({}, config, externalConfig || {})
