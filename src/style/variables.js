@@ -25,7 +25,7 @@ const config = {
     // ---
     fill_base: '#fff',
     fill_tap: '#bbb',
-    fill_mask: 'rgba(0, 0, 0, .5)',              // 遮罩背景
+    fill_mask: 'rgba(0, 0, 0, .75)',              // 遮罩背景
     fill_badge: '#ff0000',  // 用于小红点背景色
     fill_notice: '#FFF5CC',
 
@@ -112,7 +112,7 @@ const config = {
     // ---
     modal_mask_color: 'rgba(0, 0, 0, .3)',
     modal_main_zIndex: 999,
-    modal_main_width: 270,
+    modal_main_width: 300,
     modal_single_btn_width: 180,
     modal_group_btn_width: 112,
 
