@@ -114,7 +114,7 @@ const config = {
     modal_main_zIndex: 999,
     modal_main_width: 300,
     modal_single_btn_width: 180,
-    modal_group_btn_width: 112,
+    modal_group_btn_width: 127,
 
     // searchbar
     // ---
