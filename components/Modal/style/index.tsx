@@ -19,7 +19,7 @@ export default StyleSheet.create({
         textAlign: 'center',
         fontSize: variables.font_size_caption,
         color: variables.color_base,
-        marginTop: variables.h_spacing_lg,
+        marginTop: variables.v_spacing_md,
     },
     body: {
         paddingTop: variables.v_spacing_md,
