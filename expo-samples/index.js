@@ -1,6 +1,7 @@
 import React from 'react'
-import { StackNavigator } from 'react-navigation'
-import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack'
+// import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 import routes from './src/routes'
 import Home from './src/Home'
 
@@ -24,7 +25,7 @@ routes.forEach((component) => {
 });
 
 
-const App = StackNavigator(scenes, {
+const App = createAppContainer(createStackNavigator(scenes, {
     initialRouteName: 'Home',
     // 让安卓也支持push 动画 从左向右滑，关闭窗口
     headerMode: 'screen',
@@ -37,10 +38,10 @@ const App = StackNavigator(scenes, {
      * 关于修改默认的跳转动画或者自定义动画效果，以下给出两个场景。
      * @returns {{screenInterpolator: forHorizontal}}
      */
-    transitionConfig:()=>({
-        // 只要修改最后的forVertical就可以实现不同的动画了。
-        screenInterpolator: CardStackStyleInterpolator.forHorizontal,
-    }),
+    // transitionConfig:()=>({
+    //     // 只要修改最后的forVertical就可以实现不同的动画了。
+    //     screenInterpolator: CardStackStyleInterpolator.forHorizontal,
+    // }),
     navigationOptions: {
         gesturesEnabled: true,
         animationEnabled: true,
@@ -55,7 +56,7 @@ const App = StackNavigator(scenes, {
         },
         headerTintColor: 'white',
     }
-});
+}));
 
 export default App;
 

@@ -1,6 +1,13 @@
 declare const _default: {
-    indicator: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    spinner: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    tip: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    indicator: {
+        flexDirection: "row";
+        alignItems: "center";
+    };
+    spinner: {};
+    tip: {
+        fontSize: any;
+        color: any;
+        marginLeft: any;
+    };
 };
 export default _default;

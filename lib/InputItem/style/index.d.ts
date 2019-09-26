@@ -1,9 +1,36 @@
 declare const _default: {
-    container: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    label: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    input: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    textInput: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    hintIcon: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    hintText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    container: {
+        flex: number;
+    };
+    label: {
+        fontSize: any;
+        color: any;
+        lineHeight: any;
+    };
+    input: {
+        backgroundColor: any;
+        padding: number;
+        marginTop: any;
+        borderRadius: any;
+        flexDirection: "row";
+        justifyContent: "space-between";
+        alignItems: "center";
+    };
+    textInput: {
+        fontSize: any;
+        color: any;
+        height: any;
+        flex: number;
+        padding: number;
+    };
+    hintIcon: {
+        marginHorizontal: any;
+    };
+    hintText: {
+        color: any;
+        fontSize: any;
+        margin: any;
+        lineHeight: any;
+    };
 };
 export default _default;

@@ -1,10 +1,27 @@
 declare const _default: {
-    noticeBar: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    icon: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    container: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    content: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    actionWrap: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    actionIcon: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    action: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    noticeBar: {
+        overflow: "hidden";
+        flexDirection: "row";
+        paddingVertical: number;
+        paddingLeft: number;
+    };
+    icon: {
+        marginRight: number;
+    };
+    container: {
+        flex: number;
+        overflow: "hidden";
+        marginRight: any;
+    };
+    content: {
+        fontSize: any;
+    };
+    actionWrap: {
+        marginRight: any;
+    };
+    actionIcon: {};
+    action: {
+        fontSize: any;
+    };
 };
 export default _default;

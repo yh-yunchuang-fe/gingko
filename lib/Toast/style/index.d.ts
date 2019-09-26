@@ -1,8 +1,37 @@
 declare const _default: {
-    container: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    innerContainer: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    iconContainer: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    textContainer: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    contentText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    container: {
+        position: "absolute";
+        top: number;
+        left: number;
+        right: number;
+        bottom: number;
+        backgroundColor: string;
+        alignItems: "center";
+        zIndex: any;
+    };
+    innerContainer: {
+        backgroundColor: string;
+        borderRadius: any;
+        paddingHorizontal: number;
+        paddingVertical: number;
+        justifyContent: "center";
+        alignItems: "center";
+        minWidth: number;
+    };
+    iconContainer: {
+        paddingTop: number;
+        paddingBottom: number;
+    };
+    textContainer: {
+        minHeight: number;
+        justifyContent: "center";
+        alignItems: "center";
+    };
+    contentText: {
+        color: string;
+        fontSize: number;
+        lineHeight: number;
+        textAlign: "center";
+    };
 };
 export default _default;

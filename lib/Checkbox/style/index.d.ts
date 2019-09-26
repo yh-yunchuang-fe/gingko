@@ -1,5 +1,10 @@
 declare const _default: {
-    container: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    icon: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    container: {
+        flexDirection: "row";
+        alignItems: "center";
+    };
+    icon: {
+        marginRight: number;
+    };
 };
 export default _default;

@@ -20,7 +20,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     isControlledComponent: () => boolean;
     state: {
         modified: boolean;
-        value: number | undefined;
+        value: number;
     };
     componentWillReceiveProps(nextProps: any): void;
     onChange: (num: any) => void;

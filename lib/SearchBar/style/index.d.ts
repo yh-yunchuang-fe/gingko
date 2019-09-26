@@ -1,10 +1,49 @@
 declare const _default: {
-    wrapper: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    inputWrapper: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    input: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    searchIcon: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    deleteIcon: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    cancel: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    cancelText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    wrapper: {
+        backgroundColor: any;
+        height: any;
+        paddingHorizontal: any;
+        flexDirection: "row";
+        alignItems: "center";
+    };
+    inputWrapper: {
+        flex: number;
+        flexDirection: "row";
+        borderRadius: any;
+        backgroundColor: any;
+        height: any;
+        paddingVertical: number;
+        alignItems: "center";
+    };
+    input: {
+        height: any;
+        flex: number;
+        paddingVertical: number;
+        color: any;
+        fontSize: number;
+    };
+    searchIcon: {
+        fontSize: number;
+        color: string;
+        marginLeft: any;
+        marginRight: number;
+    };
+    deleteIcon: {
+        color: string;
+        paddingLeft: number;
+        paddingRight: any;
+    };
+    cancel: {
+        height: any;
+        justifyContent: "center";
+        alignItems: "center";
+        width: number;
+        marginRight: number;
+    };
+    cancelText: {
+        fontSize: any;
+        color: any;
+        paddingLeft: any;
+    };
 };
 export default _default;

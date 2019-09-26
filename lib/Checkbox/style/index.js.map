@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../components/Checkbox/style/index.tsx"],"names":[],"mappings":";;;;;AAAA;;GAEG;AACH,+CAEsB;AACtB,6EAAqD;AAErD,kBAAe,yBAAU,CAAC,MAAM,CAAC;IAC7B,SAAS,EAAE;QACP,aAAa,EAAE,KAAK;QACpB,UAAU,EAAE,QAAQ;KACvB;IACD,IAAI,EAAE;QACF,WAAW,EAAE,mBAAS,CAAC,YAAY,GAAG,CAAC;KAC1C;CACJ,CAAC,CAAC"}

@@ -1,4 +1,9 @@
 declare const _default: {
-    container: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    container: {
+        position: "absolute";
+        bottom: number;
+        backgroundColor: any;
+        width: number;
+    };
 };
 export default _default;

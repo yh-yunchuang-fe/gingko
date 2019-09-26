@@ -26,7 +26,7 @@ export interface IPickerProps {
 }
 export interface IAndroidPickerProps {
     selectedValue?: any;
-    onValueChange?: (value: any) => void;
+    onValueChange?: (value?: any, id?: number) => void;
     style?: any;
     itemStyle?: any;
 }

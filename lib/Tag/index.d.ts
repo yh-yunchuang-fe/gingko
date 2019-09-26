@@ -12,7 +12,7 @@ export default class Tag extends React.Component<TagProps, any> {
         color: any;
         textColor: string;
         activeColor: any;
-        style: null;
+        style: any;
         size: string;
         selected: boolean;
     };

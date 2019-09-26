@@ -1,12 +1,44 @@
 declare const _default: {
-    wrap: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    activeWrap: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    action: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    activeAction: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    actionDisabled: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    content: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    textInput: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    activeInput: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    unit: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    wrap: {
+        height: any;
+        flexDirection: "row";
+        alignItems: "center";
+        backgroundColor: any;
+        borderRadius: any;
+        overflow: "hidden";
+    };
+    activeWrap: {
+        backgroundColor: any;
+    };
+    action: {
+        width: number;
+        justifyContent: "center";
+        alignItems: "center";
+        height: string;
+    };
+    activeAction: {
+        color: any;
+    };
+    actionDisabled: {
+        color: any;
+    };
+    content: {
+        flexDirection: "row";
+        flex: number;
+    };
+    textInput: {
+        fontSize: any;
+        color: any;
+        flex: number;
+        textAlign: "right";
+    };
+    activeInput: {
+        color: any;
+    };
+    unit: {
+        fontSize: any;
+        color: any;
+        marginLeft: any;
+    };
 };
 export default _default;

@@ -15,5 +15,5 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     constructor(props: any);
     componentWillReceiveProps(nextProps: any): void;
     onChange: (index: any, item: any) => void;
-    render(): JSX.Element | null;
+    render(): JSX.Element;
 }

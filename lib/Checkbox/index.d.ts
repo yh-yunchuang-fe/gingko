@@ -16,6 +16,6 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
     componentWillReceiveProps(nextProps: any): void;
     constructor(props: any);
     handleClick: () => void;
-    renderIcon(): JSX.Element | React.ReactElement<{}> | null;
+    renderIcon(): JSX.Element;
     render(): JSX.Element;
 }

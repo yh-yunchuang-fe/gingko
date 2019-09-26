@@ -13,7 +13,7 @@ export default class Badge extends React.Component<IBadge, any> {
         overflowCount: number;
         bgColor: any;
         color: any;
-        cornerContent: null;
+        cornerContent: any;
         badgeStyle: {};
         badgeTextStyle: {};
         imageBadgeStyle: {};

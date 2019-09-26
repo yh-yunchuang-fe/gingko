@@ -20,7 +20,7 @@ export default class Toast extends React.Component<IPropsType, any> {
     ownIcon: boolean;
     componentDidMount(): void;
     componentWillUnmount(): void;
-    renderIcon(): JSX.Element | null;
-    renderContent(): JSX.Element | null;
+    renderIcon(): JSX.Element;
+    renderContent(): JSX.Element;
     render(): JSX.Element;
 }

@@ -1,7 +1,7 @@
 declare const _default: {
-    container: import("react-native").RegisteredStyle<{
+    container: {
         flex: number;
         backgroundColor: string;
-    }>;
+    };
 };
 export default _default;

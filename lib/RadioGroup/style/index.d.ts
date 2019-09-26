@@ -1,11 +1,39 @@
 declare const _default: {
-    radioGroup: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    radioBtn: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    radioBtnText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    firstRadioBtn: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    lastRadioBtn: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    activeRadioBtn: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    activeRadioBtnText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    cutLineSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    radioGroup: {
+        flexDirection: "row";
+    };
+    radioBtn: {
+        paddingHorizontal: any;
+        height: number;
+        justifyContent: "center";
+        backgroundColor: any;
+        borderColor: any;
+        borderTopWidth: number;
+        borderBottomWidth: number;
+    };
+    radioBtnText: {
+        fontSize: any;
+        color: any;
+    };
+    firstRadioBtn: {
+        borderTopLeftRadius: any;
+        borderBottomLeftRadius: any;
+        borderLeftWidth: number;
+    };
+    lastRadioBtn: {
+        borderTopRightRadius: any;
+        borderBottomRightRadius: any;
+        borderRightWidth: number;
+    };
+    activeRadioBtn: {
+        backgroundColor: any;
+    };
+    activeRadioBtnText: {
+        color: any;
+    };
+    cutLineSty: {
+        borderRightWidth: number;
+        borderColor: any;
+    };
 };
 export default _default;

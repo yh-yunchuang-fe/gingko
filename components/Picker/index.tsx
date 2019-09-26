@@ -87,12 +87,14 @@ export default class extends React.Component<IPickerProps, any> {
     renderCols = () => {
         const { data } = this.props;
         if (Array.isArray(data)) {
-            const Pick = isAndroid ? AndroidPicker : Picker;
             return data.map((group, idx) => {
                 return (
-                    <Pick key={idx}>
+                    isAndroid ?
+                    <AndroidPicker key={idx}>
                         {this.renderItems(group)}
-                    </Pick>
+                    </AndroidPicker> : <Picker key={idx}>
+                        {this.renderItems(group)}
+                    </Picker>
                 );
             });
         }
@@ -112,7 +114,6 @@ export default class extends React.Component<IPickerProps, any> {
     }
 
     renderPicker = () => {
-        const Pick = isAndroid ? AndroidPicker : Picker;
         const {
             value,
             onChange,
@@ -126,7 +127,7 @@ export default class extends React.Component<IPickerProps, any> {
             const itemSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle;
             const columnSty = Array.isArray(columnStyle) ? columnStyle[0] : columnStyle;
             return (
-                <Pick
+                isAndroid ? <AndroidPicker
                     {...rest}
                     itemStyle={StyleSheet.flatten(itemSty)}
                     style={StyleSheet.flatten([style, columnSty])}
@@ -134,7 +135,15 @@ export default class extends React.Component<IPickerProps, any> {
                     selectedValue={this.state.value}
                 >
                     {children}
-                </Pick>
+                </AndroidPicker> : <Picker
+                    {...rest}
+                    itemStyle={StyleSheet.flatten(itemSty)}
+                    style={StyleSheet.flatten([style, columnSty])}
+                    onValueChange={this.onChange}
+                    selectedValue={this.state.value}
+                >
+                    {children}
+                </Picker>
             );
         }
         const itemSty = Array.isArray(itemStyle) ? itemStyle : [itemStyle];

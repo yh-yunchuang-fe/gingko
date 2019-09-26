@@ -1,6 +1,18 @@
 declare const _default: {
-    result: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    title: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    message: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    result: {
+        flexDirection: "column";
+        alignItems: "center";
+        paddingVertical: number;
+    };
+    title: {
+        marginTop: number;
+        fontSize: any;
+        color: any;
+    };
+    message: {
+        fontSize: any;
+        color: any;
+        marginTop: number;
+    };
 };
 export default _default;

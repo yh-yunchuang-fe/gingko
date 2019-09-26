@@ -7,10 +7,10 @@ import React from 'react';
 import NavBarProps from './propsType';
 export default class NarBar extends React.Component<NavBarProps, any> {
     static defaultProps: {
-        style: null;
+        style: any;
         leftIcon: string;
-        leftContent: null;
-        rightContent: null;
+        leftContent: any;
+        rightContent: any;
         onLeftClick: () => void;
     };
     constructor(props: any);

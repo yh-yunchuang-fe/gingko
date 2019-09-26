@@ -6,7 +6,7 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native'
-import { Font } from 'expo';
+import * as Font from 'expo-font';
 import {
     Icon,
 } from '../../components/index'

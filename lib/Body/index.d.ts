@@ -5,7 +5,7 @@ import * as React from 'react';
 import BodyProps from './propdType';
 export default class Body extends React.Component<BodyProps, any> {
     static defaultProps: {
-        style: null;
+        style: any;
     };
     render(): JSX.Element;
 }

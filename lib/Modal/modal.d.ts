@@ -17,7 +17,7 @@ export default class GkModal extends React.Component<IModalProps, any> {
         style: {};
         bodyStyle: {};
         title: string;
-        footer: never[];
+        footer: any[];
     };
     static alert: any;
     render(): JSX.Element;

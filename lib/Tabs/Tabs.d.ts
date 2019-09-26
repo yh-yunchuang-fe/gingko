@@ -14,18 +14,18 @@ export default class Tabs extends React.Component<TabsProps, any> {
     };
     constructor(props: TabsProps);
     getTabIndex(props: TabsProps): number;
-    isTabVertical: (tabBarPosition?: "left" | undefined) => boolean;
+    isTabVertical: (tabBarPosition?: "left") => boolean;
     goToTab(index: number): boolean;
     getTabBarBaseProps(): {
         activeTab: any;
         tabs: TabProps[];
-        onTabClick: ((tab: TabProps, index: number) => void) | undefined;
+        onTabClick: (tab: TabProps, index: number) => void;
         goToTab: any;
-        tabBarFillColor: string | undefined;
-        tabBarActionFillColor: string | undefined;
-        tabBarActiveTextColor: string | undefined;
-        tabBarInactiveTextColor: string | undefined;
-        tabBarPosition: "left" | undefined;
+        tabBarFillColor: string;
+        tabBarActionFillColor: string;
+        tabBarActiveTextColor: string;
+        tabBarInactiveTextColor: string;
+        tabBarPosition: "left";
         tabBarTextStyle: any;
     };
     getSubElements: () => (defaultPrefix?: string, allPrefix?: string) => {

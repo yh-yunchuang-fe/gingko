@@ -14,5 +14,5 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     };
     constructor(props: any);
     onClick: () => void;
-    render(): JSX.Element | null;
+    render(): JSX.Element;
 }

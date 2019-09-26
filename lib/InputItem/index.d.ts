@@ -10,6 +10,6 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
     onChange: (text: any) => void;
     onInputBlur: () => void;
     onInputFocus: () => void;
-    renderIcon: () => JSX.Element | null;
+    renderIcon: () => JSX.Element;
     render(): JSX.Element;
 }

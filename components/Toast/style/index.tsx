@@ -3,14 +3,14 @@
  */
 import {
     StyleSheet,
-    PlatformIOS,
+    Platform,
 } from 'react-native';
 import variables from '../../../src/style/variables';
 
 export default StyleSheet.create({
     container: {
         position: 'absolute',
-        top: PlatformIOS ? 64 : 54,
+        top: Platform.OS === 'ios' ? 64 : 54,
         left: 0,
         right: 0,
         bottom: 0,
