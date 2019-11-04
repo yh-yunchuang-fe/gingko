@@ -5,8 +5,10 @@ import {
     StyleSheet,
     TouchableHighlight
 } from 'react-native';
+import { Indicator } from '../index'
 import ButtonProps from './propsType';
 import btnStyles from './style';
+import Icon from "../Icon";
 
 export default class Button extends React.Component<ButtonProps, any> {
     constructor(props: ButtonProps) {
@@ -22,11 +24,14 @@ export default class Button extends React.Component<ButtonProps, any> {
         type: 'default',
         disabled: false,
         style: {},
+        textStyle: {},
         loading: false,
         activeStyle: {},
         onClick: (_x?: any) => {},
         onPressIn: (_x?: any) => {},
-        onPressOut: (_x?: any) => {}
+        onPressOut: (_x?: any) => {},
+
+        icon: {}
     };
 
     onPressIn = (...args: any[]) => {
@@ -60,8 +65,8 @@ export default class Button extends React.Component<ButtonProps, any> {
     render() {
 
         const {
-            size, type, style, disabled, activeStyle, onClick, loading,
-            children, ...restProps
+            size, type, style, textStyle, disabled, activeStyle, onClick, loading,
+            icon, children, ...restProps
         } = this.props;
 
         ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
@@ -86,11 +91,36 @@ export default class Button extends React.Component<ButtonProps, any> {
             btnStyles[`${type}Text`],
             disabled && btnStyles[`${type}DisabledText`],
             this.state.pressIn && btnStyles[`${type}TapText`],
+            textStyle
         ];
 
         const underlayColor = (StyleSheet.flatten(
             btnStyles[activeStyle ? `${type}TapSty` : `${type}Sty`],
         ) as any).backgroundColor;
+
+
+        let iconDom
+        if (icon) {
+            if (typeof icon === 'string') {
+                iconDom = (
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Icon name={icon} style={btnStyles.iconSty}/>
+                    </View>
+                )
+            } else if (typeof icon === 'object' && !!icon.name) {
+                iconDom = (
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Icon name={icon.name} color={icon.color} size={icon.size} style={[btnStyles.iconSty, icon.style]}/>
+                    </View>
+                )
+            }
+        }
+        let childrenDom
+        if (React.isValidElement(children)) {
+            childrenDom = children
+        } else {
+            childrenDom = <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
+        }
 
 
         return (
@@ -107,7 +137,11 @@ export default class Button extends React.Component<ButtonProps, any> {
                 {...restProps}
                 >
                 <View style={btnStyles.container}>
-                    <Text style={textSty}>{ children }</Text>
+                    {
+                        loading ? <Indicator style={btnStyles.indicator} color={type === 'primary' ? 'white' : 'blue'}/> : null
+                    }
+                    { iconDom }
+                    { childrenDom }
                 </View>
             </TouchableHighlight>
         )

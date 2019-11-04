@@ -1,50 +1,31 @@
 {
   "name": "gingko",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.1",
+  "private": false,
   "devDependencies": {
-    "@types/jest": "^22.1.1",
-    "@types/react": "^16.0.36",
-    "@types/react-native": "^0.52.8",
     "@types/react-test-renderer": "^16.0.0",
-    "de": "^6.2.2",
-    "jest-expo": "25.0.0",
+    "babel-preset-expo": "^4.0.0",
+    "metro-react-native-babel-preset": "^0.46.0",
     "react-native-scripts": "1.11.1",
     "react-native-typescript-transformer": "^1.2.3",
-    "react-test-renderer": "16.2.0",
-    "ts-jest": "^22.0.3",
-    "typescript": "^2.7.1"
+    "typescript": "^3.0.3"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "main": "node_modules/expo/AppEntry.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js"
-  },
-  "jest": {
-    "preset": "jest-expo",
-    "transform": {
-      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "ios.ts",
-      "ios.tsx",
-      "android.ts",
-      "android.tsx"
-    ]
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "compile": "rm -rf lib && tsc"
   },
   "dependencies": {
-    "expo": "^25.0.0",
-    "react": "16.2.0",
-    "react-native": "0.52.0"
+    "@types/react": "^16.0.36",
+    "@types/react-native": "^0.52.25",
+    "expo": "30.0.1",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-root-view": "^0.1.3",
+    "react-navigation": "^1.0.3",
+    "react-test-renderer": "16.2.0"
   }
 }

@@ -1,0 +1,2 @@
+- 打开 iOS 项目 `info.plist` 文件，添加 `Fonts provided by application`，指定一个 item 的值为 `anticon.ttf`， 将 `anticon.ttf` 拖进项目；
+- Android 项目将 `anticon.ttf` 放在 `android/app/src/main/assets/fonts/` 目录下;

@@ -7,14 +7,16 @@ import {
 import {
     Button,
     WhiteSpace
-} from '../../../components'
+} from '../../../components/index'
 
 
 export default class ButtonDemo extends Component {
     render() {
         return (
             <View style={{marginVertical: 50, marginHorizontal: 20}}>
-                <Button onClick={()=>{ Alert.alert('button') }}>
+                <Button
+                    icon="scan"
+                    onClick={()=>{ Alert.alert('button') }}>
                     default button
                 </Button>
                 <WhiteSpace/>
@@ -22,7 +24,13 @@ export default class ButtonDemo extends Component {
                     default button
                 </Button>
                 <WhiteSpace/>
-                <Button type="primary">
+                <Button
+                    icon={{
+                        name: 'search',
+                        color: '#fff',
+                        size: 'lg'
+                    }}
+                    type="primary">
                     primary button
                 </Button>
                 <WhiteSpace/>
@@ -38,12 +46,35 @@ export default class ButtonDemo extends Component {
                     warning button
                 </Button>
                 <WhiteSpace/>
-                <Button size="large">
-                    large button
+                <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+                    <Button size="large">
+                        大按钮
+                    </Button>
+                    <Button>
+                        按钮
+                    </Button>
+                    <WhiteSpace/>
+                    <Button size="small" type="primary">
+                        小按钮
+                    </Button>
+                </View>
+
+                <WhiteSpace/>
+                <Button loading>
+                    loading button
                 </Button>
                 <WhiteSpace/>
-                <Button size="small">
-                    small button
+                <Button type="primary" loading>
+                    下一步
+                </Button>
+                <WhiteSpace/>
+                <Button
+                    type="primary"
+                    style={{height: 60}} textStyle={{fontSize: 12, color: 'red'}}>
+                    <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                        <Text style={{color: '#fff', marginBottom: 5, fontSize: 18}}>早班考勤</Text>
+                        <Text style={{color: '#fff', fontSize: 12}}>请在7：45前考勤</Text>
+                    </View>
                 </Button>
             </View>
         )

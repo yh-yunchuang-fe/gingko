@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {
-    View
-} from 'react-native';
 import Samples from './expo-samples/index'
 
 export default class App extends Component {
@@ -10,9 +7,7 @@ export default class App extends Component {
     }
     render() {
         return (
-            <View>
-                <Samples/>
-            </View>
+            <Samples/>
         );
     }
 }
