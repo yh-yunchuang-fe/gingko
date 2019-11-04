@@ -5,6 +5,8 @@ export default class Grid extends React.Component<GridProps, any> {
         data: never[];
         columnNum: number;
         hasLine: boolean;
+        noWrap: boolean;
+        blankWidth: number;
         itemStyle: {};
         onClick: () => void;
     };
