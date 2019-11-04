@@ -11,6 +11,8 @@ export interface GridProps {
     columnNum?: number;
     hasLine?: boolean;
     itemStyle?: any;
+    noWrap?: boolean;
+    blankWidth?: number;
     onClick?: (dataItem: DataItem | undefined, itemIndex: number) => void;
     renderItem?: (dataItem: DataItem | undefined, itemIndex: number) => React.ReactElement<any>;
 }

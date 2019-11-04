@@ -17,14 +17,16 @@ export default class Grid extends React.Component<GridProps, any> {
         columnNum: 3,
         hasLine: true,
         itemStyle: {},
+        noWrap: false,
+        blankWidth: 0,
         onClick: ()=>{}
     };
 
     getFlexItemStyle () {
-        const columnNum = this.props.columnNum || 0;
+        const {columnNum = 3, blankWidth = 0} = this.props
         return {
-            width: width / columnNum,
-            height: width / columnNum
+            width: (width - blankWidth * 2) / columnNum,
+            height: (width - blankWidth * 2) / columnNum
         }
     }
 
@@ -45,7 +47,7 @@ export default class Grid extends React.Component<GridProps, any> {
     }
 
     render() {
-        const { data, hasLine, onClick, itemStyle } = this.props;
+        const { data, hasLine, onClick, itemStyle, noWrap, blankWidth = 0 } = this.props;
 
         const columnNum = this.props.columnNum || 0;
         const dataLength = data && data.length || 0;
@@ -88,8 +90,8 @@ export default class Grid extends React.Component<GridProps, any> {
             }
 
             const boxBorderStyle = {
-                borderTopWidth: hasLine && i === 0 ? 1 : 0,
-                borderBottomWidth: hasLine ? 1 : 0,
+                borderTopWidth: hasLine && !noWrap && i === 0 ? 1 : 0,
+                borderBottomWidth: hasLine ? (noWrap && i === rowCount - 1 ? 0 : 1) : 0,
             };
             rowsArr.push(
                 <View key={i} style={[styles.gridRow, boxBorderStyle]}>
@@ -99,7 +101,7 @@ export default class Grid extends React.Component<GridProps, any> {
         }
 
         return (
-            <View style={styles.gridContainer}>
+            <View style={[styles.gridContainer, {paddingHorizontal: blankWidth}]}>
                 { rowsArr }
             </View>
         )
