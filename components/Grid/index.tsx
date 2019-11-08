@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { GridProps, DataItem } from "./propsType";
 import styles from './style/index'
+import { instanceOf } from 'prop-types';
 
 const { width, height } = Dimensions.get('window');
 
@@ -47,7 +48,7 @@ export default class Grid extends React.Component<GridProps, any> {
     }
 
     render() {
-        const { data, hasLine, onClick, itemStyle, noWrap, blankWidth = 0 } = this.props;
+        const { data, hasLine, onClick, itemStyle, noWrap, buildItem, blankWidth = 0 } = this.props;
 
         const columnNum = this.props.columnNum || 0;
         const dataLength = data && data.length || 0;
@@ -62,6 +63,11 @@ export default class Grid extends React.Component<GridProps, any> {
 
                 if (index < dataLength) {
                     const item = data && data[index] || {};
+                    let paramItem = Object.assign({}, item)
+                    if (typeof buildItem === 'function') {
+                        paramItem = buildItem(paramItem)
+                    }
+
                     arr.push(
                         <TouchableOpacity
                             key={j}
@@ -71,7 +77,7 @@ export default class Grid extends React.Component<GridProps, any> {
                                 flexItemStyle,
                                 itemStyle
                             ]}
-                            onPress={() => onClick && onClick(item, index)}>
+                            onPress={() => onClick && onClick(paramItem, index)}>
                             { this.renderItem(item, index) }
                         </TouchableOpacity>
                     )
