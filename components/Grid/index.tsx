@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { GridProps, DataItem } from "./propsType";
 import styles from './style/index'
+import { instanceOf } from 'prop-types';
 
 const { width, height } = Dimensions.get('window');
 
@@ -16,15 +17,17 @@ export default class Grid extends React.Component<GridProps, any> {
         data: [],
         columnNum: 3,
         hasLine: true,
+        noWrap: false,
+        blankWidth: 0,
         itemStyle: {},
         onClick: ()=>{}
     };
 
     getFlexItemStyle () {
-        const columnNum = this.props.columnNum || 0;
+        const {columnNum = 3, blankWidth = 0} = this.props
         return {
-            width: width / columnNum,
-            height: width / columnNum
+            width: (width - blankWidth * 2) / columnNum,
+            height: (width - blankWidth * 2) / columnNum
         }
     }
 
@@ -45,7 +48,7 @@ export default class Grid extends React.Component<GridProps, any> {
     }
 
     render() {
-        const { data, hasLine, onClick, itemStyle } = this.props;
+        const { data, hasLine, onClick, itemStyle, noWrap, buildItem, blankWidth = 0 } = this.props;
 
         const columnNum = this.props.columnNum || 0;
         const dataLength = data && data.length || 0;
@@ -60,6 +63,11 @@ export default class Grid extends React.Component<GridProps, any> {
 
                 if (index < dataLength) {
                     const item = data && data[index] || {};
+                    let paramItem = Object.assign({}, item)
+                    if (typeof buildItem === 'function') {
+                        paramItem = buildItem(paramItem)
+                    }
+
                     arr.push(
                         <TouchableOpacity
                             key={j}
@@ -69,7 +77,7 @@ export default class Grid extends React.Component<GridProps, any> {
                                 flexItemStyle,
                                 itemStyle
                             ]}
-                            onPress={() => onClick && onClick(item, index)}>
+                            onPress={() => onClick && onClick(paramItem, index)}>
                             { this.renderItem(item, index) }
                         </TouchableOpacity>
                     )
@@ -88,8 +96,8 @@ export default class Grid extends React.Component<GridProps, any> {
             }
 
             const boxBorderStyle = {
-                borderTopWidth: hasLine && i === 0 ? 1 : 0,
-                borderBottomWidth: hasLine ? 1 : 0,
+                borderTopWidth: hasLine && !noWrap && i === 0 ? 1 : 0,
+                borderBottomWidth: hasLine ? (noWrap && i === rowCount - 1 ? 0 : 1) : 0,
             };
             rowsArr.push(
                 <View key={i} style={[styles.gridRow, boxBorderStyle]}>
@@ -99,7 +107,7 @@ export default class Grid extends React.Component<GridProps, any> {
         }
 
         return (
-            <View style={styles.gridContainer}>
+            <View style={[styles.gridContainer, {paddingHorizontal: blankWidth}]}>
                 { rowsArr }
             </View>
         )
