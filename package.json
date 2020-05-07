@@ -29,7 +29,25 @@
     "babel-preset-expo": "^7.0.0",
     "typescript": "^3.4.5"
   },
-  "name": "gingko",
+  "name": "@yh-rn/gingko",
   "version": "1.0.4",
-  "private": false
+  "private": false,
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "assets"
+  ],
+  "description": "#### 介绍 gingko是基于React Native的UI组件库，为永辉云创RN项目提供支撑。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yh-yunchuang-fe/gingko.git"
+  },
+  "author": "yh-rn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yh-yunchuang-fe/gingko/issues"
+  },
+  "homepage": "https://github.com/yh-yunchuang-fe/gingko#readme"
 }
