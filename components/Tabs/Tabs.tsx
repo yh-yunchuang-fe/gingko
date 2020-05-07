@@ -148,6 +148,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     renderContent(getSubElements = this.getSubElements()) {
         const { tabs, children } = this.props;
         const { currentTab = 0 } = this.state;
+        if(!tabs || !tabs.length) {return null}
         const tab = tabs[currentTab];
         // const key = tab.key || `tab_${currentTab}`;
         let node = this.tabCache[currentTab] || this.getSubElement(tab, currentTab, getSubElements);
