@@ -11,6 +11,12 @@ gingko是基于React Native的UI组件库，为永辉云创RN项目提供支撑�
 ```
 npm install
 ```
+#### 运行前需更改 package.json
+线上发布更改字段：
+"main": "lib/index"
+
+本地运行更改字段
+"main": "node_modules/expo/AppEntry.js"
 
 #### 运行
 ```$xslt
