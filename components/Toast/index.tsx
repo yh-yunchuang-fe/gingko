@@ -3,12 +3,12 @@
  */
 import React from 'react';
 import Toast from './Toast';
-import rootView from 'react-native-root-view';
+import RootView from 'react-native-root-siblings';
 import {
     IBaseToastOptions,
     IShowToastOptions,
 } from './propsType';
-
+let sibling = []
 const show = (content: string | React.ReactElement<any>, options: IShowToastOptions = {}) => {
     const {
         icon,
@@ -19,11 +19,13 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
         style,
         mask,
     } = options;
-    let id:number = 0;
+   
     const animationEnd = () => {
-        rootView.remove(id);
+        if (sibling instanceof RootView) {
+            sibling.destroy();
+        }
     };
-    id = rootView.set(
+    sibling.push(new RootView(
         <Toast
             icon={icon}
             type={type}
@@ -36,8 +38,8 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
             animationEnd={animationEnd}
             key={Date.now() + Math.random()}
         />
-    );
-    return id;
+    )) 
+    return sibling;
 };
 
 export default {
@@ -111,8 +113,13 @@ export default {
             mask,
         });
     },
-    hide(id?: number) {
-        rootView.remove(id);
+    hide() {
+        if(sibling.length){
+            if (sibling[0] instanceof RootView) {
+                sibling[0].destroy();
+                sibling.shift()
+            }
+        }
     },
     show,
 };
