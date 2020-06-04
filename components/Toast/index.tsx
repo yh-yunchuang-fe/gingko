@@ -8,7 +8,7 @@ import {
     IBaseToastOptions,
     IShowToastOptions,
 } from './propsType';
-let sibling: any
+let sibling = []
 const show = (content: string | React.ReactElement<any>, options: IShowToastOptions = {}) => {
     const {
         icon,
@@ -25,7 +25,7 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
             sibling.destroy();
         }
     };
-    sibling = new RootView(
+    sibling.push(new RootView(
         <Toast
             icon={icon}
             type={type}
@@ -38,7 +38,7 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
             animationEnd={animationEnd}
             key={Date.now() + Math.random()}
         />
-    );
+    )) 
     return sibling;
 };
 
@@ -114,8 +114,11 @@ export default {
         });
     },
     hide() {
-        if (sibling instanceof RootView) {
-            sibling.destroy();
+        if(sibling.length){
+            if (sibling[0] instanceof RootView) {
+                sibling[0].destroy();
+                sibling.shift()
+            }
         }
     },
     show,
