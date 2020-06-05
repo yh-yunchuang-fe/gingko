@@ -31,7 +31,7 @@
     "react-navigation-stack": "^1.9.0"
   },
   "name": "@yh-rn/gingko",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "private": false,
   "directories": {
     "lib": "lib",
