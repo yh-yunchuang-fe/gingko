@@ -8,7 +8,7 @@ import {
     IBaseToastOptions,
     IShowToastOptions,
 } from './propsType';
-let sibling = []
+let sibling
 const show = (content: string | React.ReactElement<any>, options: IShowToastOptions = {}) => {
     const {
         icon,
@@ -19,27 +19,47 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
         style,
         mask,
     } = options;
-   
+    let siblingOther
     const animationEnd = () => {
+        if (siblingOther instanceof RootView) {
+            siblingOther.destroy();
+        }
+    };
+    if(type === 'loading'){
         if (sibling instanceof RootView) {
             sibling.destroy();
         }
-    };
-    sibling.push(new RootView(
-        <Toast
-            icon={icon}
-            type={type}
-            style={style}
-            content={content}
-            duration={duration}
-            position={position}
-            onClose={onClose}
-            mask={mask}
-            animationEnd={animationEnd}
-            key={Date.now() + Math.random()}
-        />
-    )) 
-    return sibling;
+        sibling = new RootView(
+            <Toast
+                icon={icon}
+                type={type}
+                style={style}
+                content={content}
+                duration={duration}
+                position={position}
+                onClose={onClose}
+                mask={mask}
+                animationEnd={animationEnd}
+                key={Date.now() + Math.random()}
+            />
+        )
+    }else{
+        siblingOther = new RootView(
+            <Toast
+                icon={icon}
+                type={type}
+                style={style}
+                content={content}
+                duration={duration}
+                position={position}
+                onClose={onClose}
+                mask={mask}
+                animationEnd={animationEnd}
+                key={Date.now() + Math.random()}
+            />
+        )
+    }
+    return siblingOther;
 };
 
 export default {
@@ -114,11 +134,8 @@ export default {
         });
     },
     hide() {
-        if(sibling.length){
-            if (sibling[0] instanceof RootView) {
-                sibling[0].destroy();
-                sibling.shift()
-            }
+        if (sibling instanceof RootView) {
+            sibling.destroy();
         }
     },
     show,
