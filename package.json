@@ -1,5 +1,5 @@
 {
-  "main": "lib/index",
+  "main": "node_modules/expo/AppEntry.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "start": "expo start",
@@ -10,24 +10,23 @@
     "compile": "rm -rf lib && tsc",
     "prepublish": "npm run compile"
   },
-  "dependencies": {
-    "react-native-root-siblings": "^4.0.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.57.65",
     "babel-preset-expo": "^7.0.0",
-    "typescript": "^3.4.5",
     "expo": "^35.0.0",
     "expo-font": "~7.0.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
     "react-native-gesture-handler": "^1.4.1",
+    "react-native-root-siblings": "^4.0.6",
     "react-native-screens": "^2.0.0-alpha.3",
     "react-native-web": "^0.11.7",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.9.0"
+    "react-navigation-stack": "^1.9.0",
+    "typescript": "^3.4.5"
   },
   "name": "@yh-rn/gingko",
   "version": "1.0.7",
