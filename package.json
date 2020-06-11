@@ -1,5 +1,5 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "lib/index",
   "types": "./lib/index.d.ts",
   "scripts": {
     "start": "expo start",
