@@ -5,7 +5,7 @@ import React  from 'react'
 import {
     Text,
 } from 'react-native'
-import rootView from 'react-native-root-view';
+import RootView from 'react-native-root-siblings';
 import Modal from './modal';
 import variables from '../../src/style/variables';
 import { IActionButton, IAlertProps } from './propsType';
@@ -61,7 +61,7 @@ class Alert extends React.Component<IAlertProps, any> {
 }
 
 type Reference = {
-   id: number | null
+   id: any | null
 };
 
 const reference: Reference = {
@@ -71,11 +71,10 @@ const reference: Reference = {
 export default function a(title: string, content: string, actions: IActionButton[] = [{ text: '确定' }]) {
     const onAnimationEnd = (reference, visible) => {
         if (!visible) {
-            rootView.remove(reference.id);
+            reference.id.destroy();
         }
     };
-
-    reference.id = rootView.set(
+    reference.id =new RootView(
         <Alert
             title={title}
             content={content}
