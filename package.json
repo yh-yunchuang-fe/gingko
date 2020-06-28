@@ -10,7 +10,9 @@
     "compile": "rm -rf lib && tsc",
     "prepublish": "npm run compile"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-native-root-siblings": "^4.0.6"
+  },
   "devDependencies": {
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.57.65",
@@ -21,7 +23,6 @@
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
     "react-native-gesture-handler": "^1.4.1",
-    "react-native-root-siblings": "^4.0.6",
     "react-native-screens": "^2.0.0-alpha.3",
     "react-native-web": "^0.11.7",
     "react-navigation": "^4.0.10",
