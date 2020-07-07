@@ -30,7 +30,7 @@
     "typescript": "^3.4.5"
   },
   "name": "@yh-rn/gingko",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": false,
   "directories": {
     "lib": "lib",
