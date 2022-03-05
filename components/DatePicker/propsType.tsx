@@ -14,10 +14,10 @@ export interface IDatePickerProps {
     minDate: Date;
     maxDate: Date;
     onDateChange: (val?: Date) => any;
-    onValueChange: (val?: any[], idx?: number) => any;
+    onValueChange: (val?: any[], idx?: any) => any;
     defaultDate: Date;
     date: Date;
     title: string;
-    onOk: (date?: Date, val?: any[]) => any;
+    onOk: (date?: any, val?: any[]) => void;
     onDismiss: () => any;
 }

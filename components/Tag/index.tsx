@@ -30,7 +30,7 @@ export default class Tag extends React.Component<TagProps, any> {
         selected: false,
     };
 
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps (nextProps: any) {
         if (this.props.selected !== nextProps.selected) {
             this.setState({
                 selected: nextProps.selected,

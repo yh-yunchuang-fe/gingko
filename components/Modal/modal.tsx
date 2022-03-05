@@ -14,7 +14,7 @@ import {IActionButton} from "../Modal/propsType";
 import variables from '../../src/style/variables';
 
 export default class GkModal extends React.Component<IModalProps, any> {
-    constructor(props) {
+    constructor(props: any) {
         super(props)
     }
 

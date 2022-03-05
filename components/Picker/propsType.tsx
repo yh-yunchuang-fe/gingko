@@ -9,7 +9,7 @@ import {
 
 export interface IItemProps {
     label?: string | number;
-    value: string | number;
+    value: any;
 }
 
 export interface IPickerProps {
@@ -18,7 +18,7 @@ export interface IPickerProps {
     defaultValue?: number | string[];
     dismissText?: string;
     okText?: string;
-    onChange?: (values?: any, idx?: number) => any;
+    onChange?: (values?: any, idx?: any) => void;
     onDismiss?: (value?: any) => any;
     onOk?: (value?: any) => any;
     title?: string;
@@ -32,7 +32,7 @@ export interface IPickerProps {
 
 export interface IAndroidPickerProps {
     selectedValue?: any;
-    onValueChange?: (value: any) => void;
+    onValueChange?: (value: any, index?: number) => void;
     style?: any;
     itemStyle?: any;
 }

@@ -45,7 +45,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         return this.props.hasOwnProperty('value')
     };
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: any) {
         if (this.isControlledComponent() && nextProps.value !== this.state.value) {
             this.setState({
                 value: nextProps.value,
@@ -64,7 +64,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         }
     };
 
-    onChangeText = (value) => {
+    onChangeText = (value: any) => {
         const { onChange } = this.props;
         if (value != '') {
             this.setState({
@@ -101,7 +101,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         }
     };
 
-    onSubmit = (e) => {
+    onSubmit = (e: any) => {
         e.preventDefault();
         if (this.props.onSubmit) {
             this.props.onSubmit(this.state.value);

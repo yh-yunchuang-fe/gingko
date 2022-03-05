@@ -22,7 +22,7 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
         onBlur: noop,
     };
 
-    constructor(props) {
+    constructor(props: IProps | Readonly<IProps>) {
         super(props);
         let values = props.defaultValue+'' || '';
         this.state = {
@@ -30,7 +30,7 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
         };
     }
 
-    onChangeText = (values) => {
+    onChangeText = (values: any) => {
         const { onChange } = this.props;
         let preValues = this.state.values;
         if (isNaN(values)) {

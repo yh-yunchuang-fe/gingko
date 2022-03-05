@@ -69,7 +69,7 @@ const reference: Reference = {
 };
 
 export default function a(title: string, content: string, actions: IActionButton[] = [{ text: '确定' }]) {
-    const onAnimationEnd = (reference, visible) => {
+    const onAnimationEnd = (reference: any, visible: any) => {
         if (!visible) {
             rootView.remove(reference.id);
         }

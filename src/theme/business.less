@@ -1,0 +1,674 @@
+// B端主题
+:root {
+    // 全局变量
+    --color-brand-1: #FE8F1D;
+    --color-brand-2: rgba(var(--color-brand-1), .9);
+    --color-brand-3: rgba(var(--color-brand-1), .8);
+    --color-brand-4: rgba(var(--color-brand-1), .7);
+    --color-brand-5: rgba(var(--color-brand-1), .6);
+    --color-brand-6: rgba(var(--color-brand-1), .5);
+    --color-brand-7: rgba(var(--color-brand-1), .4);
+    --color-brand-8: rgba(var(--color-brand-1), .3);
+    --color-brand-9: rgba(var(--color-brand-1), .2);
+    --color-brand-10: rgba(var(--color-brand-1), .1);
+    --color-gray-1: #212121;
+    --color-gray-2: #757575;
+    --color-gray-3: #9E9E9E;
+    --color-gray-4: #C4C4C4;
+    --color-gray-5: #E0E0E0;
+    --color-gray-6: #F2F2F2;
+    --color-gray-7: #F5F5F5;
+    --color-gray-8: #FAFAFA;
+    --color-gray-9: /;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-primary: var(--color-brand-1);
+    --color-secondary:	/;
+    --color-business-red-1: #FF2E2E;
+    --color-business-red-2: #FF4E23;
+    --color-business-orange-1: #FFA300;
+    --color-business-orange-2: #FFEFD4;
+    --color-business-yellow-1: #B97400;
+    --color-business-yellow-2: /;
+    --color-business-lightyellow-1: /;
+    --color-business-lightyellow-2: /;
+    --color-business-green-1: #07C160;
+    --color-business-green-2: #00BF7A;
+    --color-business-lightblue-1: /;
+    --color-business-lightblue-2: /;
+    --color-business-lightblue-3: /;
+    --color-business-blue-1: #2A6AE9;
+    --color-business-blue-2: #069DFF;
+    --color-business-purple-1: #6236FF;
+    --color-business-purple-2: /;
+    --color-bg-white: rgba(var(--color-white), 1);
+    --color-bg-page: rgba(var(--color-gray-9), 1);
+    --color-bg-tab-default:	rgba(var(--color-gray-7), 1);
+    --color-bg-disable:	rgba(var(--color-gray-4), 1);
+    --color-bg-compo: rgba(var(--color-gray-5), 1);
+    --color-bg-notification: rgba(var(--color-business-orange-2), 1);
+    --color-text-primary: rgba(var(--color-primary), 1);
+    --color-text-1: rgba(var(--color-gray-1), 1);
+    --color-text-2: rgba(var(--color-gray-2), 1);
+    --color-text-3: rgba(var(--color-gray-3), 1);
+    --color-text-4: rgba(var(--color-gray-4), 1);
+    --color-text-inverse: rgba(var(--color-white), 1);
+    --color-text-inverse-secondary: rgba(var(--color-white), .65);
+    --color-text-blue: rgba(var(--color-business-blue-2), 1);
+    --color-text-yellow: /;
+    --color-text-red: rgba(var(--color-business-red-1), 1);
+    --color-text-green: rgba(var(--color-business-green-1), 1);
+    --color-divider: rgba(var(--color-gray-6), 1);
+    --color-overlay-1: rgba(var(--color-black), .7);
+    --color-overlay-2: rgba(var(--color-white), .5);
+
+    // 描边
+    --color-border-red-1: rgba(var(--color-business-red-1), 1);
+    --color-border-red-2: /;
+    --color-border-green: rgba(var(--color-business-green-1), 1);
+    --color-border-gray: rgba(var(--color-gray-4), 1);
+    --color-border-blue: rgba(var(--color-primary), 1);
+    --border-width-base: 1px;
+    --border-radius-base: 2px;
+    --border-radius-sm: calc(var(--border-radius-base)*2);
+    --border-radius-m: calc(var(--border-radius-base)*4);
+    --border-radius-l: calc(var(--border-radius-base)*6);
+    
+    // 字体
+    --font-family: 'PingFang SC', helvetica, 'Helvetica Neue',
+        'Microsoft Yahei',
+    --font-weight-base: 400;
+    --font-weight-medium: 600;
+    --font-weight-bold: /;
+    --font-size-base: 16px;
+    --font-size-sm-1: 14px;
+    --font-size-sm-2: 12px;
+    --font-size-sm-3: /;
+    --font-size-sm-4: /;
+    --font-size-sm-5: /;
+    --font-size-sm-6: /;
+    --font-size-header-1: 30px;
+    --font-size-header-2: 28px;
+    --font-size-header-3: 26px;
+    --font-size-header-4: 24px;
+    --font-size-header-5: 22px;
+    --font-size-header-6: 20px;
+    --font-size-header-7: 18px;
+    --font-lineheight-base: 24px;
+    --font-lineheight-sm-1: 20px;
+    --font-lineheight-sm-2: 18px;
+    --font-lineheight-sm-3: /;
+    --font-lineheight-sm-4: /;
+    --font-lineheight-sm-5: /;
+    --font-lineheight-sm-6: /;
+    --font-lineheight-header-1: 40px;
+    --font-lineheight-header-2: 38px;
+    --font-lineheight-header-3: 34px;
+    --font-lineheight-header-4: 32px;
+    --font-lineheight-header-5: 30px;
+    --font-lineheight-header-6: 28px;
+    --font-lineheight-header-7: 26px;
+
+    // 间距
+    --spacing-1: 4px;
+    --spacing-2: var(--spacing-1) * 2;
+    --spacing-3: var(--spacing-1) * 3;
+    --spacing-4: var(--spacing-1) * 4;
+    --spacing-5: var(--spacing-1) * 5;
+    --spacing_6: var(--spacing-1) * 6;
+    --spacing_7: var(--spacing-1) * 7;
+    --spacing_8: var(--spacing-1) * 8;
+    --spacing_9: var(--spacing-1) * 9;
+    --spacing_10: var(--spacing-1) * 10;
+    --width-icon-1: 12px;
+    --width-icon-2: 16px;
+    --width-icon-3: /;
+
+    // Button按钮
+    --radius-btn-m: var(--border-radius-sm);
+    --radius-btn-s: var(--border-radius-base);
+    --radius-btn-capsule-l: 24;
+    --radius-btn-capsule-m: 20;
+    --radius-btn-capsule-s: 16;
+    --width-btn-border: var(--border-width-base);
+    --height-btn-l: 48;
+    --height-btn-m: 40;
+    --height-btn-s: 32;
+    --font-btn-size-l: var(--font-size-header-7);
+    --font-btn-size-m: var(--font-size-base);
+    --font-btn-size-s: var(--font-size-sm-1);
+    --font-btn-lineheight-l: var(--font-lineheight-header-7);
+    --font-btn-lineheight-m: var(--font-lineheight-base);
+    --font-btn-lineheight-s: var(--font-lineheight-sm-1);
+    --font-btn-link-size-m: var(--font-size-base);
+    --font-btn-link-size-s: var(--font-size-sm-1);
+    --font-btn-link-lineheight-m: var(--font-lineheight-base);
+    --font-btn-link-lineheight-s: var(--font-lineheight-sm-1);
+    --color-btn-font-inverse: rgba(var(--color-text-inverse), 1);
+    --color-btn-font-primary-active: rgba(var(--color-text-primary), 1);
+    --color-btn-font-primary-disable: rgba(var(--color-text-inverse), 1);
+    --color-btn-font-default-active: rgba(var(--color-text-2), 1);
+    --color-btn-font-default-disable: rgba(var(--color-text-3), 1);
+    --color-btn-font-link-active: rgba(var(--color-text-primary), 1);
+    --color-btn-font-link-gray: rgba(var(--color-text-2), 1);
+    --color-btn-border-primary-active: rgba(var(--color-primary), 1);
+    --color-btn-border-primary-disable: rgba(var(--color-gray-3), 1);
+    --color-btn-border-default: rgba(var(--color-gray-2), 1);
+    --color-btn-bg-transparent: transparent;
+    --color-btn-bg-default-active: rgba(var(--color-white), 1);
+    --color-btn-bg-default-disable: rgba(var(--color-white), 1);
+    --color-btn-bg-primary-active: rgba(var(--color-primary), 1);
+    --color-btn-bg-primary-disable: rgba(var(--color-gray-3), 1);
+    --color-btn-bg-secondary-active: rgba(var(--color-brand-10), 1);
+    --color-btn-bg-gray: rgba(var(--color-gray-7), 1);
+    --color-btn-icon-inverse: rgba(var(--color-text-inverse), 1);
+    --color-btn-icon-primary-active: rgba(var(--color-primary), 1);
+    --color-btn-icon-primary-disable: rgba(var(--color-white), 1);
+    --color-btn-icon-default: rgba(var(--color-gray-2), 1);
+    --color-btn-icon-disable: rgba(var(--color-gray-3), 1);
+    --color-btn-icon-link-active: rgba(var(--color-primary), 1);
+    --color-btn-icon-link-gray: rgba(var(--color-gray-2), 1);
+    --width-btn-icon-l: 24px;
+    --width-btn-icon-m: 20px;
+    --width-btn-icon-s: var(--width-icon-2);
+    --width-btn-icon-loading-s: /;
+    --width-btn-icon-link-m: var(--width-icon-2);
+    --width-btn-icon-link-s: 14px;
+    --spacing-btn-paddingTop-l: var(--spacing-3);
+    --spacing-btn-paddingBottom-l: var(--spacing-3);
+    --spacing-btn-paddingLeft-l: 18px;
+    --spacing-btn-paddingRight-l: 18px;
+    --spacing-btn-paddingTop-m: 10px;
+    --spacing-btn-paddingBottom-m: 10px;
+    --spacing-btn-paddingLeft-m: var(--spacing-4);
+    --spacing-btn-paddingRight-m: var(--spacing-4);
+    --spacing-btn-iconOnly-paddingLeft-m: 10px;
+    --spacing-btn--iconOnly-paddingRight-m: 10px;
+    --spacing-btn-paddingTop-s: var(--spacing-2);
+    --spacing-btn-paddingBottom-s: var(--spacing-2);
+    --spacing-btn-paddingLeft-s: 14px;
+    --spacing-btn-paddingRight-s: 14px;
+    --spacing-btn-icon-padding-l: var(--spacing-3);
+    --spacing-btn-icon-padding-m: var(--spacing-2);
+    --spacing-btn-icon-padding-s: var(--spacing-1);
+    --spacing-btn-icon-link-padding-m: var(--spacing-2);
+    --spacing-btn-icon-link-padding-s: var(--spacing-1);
+    --spacing-btn-group-paddingVertical-L: var(--spacing-5);
+    --spacing-btn-group-paddingHorizontal-L: var(--spacing-3);
+    --spacing-btn-group-paddingVertical-M: var(--spacing-2);
+
+    // Image图片
+    --image-width: 200px;
+    --image-height: 200px;
+    --image-radius: 0;
+    --image-bg-base: var(--white);
+    --image-bg-default: var(--gray-6);
+
+    // Toast提示
+    --radius-toast: var(--border-radius-sm);
+    --color-toast-bg: rgba(var(--color-black), .7);
+    --color-toast-font-primary: rgba(var(--color-text-inverse), 1);
+    --color-toast-font-secondary: var(--color-text-inverse-secondary);
+    --color-toast-icon: rgba(var(--color-white), 1);
+    --spacing-toast-base-paddingLeft: var(--spacing-5);
+    --spacing-toast-base-paddingRight: var(--spacing-5);
+    --spacing-toast-base-paddingTop: var(--spacing-3);
+    --spacing-toast-base-paddingBottom: var(--spacing-3);
+    --font-toast-base-size-title: var(--font-size-base);
+    --font-toast-base-lineheight-title: var(--font-lineheight-base);
+    --font-toast-base-size-subtitle: var(--font-size-sm-4);
+    --font-toast-base-lineheight-subtitle: var(--font-lineheight-sm-4);
+    --spacing-toast-base-title-padding: var(--spacing-1);
+    --width-toast-base-icon: var(--width-icon-2);
+    --spacing-toast-base-icon-padding: var(--spacing-1);
+    --width-toast-square: 120px;
+    --spacing-toast-square-paddingLeft: var(--spacing-3);
+    --spacing-toast-square-paddingRight: var(--spacing-3);
+    --spacing-toast-square-paddingTop: 30px;
+    --spacing-toast-square-paddingBottom: 30px;
+    --font-toast-square-size-title: var(--font-size-sm-2);
+    --font-toast-square-lineheight-title: var(--font-lineheight-sm-2);
+    --toast-vertical-text-maxlength: 120px;
+    --width-toast-square-icon: 32px;
+    --spacing-toast-bsquare-icon-padding: var(--spacing-2);
+
+    // popup 浮层面板
+    --spacing-popup-paddingLeft: var(--spacing-4);
+    --spacing-popup-paddingRight: var(--spacing-4);
+    --spacing-popup-paddingTop: var(--spacing-4);
+    --spacing-popup-paddingBottom: var(--spacing-3);
+    // --height-popup-down-min: 内容高度的1/4;
+    // --height-popup-down-max: 内容高度的3/4;
+    --radius-popup-down: 0px;
+    // --height-popup-up-min: 内容高度的1/4;
+    --height-popup-up-1: /;
+    --height-popup-up-2: /;
+    --height-popup-up-3: /;
+    // --height-popup-up-max: 内容高度的3/4;
+    --radius-popup-up-topLeft: 12;
+    --radius-popup-up-topRight: 12;
+    // --width-popup-horizontal-min: 内容宽度的2/5;
+    // --width-popup-horizontal-max: 内容宽度的4/5;
+    --width-popup-icon: var(--width-icon-2);
+    --color-popup-icon: rgba(var(--color-gray-4), 1);
+    --font-popup-title-size: var(--font-size-header-4);
+    --font-popup-title-lineheight: var(--font-lineheight-header-4);
+    --color-popup-title: rgba(var(--color-gray-1), 1);
+    --font-popup-btn-size: var(--font-size-base);
+    --size-popup-btn-lineheight: var(--font-lineheight-sm-1);
+    --color-popup-btn-text-base: rgba(var(--color-gray-1), 1);
+    --color-popup-btn-text-disable: rgba(var(--color-text-4), 1);
+    --color-popup-btn-text-primary: rgba(var(--color-text-primary), 1);
+
+
+    // // diolog 弹出层
+    // --dialog-radius: var(--border-radius-L);
+    // --dialog-width: 315px;
+    // --dialog-margin-top: var(--spacing-6);
+    // --dialog-margin-bottom: var(--spacing-6);
+    // --dialog-margin-horizontal: var(--spacing-4);
+    // --btngroup-margin-top: var(--spacing-6);
+    // --btngroup-margin-bottom: var(--spacing-6);
+    // --dialog-btn-view-l: 283px;
+    // --dialog-btn-view-s: 135px;
+    // --dialog-btngroup-padding-horizontal: var(--spacing-3);
+    // --dialog-btngroup-padding-vertical: var(--spacing-3);
+    // --dialog-background-base: var(--bg-white);
+    // --dialog-title-size: var(--heading-4-size);
+    // --dialog-title-height: var(--heading-4-height);
+    // --dialog-title-weight: var(--font-weight-medium);
+    // --dialog-textarea-maxheight: 42px;
+    // --dialog-textarea-size: var(--font-size-sm-1);
+    // --dialog-textarea-height: var(--font-height-sm-1);
+    // --dialog-textarea-weight: var(--font-weight-base);
+    // --dialog-padding-title-bottom: var(--spacing-3);
+    // --dialog-spacing: var(--spacing-3);
+    // --dialog-padding-text-bottom: var(--spacing-6);
+    // --dialog-height: 355px;
+    // --dialog-background-withclose: transparent;
+    // --dialog-closeicon-size: 40px;
+    // --dialog-closeicon-padding: var(--spacing-6);
+    // --dialog-height-withclose: 464px;
+    // --dialog-formitem-margin-top: var(--spacing-6);
+    // --dialog-formitem-margin-bottom: var(--spacing-6);
+    // --dialog-agreement-margin-vertical: var(--spacing-5);
+    // --dialog-agreement-icon-size: 22px;
+    // --dialog-agreement-icon-padding: var(--spacing-2);
+    // --dialog-agreement-font-size: var(--font-size-sm-1);
+    // --dialog-agreement-font-height: var(--font-height-sm-1);
+    // --dialog-agreement-font-color: var(--text-color-1);
+    // --dialog-header-font-size: var(--heading-4-size);
+    // --dialog-header-font-height: var(--heading-4-height);
+    // --dialog-header-font-color: var(--text-color-1);
+    // --dialog-btngroup-margin-top: var(--spacing-3);
+    // --dialog-btngroup-margin-bottom: var(--spacing-3);
+
+    // // Overlay 遮罩层
+    // --overlay-page: var(--overlay-page-color);
+    // --overlay-card: var(--overlay-card-color);
+
+    // --loading-anima-bg-color: rgba(238, 238, 238, 0.75);
+    // --loading-anima-bg-height: 90px;
+    // --loading-anima-bg-width: 90px;
+    // --loading-anima-bg-radius: var(--border-radius-m);
+    // --loading-anima-height: 90px;
+    // --loading-anima-width: 90px;
+    // --loading-default-bg-color: rgba(0, 0, 0, 0.85);
+    // --loading-default-bg-height: 120px;
+    // --loading-default-bg-width: 120px;
+    // --loading-default-bg-radius: var(--border-radius-sm);
+    // --loading-default-height: 40px;
+    // --loading-default-width: 40px;
+    // --loading-font-size: var(--font-size-sm-2);
+    // --loading-font-height: var(--font-height-sm-2);
+    // --loading-font-color-gray: var(--text-color-3);
+    // --loading-font-color-white: var(--text-color-inverse);
+    // --loading-margin-vertical: var(--spacing-6);
+    // --loading-margin-horizontal: var(--spacing-6);
+    // --loading-spacing-middle: var(--spacing-3);
+
+    // // Image 图片 //默认图片基于外边框的缩放比
+    // --image-width: 200px;
+    // --image-height: 200px;
+    // --image-radius: 0;
+    // --image-bg-base: var(--white);
+    // --image-bg-default: var(--gray-6);
+    // --image-iconsize-default: 50%;
+
+    // // Toast 提示
+    // --toast-bg: rgba(0, 0, 0, 0.7);
+    // --toast-radius: var(--border-radius-sm);
+    // --toast-font-color-primary: var(--text-color-inverse);
+    // --toast-font-color-secondary: var(--text-color-inverse-secondary);
+    // --toast-horizontal-maxlength: 296px;
+    // --toast-horizontal-margin-horizontal: var(--spacing-5);
+    // --toast-horizontal-margin-vertical: var(--spacing-3);
+    // --toast-horizontal-font-size-primary: var(--font-size-base);
+    // --font-horizontal-height-primary: var(--font-height-base);
+    // --toast-horizontal-font-size-secondary: var(--font-size-sm-4);
+    // --font-horizontal-height-secondary: var(--font-height-sm-4);
+    // --toast-horizontal-marginvertical: var(--spacing-1);
+    // --toast-horizontal-icon-size: var(--icon-size-2);
+    // --toast-horizontal-icon-spacing: var(--spacing-1);
+    // --toast-vertical-margin-horizontal: var(--spacing-3);
+    // --toast-vertical-margin-vertical: 30px;
+    // --toast-vertical-font-size-primary: var(--font-size-sm-2);
+    // --font-vertical-height-primary: var(--font-height-sm-2);
+    // --toast-vertical-text-maxlength: 120px;
+    // --toast-vertical-icon-size: 32px;
+    // --toast-vertical-icon-spacing: var(--spacing-2);
+
+    // // Tabbar 底部导航
+    // --tabbar-icon-width: 22px;
+    // --tabbar-icon-height: 22px;
+    // --tabbar-divider-width: 1px;
+    // --tabbar-divider-color: var(--divider-color);
+    // --tabbar-spacing-top: var(--spacing-2);
+    // --tabbar-spacing-mid: calc(var(--spacing-1)/2);
+    // --tabbar-spacing-bottom: calc(var(--spacing-1)/2);
+    // --tabbar-icon-color-default: var(--gray-2);
+    // --tabbar-icon-color-selected: var(--primary-color);
+    // --tabbar-text-color-default: var(--gray-2);
+    // --tabbar-text-color-selected: var(--primary-color);
+    // --tabbar-text-size: var(--font-size-sm-5);
+    // --tabbar-text-height: var(--font-height-sm-4);
+
+    // // Tabs 标签页
+    // // 文字(默认样式)
+    // --tab-normal-font-default-size-l: var(--font-size-base);
+    // --tab-normal-font-default-height-l: var(--font-height-base);
+    // --tab-normal-font-default-weight-l: var(--font-weight-base);
+    // --tab-normal-font-selected-size-l: var(--font-size-base);
+    // --tab-normal-font-selected-height-l: var(--font-height-base);
+    // --tab-normal-font-selected-weight-l: var(--font-weight-base);
+
+    // --tab-normal-font-default-size-m: var(--font-size-sm-2);
+    // --tab-normal-font-default-height-m: var(--font-height-sm-2);
+    // --tab-normal-font-default-weight-m: var(--font-weight-base);
+    // --tab-normal-font-selected-size-m: var(--font-size-sm-2);
+    // --tab-normal-font-selected-height-m: var(--font-height-sm-2);
+    // --tab-normal-font-selected-weight-m: var(--font-weight-base);
+
+    // // 颜色(默认样式)
+    // --tab-normal-font-color-default: var(--gray-1);
+    // --tab-normal-font-color-selected: var(--primary-color);
+    // --tab-normal-divider-color: var(--divider-color);
+    // --tab-normal-border-color: var(--primary-color);
+    // --tab-normal-view-color: var(--white);
+
+    // // 横线(默认样式)
+    // --tab-normal-divider-width: 1px;
+    // // --tab-normal-border-length: 40px;
+    // --tab-normal-border-width: 2px;
+    // --tab-normal-divider-spacing-bottom: 0px;
+
+    // // 间距(默认样式)
+    // --tab-normal-font-spacing: var(--spacing-4);
+    // --tab-normal-font-margin-vertical-default-l: 10px;
+    // --tab-normal-font-margin-vertical-selected-l: 10px;
+    // --tab-normal-font-margin-vertical-default-m: var(--spacing-3);
+    // --tab-normal-font-margin-vertical-selected-m: var(--spacing-3);
+    // --tab-normal-font-margin-horizontal-min: var(--spacing-3);
+    // --tab-normal-btn-expand-margin-vertical: var(--spacing-3);
+
+    // // 文字(subtitle)
+    // --tab-tag-title-default-size-l: var(--font-size-base);
+    // --tab-tag-title-default-height-l: var(--font-height-base);
+    // --tab-tag-title-default-weight-l: var(--font-weight-base);
+    // --tab-tag-title-selected-size-l: var(--font-size-base);
+    // --tab-tag-title-selected-height-l: var(--font-height-base);
+    // --tab-tag-title-selected-weight-l: var(--font-weight-base);
+    // --tab-tag-text-default-size-l: var(--font-size-sm-5);
+    // --tab-tag-text-default-height-l: var(--font-height-sm-5);
+    // --tab-tag-text-default-weight-l: var(--font-weight-base);
+    // --tab-tag-text-selected-size-l: var(--font-size-sm-5);
+    // --tab-tag-text-selected-height-l: var(--font-height-sm-5);
+    // --tab-tag-text-selected-weight-l: var(--font-weight-base);
+
+    // // 文字(capsule)
+    // --tab-tag-font-default-size-m: var(--font-size-base);
+    // --tab-tag-font-default-height-m: var(--font-height-base);
+    // --tab-tag-font-default-weight-m: var(--font-weight-base);
+    // --tab-tag-font-selected-size-m: var(--font-size-base);
+    // --tab-tag-font-selected-height-m: var(--font-height-base);
+    // --tab-tag-font-selected-weight-m: var(--font-weight-base);
+
+    // // 文字(card)
+    // --tab-tag-font-default-size-s: var(--font-size-sm-4);
+    // --tab-tag-font-default-height-s: var(--font-height-sm-4);
+    // --tab-tag-font-default-weight-s: var(--font-weight-base);
+    // --tab-tag-font-selected-size-s: var(--font-size-sm-4);
+    // --tab-tag-font-selected-height-s: var(--font-height-sm-4);
+    // --tab-tag-font-selected-weight-s: var(--font-weight-base);
+
+    // // 间距(subtitle)
+    // --tab-tag-btn-title-margin-vertical-l: var(--spacing-3);
+    // --tab-tag-btn-text-margin-vertical-l: var(--spacing-3);
+    // --tab-tag-btn-margin-vertical-l: var(--spacing-1);
+    // --tab-tag-text-margin-horizontal-l: var(--spacing-3);
+    // --tab-tag-text-margin-vertical-l: 2px;
+    // --tab-tag-btn-margin-left-l: 29px;
+    // --tab-tag-btn-margin-right-l: var(--spacing-7);
+
+    // // 间距(capsule)
+    // --tab-tag-btn-radius-m: 18px;
+    // --tab-tag-btn-margin-vertical-up-m: 6px;
+    // --tab-tag-btn-margin-vertical-down-m: 6px;
+    // --tab-tag-btn-margin-horizontal-m: var(--spacing-5);
+    // --tab-tag-btn-spacing-m: var(--spacing-3);
+    // --tab-tag-btn-vertical-m: var(--spacing-3);
+
+    // // 间距(card)
+    // --tab-tag-btn-border-default-s: 1px;
+    // --tab-tag-radius-s: 4px;
+    // --tab-tag-btn-margin-vertical-s: 10px;
+    // --tab-tag-btn-margin-horizontal-s: var(--spacing-3);
+    // --tab-tag-btn-vertical-s: 10px;
+
+    // // 颜色
+    // --tab-tag-bgcolor-default-l: var(--gray-7);
+    // --tab-tag-bgcolor-selected-l: var(--primary-color);
+    // --tab-tag-title-font-color-default-l: var(--gray-1);
+    // --tab-tag-title-font-color-selected-l: var(--primary-color);
+    // --tab-tag-text-font-color-default-l: var(--gray-3);
+    // --tab-tag-text-font-color-selected-l: var(--white);
+    // --tab-tag-bgcolor-default-m: var(--gray-7);
+    // --tab-tag-bgcolor-selected-m: var(--primary-color);
+    // --tab-tag-font-color-default-m: var(--gray-1);
+    // --tab-tag-font-color-selected-m: var(--white);
+    // --tab-tag-bgcolor-default-s: var(--white);
+    // --tab-tag-bordercolor-default-s: var(--primary-color);
+    // --tab-tag-font-color-default-s: var(--primary-color);
+    // --tab-tag-font-color-selected-s: var(--white);
+
+    // // Field 组件
+    // --field-require:#FA5741;
+    // --field-gray:#999999;
+    // --field-boxshadow-gray:#F0F0F0;
+    // --field-placehoder-gray:#CCCCCC;
+    // --field-label-gray:#666666;
+    // --field-border-bottom-gray:#D8D8D8;
+    // --field-validinputs-text-black:#333333;
+    // --field-white: var(--white);
+    // --field-textarea-fontsize:16px;
+    // // ActionSheet 行动面板
+    // --actsheet-radius: var(--border-radius-m);
+    // --actsheet-marginvertical: var(--spacing-4);
+    // --actsheet-header-height-base: 54px;
+    // --actsheet-title-font-color: var(--gray-1);
+    // --actsheet-title-font-size: var(--heading-4-size);
+    // --actsheet-title-font-height: var(--heading-4-height);
+    // --actsheet-title-font-weight: var(--font-weight-medium);
+    // --actsheet-title-marginhorizontal-top-lg: var(--spacing-5);
+    // --actsheet-title-marginhorizontal-top-base: var(--spacing-4);
+    // --actsheet-title-marginhorizontal-bottom: var(--spacing-4);
+    // --actsheet-title-spacing: var(--spacing-5);
+    // --actsheet-title-subtext-size: var(--font-size-sm-1);
+    // --actsheet-title-subtext-color: var(--gray-3);
+    // --actsheet-item-height-base: 54px;
+    // // --actsheet-item-height-lg: 64px;
+    // --actsheet-item-font-size-base: var(--font-size-base);
+    // --actsheet-item-font-height-base: var(--font-height-base);
+    // --actsheet-item-font-color-base: var(--text-color-1);
+    // --actsheet-item-font-color-error: var(--text-color-red);
+    // // --actsheet-item-font-color-disable: var(--gray-5);
+    // --actsheet-item-font-size-sub: var(--font-size-sm-1);
+    // --actsheet-item-font-height-sub: var(--font-height-sm-1);
+    // --actsheet-item-font-color-sub: var(--text-color-3);
+    // --actsheet-btn-height-base: 54px;
+    // --actsheet-btn-font-size-base: var(--font-size-base);
+    // --actsheet-btn-font-height-base: var(--font-height-base);
+    // --actsheet-btn-font-color-base: var(--text-color-1);
+    // --actsheet-divider-width: 0.5px;
+    // --actsheet-divider-color: var(--divider-color);
+    // --actsheet-block-height: 8px;
+    // --actsheet-block-color: var(--gray-6);
+
+    // // Tag 标签
+    // // 文本色
+    // --tag-font-color-white: var(--text-color-inverse);
+    // --tag-font-color-red: var(--text-color-red);
+    // --tag-font-color-gray: var(--text-color-3);
+    // --tag-font-color-green: var(--text-color-green);
+    // --tag-font-color-blue: var(--business-lightblue-1);
+    // --tag-font-color-orange: var(--business-orange-1);
+    // // 边界色
+    // --tag-border-color-red: var(--border-color-red-1);
+    // --tag-border-color-gray: var(--border-color-gray);
+    // --tag-border-color-green: var(--border-color-green);
+    // // 渐变背景色
+    // --tag-bg-color-gradient-green: var(--linear-green);
+    // --tag-bg-color-gradient-orange: var(--linear-orange);
+    // --tag-bg-color-gradient-primary: var(--linear-blue);
+    // --tag-bg-color-gradient-gray: var(--linear-deepgray);
+    // // 间距
+    // --tag-font-spacing-horizontal: var(--spacing-1);
+    // --tag-font-spacing-vertical: 3px;
+    // // 其他
+    // --tag-height: 16px;
+    // --tag-font-size: 10px;
+    // --tag-border-width: 1px;
+    // --tag-bg-radius: var(--border-radius-base);
+    
+    // // NoticeBar 通知栏
+    // --noticebar-margin-vertical: var(--spacing-2);
+    // --noticebar-margin-horizontal: var(--spacing-4);
+    // --noticebar-bg-color: var(--bg-notification);
+    // --noticebar-font-size: var(--font-size-sm-1);
+    // --noticebar-font-height: var(--font-height-sm-1);
+    // --noticebar-font-color: var(--business-orange-1);
+    // --noticebar-font-spacing: var(--spacing-3);
+    // --noticebar-action-font-size: var(--font-size-sm-1);
+    // --noticebar-action-font-height: var(--font-height-sm-1);
+    // --noticebar-action-font-color: var(--text-color-1);
+    // // --noticebar-icon-left-width: 14px;
+    // // --noticebar-icon-left-height: 14px;
+    // --noticebar-icon-left-size: 16px;
+    // --noticebar-icon-left-color: var(--business-orange-1);
+    // --noticebar-icon-right-width: 16px;
+    // // --noticebar-icon-right-height: 10px;
+    // --noticebar-icon-right-size: var(--font-size-sm-1);
+    // --noticebar-icon-right-color: var(--gray-3);
+    // --noticebar-icon-spacing: var(--spacing-2);
+
+    // // List 列表
+    // --list-line-height: -1px;
+    // --list-title-size: var(--font-size-base);
+    // --list-title-height: var(--font-height-base);
+    // --list-text-size: var(--font-size-sm-2);
+    // --list-text-height: var(--font-height-sm-1);
+    // --list-exta-size: var(--font-size-base);
+    // --list-exta-height: var(--font-height-base);
+    // --list-title-color: var(--gray-1);
+    // --list-text-color: var(--gray-3);
+    // --list-exta-color: var(--gray-3);
+    // --list-arrow-size: var(--font-size-base);
+    // --list-arrow-color: var(--gray-3);
+    // --list-text-icon-spacing-left: var(--spacing-3);
+    // --list-text-icon-spacing-right: var(--spacing-2);
+    // --list-title-text-spacing-horizontal: var(--spacing-3);
+    // --list-title-text-spacing-vertical: var(--spacing-1);
+    // --list-margin-left: var(--spacing-3);
+    // --list-margin-right: var(--spacing-5);
+
+    // // checkbox
+    // --checkbox-disabled-color: var(--gray-4); // 禁用color 颜色
+    // --checkbox-icon-text-spacing: 10px; //间距
+    // --checkbox-icon-font: var(--icon-size-2);
+    // --checkbox-content-font: var(--font-size-sm-2);
+    // --checkbox-checked-color:var(--primary-color);
+    // --checkbox-inline-right-spacing: 24px;
+    // --checkbox-margin-bottom: 16px; // 块标签时， 上下间距
+    // --checkbox-button-spacing: var(--spacing-2); // 类型为button时 右侧间距
+    // --checkbox-button-bg-color: var(--white); // button默认背景色
+    // --checkbox-button-border-color: #DDDDDD; // button默认border色
+    // --checkbox-button-padding-top-bottom: var(--spacing-1); // button button-padding-top-bottom
+    // --checkbox-button-padding-left-right: var(--spacing-2); // button-padding-left-right
+    // --checkbox-button-content-font: var(--font-size-sm-2); // content-内容字体
+    // --checkbox-button-content-radius: 3px;
+    // --checkbox-button-content-color: var(--gray-3); // buttton-content 字体颜色
+    // --checkbox-button-checked-bg-color: #D9EBFF; // buttton-content 选中背景颜色-全局颜色未定义
+    // --checkbox-button-disabled-bg: #DDDDDD; // button-disabled 背景色
+    // --checkbox-button-disabled-font-color: #999999; // button-disabled-color 字体颜色
+    // --img-width: 80px;
+    // --img-height: 80px;
+    
+    // // stepper
+    // --stepper-btn-width: 22px; // 左右两侧按钮的宽度
+    // --content-height:22px; // 高度
+    // --stepper-icon-font: 22px; // icon图标大小、btn按钮font-size
+    // --stepper-btn-radius: var(--border-radius-sm); // 默认圆角
+    // --stepper-default-input-width: 26px; // 输入框宽度
+    // --stepper-input-font-color: #333333; // 输入框文本颜色
+    // --stepper-input-spacing: var(--spacing-1); // default输入框文本距离左右两侧间距
+    // // 无填充
+    // --stepper-fill-none-input-spacing: 2px; // fill:none 输入框间距
+    // --stepper-fill-none-input-bg: var(--gray-7);
+    // --stepper-fill-none-input-radius: 0;
+
+
+    // // disabled
+    // --stepper-disabled-color: var(--gray-4);
+
+    // //EmptyView 缺省状态
+    // --emptyview-margin-horizontal: 60px;
+    // --emptyview-margin-vertical: var(--spacing-6);
+    // --emptyview-bg-color: transparent;
+    // --emptyview-font-title-size: var(--font-size-base);
+    // --emptyview-font-title-height: var(--font-height-base);
+    // --emptyview-font-title-color: var(--text-color-2);
+    // --emptyview-font-text-size: var(--font-size-sm-2);
+    // --emptyview-font-text-height: var(--font-height-sm-2);
+    // --emptyview-font-text-color: var(--text-color-3);
+    // --emptyview-font-title-spacing: var(--spacing-1);
+    // --emptyview-image-width: 128px;
+    // --emptyview-image-height: 128px;
+    // --emptyview-image-spacing: var(--spacing-1);
+
+    // //徽标
+    // --badge-bg-color: #FA2E03;
+    // --badge-border-color: var(--white);
+    // --badge-dot-height: 10px;
+    // --badge-height: var(--spacing-5);
+    // --badge-dot-width: 10px;
+    // --badge-border-width: 1px;
+    // --badge-border-position: center;
+    // --badge-spacing-top: var(--spacing-1);
+    // --badge-spacing-bottom: 1px;
+    // --badge-spacing-horizontal: 6px;
+    // --badge-font-color: var(--white);
+    // --badge-font-size: var(--font-size-sm-4);
+    // --badge-font-height: var(--font-size-sm-6);
+
+    // // Bottom 到底提示
+    // --bottom-text-size: var(--font-size-sm-5);
+    // --bottom-text-color: var(--text-color-3);
+    // --toast-marginvertical-text: var(--spacing-4);
+    // --toast-marginvertical-img: var(--spacing-3);
+
+    // // button 按钮
+    // --btn-bg-color-primary-active: var(--primary-color) ;
+    // --btn-font-size-mini: 12px;
+    // --btn-font-height-mini: var(--font-height-sm-4);
+    // --transform: 1;
+}

@@ -87,19 +87,19 @@ export default class extends React.Component<IPickerProps, any> {
     renderCols = () => {
         const { data } = this.props;
         if (Array.isArray(data)) {
-            const Pick = isAndroid ? AndroidPicker : Picker;
-            return data.map((group, idx) => {
-                return (
-                    <Pick key={idx}>
-                        {this.renderItems(group)}
-                    </Pick>
-                );
-            });
+            // const Pick = isAndroid ? AndroidPicker : Picker;
+            // return data.map((group, idx) => {
+            //     return (
+            //         <Pick key={idx}>
+            //             {this.renderItems(group)}
+            //         </Pick>
+            //     );
+            // });
         }
         return null;
     }
 
-    onChange = (values, idx) => {
+    onChange = (values: any, idx: any) => {
         const { onChange } = this.props;
         if (!('value' in this.props)) {
             this.setState({
@@ -115,7 +115,6 @@ export default class extends React.Component<IPickerProps, any> {
         const Pick = isAndroid ? AndroidPicker : Picker;
         const {
             value,
-            onChange,
             children,
             style,
             itemStyle,
@@ -123,19 +122,19 @@ export default class extends React.Component<IPickerProps, any> {
             ...rest
         } = this.props;
         if (children) {
-            const itemSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle;
-            const columnSty = Array.isArray(columnStyle) ? columnStyle[0] : columnStyle;
-            return (
-                <Pick
-                    {...rest}
-                    itemStyle={StyleSheet.flatten(itemSty)}
-                    style={StyleSheet.flatten([style, columnSty])}
-                    onValueChange={this.onChange}
-                    selectedValue={this.state.value}
-                >
-                    {children}
-                </Pick>
-            );
+            // const itemSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle;
+            // const columnSty = Array.isArray(columnStyle) ? columnStyle[0] : columnStyle;
+            // return (
+            //     <Pick
+            //         {...rest}
+            //         itemStyle={StyleSheet.flatten(itemSty)}
+            //         style={StyleSheet.flatten([style, columnSty])}
+            //         onValueChange={this.onChange}
+            //         selectedValue={this.state.value}
+            //     >
+            //         {children}
+            //     </Pick>
+            // );
         }
         const itemSty = Array.isArray(itemStyle) ? itemStyle : [itemStyle];
         const columnSty = Array.isArray(columnStyle) ? columnStyle : [columnStyle];

@@ -18,7 +18,7 @@ export default class Indicator extends React.Component<IndicatorProps, any> {
         textStyle: {}
     };
 
-    constructor(props) {
+    constructor(props: any) {
         super(props);
         this.state = {
             rotate: new Animated.Value(0)

@@ -57,7 +57,7 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         }
     }
 
-    shouldComponentUpdate (nextProps, nextState) {
+    shouldComponentUpdate (nextProps: any, nextState: any) {
         const props = this.props;
         if (props.visible || props.visible !== nextProps.visible) {
             return true
@@ -70,22 +70,22 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         return false
     }
 
-    componentDidUpdate (prevProps) {
+    componentDidUpdate (prevProps: any) {
         const props = this.props;
         if (prevProps.visible !== props.visible) {
             this._animateDialog(props.visible)
         }
     }
 
-    getOpacity = (visible) => {
+    getOpacity = (visible: any) => {
         return visible ? 1 : 0
     };
 
-    getScale = (visible) => {
+    getScale = (visible: any) => {
         return visible ? 1 : 1.05
     };
 
-    getPosition = (visible) => {
+    getPosition = (visible: any) => {
         if (visible) {
             return 0;
         }
@@ -103,14 +103,15 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         this._animateDialog(false)
     };
 
-    animateMask = (visible) => {
+    animateMask = (visible: any) => {
         this.stopMaskAnim();
         this.state.opacity.setValue(this.getOpacity(!visible));
         this.animMask = Animated.timing(
             this.state.opacity,
             {
                 toValue: this.getOpacity(visible),
-                duration: this.props.animationDuration
+                duration: this.props.animationDuration,
+                useNativeDriver: true // RN >= 0.64 添加
             }
         );
         this.animMask.start(() => {
@@ -152,13 +153,15 @@ export default class Dialog extends React.Component<IDialogProps, any> {
                     {
                         toValue: this.getOpacity(visible),
                         duration: animationDuration,
-                        easing: (visible ? Easing.elastic(0.8) : undefined)
+                        easing: (visible ? Easing.elastic(0.8) : undefined),
+                        useNativeDriver: true // RN >= 0.64 添加
                     }
                 ),
                 Animated.spring(
                     this.state.scale,
                     {
                         toValue: this.getScale(visible),
+                        useNativeDriver: true // RN >= 0.64 添加
                         // tension: 2000,
                         // friction: 1000
                         // duration: animationDuration,
@@ -173,7 +176,8 @@ export default class Dialog extends React.Component<IDialogProps, any> {
                 {
                     toValue: this.getPosition(visible),
                     duration: animationDuration,
-                    easing: (visible ? Easing.elastic(0.8) : undefined)
+                    easing: (visible ? Easing.elastic(0.8) : undefined),
+                    useNativeDriver: true // RN >= 0.64 添加
                 }
             )
         }

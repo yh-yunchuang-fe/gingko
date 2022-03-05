@@ -24,7 +24,7 @@ export default class NarBar extends React.Component<NavBarProps, any> {
     };
 
 
-    constructor(props) {
+    constructor(props: any) {
         super(props)
     }
 

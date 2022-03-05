@@ -12,7 +12,6 @@ import {
     WhiteSpace,
     Tabs
 } from "../../../components";
-import styles from "../../../components/Tabs/style";
 
 const DefaultTabBar = Tabs.DefaultTabBar;
 

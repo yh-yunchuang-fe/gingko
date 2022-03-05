@@ -69,7 +69,7 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
         }
 
         if (typeof icon === 'boolean' && icon) {
-            const defaultIcon = (checked) => {
+            const defaultIcon = (checked: any) => {
                 const icon = checked ? 'checked' : 'radio-off';
                 return (
                     <View style={styles.icon}>

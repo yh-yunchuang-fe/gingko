@@ -44,10 +44,12 @@ export default class Toast extends React.Component<IPropsType, any> {
         const start = Animated.timing(this.state.fadeAnim, {
             toValue: 1,
             duration: 200,
+            useNativeDriver: true // RN >= 0.64 添加
         });
         const end = Animated.timing(this.state.fadeAnim, {
             toValue: 0,
             duration: 200,
+            useNativeDriver: true // RN >= 0.64 添加
         });
         const survival = Animated.delay(duration!);
         if ((duration as number) > 0 && type !== 'loading') {

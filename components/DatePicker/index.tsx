@@ -147,7 +147,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         ];
     }
 
-    getTimeData = (date) => {
+    getTimeData = (date: any) => {
         let min_hour = 0;
         let max_hour = 23;
         let min_minutes = 0;
@@ -254,7 +254,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         };
     }
 
-    setMonth = (date, month) => {
+    setMonth = (date: any, month: any) => {
         date.setDate(Math.min(date.getDate(), this.getDateInMonth(new Date(date.getFullYear(), month))));
         date.setMonth(month);
     }
@@ -294,7 +294,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         return this.clipDate(newDate);
     }
 
-    onChange = (values, idx) => {
+    onChange = (values: any, idx: any) => {
         const {
             onDateChange,
             onValueChange,
@@ -309,10 +309,10 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         onDateChange && onDateChange(date);
     };
 
-    onOk = (values) => {
+    onOk = (values: any[] | undefined) => {
         const { onOk } = this.props;
         if (onOk) {
-            const date = new (Date.bind(null, ...values));
+            const date = {} // new (Date.bind(null, ...values));
             onOk(date, values);
         }
     };

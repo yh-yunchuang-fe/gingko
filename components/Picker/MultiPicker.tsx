@@ -27,8 +27,8 @@ export default class MultiPicker extends React.Component<any, any> {
         });
     }
 
-    onChange = (idx, val, cb) => {
-        const values = this.getValue();
+    onChange = (idx: any, val: any, cb: any) => {
+        const values: any = this.getValue()
         values[idx] = val;
         if (cb) {
            cb(values, idx);
@@ -44,11 +44,12 @@ export default class MultiPicker extends React.Component<any, any> {
             columnStyle,
             ...rest
         } = this.props;
+        const value: any = this.getValue()
         const elements = React.Children.map(children, (col: any, idx) => {
             return React.cloneElement(col, {
                 ...rest,
-                selectedValue: this.getValue()[idx],
-                onValueChange: (val) => {
+                selectedValue: value[idx],
+                onValueChange: (val: any) => {
                     this.onChange(idx, val, onChange);
                 },
                 style: { flex: 1, ...columnStyle[idx] },

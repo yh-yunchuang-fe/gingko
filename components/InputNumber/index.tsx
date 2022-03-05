@@ -36,7 +36,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         value: this.isControlledComponent() ? this.props.value : 0,
     };
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: any) {
         if (this.isControlledComponent() && nextProps.value !== this.state.value) {
             this.setState({
                 value: nextProps.value
@@ -77,8 +77,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
      ** 调用：accAdd(arg1,arg2)
      ** 返回值：arg1加上arg2的精确结果
      **/
-    add = (arg1, arg2) => {
-        let r1, r2, m, c;
+    add = (arg1: any, arg2: any) => {
+        let r1: any, r2: any, m: any, c: any;
         try {
             r1 = arg1.toString().split(".")[1].length;
         }
@@ -109,8 +109,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         return (arg1 + arg2) / m;
     };
 
-    sub = (arg1, arg2) => {
-        let r1, r2, m, n;
+    sub = (arg1: any, arg2: any) => {
+        let r1: any, r2: any, m: any, n: any;
         try {
             r1 = arg1.toString().split(".")[1].length;
         }
@@ -128,12 +128,12 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         return ((arg1 * m - arg2 * m) / m).toFixed(n);
     };
 
-    minus = (value, step) => {
+    minus = (value: any, step: any) => {
         value = parseFloat(value+'');
         this.onChange(this.sub(value,  step));
     };
 
-    plus = (value, step) => {
+    plus = (value: any, step: any) => {
         value = parseFloat(value+'');
         this.onChange(this.add(value, step));
     };

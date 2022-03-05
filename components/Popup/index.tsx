@@ -3,16 +3,12 @@
  * @date 2018/2/28
  */
 import React  from 'react'
-import {
-    View,
-    Text,
-} from 'react-native'
 import Dialog from '../Dialog'
 import IPopupProps from './propsType';
 import styles from './style'
 
 export default class Popup extends React.Component<IPopupProps, any> {
-    constructor(props) {
+    constructor(props: any) {
         super(props)
     }
 

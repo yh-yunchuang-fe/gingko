@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Samples from './expo-samples/index'
 
 export default class App extends Component {
@@ -8,6 +8,6 @@ export default class App extends Component {
     render() {
         return (
             <Samples/>
-        );
+        )
     }
 }

@@ -48,14 +48,14 @@ export default class Button extends React.Component<ButtonProps, any> {
         }
     };
 
-    onShowUnderlay = (...arg) => {
+    onShowUnderlay = (...arg: any[]) => {
         this.setState({ touchIt: true });
         if (this.props.onShowUnderlay) {
             (this.props.onShowUnderlay as any)(...arg);
         }
     };
 
-    onHideUnderlay = (...arg) => {
+    onHideUnderlay = (...arg: any[]) => {
         this.setState({ touchIt: false });
         if (this.props.onHideUnderlay) {
             (this.props.onHideUnderlay as any)(...arg);

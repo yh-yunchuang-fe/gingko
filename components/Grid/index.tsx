@@ -31,7 +31,7 @@ export default class Grid extends React.Component<GridProps, any> {
         }
     }
 
-    renderItem(item, index) {
+    renderItem(item: any, index: number) {
         const {renderItem } = this.props;
         if (renderItem) {
             return renderItem(item, index)

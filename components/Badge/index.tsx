@@ -1,16 +1,16 @@
 /**
  * Created by beilunyang on 2018/3/7
  */
-import * as React from 'react';
+import * as React from 'react'
 import {
     View,
     Text,
     Image,
-    Platform, ViewStyle
-} from 'react-native';
-import styles from './style';
-import variables from '../../src/style/variables';
-import { IBadge } from './propsType';
+    Platform
+} from 'react-native'
+import styles from './style'
+import variables from '../../src/style/variables'
+import { IBadge } from './propsType'
 
 export default class Badge extends React.Component<IBadge, any> {
     static defaultProps = {
@@ -30,17 +30,17 @@ export default class Badge extends React.Component<IBadge, any> {
         right: -10 //不要超过容器宽度的1/2 to do 兼容任何数字
         // corner: false,
         // cornerContent: null
-    };
+    }
 
     render() {
         const {
             bgColor, color, style, overflowCount, cornerContent,
             children, dot, image, source, badgeStyle, badgeTextStyle,
             imageBadgeStyle, top, right, ...restProps
-        } = this.props;
+        } = this.props
 
-        let { text } = this.props;
-        let contentElement: any = null;
+        let { text } = this.props
+        let contentElement: any = null
 
         let contentStyle = {
             paddingHorizontal: Math.abs(right),
@@ -60,10 +60,10 @@ export default class Badge extends React.Component<IBadge, any> {
         //     )
         // } else {
         if (cornerContent) {
-            contentElement = cornerContent;
+            contentElement = cornerContent
         } else {
             if (overflowCount && typeof text === 'number' && text > overflowCount) {
-                text = `${overflowCount}+`;
+                text = `${overflowCount}+`
             }
 
             if (dot) {
@@ -98,6 +98,6 @@ export default class Badge extends React.Component<IBadge, any> {
                 {children}
                 {contentElement}
             </View>
-        );
+        )
     }
 }

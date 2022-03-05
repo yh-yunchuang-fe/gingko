@@ -68,7 +68,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         onClear && onClear()
     };
 
-    onChangeText = (value) => {
+    onChangeText = (value: any) => {
         const { onChange } = this.props;
         if (value != '') {
             this.setState({
@@ -93,7 +93,8 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
             this.state.rightAnim,
             {
                 toValue: 1,
-                duration: this.duration
+                duration: this.duration,
+                useNativeDriver: true // RN >= 0.64 添加
             }
         ).start();
         if (this.props.onFocus) {
@@ -110,7 +111,8 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
             this.state.rightAnim,
             {
                 toValue: 0,
-                duration: this.duration
+                duration: this.duration,
+                useNativeDriver: true // RN >= 0.64 添加
             }
         ).start();
         if (this.props.onBlur) {
@@ -186,6 +188,4 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
             </View>
         )
     }
-
-
 }

@@ -1,9 +1,9 @@
-export { default as Badge } from './Badge';
+export { default as Badge } from './Badge'
 export { default as Body } from './Body'
 export { default as Button } from './Button'
 
 export { default as Card } from './Card'
-export { default as Checkbox } from './Checkbox';
+export { default as Checkbox } from './Checkbox'
 export { default as CodeInputGroup } from './CodeInputGroup'
 
 export { default as Dialog } from './Dialog'
@@ -38,6 +38,6 @@ export { default as WhiteSpace } from './WhiteSpace'
 
 export { default as WingBlank } from './WingBlank'
 
-export { default as Toast } from './Toast';
+export { default as Toast } from './Toast'
 
-export { default as DatePicker } from './DatePicker';
+export { default as DatePicker } from './DatePicker'

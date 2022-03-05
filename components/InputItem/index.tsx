@@ -39,7 +39,7 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
         }
     }
 
-    onChange = (text) => {
+    onChange = (text: any) => {
         const { onChange, type } = this.props;
         switch (type) {
             case 'phone':
