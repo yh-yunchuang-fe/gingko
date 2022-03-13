@@ -1,6 +1,19 @@
 declare const _default: {
-    wrap: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    mask: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    absolute: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    wrap: {
+        flex: number;
+        backgroundColor: string;
+        justifyContent: "center";
+        alignItems: "center";
+    };
+    mask: {
+        backgroundColor: any;
+    };
+    absolute: {
+        position: "absolute";
+        top: number;
+        bottom: number;
+        left: number;
+        right: number;
+    };
 };
 export default _default;

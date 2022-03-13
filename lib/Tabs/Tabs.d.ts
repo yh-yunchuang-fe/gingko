@@ -20,7 +20,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         activeTab: any;
         tabs: TabProps[];
         onTabClick: ((tab: TabProps, index: number) => void) | undefined;
-        goToTab: any;
+        goToTab: (index: number) => boolean;
         tabBarFillColor: string | undefined;
         tabBarActionFillColor: string | undefined;
         tabBarActiveTextColor: string | undefined;

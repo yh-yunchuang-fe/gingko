@@ -1,29 +1,90 @@
 declare const _default: {
-    wrapperSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    container: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    text: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    defaultSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    defaultTapSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    defaultDisabledSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    defaultText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    defaultTapText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    defaultDisabledText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    primarySty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    primaryTapSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    primaryDisabledSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    primaryText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    primaryTapText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    primaryDisabledText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    warningSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    warningTapSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    warningDisabledSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    warningText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    warningTapText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    largeSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    smallSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    largeText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    smallText: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    indicator: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    iconSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    wrapperSty: {
+        justifyContent: "center";
+        alignItems: "center";
+        borderWidth: any;
+        borderRadius: any;
+    };
+    container: {
+        flexDirection: "row";
+    };
+    text: {
+        alignItems: "center";
+        justifyContent: "center";
+    };
+    defaultSty: {
+        backgroundColor: any;
+        borderColor: any;
+    };
+    defaultTapSty: {
+        backgroundColor: any;
+        borderColor: any;
+    };
+    defaultDisabledSty: {
+        borderColor: any;
+    };
+    defaultText: {
+        color: any;
+    };
+    defaultTapText: {
+        color: any;
+    };
+    defaultDisabledText: {
+        color: any;
+    };
+    primarySty: {
+        backgroundColor: any;
+        borderColor: any;
+    };
+    primaryTapSty: {
+        backgroundColor: any;
+        borderColor: any;
+    };
+    primaryDisabledSty: {
+        backgroundColor: any;
+        borderColor: any;
+    };
+    primaryText: {
+        color: any;
+    };
+    primaryTapText: {};
+    primaryDisabledText: {};
+    warningSty: {
+        backgroundColor: any;
+        borderColor: any;
+    };
+    warningTapSty: {
+        backgroundColor: any;
+        borderColor: any;
+    };
+    warningDisabledSty: {
+        opacity: number;
+    };
+    warningText: {
+        color: any;
+    };
+    warningTapText: {
+        color: any;
+    };
+    largeSty: {
+        height: any;
+        paddingHorizontal: any;
+    };
+    smallSty: {
+        height: any;
+        paddingHorizontal: any;
+    };
+    largeText: {
+        fontSize: any;
+    };
+    smallText: {
+        fontSize: any;
+    };
+    indicator: {
+        marginRight: any;
+    };
+    iconSty: {
+        marginRight: any;
+    };
 };
 export default _default;

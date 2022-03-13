@@ -10,7 +10,7 @@ export default interface IPorps {
     inputStyle?: TextStyle;
     defaultValue?: string | number;
     autoFocus?: boolean;
-    onChange?: (_x?: any) => void;
+    onChange?: (x?: any) => void;
     onFocus?: () => void;
     onBlur?: () => void;
 }

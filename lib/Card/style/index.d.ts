@@ -1,10 +1,37 @@
 declare const _default: {
-    card: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    full: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    body: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    headerTitle: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    headerContent: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    footer: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    footerContent: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    card: {
+        borderRadius: any;
+        backgroundColor: any;
+        flexDirection: "column";
+    };
+    full: {
+        borderRadius: number;
+    };
+    body: {
+        flexGrow: number;
+        paddingVertical: any;
+        paddingHorizontal: any;
+        borderTopWidth: any;
+        borderColor: any;
+    };
+    headerTitle: {
+        flexDirection: "row";
+        alignItems: "center";
+        paddingVertical: any;
+        paddingHorizontal: any;
+    };
+    headerContent: {
+        color: any;
+        fontSize: any;
+    };
+    footer: {
+        flexDirection: "row";
+        paddingVertical: any;
+        paddingHorizontal: any;
+    };
+    footerContent: {
+        fontSize: any;
+        color: any;
+    };
 };
 export default _default;

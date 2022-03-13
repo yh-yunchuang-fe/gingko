@@ -4,8 +4,8 @@
 import * as React from 'react';
 import { IInputItemProps } from './propsType';
 export default class InputItem extends React.Component<IInputItemProps, any> {
-    inputRef: any;
     static defaultProps: IInputItemProps;
+    inputRef: any;
     clear: () => void;
     onChange: (text: any) => void;
     onInputBlur: () => void;

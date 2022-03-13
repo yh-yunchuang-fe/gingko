@@ -5,13 +5,13 @@ interface IconProps {
     size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number;
     style?: any;
 }
-export default interface buttonProps {
+export default interface IbuttonProps {
     type?: 'default' | 'primary' | 'warning';
     size?: 'default' | 'large' | 'small';
     style?: React.CSSProperties;
     textStyle?: React.CSSProperties;
     disabled?: boolean;
-    activeStyle?: Object;
+    activeStyle?: object;
     onClick?: (x?: any) => void;
     loading?: boolean;
     onPressIn?: (x?: any) => void;

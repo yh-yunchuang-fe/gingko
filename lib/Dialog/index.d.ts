@@ -4,11 +4,17 @@
 import React from 'react';
 import IDialogProps from './propsType';
 export default class Dialog extends React.Component<IDialogProps, any> {
-    constructor(props: IDialogProps);
     static defaultProps: {
         style: {};
-        wrapStyle: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-        maskStyle: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+        wrapStyle: {
+            flex: number;
+            backgroundColor: string;
+            justifyContent: "center";
+            alignItems: "center";
+        };
+        maskStyle: {
+            backgroundColor: any;
+        };
         animationType: string;
         animationDuration: number;
         animateAppear: boolean;
@@ -20,6 +26,7 @@ export default class Dialog extends React.Component<IDialogProps, any> {
     };
     animMask: any;
     animDialog: any;
+    constructor(props: IDialogProps);
     componentDidMount(): void;
     componentWillReceiveProps(nextProps: any): void;
     shouldComponentUpdate(nextProps: any, nextState: any): boolean;
@@ -32,6 +39,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
     animateMask: (visible: any) => void;
     stopMaskAnim: () => void;
     stopDialogAnim: () => void;
-    private _animateDialog;
     render(): JSX.Element | null;
+    private animateDialog;
 }

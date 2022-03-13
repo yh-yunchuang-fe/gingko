@@ -12,7 +12,7 @@ export default interface InputNumberProps {
     editable?: boolean;
     autoFocus?: boolean;
     unit?: string;
-    onChange?: (_x: any) => void;
+    onChange?: (x: any) => void;
     onFocus?: () => void;
     onBlur?: () => void;
     style?: any;

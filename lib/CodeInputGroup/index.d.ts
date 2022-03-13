@@ -14,7 +14,7 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
         onFocus: typeof noop;
         onBlur: typeof noop;
     };
-    constructor(props: any);
+    constructor(props: IProps | Readonly<IProps>);
     onChangeText: (values: any) => void;
     onFocus: () => void;
     onBlur: () => void;

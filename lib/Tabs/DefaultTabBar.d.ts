@@ -13,9 +13,8 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
         tabBarInactiveTextColor: string;
         tabBarTextStyle: {};
     };
-    _scrollView: null;
+    scrollView: null;
     isTabVertical: (tabBarPosition?: "left" | undefined) => boolean;
-    constructor(props: TabBarProps);
     onPress: (index: number) => void;
     renderTab(tab: TabProps, index: number): JSX.Element;
     render(): JSX.Element;

@@ -1,9 +1,9 @@
 declare const _default: {
-    indicator: import("react-native").RegisteredStyle<any>;
-    scrollView: import("react-native").RegisteredStyle<{
+    indicator: any;
+    scrollView: {
         height: number;
-    }>;
-    selectedItemText: import("react-native").RegisteredStyle<any>;
-    itemText: import("react-native").RegisteredStyle<any>;
+    };
+    selectedItemText: any;
+    itemText: any;
 };
 export default _default;

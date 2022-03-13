@@ -1,7 +1,6 @@
 import React from 'react';
 import ButtonProps from './propsType';
 export default class Button extends React.Component<ButtonProps, any> {
-    constructor(props: ButtonProps);
     static defaultProps: {
         size: string;
         type: string;
@@ -10,11 +9,12 @@ export default class Button extends React.Component<ButtonProps, any> {
         textStyle: {};
         loading: boolean;
         activeStyle: {};
-        onClick: (_x?: any) => void;
-        onPressIn: (_x?: any) => void;
-        onPressOut: (_x?: any) => void;
+        onClick: (x?: any) => void;
+        onPressIn: (x?: any) => void;
+        onPressOut: (x?: any) => void;
         icon: {};
     };
+    constructor(props: ButtonProps);
     onPressIn: (...args: any[]) => void;
     onPressOut: (...args: any[]) => void;
     onShowUnderlay: (...arg: any[]) => void;

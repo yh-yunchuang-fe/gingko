@@ -13,5 +13,5 @@ export default interface TagProps {
     style?: any;
     textStyle?: any;
     selected?: boolean;
-    onChange?: (_x: any) => void;
+    onChange?: (x: any) => void;
 }

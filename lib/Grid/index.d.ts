@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridProps } from "./propsType";
+import { GridProps } from './propsType';
 export default class Grid extends React.Component<GridProps, any> {
     static defaultProps: {
         data: never[];
@@ -14,6 +14,6 @@ export default class Grid extends React.Component<GridProps, any> {
         width: number;
         height: number;
     };
-    renderItem(item: any, index: any): React.ReactElement<any>;
+    renderItem(item: any, index: number): JSX.Element;
     render(): JSX.Element;
 }

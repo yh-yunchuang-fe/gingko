@@ -3,7 +3,7 @@
  */
 import * as React from 'react';
 export default class MultiPicker extends React.Component<any, any> {
-    getValue: () => any[];
+    getValue: () => any[] | null | undefined;
     onChange: (idx: any, val: any, cb: any) => void;
     render(): JSX.Element;
 }

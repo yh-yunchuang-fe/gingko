@@ -12,6 +12,6 @@ export default interface OptionTagProps {
     disabled?: boolean;
     multiple?: boolean;
     selected?: boolean;
-    onChange?: (_x: any) => void;
+    onChange?: (x: any) => void;
     renderText?: (selected: boolean) => React.ReactNode;
 }

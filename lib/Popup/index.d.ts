@@ -5,7 +5,6 @@
 import React from 'react';
 import IPopupProps from './propsType';
 export default class Popup extends React.Component<IPopupProps, any> {
-    constructor(props: any);
     static defaultProps: {
         visible: boolean;
         animateAppear: boolean;

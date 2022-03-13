@@ -11,6 +11,6 @@ declare const _default: {
     warn(content: string | React.ReactElement<any>, options?: IBaseToastOptions): number;
     loading(content: string | React.ReactElement<any>, options?: IBaseToastOptions): number;
     hide(id?: number | undefined): void;
-    show: (content: string | React.ReactElement<any>, options?: IShowToastOptions) => number;
+    show: (content: string | React.ReactElement<any, string | React.JSXElementConstructor<any>>, options?: IShowToastOptions) => number;
 };
 export default _default;

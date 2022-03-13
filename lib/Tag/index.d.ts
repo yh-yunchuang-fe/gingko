@@ -5,7 +5,6 @@
 import React from 'react';
 import TagProps from './propsType';
 export default class Tag extends React.Component<TagProps, any> {
-    constructor(props: TagProps);
     static defaultProps: {
         readonly: boolean;
         fill: boolean;
@@ -16,6 +15,7 @@ export default class Tag extends React.Component<TagProps, any> {
         size: string;
         selected: boolean;
     };
+    constructor(props: TagProps);
     componentWillReceiveProps(nextProps: any): void;
     onClick: () => void;
     render(): JSX.Element;

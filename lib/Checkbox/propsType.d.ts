@@ -3,7 +3,7 @@
  */
 import { ViewStyle, TextStyle } from 'react-native';
 export interface ICheckbox {
-    icon?: boolean | Function;
+    icon?: boolean | ((x?: any) => void);
     dir?: 'left' | 'right';
     checked?: boolean;
     defaultChecked?: boolean;

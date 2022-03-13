@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import Toast from './Toast';
-// import rootView from 'react-native-root-view';
 import {
     IBaseToastOptions,
     IShowToastOptions,
@@ -19,24 +18,9 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
         style,
         mask,
     } = options;
-    let id:number = 0;
+    const id: number = 0;
     const animationEnd = () => {
-        // rootView.remove(id);
     };
-    // id = rootView.set(
-    //     <Toast
-    //         icon={icon}
-    //         type={type}
-    //         style={style}
-    //         content={content}
-    //         duration={duration}
-    //         position={position}
-    //         onClose={onClose}
-    //         mask={mask}
-    //         animationEnd={animationEnd}
-    //         key={Date.now() + Math.random()}
-    //     />
-    // );
     return id;
 };
 

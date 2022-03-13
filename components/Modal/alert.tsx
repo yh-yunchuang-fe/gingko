@@ -5,7 +5,6 @@ import React from 'react'
 import {
     Text,
 } from 'react-native'
-// import rootView from 'react-native-root-view'
 import Modal from './modal'
 import variables from '../../src/style/variables'
 import { IActionButton, IAlertProps } from './propsType'
@@ -70,16 +69,6 @@ const reference: Reference = {
 export default function a(title: string, content: string, actions: IActionButton[] = [{ text: '确定' }]) {
     const onAnimationEnd = (references: any, visible: any) => {
         if (!visible) {
-            // rootView.remove(references.id);
         }
     };
-
-    // reference.id = rootView.set(
-    //     <Alert
-    //         title={title}
-    //         content={content}
-    //         actions={actions}
-    //         onAnimationEnd={onAnimationEnd.bind(null, reference)}
-    //     />,
-    // );
 }

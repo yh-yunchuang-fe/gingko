@@ -1,7 +1,26 @@
 declare const _default: {
-    wrap: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    content: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    text: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
-    textlargeSty: import("react-native").RegisteredStyle<import("react-native").ViewStyle | import("react-native").TextStyle | import("react-native").ImageStyle>;
+    wrap: {
+        borderRadius: any;
+        backgroundColor: string;
+        flexDirection: "row";
+        overflow: "visible";
+    };
+    content: {
+        borderColor: any;
+        borderRadius: any;
+        borderWidth: any;
+        paddingHorizontal: any;
+        paddingVertical: any;
+        flexDirection: "row";
+        overflow: "hidden";
+        justifyContent: "center";
+        alignItems: "center";
+    };
+    text: {
+        fontSize: any;
+    };
+    textlargeSty: {
+        fontSize: any;
+    };
 };
 export default _default;

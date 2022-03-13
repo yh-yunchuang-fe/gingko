@@ -4,7 +4,6 @@
 import React from 'react';
 import { IModalProps } from './propsType';
 export default class GkModal extends React.Component<IModalProps, any> {
-    constructor(props: any);
     static defaultProps: {
         visible: boolean;
         animationType: string;

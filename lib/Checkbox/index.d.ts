@@ -13,9 +13,9 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
         textStyle: {};
         disabled: boolean;
     };
-    componentWillReceiveProps(nextProps: any): void;
     constructor(props: any);
+    componentWillReceiveProps(nextProps: any): void;
     handleClick: () => void;
-    renderIcon(): JSX.Element | React.ReactElement<{}> | null;
+    renderIcon(): JSX.Element | null;
     render(): JSX.Element;
 }

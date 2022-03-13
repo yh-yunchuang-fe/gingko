@@ -29,6 +29,6 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
     setMonth: (date: any, month: any) => void;
     getNewDate: (values: any, idx: any) => Date;
     onChange: (values: any, idx: any) => void;
-    onOk: (values: any) => void;
+    onOk: (values: any[] | undefined) => void;
     render(): JSX.Element;
 }
