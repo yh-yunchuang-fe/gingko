@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
@@ -37,8 +37,6 @@ export default StyleSheet.create({
     defaultDisabledText: {
         color: variables.btn_default_disabled
     },
-
-
     primarySty: {
         backgroundColor: variables.btn_primary_fill,
         borderColor: variables.color_link
@@ -60,8 +58,6 @@ export default StyleSheet.create({
     primaryDisabledText: {
         // color: variables.color_white,
     },
-
-
     warningSty: {
         backgroundColor: variables.btn_warning_fill,
         borderColor: variables.color_warning
@@ -79,8 +75,6 @@ export default StyleSheet.create({
     warningTapText: {
         color: variables.color_warning_tap
     },
-
-
     largeSty: {
         height: variables.btn_height,
         paddingHorizontal: variables.btn_h_spacing_md,

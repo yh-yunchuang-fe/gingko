@@ -2,16 +2,16 @@ import React from 'react'
 import {
     View,
     Text
-} from "react-native"
-import {CardHeaderProps} from "./propsType"
+} from 'react-native'
+import {CardHeaderProps} from './propsType'
 import styles from './style'
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         style: {}
     }
 
-    render() {
+    public render() {
         const {
             children, style, ...restProps
         } = this.props

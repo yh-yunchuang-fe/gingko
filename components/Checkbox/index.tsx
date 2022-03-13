@@ -13,7 +13,7 @@ import variables from '../../src/style/variables';
 import { ICheckbox } from './propsType';
 
 export default class Checkbox extends React.Component<ICheckbox, any> {
-    static defaultProps = {
+    public static defaultProps = {
         icon: true,
         dir: 'left',
         defaultChecked: false,
@@ -22,14 +22,6 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
         textStyle: {},
         disabled: false,
     };
-
-    componentWillReceiveProps(nextProps) {
-        if (typeof nextProps.checked === 'boolean') {
-            this.setState({
-                checked: nextProps.checked,
-            });
-        }
-    }
 
     constructor(props) {
         super(props);
@@ -46,7 +38,15 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
         };
     }
 
-    handleClick = () => {
+    public componentWillReceiveProps(nextProps) {
+        if (typeof nextProps.checked === 'boolean') {
+            this.setState({
+                checked: nextProps.checked,
+            });
+        }
+    }
+
+    public handleClick = () => {
         const checked = !this.state.checked;
         if (!(typeof this.props.checked === 'boolean')) {
             this.setState({
@@ -58,11 +58,11 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
         }
     };
 
-    renderIcon() {
-        const { icon } = this.props;
+    public renderIcon() {
+        const { icon } = this.props
 
         if (typeof icon === 'function') {
-            const elements = icon({ checked: this.state.checked });
+            const elements: any = icon({ checked: this.state.checked });
             if (React.isValidElement(elements)) {
                 return elements;
             }
@@ -70,10 +70,10 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
 
         if (typeof icon === 'boolean' && icon) {
             const defaultIcon = (checked: any) => {
-                const icon = checked ? 'checked' : 'radio-off';
+                const iconName = checked ? 'checked' : 'radio-off';
                 return (
                     <View style={styles.icon}>
-                        <Icon name={icon} color={variables.color_link} />
+                        <Icon name={iconName} color={variables.color_link} />
                     </View>
                 );
             };
@@ -83,7 +83,7 @@ export default class Checkbox extends React.Component<ICheckbox, any> {
         return null;
     }
 
-    render() {
+    public render() {
         const {
             icon,
             onChange,

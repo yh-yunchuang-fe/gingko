@@ -1,8 +1,8 @@
 /**
  * Created by beilunyang on 2018/2/9
  */
-import { StyleSheet } from 'react-native';
-import variables from '../../../src/style/variables';
+import { StyleSheet } from 'react-native'
+import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     container: {
@@ -38,4 +38,4 @@ export default StyleSheet.create({
         margin: variables.h_spacing_sm,
         lineHeight: variables.font_size_tip + variables.line_height_plus_md,
     },
-});
+})

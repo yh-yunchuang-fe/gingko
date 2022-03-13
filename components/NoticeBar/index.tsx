@@ -5,15 +5,16 @@
 import React from 'react'
 import {
     View,
-    Text, TouchableWithoutFeedback
-} from "react-native";
+    Text, 
+    TouchableWithoutFeedback
+} from 'react-native'
 import NoticeBarProps from './propsType'
 import styles from './style/index'
 import Icon from '../Icon'
-import variables from '../../src/style/variables';
+import variables from '../../src/style/variables'
 
 export default class NoticeBar extends React.Component<NoticeBarProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         color: variables.color_label,
         mode: '',
         icon: '',
@@ -28,7 +29,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
         }
     }
 
-    onClick = () => {
+    public onClick = () => {
         const { mode, onClick } = this.props;
         if (onClick) {
             onClick()
@@ -40,7 +41,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
         }
     };
 
-    render() {
+    public render() {
         if (!this.state.show) {
             return null
         }
@@ -50,7 +51,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
 
         let operationDom: any = null;
         let actionDom: any = null;
-        const colorSty = color ? { color: color } : null;
+        const colorSty = color ? { color } : null;
 
         if (action) {
             if (typeof action === 'string') {
@@ -62,17 +63,17 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
             }
         }
 
-        if (mode === "link") {
+        if (mode === 'link') {
             operationDom = (
                 <View style={styles.actionWrap}>
-                    { action ? actionDom : <Icon name="chevron-right" size={12} style={colorSty}/>}
+                    { action ? actionDom : <Icon name='chevron-right' size={12} style={colorSty}/>}
                 </View>
             )
         } else if(mode === 'closeable') {
             operationDom = (
                 <TouchableWithoutFeedback onPress={this.onClick}>
                     <View style={styles.actionWrap}>
-                        {action ? actionDom : <Icon name="close" size={12} style={colorSty}/>}
+                        {action ? actionDom : <Icon name='close' size={12} style={colorSty}/>}
                     </View>
                 </TouchableWithoutFeedback>
             )

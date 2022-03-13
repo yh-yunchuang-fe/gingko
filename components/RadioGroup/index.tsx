@@ -10,26 +10,26 @@ import {
     View,
     Text,
     TouchableOpacity,
-} from "react-native"
+} from 'react-native'
 import styles from './style/index'
 import RadioGroupProps from './propsType'
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
 
-    static defaultProps = {
+    public static defaultProps = {
         mode: 'button',
         defaultIndex: 0,
     };
 
     constructor(props) {
         super(props);
-        let index = props.index ? props.index : (props.defaultIndex || 0);
+        const index = props.index ? props.index : (props.defaultIndex || 0);
         this.state = {
             activeIndex: index
         };
     }
 
-    componentWillReceiveProps(nextProps: any) {
+    public componentWillReceiveProps(nextProps: any) {
         if (this.props.index != nextProps.index) {
             this.setState({
                 index: nextProps.index
@@ -37,7 +37,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         }
     }
 
-    onChange = (index: any, item: any) => {
+    public onChange = (index: any, item: any) => {
         const { onChange } = this.props;
         this.setState({ activeIndex: index });
         if (onChange) {
@@ -45,7 +45,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         }
     };
 
-    render() {
+    public render() {
         const {
             mode, radios, style,
             ...restProps
@@ -58,7 +58,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
 
         const { activeIndex } = this.state;
 
-        let dom = radios.map((item, index) => {
+        const dom = radios.map((item, index) => {
             let itemSty: any = null;
             let activeSty: any = null;
             let activeText: any = null;

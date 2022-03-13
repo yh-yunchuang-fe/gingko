@@ -1,13 +1,9 @@
 /**
  * @author zhangyi
- * @date 2018/4/18
- */
-/**
- * @author zhangyi
  * @date 2018/3/15
  */
-import { StyleSheet } from "react-native";
-import variables from '../../../src/style/variables';
+import { StyleSheet } from 'react-native'
+import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     inputWrapper: {

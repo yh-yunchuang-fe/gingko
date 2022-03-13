@@ -14,10 +14,10 @@ export default interface ISearchBarProps {
     cancelColor?: string;
     autoFocus?: boolean;
 
-    onSubmit?: (_x?: any) => void;
-    onChange?: (_x?: any) => void;
+    onSubmit?: (x?: any) => void;
+    onChange?: (x?: any) => void;
     onFocus?: () => void;
     onBlur?: () => void;
-    onCancel?: (_x?: any) => void;
+    onCancel?: (x?: any) => void;
     onClear?: () => void;
 }

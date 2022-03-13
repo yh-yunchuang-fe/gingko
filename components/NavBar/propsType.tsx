@@ -4,9 +4,9 @@
  */
 
 export default interface NavBarProps {
-    leftIcon?: string;
-    leftContent?: any;
-    rightContent?: any;
-    onLeftClick?: ()=>{};
-    style?: any;
+    leftIcon?: string
+    leftContent?: any
+    rightContent?: any
+    onLeftClick?: ()=>{}
+    style?: any
 }

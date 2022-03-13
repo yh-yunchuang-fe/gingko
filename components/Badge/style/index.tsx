@@ -57,9 +57,6 @@ export default StyleSheet.create({
         zIndex: 2
     }
 
-
-
-
     // cornerContainer: {
     //     position: 'absolute',
     //     top: 8,

@@ -1,7 +1,7 @@
 /**
  * @author zhangyi
  */
-import React  from 'react'
+import React from 'react'
 import {
     View,
     Modal,
@@ -16,18 +16,8 @@ import styles from './style'
 const screen = Dimensions.get('window');
 
 export default class Dialog extends React.Component<IDialogProps, any> {
-    constructor(props: IDialogProps) {
-        super(props);
-        const { visible } = this.props;
-        this.state = {
-            modalVisible: this.props.visible,
-            opacity: new Animated.Value(this.getOpacity(visible)),
-            scale: new Animated.Value(this.getScale(visible)),
-            position: new Animated.Value(this.getPosition(visible))
-        }
-    }
-
-    static defaultProps = {
+    
+    public static defaultProps = {
         style: {},
         wrapStyle: styles.wrap,
         maskStyle: styles.mask,
@@ -39,25 +29,36 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         maskClosable: true,
         onClose: () => {},
         onAnimationEnd: () => {}
-    };
+    }
 
-    animMask;
+    public animMask: any
 
-    animDialog;
+    public animDialog: any
+    
+    constructor(props: IDialogProps) {
+        super(props);
+        const { visible } = this.props;
+        this.state = {
+            modalVisible: this.props.visible,
+            opacity: new Animated.Value(this.getOpacity(visible)),
+            scale: new Animated.Value(this.getScale(visible)),
+            position: new Animated.Value(this.getPosition(visible))
+        }
+    }
 
-    componentDidMount() {
+    public componentDidMount() {
         if (this.props.animateAppear && this.props.animationType !== 'none') {
             this.componentDidUpdate({});
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    public componentWillReceiveProps(nextProps) {
         if (this.shouldComponentUpdate(nextProps, this.state)) {
             this.setState({modalVisible: true});
         }
     }
 
-    shouldComponentUpdate (nextProps: any, nextState: any) {
+    public shouldComponentUpdate(nextProps: any, nextState: any) {
         const props = this.props;
         if (props.visible || props.visible !== nextProps.visible) {
             return true
@@ -70,40 +71,40 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         return false
     }
 
-    componentDidUpdate (prevProps: any) {
+    public componentDidUpdate(prevProps: any) {
         const props = this.props;
         if (prevProps.visible !== props.visible) {
-            this._animateDialog(props.visible)
+            this.animateDialog(props.visible)
         }
     }
 
-    getOpacity = (visible: any) => {
+    public getOpacity = (visible: any) => {
         return visible ? 1 : 0
     };
 
-    getScale = (visible: any) => {
+    public getScale = (visible: any) => {
         return visible ? 1 : 1.05
     };
 
-    getPosition = (visible: any) => {
+    public getPosition = (visible: any) => {
         if (visible) {
             return 0;
         }
         return this.props.animationType === 'slide-down' ? -screen.height : screen.height;
     };
 
-    onMaskClose = () => {
+    public onMaskClose = () => {
         const { maskClosable, onClose } = this.props;
         if (maskClosable) {
             onClose && onClose()
         }
     };
 
-    close = () => {
-        this._animateDialog(false)
+    public close = () => {
+        this.animateDialog(false)
     };
 
-    animateMask = (visible: any) => {
+    public animateMask = (visible: any) => {
         this.stopMaskAnim();
         this.state.opacity.setValue(this.getOpacity(!visible));
         this.animMask = Animated.timing(
@@ -119,21 +120,66 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         });
     };
 
-    stopMaskAnim = () => {
+    public stopMaskAnim = () => {
         if (this.animMask) {
             this.animMask.stop();
             this.animMask = null
         }
     };
 
-    stopDialogAnim = () => {
+    public stopDialogAnim = () => {
         if (this.animDialog) {
             this.animDialog.stop();
             this.animDialog = null
         }
     }
 
-    private _animateDialog = (visible) => {
+    public render() {
+        const { modalVisible } = this.state;
+        if (!modalVisible) {
+            return null;
+        }
+
+        const{
+            transparent, onClose, wrapStyle, maskStyle, style, children
+        } = this.props;
+
+        const animationType = this.props.animationType || 'none';
+
+        const animationStyleMap = {
+            'none': {},
+            'fade': {
+                transform: [{scale: this.state.scale}],
+                opacity: this.state.opacity
+            },
+            'slide-up': { transform: [{translateY: this.state.position}] },
+            'slide-down': { transform: [{translateY: this.state.position}] },
+        };
+
+        return (
+            <Modal
+                visible={true}
+                transparent={transparent}
+                onRequestClose={onClose}
+            >
+                <View style={[styles.wrap, wrapStyle]}>
+                    <TouchableWithoutFeedback
+                        onPress={this.onMaskClose.bind(this)}
+                    >
+                        <Animated.View style={[styles.absolute, { opacity: this.state.opacity }]}>
+                            <View style={[styles.absolute, maskStyle]}/>
+                        </Animated.View>
+                    </TouchableWithoutFeedback>
+                    <Animated.View
+                        style={[style, animationStyleMap[animationType]]}>
+                        {children}
+                    </Animated.View>
+                </View>
+            </Modal>
+        )
+    }
+
+    private animateDialog = (visible) => {
         this.stopDialogAnim();
         this.animateMask(visible);
 
@@ -192,52 +238,5 @@ export default class Dialog extends React.Component<IDialogProps, any> {
             }
             onAnimationEnd && onAnimationEnd(visible)
         })
-    };
-
-    render () {
-        const {
-            modalVisible,
-        } = this.state;
-        if (!modalVisible) {
-            return null;
-        }
-
-        const{
-            transparent, onClose, wrapStyle, maskStyle, style, children
-        } = this.props;
-
-        const animationType = this.props.animationType || 'none';
-
-        const animationStyleMap = {
-            none: {},
-            fade: {
-                transform: [{scale: this.state.scale}],
-                opacity: this.state.opacity
-            },
-            'slide-up': { transform: [{translateY: this.state.position}] },
-            'slide-down': { transform: [{translateY: this.state.position}] },
-        };
-
-        return (
-            <Modal
-                visible={true}
-                transparent={transparent}
-                onRequestClose={onClose}
-            >
-                <View style={[styles.wrap, wrapStyle]}>
-                    <TouchableWithoutFeedback
-                        onPress={this.onMaskClose.bind(this)}
-                    >
-                        <Animated.View style={[styles.absolute, { opacity: this.state.opacity }]}>
-                            <View style={[styles.absolute, maskStyle]}/>
-                        </Animated.View>
-                    </TouchableWithoutFeedback>
-                    <Animated.View
-                        style={[style, animationStyleMap[animationType]]}>
-                        {children}
-                    </Animated.View>
-                </View>
-            </Modal>
-        )
     }
 }

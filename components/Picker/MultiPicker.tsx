@@ -1,13 +1,13 @@
 /**
  * Created by beilunyang on 2018/4/10
  */
-import * as React from 'react';
+import * as React from 'react'
 import {
     View,
-} from 'react-native';
+} from 'react-native'
 
 export default class MultiPicker extends React.Component<any, any> {
-    getValue = () => {
+    public getValue = () => {
         const {
             children,
             value,
@@ -27,7 +27,7 @@ export default class MultiPicker extends React.Component<any, any> {
         });
     }
 
-    onChange = (idx: any, val: any, cb: any) => {
+    public onChange = (idx: any, val: any, cb: any) => {
         const values: any = this.getValue()
         values[idx] = val;
         if (cb) {
@@ -35,7 +35,7 @@ export default class MultiPicker extends React.Component<any, any> {
         }
     }
 
-    render() {
+    public render() {
         const {
             children,
             onChange,

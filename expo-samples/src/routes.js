@@ -1,133 +1,160 @@
+import codeInputGroup from '../demos/codeInputGroup'
+import Body from '../demos/body'
+import OptionTag from '../demos/optionTag'
+import Tabs from '../demos/tabs'
+import Grid from '../demos/grid'
+import Result from '../demos/result'
+import NavBar from '../demos/navbar'
+import InputNumber from '../demos/inputNumber'
+import RadioGroup from '../demos/radioGroup'
+import NoticeBar from '../demos/noticeBar'
+import Button from '../demos/button'
+import Icon from '../demos/icon'
+import Card from '../demos/card'
+import Indicator from '../demos/indicator'
+import Picker from '../demos/picker'
+import InputItem from '../demos/inputItem'
+import Dialog from '../demos/dialog'
+import Modal from '../demos/modal'
+import Popup from '../demos/popup'
+import Badge from '../demos/badge'
+import Tag from '../demos/tag'
+import SearchInput from '../demos/searchInput'
+import SearchBar from '../demos/searchBar'
+import Checkbox from '../demos/checkbox'
+import Toast from '../demos/toast'
+import DatePicker from '../demos/datePicker'
+
 export default [
     {
         title: 'CodeInputGroup',
         description: '短信验证码',
-        screen: require('../demos/codeInputGroup').default
+        screen: codeInputGroup
     },
     {
         title: 'Body',
         description: '容器',
-        screen: require('../demos/body').default
+        screen: Body
     },
     {
         title: 'OptionTag',
         description: '选项标签',
-        screen: require('../demos/optionTag').default
+        screen: OptionTag
     },
     {
         title: 'Tabs',
         description: '标签页',
-        screen: require('../demos/tabs').default
+        screen: Tabs
     },
     {
         title: 'Grid',
         description: '宫格',
-        screen: require('../demos/grid').default
+        screen: Grid
     },
     {
         title: 'Result',
         description: '结果页',
-        screen: require('../demos/result').default
+        screen: Result
     },
     {
         title: 'NavBar',
         description: '导航栏',
-        screen: require('../demos/navbar').default
+        screen: NavBar
     },
     {
         title: 'InputNumber',
         description: '数字输入框',
-        screen: require('../demos/inputNumber').default
+        screen: InputNumber
     },
     {
         title: 'RadioGroup',
         description: '单选组',
-        screen: require('../demos/radioGroup').default
+        screen: RadioGroup
     },
     {
         title: 'NoticeBar',
         description: '通知栏',
-        screen: require('../demos/noticeBar').default
+        screen: NoticeBar
     },
     {
         title: 'Button',
         description: '按钮',
-        screen: require('../demos/button').default
+        screen: Button
     },
     {
         title: 'Icon',
         description: '图标',
-        screen: require('../demos/icon').default
+        screen: Icon
     },
     {
         title: 'Card',
         description: '卡片',
-        screen: require('../demos/card').default
+        screen: Card
     },
     {
         title: 'Indicator',
         description: '指示器',
-        screen: require('../demos/indicator').default
+        screen: Indicator
     },
     {
         title: 'Picker',
         description: '选择器',
-        screen: require('../demos/picker').default
+        screen: Picker
     },
     {
         title: 'InputItem',
         description: '输入框',
-        screen: require('../demos/inputItem').default
+        screen: InputItem
     },
     {
         title: 'Dialog',
         description: '底层弹窗',
-        screen: require('../demos/dialog').default
+        screen: Dialog
     },
     {
         title: 'Modal',
         description: '模态窗',
-        screen: require('../demos/modal').default
+        screen: Modal
     },
     {
         title: 'Popup',
         description: '弹窗',
-        screen: require('../demos/popup').default
+        screen: Popup
     },
     {
         title: 'Badge',
         description: '徽标',
-        screen: require('../demos/badge').default
+        screen: Badge
     },
     {
         title: 'Tag',
         description: '标签',
-        screen: require('../demos/tag').default
+        screen: Tag
     },
     {
         title: 'SearchInput',
         description: '搜索框',
-        screen: require('../demos/searchInput').default
+        screen: SearchInput
     },
     {
         title: 'SearchBar',
         description: '搜索栏',
-        screen: require('../demos/searchBar').default
+        screen: SearchBar
     },
     {
 
         title: 'Checkbox',
         description: '选择框',
-        screen: require('../demos/checkbox').default
+        screen: Checkbox
     },
     {
         title: 'Toast',
         description: 'toast',
-        screen: require('../demos/toast').default
+        screen: Toast
     },
     {
         title: 'DatePicker',
         description: '日期选择器',
-        screen: require('../demos/datePicker').default
+        screen: DatePicker
     },
 ]

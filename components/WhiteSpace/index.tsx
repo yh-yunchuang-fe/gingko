@@ -8,11 +8,11 @@ export interface WhiteSpaceProps {
 }
 
 export default class WhiteSpace extends React.Component<WhiteSpaceProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         size: 'md',
     };
 
-    render() {
+    public render() {
         const { size, style } = this.props;
         return (
             <View style={[{ height: variables[`v_spacing_${size}`] }, style]} />

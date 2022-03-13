@@ -12,35 +12,34 @@ import {
 } from 'react-native'
 import NavBarProps from './propsType'
 import styles from './style'
-import Icon from "../Icon";
+import Icon from '../Icon'
 
 export default class NarBar extends React.Component<NavBarProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         style: null,
         leftIcon: 'back',
         leftContent: null,
         rightContent: null,
-        onLeftClick: ()=>{}
-    };
-
+        onLeftClick: ()=> {}
+    }
 
     constructor(props: any) {
         super(props)
     }
 
-    render() {
+    public render() {
         const {
             style, leftIcon = 'home', leftContent, rightContent, onLeftClick, children,
             ...restProps
-        } = this.props;
+        } = this.props
 
-        let leftDom:any = null;
+        let leftDom: any = null
 
         if (leftContent) {
             if (typeof leftContent === 'string') {
                 leftDom = (<Text style={styles.leftText}>{ leftContent }</Text>)
             } else {
-                leftDom = leftContent;
+                leftDom = leftContent
             }
         } else {
             leftDom = (<Icon name={leftIcon} style={styles.leftIcon} size={20}/>)
@@ -52,13 +51,13 @@ export default class NarBar extends React.Component<NavBarProps, any> {
                     {leftDom}
                 </View>
             </TouchableOpacity>
-        );
+        )
 
-        let childDom:any = null;
+        let childDom: any = null
         if (children && typeof children === 'string') {
             childDom = (<Text style={styles.title}>{children}</Text>)
         } else {
-            childDom = children;
+            childDom = children
         }
 
         return (
@@ -74,4 +73,3 @@ export default class NarBar extends React.Component<NavBarProps, any> {
         )
     }
 }
-

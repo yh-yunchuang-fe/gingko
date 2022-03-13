@@ -2,17 +2,14 @@
  * @author zhangyi
  * @date 2018/2/28
  */
-import React  from 'react'
+import React from 'react'
 import Dialog from '../Dialog'
 import IPopupProps from './propsType';
 import styles from './style'
 
 export default class Popup extends React.Component<IPopupProps, any> {
-    constructor(props: any) {
-        super(props)
-    }
 
-    static defaultProps = {
+    public static defaultProps = {
         visible: false,
         animateAppear: true,
         animationDuration: 300,
@@ -20,9 +17,9 @@ export default class Popup extends React.Component<IPopupProps, any> {
         onClose: () => { },
         onAnimationEnd: () => { },
         style: {},
-    };
+    }
 
-    render() {
+    public render() {
         const {
             visible, maskClosable, animateAppear, onAnimationEnd, onClose, style,
             children, animationDuration
@@ -32,7 +29,7 @@ export default class Popup extends React.Component<IPopupProps, any> {
             <Dialog
                 transparent
                 visible={visible}
-                animationType="slide-up"
+                animationType='slide-up'
                 animateAppear={animateAppear}
                 animationDuration={animationDuration}
                 onClose={onClose}
@@ -45,5 +42,4 @@ export default class Popup extends React.Component<IPopupProps, any> {
 
         )
     }
-
 }

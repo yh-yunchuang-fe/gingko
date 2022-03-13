@@ -7,13 +7,12 @@ import {
     TouchableOpacity,
     View,
     Text, ScrollView,
-} from "react-native";
+} from 'react-native';
 import { TabBarProps, TabProps } from './propsType'
 import styles from './style/index'
 
-
 export default class DefaultTabBar extends React.Component<TabBarProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         tabs: [],
         activeTab: 0,
         tabBarBackgroundColor: '#fff',
@@ -22,21 +21,17 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
         tabBarTextStyle: {},
     };
 
-    _scrollView = null;
+    public scrollView = null;
 
-    isTabVertical = (tabBarPosition = (this.props.tabBarPosition)) => tabBarPosition === 'left';
+    public isTabVertical = (tabBarPosition = (this.props.tabBarPosition)) => tabBarPosition === 'left';
 
-    constructor(props: TabBarProps) {
-        super(props)
-    }
-
-    onPress = (index: number) => {
+    public onPress = (index: number) => {
         const { onTabClick, tabs, goToTab } = this.props;
         onTabClick && onTabClick(tabs[index], index);
         goToTab && goToTab(index)
     };
 
-    renderTab(tab: TabProps, index: number) {
+    public renderTab(tab: TabProps, index: number) {
         const {
             tabBarActiveTextColor: activeTextColor,
             tabBarInactiveTextColor: inactiveTextColor,
@@ -79,7 +74,7 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
         )
     }
 
-    render() {
+    public render() {
         const {
             tabs,
             tabBarFillColor,
@@ -91,7 +86,7 @@ export default class DefaultTabBar extends React.Component<TabBarProps, any> {
                 backgroundColor: tabBarFillColor || styles.TabBar.fillColor
             }}>
                 <ScrollView
-                    ref={(scrollView: any) => { this._scrollView = scrollView; }}
+                    ref={(scrollView: any) => { this.scrollView = scrollView; }}
                     horizontal={!this.isTabVertical()}
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}

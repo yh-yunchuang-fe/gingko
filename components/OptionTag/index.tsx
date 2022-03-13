@@ -5,14 +5,15 @@
 import React from 'react'
 import {
     View,
-    Text, TouchableOpacity,
-} from "react-native";
+    Text, 
+    TouchableOpacity,
+} from 'react-native'
 import Icon from '../Icon'
 import OptionTagProps from './propsType'
 import styles from './style/index'
 
 export default class OptionTag extends React.Component<OptionTagProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         disabled: false,
         multiple: false,
         selected: false,
@@ -27,7 +28,7 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    public componentWillReceiveProps(nextProps) {
         if (this.props.selected != nextProps.selected) {
             this.setState({
                 selected: nextProps.selected
@@ -35,7 +36,7 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
         }
     }
 
-    onChange = () => {
+    public onChange = () => {
         const { selected } = this.state;
         const { onChange } = this.props;
         console.log('selected:', selected);
@@ -45,7 +46,7 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
         onChange && onChange(!selected);
     };
 
-    render() {
+    public render() {
         const {
             width, height, children, style, textStyle,
             disabled, multiple, onChange, renderText,
@@ -53,7 +54,7 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
         } = this.props;
         const selected = this.state.selected;
 
-        let offsetSty = {
+        const offsetSty = {
             width,
             height
         };
@@ -81,12 +82,11 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
             if (multiple) {
                 multipleNode = (
                     <View style={styles.multiple}>
-                        <Icon style={styles.multipleIcon} name="checkmark" size={6} color="#fff"/>
+                        <Icon style={styles.multipleIcon} name='checkmark' size={6} color='#fff'/>
                     </View>
                 )
             }
         }
-
 
         return (
             <View style={styles.wrap}>
@@ -103,5 +103,3 @@ export default class OptionTag extends React.Component<OptionTagProps, any> {
         )
     }
 }
-
-

@@ -7,8 +7,7 @@ import {
     View,
     TextInput,
     TouchableOpacity,
-    Text, Animated
-} from "react-native";
+} from 'react-native'
 import Icon from '../Icon'
 import styles from './style/index'
 import SearchInputProps from './propsType'
@@ -16,7 +15,7 @@ import SearchInputProps from './propsType'
 function noop() {}
 
 export default class SearchInput extends React.Component<SearchInputProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         defaultValue: '',
         placeholder: 'Search',
         autoFocus: false,
@@ -28,7 +27,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         onClear: noop
     };
 
-    searchInput:any = null;
+    public searchInput: any = null;
 
     constructor(props) {
         super(props);
@@ -41,11 +40,11 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         }
     }
 
-    isControlledComponent = () => {
+    public isControlledComponent = () => {
         return this.props.hasOwnProperty('value')
     };
 
-    componentWillReceiveProps(nextProps: any) {
+    public componentWillReceiveProps(nextProps: any) {
         if (this.isControlledComponent() && nextProps.value !== this.state.value) {
             this.setState({
                 value: nextProps.value,
@@ -54,7 +53,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         }
     }
 
-    clearInput = () => {
+    public clearInput = () => {
         this.setState({
             value: '',
             showDelete: false
@@ -64,7 +63,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         }
     };
 
-    onChangeText = (value: any) => {
+    public onChangeText = (value: any) => {
         const { onChange } = this.props;
         if (value != '') {
             this.setState({
@@ -80,7 +79,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         onChange && onChange(value);
     };
 
-    onFocus = () => {
+    public onFocus = () => {
         this.setState({
             focus: true
         });
@@ -90,7 +89,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         }
     };
 
-    onBlur = () => {
+    public onBlur = () => {
         this.setState({
             focus: false
         });
@@ -101,14 +100,14 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
         }
     };
 
-    onSubmit = (e: any) => {
+    public onSubmit = (e: any) => {
         e.preventDefault();
         if (this.props.onSubmit) {
             this.props.onSubmit(this.state.value);
         }
     };
 
-    render() {
+    public render() {
         const {
             placeholder, style, autoFocus, wrapStyle,
             onChange, onSubmit, onFocus, onBlur, onClear,
@@ -119,16 +118,16 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
 
         return (
             <View style={[styles.inputWrapper, wrapStyle]}>
-                <Icon style={styles.searchIcon} name="search"/>
+                <Icon style={styles.searchIcon} name='search'/>
                 <TextInput
                     {...restProps}
-                    ref={(searchInput)=>{ this.searchInput = searchInput }}
+                    ref={(searchInput)=> { this.searchInput = searchInput }}
                     autoFocus={autoFocus}
                     value={value}
                     placeholder={placeholder}
                     style={[styles.input, style]}
-                    underlineColorAndroid="transparent"
-                    clearButtonMode="never"
+                    underlineColorAndroid='transparent'
+                    clearButtonMode='never'
                     onChangeText={this.onChangeText}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -137,7 +136,7 @@ export default class SearchInput extends React.Component<SearchInputProps, any> 
                 {
                     showDelete &&
                     <TouchableOpacity onPress={this.clearInput}>
-                        <Icon name="close-circle" size={18} style={styles.deleteIcon}/>
+                        <Icon name='close-circle' size={18} style={styles.deleteIcon}/>
                     </TouchableOpacity>
                 }
             </View>

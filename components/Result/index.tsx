@@ -6,7 +6,7 @@ import React from 'react'
 import {
     Text,
     View
-} from "react-native";
+} from 'react-native'
 import styles from './style/index'
 import Icon from '../Icon'
 
@@ -18,8 +18,8 @@ interface ResultProps {
 }
 
 export default class Result extends React.Component<ResultProps, any> {
-    static defaultProps = {
-        img: <Icon name="alert" size={40}/>,
+    public static defaultProps = {
+        img: <Icon name='alert' size={40}/>,
         message: '暂无数据'
     };
 
@@ -27,12 +27,12 @@ export default class Result extends React.Component<ResultProps, any> {
         super(props)
     }
 
-    render() {
+    public render() {
         const {
             style, img, title, message
         } = this.props;
 
-        let titleDom:any = null;
+        let titleDom: any = null;
         if (title) {
             if (React.isValidElement(title)) {
                 titleDom = title;
@@ -41,7 +41,7 @@ export default class Result extends React.Component<ResultProps, any> {
             }
         }
 
-        let messageDom:any = null;
+        let messageDom: any = null;
         if (message) {
             if (React.isValidElement(message)) {
                 messageDom = message;

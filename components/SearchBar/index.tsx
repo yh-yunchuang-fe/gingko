@@ -9,7 +9,7 @@ import {
     TextInput,
     TouchableOpacity,
     Text
-} from "react-native";
+} from 'react-native';
 import Icon from '../Icon'
 import styles from './style/index'
 import ISearchBarProps from './propsType'
@@ -18,7 +18,7 @@ import variables from '../../src/style/variables';
 function noop() {}
 
 export default class SearchBar extends React.Component<ISearchBarProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         defaultValue: '',
         placeholder: 'Search',
         showCancel: true,
@@ -34,9 +34,9 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         onClear: noop
     };
 
-    searchInput: any;
+    public searchInput: any;
 
-    duration = 200;
+    public duration = 200;
 
     constructor(props) {
         super(props);
@@ -50,7 +50,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    public componentWillReceiveProps(nextProps) {
         if (nextProps.value && nextProps.value !== this.state.value) {
             this.setState({
                 value: nextProps.value,
@@ -59,7 +59,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         }
     }
 
-    clearInput = () => {
+    public clearInput = () => {
         const { onClear } = this.props;
         this.setState({
             value: '',
@@ -68,7 +68,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         onClear && onClear()
     };
 
-    onChangeText = (value: any) => {
+    public onChangeText = (value: any) => {
         const { onChange } = this.props;
         if (value != '') {
             this.setState({
@@ -84,7 +84,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         onChange && onChange(value);
     };
 
-    onFocus = () => {
+    public onFocus = () => {
         this.setState({
             focus: true
         });
@@ -102,7 +102,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         }
     };
 
-    onBlur = () => {
+    public onBlur = () => {
         this.setState({
             focus: false
         });
@@ -120,21 +120,21 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         }
     };
 
-    onCancel = () => {
+    public onCancel = () => {
         this.onBlur();
         if (this.props.onCancel) {
             this.props.onCancel(this.state.value)
         }
     };
 
-    onSubmit = (e) => {
+    public onSubmit = (e) => {
         e.preventDefault();
         if (this.props.onSubmit) {
             this.props.onSubmit(this.state.value);
         }
     };
 
-    render() {
+    public render() {
         const {
             placeholder, showCancel, cancelText, cancelColor, style, autoFocus,
             onChange, onSubmit, onFocus, onBlur, onCancel, onClear,
@@ -153,16 +153,16 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         return (
             <View style={styles.wrapper}>
                 <View style={styles.inputWrapper}>
-                    <Icon style={styles.searchIcon} name="search"/>
+                    <Icon style={styles.searchIcon} name='search'/>
                     <TextInput
                         {...restProps}
-                        ref={(searchInput)=>{ this.searchInput = searchInput }}
+                        ref={(searchInput)=> { this.searchInput = searchInput }}
                         autoFocus={autoFocus}
                         value={value}
                         placeholder={placeholder}
                         style={[styles.input, style]}
-                        underlineColorAndroid="transparent"
-                        clearButtonMode="never"
+                        underlineColorAndroid='transparent'
+                        clearButtonMode='never'
                         onChangeText={this.onChangeText}
                         onFocus={this.onFocus}
                         onBlur={this.onBlur}
@@ -171,7 +171,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
                     {
                         showDelete &&
                         <TouchableOpacity onPress={this.clearInput}>
-                            <Icon name="close-circle" size={18} style={styles.deleteIcon}/>
+                            <Icon name='close-circle' size={18} style={styles.deleteIcon}/>
                         </TouchableOpacity>
                     }
                 </View>

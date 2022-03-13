@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-    View
-} from "react-native";
+import { View } from 'react-native'
 import variables from '../../src/style/variables'
-
 
 export interface WingBlankProps {
     size?: 'sm' | 'md' | 'lg';
@@ -11,12 +8,12 @@ export interface WingBlankProps {
 }
 
 export default class WingBlank extends React.Component<WingBlankProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         size: 'lg',
         style: {}
     };
 
-    render() {
+    public render() {
         const { size, style, children } = this.props;
         const margin = variables[`h_spacing_${size}`];
 

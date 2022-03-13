@@ -1,25 +1,18 @@
-import React from 'react';
+import React from 'react'
 import {
     View,
     Text,
     StyleSheet,
     TouchableHighlight
-} from 'react-native';
+} from 'react-native'
 import { Indicator } from '../index'
-import ButtonProps from './propsType';
-import btnStyles from './style';
-import Icon from "../Icon";
+import ButtonProps from './propsType'
+import btnStyles from './style'
+import Icon from '../Icon'
 
 export default class Button extends React.Component<ButtonProps, any> {
-    constructor(props: ButtonProps) {
-        super(props);
-        this.state = {
-            pressIn: false,
-            touchIt: false
-        };
-    }
 
-    static defaultProps = {
+    public static defaultProps = {
         size: 'large',
         type: 'default',
         disabled: false,
@@ -27,42 +20,49 @@ export default class Button extends React.Component<ButtonProps, any> {
         textStyle: {},
         loading: false,
         activeStyle: {},
-        onClick: (_x?: any) => {},
-        onPressIn: (_x?: any) => {},
-        onPressOut: (_x?: any) => {},
+        onClick: (x?: any) => {},
+        onPressIn: (x?: any) => {},
+        onPressOut: (x?: any) => {},
 
         icon: {}
-    };
+    }
+    constructor(props: ButtonProps) {
+        super(props)
+        this.state = {
+            pressIn: false,
+            touchIt: false
+        }
+    }
 
-    onPressIn = (...args: any[]) => {
-        this.setState({pressIn: true});
+    public onPressIn = (...args: any[]) => {
+        this.setState({pressIn: true})
         if (this.props.onPressIn) {
-            (this.props.onPressIn as any)(...args);
+            (this.props.onPressIn as any)(...args)
         }
-    };
+    }
 
-    onPressOut = (...args: any[]) => {
-        this.setState({pressIn: false});
+    public onPressOut = (...args: any[]) => {
+        this.setState({pressIn: false})
         if (this.props.onPressOut) {
-            (this.props.onPressOut as any)(...args);
+            (this.props.onPressOut as any)(...args)
         }
-    };
+    }
 
-    onShowUnderlay = (...arg: any[]) => {
-        this.setState({ touchIt: true });
+    public onShowUnderlay = (...arg: any[]) => {
+        this.setState({ touchIt: true })
         if (this.props.onShowUnderlay) {
-            (this.props.onShowUnderlay as any)(...arg);
+            (this.props.onShowUnderlay as any)(...arg)
         }
-    };
+    }
 
-    onHideUnderlay = (...arg: any[]) => {
-        this.setState({ touchIt: false });
+    public onHideUnderlay = (...arg: any[]) => {
+        this.setState({ touchIt: false })
         if (this.props.onHideUnderlay) {
-            (this.props.onHideUnderlay as any)(...arg);
+            (this.props.onHideUnderlay as any)(...arg)
         }
-    };
+    }
 
-    render() {
+    public render() {
 
         const {
             size, type, style, textStyle, disabled, activeStyle, onClick, loading,
@@ -72,9 +72,9 @@ export default class Button extends React.Component<ButtonProps, any> {
         ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
             'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
             if (restProps.hasOwnProperty(prop)) {
-                delete restProps[prop];
+                delete restProps[prop]
             }
-        });
+        })
 
         const wrapperSty = [
             btnStyles.wrapperSty,
@@ -84,7 +84,7 @@ export default class Button extends React.Component<ButtonProps, any> {
             // this.state.pressIn && activeStyle && btnStyles[`${type}TapSty`],
             activeStyle && this.state.touchIt && activeStyle,
             style
-        ];
+        ]
 
         const textSty = [
             btnStyles[`${size}Text`],
@@ -92,12 +92,11 @@ export default class Button extends React.Component<ButtonProps, any> {
             disabled && btnStyles[`${type}DisabledText`],
             this.state.pressIn && btnStyles[`${type}TapText`],
             textStyle
-        ];
+        ]
 
         const underlayColor = (StyleSheet.flatten(
             btnStyles[activeStyle ? `${type}TapSty` : `${type}Sty`],
-        ) as any).backgroundColor;
-
+        ) as any).backgroundColor
 
         let iconDom
         if (icon) {
@@ -121,7 +120,6 @@ export default class Button extends React.Component<ButtonProps, any> {
         } else {
             childrenDom = <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
         }
-
 
         return (
             <TouchableHighlight

@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import Toast from './Toast';
-import rootView from 'react-native-root-view';
+// import rootView from 'react-native-root-view';
 import {
     IBaseToastOptions,
     IShowToastOptions,
@@ -21,22 +21,22 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
     } = options;
     let id:number = 0;
     const animationEnd = () => {
-        rootView.remove(id);
+        // rootView.remove(id);
     };
-    id = rootView.set(
-        <Toast
-            icon={icon}
-            type={type}
-            style={style}
-            content={content}
-            duration={duration}
-            position={position}
-            onClose={onClose}
-            mask={mask}
-            animationEnd={animationEnd}
-            key={Date.now() + Math.random()}
-        />
-    );
+    // id = rootView.set(
+    //     <Toast
+    //         icon={icon}
+    //         type={type}
+    //         style={style}
+    //         content={content}
+    //         duration={duration}
+    //         position={position}
+    //         onClose={onClose}
+    //         mask={mask}
+    //         animationEnd={animationEnd}
+    //         key={Date.now() + Math.random()}
+    //     />
+    // );
     return id;
 };
 
@@ -112,7 +112,7 @@ export default {
         });
     },
     hide(id?: number) {
-        rootView.remove(id);
+        // rootView.remove(id);
     },
     show,
 };

@@ -7,23 +7,23 @@ import {
     ScrollView,
     View,
     ViewStyle
-} from "react-native";
+} from 'react-native';
 import { TabsProps, TabProps } from './propsType'
 import DefaultTabBar from './DefaultTabBar'
 import styles from './style/index'
 
 export default class Tabs extends React.Component<TabsProps, any> {
-    static DefaultTabBar = DefaultTabBar;
+    public static DefaultTabBar = DefaultTabBar;
 
-    static defaultProps = {
+    public static defaultProps = {
         tabBarPosition: 'left',
         initialPage: 0,
         tabs: [],
         style: {}
     } as TabsProps;
 
-    nextCurrentTab: number = 0;
-    tabCache: { [index: number]: React.ReactNode } = {};
+    public nextCurrentTab: number = 0;
+    public tabCache: { [index: number]: React.ReactNode } = {};
     // isTabVertical: boolean = true;
 
     constructor(props: TabsProps) {
@@ -37,7 +37,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         // this.isTabVertical = tabBarPosition === 'left'
     }
 
-    getTabIndex(props: TabsProps) {
+    public getTabIndex(props: TabsProps) {
         const { page, initialPage, tabs } = props;
         const param = (page !== undefined ? page : initialPage) || 0;
 
@@ -54,9 +54,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
         return index < 0 ? 0 : index;
     }
 
-    isTabVertical = (tabBarPosition = (this.props.tabBarPosition)) => tabBarPosition === 'left';
+    public isTabVertical = (tabBarPosition = (this.props.tabBarPosition)) => tabBarPosition === 'left';
 
-    goToTab(index: number) {
+    public goToTab(index: number) {
         if (this.nextCurrentTab === index) {
             return false;
         }
@@ -75,7 +75,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         return true;
     }
 
-    getTabBarBaseProps() {
+    public getTabBarBaseProps() {
         const { currentTab } = this.state;
         const {
             tabs,
@@ -102,9 +102,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
         }
     }
 
-    getSubElements = () => {
+    public getSubElements = () => {
         const { children } = this.props;
-        let subElements: { [key: string]: React.ReactNode } = {};
+        const subElements: { [key: string]: React.ReactNode } = {};
 
         return (defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') => {
             if (Array.isArray(children)) {
@@ -121,7 +121,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         };
     };
 
-    getSubElement(
+    public getSubElement(
         tab: TabProps,
         index: number,
         subElements: (defaultPrefix: string, allPrefix: string) => { [key: string]: any },
@@ -137,7 +137,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         return component || null;
     }
 
-    renderTabBar(tabBarProps: any, renderTabBar) {
+    public renderTabBar(tabBarProps: any, renderTabBar) {
         if (renderTabBar) {
             return renderTabBar(tabBarProps)
         } else {
@@ -145,12 +145,12 @@ export default class Tabs extends React.Component<TabsProps, any> {
         }
     }
 
-    renderContent(getSubElements = this.getSubElements()) {
+    public renderContent(getSubElements = this.getSubElements()) {
         const { tabs, children } = this.props;
         const { currentTab = 0 } = this.state;
         const tab = tabs[currentTab];
         // const key = tab.key || `tab_${currentTab}`;
-        let node = this.tabCache[currentTab] || this.getSubElement(tab, currentTab, getSubElements);
+        const node = this.tabCache[currentTab] || this.getSubElement(tab, currentTab, getSubElements);
 
         return node;
         // return (
@@ -179,7 +179,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         // )
     }
 
-    render() {
+    public render() {
         const {
             style, renderTabBar
         } = this.props as TabsProps;

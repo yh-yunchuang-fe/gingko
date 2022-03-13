@@ -1,6 +1,6 @@
-import Modal from './modal';
+import Modal from './modal'
 import alert from './alert'
 
-Modal.alert = alert;
+Modal.alert = alert
 
-export default Modal;
+export default Modal

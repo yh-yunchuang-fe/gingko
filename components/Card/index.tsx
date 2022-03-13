@@ -9,16 +9,16 @@ import { CardProps } from './propsType'
 import styles from './style'
 
 export default class Card extends React.Component<CardProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         full: false,
         style: {},
     }
 
-    static Header = CardHeader
-    static Body = CardBody
-    static Footer = CardFooter
+    public static Header = CardHeader
+    public static Body = CardBody
+    public static Footer = CardFooter
 
-    render() {
+    public render() {
         const { full, style, children, ...restProps } = this.props
         const fullSty = full ? styles!.full : {}
 

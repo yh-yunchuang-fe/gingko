@@ -2,7 +2,7 @@
  * @author zhangyi
  * @date 2018/3/20
  */
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 import variables from '../../../src/style/variables';
 
 const hairlineWidth = StyleSheet.hairlineWidth;

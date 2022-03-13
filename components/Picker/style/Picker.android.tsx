@@ -3,7 +3,7 @@
  */
 import {
     StyleSheet,
-} from 'react-native';
+} from 'react-native'
 
 export default StyleSheet.create({
     indicator: {
@@ -29,4 +29,4 @@ export default StyleSheet.create({
         color: '#999',
         textAlign: 'center',
     } as any,
-});
+})

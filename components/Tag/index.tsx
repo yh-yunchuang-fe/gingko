@@ -12,14 +12,8 @@ import TagProps from './propsType'
 import variables from '../../src/style/variables';
 
 export default class Tag extends React.Component<TagProps, any> {
-    constructor(props: TagProps) {
-        super(props);
-        this.state = {
-            selected: props.selected,
-        }
-    }
 
-    static defaultProps = {
+    public static defaultProps = {
         readonly: true,
         fill: false,
         color: variables.color_label,
@@ -29,8 +23,14 @@ export default class Tag extends React.Component<TagProps, any> {
         size: 'default',
         selected: false,
     };
+    constructor(props: TagProps) {
+        super(props);
+        this.state = {
+            selected: props.selected,
+        }
+    }
 
-    componentWillReceiveProps (nextProps: any) {
+    public componentWillReceiveProps(nextProps: any) {
         if (this.props.selected !== nextProps.selected) {
             this.setState({
                 selected: nextProps.selected,
@@ -38,7 +38,7 @@ export default class Tag extends React.Component<TagProps, any> {
         }
     }
 
-    onClick = () => {
+    public onClick = () => {
         const { readonly, onChange } = this.props;
         if (readonly) {
             return;
@@ -54,7 +54,7 @@ export default class Tag extends React.Component<TagProps, any> {
         });
     };
 
-    render() {
+    public render() {
         const {
             readonly, fill, color, children, style, size, textColor, textStyle,
             activeColor, ...restProps
@@ -82,8 +82,7 @@ export default class Tag extends React.Component<TagProps, any> {
 
         }
 
-        let textSizeSty = styles[`text${size}Sty`];
-
+        const textSizeSty = styles[`text${size}Sty`];
 
         if (readonly) {
             return (
@@ -110,6 +109,4 @@ export default class Tag extends React.Component<TagProps, any> {
         }
 
     }
-
 }
-

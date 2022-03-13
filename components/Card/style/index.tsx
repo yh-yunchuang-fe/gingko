@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import variables from "../../../src/style/variables";
+import { StyleSheet } from 'react-native'
+import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     card: {

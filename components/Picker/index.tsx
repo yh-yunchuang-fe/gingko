@@ -23,9 +23,9 @@ const isAndroid = Platform.OS === 'android';
 
 export default class extends React.Component<IPickerProps, any> {
 
-    static Item = Picker.Item;
+    public static Item = Picker.Item;
 
-    static defaultProps: IPickerProps = {
+    public static defaultProps: IPickerProps = {
         dismissText: '取消',
         okText: '确定',
         onDismiss: () => {},
@@ -38,11 +38,11 @@ export default class extends React.Component<IPickerProps, any> {
         visible: false,
     };
 
-    state = {
+    public state = {
         value: this.props.value || this.props.defaultValue,
     };
 
-    componentWillReceiveProps(nextProps) {
+    public componentWillReceiveProps(nextProps) {
         if ('value' in nextProps) {
             this.setState({
                 value: nextProps.value,
@@ -50,7 +50,7 @@ export default class extends React.Component<IPickerProps, any> {
         }
     }
 
-    renderHeader = () => {
+    public renderHeader = () => {
         const {
             dismissText,
             onOk,
@@ -64,14 +64,14 @@ export default class extends React.Component<IPickerProps, any> {
                     <Text style={styles.dismiss}>{dismissText}</Text>
                 </TouchableOpacity>
                 <Text style={styles.title}>{title}</Text>
-                <TouchableOpacity onPress={(onOk as Function).bind(null, this.state.value)}>
+                <TouchableOpacity onPress={(onOk as (() => void)).bind(null, this.state.value)}>
                     <Text style={styles.ok}>{okText}</Text>
                 </TouchableOpacity>
             </View>
         );
     }
 
-    renderItems = (group: IItemProps[]) => {
+    public renderItems = (group: IItemProps[]) => {
         return group.map(({ label, value }, idx) => {
             if (label === undefined || label === null) {
                 return (
@@ -84,7 +84,7 @@ export default class extends React.Component<IPickerProps, any> {
         });
     }
 
-    renderCols = () => {
+    public renderCols = () => {
         const { data } = this.props;
         if (Array.isArray(data)) {
             // const Pick = isAndroid ? AndroidPicker : Picker;
@@ -99,7 +99,7 @@ export default class extends React.Component<IPickerProps, any> {
         return null;
     }
 
-    onChange = (values: any, idx: any) => {
+    public onChange = (values: any, idx: any) => {
         const { onChange } = this.props;
         if (!('value' in this.props)) {
             this.setState({
@@ -111,7 +111,7 @@ export default class extends React.Component<IPickerProps, any> {
         }
     }
 
-    renderPicker = () => {
+    public renderPicker = () => {
         const Pick = isAndroid ? AndroidPicker : Picker;
         const {
             value,
@@ -152,7 +152,7 @@ export default class extends React.Component<IPickerProps, any> {
         );
     }
 
-    render() {
+    public render() {
         const {
             visible,
         } = this.props;

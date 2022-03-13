@@ -11,8 +11,8 @@ export default interface SearchInputProps {
     wrapStyle?: any;
     autoFocus?: boolean;
 
-    onSubmit?: (_x?: any) => void;
-    onChange?: (_x?: any) => void;
+    onSubmit?: (x?: any) => void;
+    onChange?: (x?: any) => void;
     onFocus?: () => void;
     onBlur?: () => void;
     onClear?: () => void;

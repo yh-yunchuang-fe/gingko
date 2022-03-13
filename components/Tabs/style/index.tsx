@@ -2,8 +2,8 @@
  * @author zhangyi
  * @date 2018/3/25
  */
-import * as RN from 'react-native';
-import variables from '../../../src/style/variables';
+import * as RN from 'react-native'
+import variables from '../../../src/style/variables'
 
 export default {
     Tabs: {

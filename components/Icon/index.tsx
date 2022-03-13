@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {
     Text
-} from "react-native";
+} from 'react-native'
 
 export interface IconProps {
     name: string,
@@ -58,27 +58,27 @@ const iconMap = {
 };
 
 export default class Icon extends React.Component<IconProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         size: 16,
         color: '#333',
-    };
+    }
 
-    render() {
+    public render() {
         const { name, size, color, style } = this.props;
-        const sizeMap = { 'xxs': 12, 'xs': 14, 'sm': 16, 'md': 18, 'lg': 20 };
+        const sizeMap = { xxs: 12, xs: 14, sm: 16, md: 18, lg: 20 };
         let fontSize = typeof size === 'string' ? sizeMap[size] : size;
         fontSize = fontSize || 16;
         const lineHeight = fontSize + 1;
         const TextIconStyle = {
             fontSize,
-            lineHeight: lineHeight,
-            color: color,
+            lineHeight,
+            color,
             fontFamily: 'gingkoIcon',
             flexDirection: 'row',
-        };
+        }
 
         return (
             <Text style={[TextIconStyle as any, style]}>{iconMap[name] || name}</Text>
-        );
+        )
     }
 }

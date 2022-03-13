@@ -1,24 +1,20 @@
 /**
  * @author zhangyi
  */
-import React  from 'react'
+import React from 'react'
 import {
     View,
     Text,
 } from 'react-native'
 import Dialog from '../Dialog'
 import Button from '../Button'
-import { IModalProps } from './propsType';
+import { IModalProps } from './propsType'
 import styles from './style'
-import {IActionButton} from "../Modal/propsType";
-import variables from '../../src/style/variables';
+import {IActionButton} from '../Modal/propsType'
+import variables from '../../src/style/variables'
 
 export default class GkModal extends React.Component<IModalProps, any> {
-    constructor(props: any) {
-        super(props)
-    }
-
-    static defaultProps = {
+    public static defaultProps = {
         visible: false,
         animationType: 'fade',
         animationDuration: 300,
@@ -31,30 +27,31 @@ export default class GkModal extends React.Component<IModalProps, any> {
         bodyStyle: {},
         title: '',
         footer: []
-    };
+    }
 
-    static alert: any;
+    public static alert: any
 
-    render () {
+    public render() {
         const {
             visible, style, title, bodyStyle, children, footer, onClose,
             ...restProps
-        } = this.props;
+        } = this.props
 
-        let footerDom: any = null;
+        let footerDom: any = null
 
         if (footer && footer.length) {
             if (footer.length === 1) {
-                const { text, type, onPress, style, ...restProps } = footer[0] as IActionButton;
+                // tslint:disable-next-line:no-shadowed-variable
+                const { text, type, onPress, style, ...restProps } = footer[0] as IActionButton
                 const onPressFn = () => {
                     if (onPress) {
-                        onPress();
+                        onPress()
                     }
                     if (onClose) {
-                        onClose();
+                        onClose()
                     }
-                };
-                let newType = type || 'primary';
+                }
+                const newType = type || 'primary'
                 footerDom = (
                     <View style={[styles.btnGroup, styles.singleBtn]}>
                         <Button {...restProps}
@@ -62,36 +59,37 @@ export default class GkModal extends React.Component<IModalProps, any> {
                                 style={{ width: variables.modal_single_btn_width, ...style }}
                                 onClick={onPressFn}>{text}</Button>
                     </View>
-                );
+                )
             }
 
             if (footer.length === 2) {
                 const buttons = footer.map((button, idx) => {
-                    const { text, type, onPress, style, ...restProps } = button as IActionButton;
+                    // tslint:disable-next-line:no-shadowed-variable
+                    const { text, type, onPress, style, ...restProps } = button as IActionButton
                     const onPressFn = () => {
                         if (onPress) {
-                            onPress();
+                            onPress()
                         }
                         if (onClose) {
-                            onClose();
+                            onClose()
                         }
-                    };
+                    }
                     return (
                         <Button {...restProps}     
                                 type={type} key={idx}
                                 style={{ width: variables.modal_group_btn_width, ...style }}
                                 onClick={onPressFn}>{text}</Button>
-                    );
-                });
+                    )
+                })
                 footerDom = (
                     <View style={styles.btnGroup}>
                         {buttons}
                     </View>
-                );
+                )
             }
 
             if (footer.length > 2) {
-                console.warn('最多支持两个按钮');
+                console.warn('最多支持两个按钮')
             }
 
         }

@@ -7,13 +7,13 @@ import {
     Text,
     Animated,
 } from 'react-native';
-import { IPropsType }from './propsType';
-import Icon from "../Icon";
+import { IPropsType } from './propsType';
+import Icon from '../Icon';
 import Indicator from '../Indicator';
 import styles from './style';
 
 export default class Toast extends React.Component<IPropsType, any> {
-    static defaultProps = {
+    public static defaultProps = {
         duration: 2000,
         animationEnd: () => {},
         onClose: () => {},
@@ -22,15 +22,15 @@ export default class Toast extends React.Component<IPropsType, any> {
         style: {},
     };
 
-    state = {
+    public state = {
         fadeAnim: new Animated.Value(0),
     };
 
-    anim: any = null;
+    public anim: any = null;
 
-    ownIcon = false;
+    public ownIcon = false;
 
-    componentDidMount() {
+    public componentDidMount() {
         const {
             type,
             onClose,
@@ -66,20 +66,20 @@ export default class Toast extends React.Component<IPropsType, any> {
         });
     }
 
-    componentWillUnmount() {
+    public componentWillUnmount() {
         if (this.anim) {
             this.anim.stop();
             this.anim = null;
         }
     }
 
-    renderIcon() {
+    public renderIcon() {
         const { type, icon } = this.props;
 
         if (type === 'loading') {
             return (
                 <View style={styles.iconContainer}>
-                    <Indicator size="xl" color="white" />
+                    <Indicator size='xl' color='white' />
                 </View>
             );
         }
@@ -103,13 +103,12 @@ export default class Toast extends React.Component<IPropsType, any> {
                 <View style={styles.iconContainer}>
                     <Icon
                         name={iconName}
-                        color="#fff"
+                        color='#fff'
                         size={32}
                     />
                 </View>
             );
         }
-
 
         if (React.isValidElement(icon)) {
             this.ownIcon = true;
@@ -118,7 +117,7 @@ export default class Toast extends React.Component<IPropsType, any> {
             );
         }
         if (typeof icon === 'function') {
-            const elements = icon();
+            const elements: any = icon();
             if (React.isValidElement(elements)) {
                 this.ownIcon = true;
                 return (
@@ -131,7 +130,7 @@ export default class Toast extends React.Component<IPropsType, any> {
         return null;
     }
 
-    renderContent() {
+    public renderContent() {
        const { content } = this.props;
        if (typeof content === 'string') {
            return (
@@ -151,7 +150,7 @@ export default class Toast extends React.Component<IPropsType, any> {
        return null;
     }
 
-    render() {
+    public render() {
         const {
             style,
             mask,
@@ -168,7 +167,7 @@ export default class Toast extends React.Component<IPropsType, any> {
         return (
             <View
                 style={[styles.container, position === 'center' ? { justifyContent: 'center' } : null]}
-                pointerEvents={mask ? undefined : "box-none"}
+                pointerEvents={mask ? undefined : 'box-none'}
             >
                 <Animated.View style={[
                     styles.innerContainer,

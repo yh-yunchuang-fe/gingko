@@ -2,11 +2,12 @@
  * @author zhangyi
  * @date 2018/4/20
  */
-import { StyleSheet } from "react-native";
-import variables from '../../../src/style/variables';
+import { StyleSheet } from 'react-native'
+import variables from '../../../src/style/variables'
 
-const border_disabled = variables.border_color;
-const text_disabled = '#ccc';
+const borderDisabled = variables.border_color
+const textDisabled = '#ccc'
+
 export default StyleSheet.create({
     wrap: {
         borderRadius: variables.radius_sm,
@@ -39,11 +40,11 @@ export default StyleSheet.create({
     },
 
     disabled: {
-        borderColor: border_disabled,
+        borderColor: borderDisabled,
         backgroundColor: variables.fill_base
     },
     disabledText: {
-        color: text_disabled
+        color: textDisabled
     },
 
     multiple: {

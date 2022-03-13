@@ -8,7 +8,7 @@ import { IAndroidPickerProps } from './propsType';
 
 export default function(ComposedComponent: any) {
     return class extends React.Component<IAndroidPickerProps, any> {
-        select = (value: any, itemHeight: any, scrollTo: any) => {
+        public select = (value: any, itemHeight: any, scrollTo: any) => {
             const children: any = React.Children.toArray(this.props.children);
             for (let i = 0, len = children.length; i < len; i++) {
                 if (children[i].props.value === value) {
@@ -19,14 +19,14 @@ export default function(ComposedComponent: any) {
             this.selectByIndex(0, itemHeight, scrollTo);
         }
 
-        selectByIndex(index: any, itemHeight: any, zscrollTo: any) {
+        public selectByIndex(index: any, itemHeight: any, zscrollTo: any) {
             if (index < 0 || index >= React.Children.count(this.props.children) || !itemHeight) {
                 return;
             }
             zscrollTo(index * itemHeight);
         }
 
-        computeChildIndex(top: any, itemHeight: any, childrenLength: any) {
+        public computeChildIndex(top: any, itemHeight: any, childrenLength: any) {
             let index = top / itemHeight;
             const floor = Math.floor(index);
             if (index - floor > 0.5) {
@@ -37,7 +37,7 @@ export default function(ComposedComponent: any) {
             return Math.min(index, childrenLength - 1);
         }
 
-        doScrollingComplete = (top: any, itemHeight: any, fireValueChange: any) => {
+        public doScrollingComplete = (top: any, itemHeight: any, fireValueChange: any) => {
             const children = React.Children.toArray(this.props.children);
             const index = this.computeChildIndex(top, itemHeight, children.length);
             const child: any = children[index];
@@ -48,7 +48,7 @@ export default function(ComposedComponent: any) {
             }
         }
 
-        render() {
+        public render() {
             return (
                 <ComposedComponent
                     {...this.props}

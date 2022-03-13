@@ -11,17 +11,17 @@ import {
 const ONE_DAY = 24 * 60 * 60 * 1000;
 
 export default class DatePicker extends React.Component<IDatePickerProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         mode: Mode.Date,
         minDate: new Date(2000, 0, 1, 0, 0),
         maxDate: new Date(2050, 0, 1, 23, 59),
     };
 
-    state = {
+    public state = {
         date: this.props.date || this.props.defaultDate,
     };
 
-    componentWillReceiveProps(nextProps) {
+    public componentWillReceiveProps(nextProps) {
         if ('date' in nextProps) {
             this.setState({
                 date: nextProps.date || nextProps.defaultDate,
@@ -29,15 +29,15 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         }
     }
 
-    getDateInMonth = (date: Date) => {
+    public getDateInMonth = (date: Date) => {
         return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     }
 
-    cloneDate = (date: Date) => {
+    public cloneDate = (date: Date) => {
         return new Date(+date);
     }
 
-    clipDate = (date: Date) => {
+    public clipDate = (date: Date) => {
         const {
             mode,
             minDate,
@@ -75,11 +75,11 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         return date;
     }
 
-    getDate = () => {
+    public getDate = () => {
         return this.clipDate(this.state.date || this.props.minDate);
     }
 
-    getDateData = () => {
+    public getDateData = () => {
         const {
             mode,
             minDate,
@@ -106,15 +106,15 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
             return [yearCol];
         }
         const months: any = [];
-        let min_month = 0;
-        let max_month = 11;
+        let minMonthNum = 0;
+        let maxMonthNum = 11;
         if (minYear === year) {
-            min_month = minMonth;
+            minMonthNum = minMonth;
         }
         if (maxYear === year) {
-            max_month = maxMonth;
+            maxMonthNum = maxMonth;
         }
-        for (let i = min_month; i <= max_month; i++) {
+        for (let i = minMonthNum; i <= maxMonthNum; i++) {
             months.push({
                 label: i + 1 + '月',
                 value: i,
@@ -125,15 +125,15 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
             return [yearCol, monthCol];
         }
         const days: any = [];
-        let min_day = 1;
-        let max_day = this.getDateInMonth(date);
+        let minDayNum = 1;
+        let maxDayNum = this.getDateInMonth(date);
         if (minYear === year && minMonth === month) {
-            min_day = minDay;
+            minDayNum = minDay;
         }
         if (maxYear === year && maxMonth === month) {
-            max_day = maxDay;
+            maxDayNum = maxDay;
         }
-        for (let i = min_day; i <= max_day; i++) {
+        for (let i = minDayNum; i <= maxDayNum; i++) {
             days.push({
                 label: i + '日',
                 value: i,
@@ -147,11 +147,11 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         ];
     }
 
-    getTimeData = (date: any) => {
-        let min_hour = 0;
-        let max_hour = 23;
-        let min_minutes = 0;
-        let max_minutes = 59;
+    public getTimeData = (date: any) => {
+        let minHourNum = 0;
+        let maxHourNum = 23;
+        let minMinutesNum = 0;
+        let maxMinutesNum = 59;
         const {
             mode,
             minDate,
@@ -173,29 +173,29 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
             const maxDay = maxDate.getDate();
             const minDay = minDate.getDate();
             if (year === minYear && month === minMonth && day === minDay) {
-                min_hour = minHour;
+                minHourNum = minHour;
                 if (minHour === hour) {
-                    min_minutes = minMinutes;
+                    minMinutesNum = minMinutes;
                 }
             }
             if (year === maxYear && month === maxMonth && day === maxDay) {
-                max_hour = maxHour;
+                maxHourNum = maxHour;
                 if (maxHour === hour) {
-                    max_minutes = maxMinutes;
+                    maxMinutesNum = maxMinutes;
                 }
             }
         } else {
-           min_hour = minHour;
+           minHourNum = minHour;
            if (minHour === hour) {
-               min_minutes = minMinutes;
+               minMinutesNum = minMinutes;
            }
-           max_hour = maxHour;
+           maxHourNum = maxHour;
            if (maxHour === hour) {
-               max_minutes = maxMinutes;
+               maxMinutesNum = maxMinutes;
            }
         }
         const hours: any = [];
-        for (let i = min_hour; i <= max_hour; i++) {
+        for (let i = minHourNum; i <= maxHourNum; i++) {
             hours.push({
                 label: i + '时',
                 value: i,
@@ -203,7 +203,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         }
         const minutes: any = [];
         const minute = date.getMinutes();
-        for (let i = min_minutes; i <= max_minutes; i++) {
+        for (let i = minMinutesNum; i <= maxMinutesNum; i++) {
             minutes.push({
                 label: i + '分',
                 value: i,
@@ -219,7 +219,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         };
     }
 
-    getValueCols = () => {
+    public getValueCols = () => {
         const { mode } = this.props;
         const date = this.getDate();
         let cols: any = [];
@@ -254,12 +254,12 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         };
     }
 
-    setMonth = (date: any, month: any) => {
+    public setMonth = (date: any, month: any) => {
         date.setDate(Math.min(date.getDate(), this.getDateInMonth(new Date(date.getFullYear(), month))));
         date.setMonth(month);
     }
 
-    getNewDate = (values, idx) => {
+    public getNewDate = (values, idx) => {
         const value = parseInt(values[idx], 10);
         const { mode } = this.props;
         const newDate = this.cloneDate(this.getDate());
@@ -294,7 +294,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         return this.clipDate(newDate);
     }
 
-    onChange = (values: any, idx: any) => {
+    public onChange = (values: any, idx: any) => {
         const {
             onDateChange,
             onValueChange,
@@ -309,7 +309,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         onDateChange && onDateChange(date);
     };
 
-    onOk = (values: any[] | undefined) => {
+    public onOk = (values: any[] | undefined) => {
         const { onOk } = this.props;
         if (onOk) {
             const date = {} // new (Date.bind(null, ...values));
@@ -317,7 +317,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         }
     };
 
-    render() {
+    public render() {
         const { value, cols } = this.getValueCols();
         const {
             mode,

@@ -13,7 +13,7 @@ import variables from '../../src/style/variables'
 import { IBadge } from './propsType'
 
 export default class Badge extends React.Component<IBadge, any> {
-    static defaultProps = {
+    public static defaultProps = {
         text: '',
         style: {},
         dot: false,
@@ -27,12 +27,12 @@ export default class Badge extends React.Component<IBadge, any> {
         badgeTextStyle: {},
         imageBadgeStyle: {},
         top: -10,
-        right: -10 //不要超过容器宽度的1/2 to do 兼容任何数字
+        right: -10 // 不要超过容器宽度的1/2 to do 兼容任何数字
         // corner: false,
         // cornerContent: null
     }
 
-    render() {
+    public render() {
         const {
             bgColor, color, style, overflowCount, cornerContent,
             children, dot, image, source, badgeStyle, badgeTextStyle,
@@ -42,12 +42,12 @@ export default class Badge extends React.Component<IBadge, any> {
         let { text } = this.props
         let contentElement: any = null
 
-        let contentStyle = {
+        const contentStyle = {
             paddingHorizontal: Math.abs(right),
             paddingTop: Math.abs(top)
         }
 
-        let textDomExtraStyle = {
+        const textDomExtraStyle = {
             top: Platform.OS === 'ios' ? top : 0,
             right: Platform.OS === 'ios' ? right : 0,
         }
@@ -80,18 +80,17 @@ export default class Badge extends React.Component<IBadge, any> {
                 contentElement = (
                     <View {...restProps} style={[styles.textDom, styles.imageTextDom, textDomExtraStyle, badgeStyle]}>
                         <Image source={source} style={imgStyle} />
-                        <Text style={[styles.text, {color: color}, styles.imageTextBadge, badgeTextStyle]}>{text}</Text>
+                        <Text style={[styles.text, {color}, styles.imageTextBadge, badgeTextStyle]}>{text}</Text>
                     </View>
                 )
             } else {
                 contentElement = (
                     <View {...restProps} style={[styles.textDom, textDomExtraStyle, { backgroundColor: bgColor }, badgeStyle]}>
-                        <Text style={[styles.text, {color: color}, badgeTextStyle]}>{text}</Text>
+                        <Text style={[styles.text, {color}, badgeTextStyle]}>{text}</Text>
                     </View>
                 )
             }
         }
-
 
         return (
             <View style={[styles.wrap, Platform.OS === 'ios' ? {} : contentStyle, style]}>

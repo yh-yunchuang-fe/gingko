@@ -1,29 +1,28 @@
-import React from 'react';
+import React from 'react'
 import {
     View,
     Text,
     TouchableOpacity,
     Image,
     Dimensions
-} from 'react-native';
-import { GridProps, DataItem } from "./propsType";
+} from 'react-native'
+import { GridProps } from './propsType'
 import styles from './style/index'
-import { instanceOf } from 'prop-types';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window')
 
 export default class Grid extends React.Component<GridProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         data: [],
         columnNum: 3,
         hasLine: true,
         noWrap: false,
         blankWidth: 0,
         itemStyle: {},
-        onClick: ()=>{}
-    };
+        onClick: () => {}
+    }
 
-    getFlexItemStyle () {
+    public getFlexItemStyle() {
         const {columnNum = 3, blankWidth = 0} = this.props
         return {
             width: (width - blankWidth * 2) / columnNum,
@@ -31,8 +30,8 @@ export default class Grid extends React.Component<GridProps, any> {
         }
     }
 
-    renderItem(item: any, index: number) {
-        const {renderItem } = this.props;
+    public renderItem(item: any, index: number) {
+        const {renderItem } = this.props
         if (renderItem) {
             return renderItem(item, index)
         } else {
@@ -47,7 +46,7 @@ export default class Grid extends React.Component<GridProps, any> {
         }
     }
 
-    render() {
+    public render() {
         const { data, hasLine, onClick, itemStyle, noWrap, buildItem, blankWidth = 0 } = this.props;
 
         const columnNum = this.props.columnNum || 0;
@@ -112,5 +111,4 @@ export default class Grid extends React.Component<GridProps, any> {
             </View>
         )
     }
-
 }

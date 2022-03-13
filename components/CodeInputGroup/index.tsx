@@ -6,14 +6,14 @@ import React from 'react'
 import {
     View,
     TextInput, Text
-} from "react-native";
+} from 'react-native';
 import styles from './style/'
 import IProps from './propsType'
 
 function noop() {}
 
 export default class CodeInputGroup extends React.Component<IProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         defaultValue: '',
         size: 6,
         autoFocus: false,
@@ -24,15 +24,15 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
 
     constructor(props: IProps | Readonly<IProps>) {
         super(props);
-        let values = props.defaultValue+'' || '';
+        const values = props.defaultValue+'' || '';
         this.state = {
             values
         };
     }
 
-    onChangeText = (values: any) => {
+    public onChangeText = (values: any) => {
         const { onChange } = this.props;
-        let preValues = this.state.values;
+        const preValues = this.state.values;
         if (isNaN(values)) {
             values = preValues
         }
@@ -43,17 +43,17 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
         onChange && onChange(values)
     };
 
-    onFocus = () => {
+    public onFocus = () => {
         const { onFocus } = this.props;
         onFocus && onFocus()
     };
 
-    onBlur = () => {
+    public onBlur = () => {
         const { onBlur } = this.props;
         onBlur && onBlur()
     };
 
-    render() {
+    public render() {
         const {
             style, inputWrapStyle, inputStyle, size = 6, autoFocus,
             onChange,
@@ -63,7 +63,7 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
         const { values } = this.state;
         const arrValues = values.split('');
 
-        let node: Array<React.ReactNode> = [];
+        const node: Array<React.ReactNode> = [];
         for(let i = 0; i < size; i++) {
             node.push(
                 <View style={[styles.inputWrap, inputWrapStyle]} key={i}>
@@ -80,9 +80,9 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
                 <TextInput
                     value={values}
                     style={styles.textInput}
-                    keyboardType="numeric"
+                    keyboardType='numeric'
                     autoFocus={autoFocus}
-                    underlineColorAndroid="transparent"
+                    underlineColorAndroid='transparent'
                     onChangeText={this.onChangeText}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}

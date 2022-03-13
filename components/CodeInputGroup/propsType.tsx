@@ -15,4 +15,4 @@ export default interface IPorps {
     onChange?: (x?: any) => void;
     onFocus?: () => void;
     onBlur?: () => void;
-};
+}

@@ -3,7 +3,7 @@
  */
 import {
     StyleSheet,
-} from 'react-native';
+} from 'react-native'
 import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
@@ -11,15 +11,15 @@ export default StyleSheet.create({
         backgroundColor: variables.color_white,
     },
     dismiss: {
-        color: "#666",
+        color: '#666',
         fontSize: variables.btn_font_size_sm,
     },
     header: {
-        alignItems: "center",
-        backgroundColor: "#f4f5f6",
-        flexDirection: "row",
+        alignItems: 'center',
+        backgroundColor: '#f4f5f6',
+        flexDirection: 'row',
         height: 42,
-        justifyContent: "space-between",
+        justifyContent: 'space-between',
         paddingHorizontal: variables.h_spacing_lg,
     },
     ok: {
@@ -30,5 +30,4 @@ export default StyleSheet.create({
         color: variables.color_base,
         fontSize: variables.btn_font_size_sm,
     },
-});
-
+})

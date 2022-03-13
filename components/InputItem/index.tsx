@@ -1,28 +1,27 @@
 /**
  * Created by beilunyang on 2018/2/9
  */
-import * as React from 'react';
+import * as React from 'react'
 import {
     View,
     Text,
     TextInput,
     TouchableOpacity,
-} from 'react-native';
-import styles from './style/index';
-import { IInputItemProps } from './propsType';
-import Icon from '../Icon';
+} from 'react-native'
+import styles from './style/index'
+import { IInputItemProps } from './propsType'
+import Icon from '../Icon'
 
 const fixControlledValue = (value: any): string => {
     if (typeof value === 'undefined' || value === null) {
-        return '';
+        return ''
     }
-    return value;
-};
+    return value
+}
 
 export default class InputItem extends React.Component<IInputItemProps, any> {
-    inputRef: any;
 
-    static defaultProps: IInputItemProps = {
+    public static defaultProps: IInputItemProps = {
         title: '',
         ok: false,
         disabled: false,
@@ -30,76 +29,78 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
         onBlur: () => {},
         onFocus: () => {},
         type: 'text',
-    };
+    }
+    
+    public inputRef: any
 
-    clear = () => {
-        const { onChange } = this.props;
+    public clear = () => {
+        const { onChange } = this.props
         if (onChange && typeof onChange === 'function') {
-            onChange('');
+            onChange('')
         }
     }
 
-    onChange = (text: any) => {
-        const { onChange, type } = this.props;
+    public onChange = (text: any) => {
+        const { onChange, type } = this.props
         switch (type) {
             case 'phone':
-                text = text.replace(/\D/g, '');
-                text = text.substring(0, 11);
-                const textLen = text.length;
+                text = text.replace(/\D/g, '')
+                text = text.substring(0, 11)
+                const textLen = text.length
                 if (textLen > 3 && textLen < 8) {
-                    text = `${text.substr(0, 3)}-${text.substr(3)}`;
+                    text = `${text.substr(0, 3)}-${text.substr(3)}`
                 } else if (textLen >= 8) {
-                    text = `${text.substr(0, 3)}-${text.substr(3, 4)}-${text.substr(7)}`;
+                    text = `${text.substr(0, 3)}-${text.substr(3, 4)}-${text.substr(7)}`
                 }
-                break;
+                break
             default:
         }
         if (onChange) {
-            onChange(text);
+            onChange(text)
         }
     }
 
-    onInputBlur = () => {
-        const { onBlur, value } = this.props;
+    public onInputBlur = () => {
+        const { onBlur, value } = this.props
         if (onBlur) {
-            onBlur(value);
+            onBlur(value)
         }
     }
 
-    onInputFocus = () => {
-        const { onFocus, value } = this.props;
+    public onInputFocus = () => {
+        const { onFocus, value } = this.props
         if (onFocus) {
-            onFocus(value);
+            onFocus(value)
         }
     }
 
-    renderIcon = () => {
+    public renderIcon = () => {
         const {
             ok,
             error,
             value,
-        } = this.props;
+        } = this.props
         if (error) {
             return (
-                <Icon name="alert" color="#f00" size="lg" />
-            );
+                <Icon name='alert' color='#f00' size='lg' />
+            )
         }
         if (ok) {
             return (
-                <Icon name="unchecked" color="#589c3e" size="lg" />
-            );
+                <Icon name='unchecked' color='#589c3e' size='lg' />
+            )
         }
         if (value && value.length > 0) {
             return (
                 <TouchableOpacity onPress={this.clear}>
-                    <Icon name="close-circle" color="#c2c2c2" size="lg" />
+                    <Icon name='close-circle' color='#c2c2c2' size='lg' />
                 </TouchableOpacity>
-            );
+            )
         }
-        return null;
+        return null
     }
 
-    render() {
+    public render() {
         const {
             value,
             defaultValue,
@@ -110,29 +111,29 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
             style,
             inputStyle,
             ...restProps
-        } = this.props;
+        } = this.props
 
         const keyboardTypeArray: string[] = ['default', 'email-address',
             'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation',
-            'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search'];
-        let keyboardType: any = 'default';
+            'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search']
+        let keyboardType: any = 'default'
         if (type === 'number') {
-            keyboardType = 'numeric';
+            keyboardType = 'numeric'
         } else if (type === 'phone') {
-            keyboardType = 'phone-pad';
+            keyboardType = 'phone-pad'
         } else if (type && keyboardTypeArray.indexOf(type) > -1) {
-            keyboardType = type;
+            keyboardType = type
         }
 
-        let valueProps;
+        let valueProps
         if ('value' in this.props) {
             valueProps = {
                 value: fixControlledValue(value),
-            };
+            }
         } else {
             valueProps = {
                 defaultValue,
-            };
+            }
         }
 
         return (
@@ -148,16 +149,16 @@ export default class InputItem extends React.Component<IInputItemProps, any> {
                             onFocus={this.onInputFocus}
                             secureTextEntry={type === 'password'}
                             keyboardType={keyboardType}
-                            placeholderTextColor="#ddd"
+                            placeholderTextColor='#ddd'
                             style={styles.textInput}
-                            underlineColorAndroid="transparent"
-                            ref={ref => this.inputRef = ref}
+                            underlineColorAndroid='transparent'
+                            ref={(ref) => this.inputRef = ref}
                         />
                         {this.renderIcon()}
                     </View>
                     {error && errorHint ? <Text style={styles.hintText}>{errorHint}</Text> : null}
                 </View>
             </View>
-        );
+        )
     }
 }

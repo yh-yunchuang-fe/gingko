@@ -1,4 +1,3 @@
-
 export interface CardProps {
     full?: boolean
     style?: any

@@ -6,10 +6,8 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native'
-import { Font } from 'expo';
-import {
-    Icon,
-} from '../../components/index'
+import { Font } from 'expo'
+import { Icon } from '../../components/index'
 import routes from './routes'
 
 export default class Home extends Component {

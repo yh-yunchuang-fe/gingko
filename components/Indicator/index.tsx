@@ -1,39 +1,37 @@
 import React from 'react'
 import {
     View,
-    Image,
     Animated, Text, Easing
-} from "react-native";
+} from 'react-native'
 import { Images } from '../../src/assets'
 import IndicatorProps from './propsType'
-import variables from '../../src/style/variables';
+import variables from '../../src/style/variables'
 import styles from './style'
 
-
 export default class Indicator extends React.Component<IndicatorProps, any> {
-    static defaultProps = {
+    public static defaultProps = {
         size: 'md',
         color: 'blue',
         style: {},
         textStyle: {}
-    };
-
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            rotate: new Animated.Value(0)
-        };
     }
 
-    componentDidMount() {
+    constructor(props: any) {
+        super(props)
+        this.state = {
+            rotate: new Animated.Value(0)
+        }
+    }
+
+    public componentDidMount() {
         this.startAnimate()
     }
 
-    componentWillUnmount() {
-        this.state.rotate.stopAnimation() //停止动画
+    public componentWillUnmount() {
+        this.state.rotate.stopAnimation() // 停止动画
     }
 
-    startAnimate() {
+    public startAnimate() {
         Animated.loop(
             Animated.timing(this.state.rotate, {
                 toValue: 1,
@@ -41,30 +39,30 @@ export default class Indicator extends React.Component<IndicatorProps, any> {
                 easing: Easing.linear,
                 useNativeDriver: true,
             }), {
-                iterations: -1 //无限循环
+                iterations: -1 // 无限循环
             }
-        ).start(event => {
+        ).start((event) => {
             if (event.finished) {
-                console.log('finished');
+                console.log('finished')
             }
-        });
+        })
     }
 
-    render() {
-        const { size, color, text, textStyle, style} = this.props;
+    public render() {
+        const { size, color, text, textStyle, style} = this.props
 
         const sizeSty = {
             width: variables[`indicator_${size}`],
             height: variables[`indicator_${size}`]
-        };
-        const spinnerImg = color === 'blue' ? Images.loading_blue : Images.loading_white;
+        }
+        const spinnerImg = color === 'blue' ? Images.loading_blue : Images.loading_white
 
         const outPut = this.state.rotate.interpolate({
             inputRange: [0, 1],
             outputRange: ['0deg', '-360deg']
-        });
+        })
 
-        const rotateSty = { transform: [{rotate: outPut}] };
+        const rotateSty = { transform: [{rotate: outPut}] }
 
         return (
             <View style={[styles.indicator, style]}>

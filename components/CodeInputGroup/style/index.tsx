@@ -2,7 +2,7 @@
  * @author zhangyi
  * @date 2018/5/5
  */
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
@@ -22,8 +22,6 @@ export default StyleSheet.create({
         borderBottomWidth: variables.border_width,
         borderColor: variables.color_link,
     },
-
-
     inputWrap: {
         width: 45,
         height: 40,
