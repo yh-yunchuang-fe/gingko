@@ -7,7 +7,6 @@ import {
     Text,
     View,
     Platform,
-    StyleSheet,
     TouchableOpacity,
 } from 'react-native';
 import AndroidPicker from './Picker.android';

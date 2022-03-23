@@ -1,27 +1,20 @@
 {
-  "compilerOptions": {
-    "skipLibCheck": true,
-    "target": "es6",
-    "module": "commonjs",
-    "jsx": "react-native",
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "lib",
-    "strict": true,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "resolveJsonModule": true
-  },
-  "include": [
-    "./components/"
-  ],
-  "exclude": [
-    "node_modules",
-    "expo-samples"
-  ],
-  "extends": "expo/tsconfig.base"
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "target": "es6",
+        "module": "commonjs",
+        "jsx": "react-native",
+        "declaration": true,
+        "sourceMap": true,
+        "outDir": "lib",
+        "strict": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "resolveJsonModule": true
+    },
+    "extends": "expo/tsconfig.base"
 }

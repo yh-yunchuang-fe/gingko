@@ -15,6 +15,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     public static defaultProps = {
         size: 'large',
         type: 'default',
+        second: false,
         disabled: false,
         style: {},
         textStyle: {},
@@ -65,7 +66,9 @@ export default class Button extends React.Component<ButtonProps, any> {
     public render() {
 
         const {
-            size, type, style, textStyle, disabled, activeStyle, onClick, loading,
+            size, type, style, textStyle, 
+            disabled, second,
+            activeStyle, onClick, loading,
             icon, children, ...restProps
         } = this.props;
 
@@ -80,8 +83,8 @@ export default class Button extends React.Component<ButtonProps, any> {
             btnStyles.wrapperSty,
             btnStyles[`${size}Sty`],
             btnStyles[`${type}Sty`],
+            second && btnStyles[`${type}SecondSty`],
             disabled && btnStyles[`${type}DisabledSty`],
-            // this.state.pressIn && activeStyle && btnStyles[`${type}TapSty`],
             activeStyle && this.state.touchIt && activeStyle,
             style
         ]
@@ -89,6 +92,7 @@ export default class Button extends React.Component<ButtonProps, any> {
         const textSty = [
             btnStyles[`${size}Text`],
             btnStyles[`${type}Text`],
+            second && btnStyles[`${type}SecondText`],
             disabled && btnStyles[`${type}DisabledText`],
             this.state.pressIn && btnStyles[`${type}TapText`],
             textStyle
@@ -98,7 +102,7 @@ export default class Button extends React.Component<ButtonProps, any> {
             btnStyles[activeStyle ? `${type}TapSty` : `${type}Sty`],
         ) as any).backgroundColor
 
-        let iconDom
+        let iconDom: any
         if (icon) {
             if (typeof icon === 'string') {
                 iconDom = (
@@ -114,7 +118,7 @@ export default class Button extends React.Component<ButtonProps, any> {
                 )
             }
         }
-        let childrenDom
+        let childrenDom: any
         if (React.isValidElement(children)) {
             childrenDom = children
         } else {

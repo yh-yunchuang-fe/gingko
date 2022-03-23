@@ -1,11 +1,9 @@
-import { StyleSheet } from "react_native"
-
 let externalConfig = {}
 
 const config = {
     // 全局变量
     color_brand_1: '#FE8F1D',
-    color_brand_2: rgba(color_brand_1, .9),
+    color_brand_2: rgba('#FE8F1D', .9),
     color_brand_3: rgba(color_brand_1, .8),
     color_brand_4: rgba(color_brand_1, .7),
     color_brand_5: rgba(color_brand_1, .6),
@@ -46,8 +44,8 @@ const config = {
     //   color_business_purple_2: /,
     color_bg_white: rgba(__color_white, 1),
     color_bg_page: rgba(__color_gray_9, 1),
-    color_bg_tab_default:	rgba(__color_gray_7, 1),
-    color_bg_disable:	rgba(__color_gray_4, 1),
+    color_bg_tab_default: rgba(__color_gray_7, 1),
+    color_bg_disable: rgba(__color_gray_4, 1),
     color_bg_compo: rgba(__color_gray_5, 1),
     color_bg_notification: rgba(__color_business_orange_2, 1),
     color_text_primary: rgba(__color_primary, 1),
@@ -73,9 +71,9 @@ const config = {
     color_border_blue: rgba(color_primary, 1),
     border_width_base: 1,
     border_radius_base: 2,
-    border_radius_sm: calc(border_radius_base *2),
-    border_radius_m: calc(border_radius_base *4),
-    border_radius_l: calc(border_radius_base *6),
+    border_radius_sm: calc(border_radius_base * 2),
+    border_radius_m: calc(border_radius_base * 4),
+    border_radius_l: calc(border_radius_base * 6),
 
     // 字体
     // font_family: 'PingFang SC'  'helvetica' 'Helvetica Neue' 'Microsoft Yahei',

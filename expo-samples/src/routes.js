@@ -1,31 +1,38 @@
-import codeInputGroup from '../demos/codeInputGroup'
-import Body from '../demos/body'
-import OptionTag from '../demos/optionTag'
-import Tabs from '../demos/tabs'
-import Grid from '../demos/grid'
-import Result from '../demos/result'
-import NavBar from '../demos/navbar'
-import InputNumber from '../demos/inputNumber'
-import RadioGroup from '../demos/radioGroup'
-import NoticeBar from '../demos/noticeBar'
-import Button from '../demos/button'
-import Icon from '../demos/icon'
-import Card from '../demos/card'
-import Indicator from '../demos/indicator'
-import Picker from '../demos/picker'
-import InputItem from '../demos/inputItem'
-import Dialog from '../demos/dialog'
-import Modal from '../demos/modal'
-import Popup from '../demos/popup'
 import Badge from '../demos/badge'
-import Tag from '../demos/tag'
-import SearchInput from '../demos/searchInput'
-import SearchBar from '../demos/searchBar'
+import Body from '../demos/body'
+import Button from '../demos/button'
+import Colors from '../demos/colors'
+import Card from '../demos/card'
 import Checkbox from '../demos/checkbox'
-import Toast from '../demos/toast'
+import codeInputGroup from '../demos/codeInputGroup'
 import DatePicker from '../demos/datePicker'
+import Dialog from '../demos/dialog'
+import Grid from '../demos/grid'
+import Icon from '../demos/icon'
+import Indicator from '../demos/indicator'
+import InputItem from '../demos/inputItem'
+import InputNumber from '../demos/inputNumber'
+import Modal from '../demos/modal'
+import NavBar from '../demos/navbar'
+import NoticeBar from '../demos/noticeBar'
+import OptionTag from '../demos/optionTag'
+import Picker from '../demos/picker'
+import Popup from '../demos/popup'
+import RadioGroup from '../demos/radioGroup'
+import Result from '../demos/result'
+import SearchBar from '../demos/searchBar'
+import SearchInput from '../demos/searchInput'
+import Shadow from '../demos/shadow'
+import Tag from '../demos/tag'
+import Tabs from '../demos/tabs'
+import Toast from '../demos/toast'
 
 export default [
+    {
+        title: 'Colors',
+        description: '颜色',
+        screen: Colors
+    },
     {
         title: 'CodeInputGroup',
         description: '短信验证码',
@@ -142,7 +149,11 @@ export default [
         screen: SearchBar
     },
     {
-
+        title: 'Shadow',
+        description: '投影',
+        screen: Shadow
+    },
+    {
         title: 'Checkbox',
         description: '选择框',
         screen: Checkbox

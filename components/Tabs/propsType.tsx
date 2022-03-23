@@ -30,7 +30,7 @@ export interface TabsProps {
     tabs: TabProps[];
     // position | default left
     tabBarPosition?: 'left';
-    renderTabBar?: (() => React.ReactNode) | false;
+    renderTabBar?: any;
     initialPage?: number | string;
     page?: number | string;
     onChange?: (tab: TabProps, index: number) => void;

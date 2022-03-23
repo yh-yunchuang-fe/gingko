@@ -8,7 +8,7 @@ import {
     IShowToastOptions,
 } from './propsType';
 
-const show = (content: string | React.ReactElement<any>, options: IShowToastOptions = {}) => {
+const show = (content: string | React.ReactElement<any>, options?: any) => {
     const {
         icon,
         type,

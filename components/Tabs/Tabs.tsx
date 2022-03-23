@@ -4,9 +4,7 @@
  */
 import React from 'react'
 import {
-    ScrollView,
     View,
-    ViewStyle
 } from 'react-native';
 import { TabsProps, TabProps } from './propsType'
 import DefaultTabBar from './DefaultTabBar'

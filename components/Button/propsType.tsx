@@ -12,6 +12,7 @@ export default interface IbuttonProps {
     size?: 'default' | 'large' | 'small'
     style?: React.CSSProperties
     textStyle?: React.CSSProperties
+    second?: boolean
     disabled?: boolean
     activeStyle?: object
     onClick?: (x?: any) => void

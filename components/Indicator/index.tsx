@@ -3,7 +3,6 @@ import {
     View,
     Animated, Text, Easing
 } from 'react-native'
-import { Images } from '../../src/assets'
 import IndicatorProps from './propsType'
 import variables from '../../src/style/variables'
 import styles from './style'
@@ -55,7 +54,7 @@ export default class Indicator extends React.Component<IndicatorProps, any> {
             width: variables[`indicator_${size}`],
             height: variables[`indicator_${size}`]
         }
-        const spinnerImg = color === 'blue' ? Images.loading_blue : Images.loading_white
+        const spinnerImg = color === 'blue' ? '../../src/assets/imgs/loading-blue.png' : '../../src/assets/imgs/loading-white.png'
 
         const outPut = this.state.rotate.interpolate({
             inputRange: [0, 1],

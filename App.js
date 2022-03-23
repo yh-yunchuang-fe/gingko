@@ -1,13 +1,5 @@
-import React, { Component } from 'react'
-import Samples from './expo-samples/index'
+import Samples from './expo-samples'
 
-export default class App extends Component {
-    constructor (props) {
-        super(props)
-    }
-    render() {
-        return (
-            <Samples/>
-        )
-    }
+export default function App() {
+	return <Samples />
 }

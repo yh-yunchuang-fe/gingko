@@ -17,4 +17,5 @@ export interface IInputItemProps {
 
     style?: ViewStyle
     inputStyle?: ViewStyle
+    placeholder?: any
 }

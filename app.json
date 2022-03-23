@@ -1,22 +1,32 @@
 {
-    "expo": {
-        "name": "gingko",
-        "description": "This project is really great.",
-        "slug": "gingko",
-        "privacy": "public",
-        "sdkVersion": "44.0.0",
-        "platforms": ["ios", "android"],
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "ios": {
-            "supportsTablet": true
-        },
-        "packagerOpts": {
-            "sourceExts": [
-                "ts",
-                "tsx"
-            ],
-            "transformer": "node_modules/react-native-typescript-transformer/index.js"
-        }
+  "expo": {
+    "name": "gingko",
+    "slug": "gingko",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/favicon.png"
     }
+  }
 }

@@ -1,6 +1,6 @@
 export { default as Badge } from './Badge'
 export { default as Body } from './Body'
-export { default as Button } from './Button'
+export { default as Button } from './NewButton'
 
 export { default as Card } from './Card'
 export { default as Checkbox } from './Checkbox'
@@ -30,6 +30,7 @@ export { default as Result } from './Result'
 
 export { default as SearchBar } from './SearchBar'
 export { default as SearchInput } from './SearchInput'
+export { default as Shadow } from './Shadow'
 
 export { default as Tabs } from './Tabs/Tabs'
 export { default as Tag } from './Tag'

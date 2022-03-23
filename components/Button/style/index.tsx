@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native'
-import variables from '../../../src/style/variables'
+// import business from '../../../src/style/business'
 
 export default StyleSheet.create({
     wrapperSty: {
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: variables.border_width,
-        borderRadius: variables.radius
+        borderWidth: 1,
+        borderRadius: 4
     },
     container: {
         flexDirection: 'row',
@@ -17,83 +17,103 @@ export default StyleSheet.create({
     },
 
     defaultSty: {
-        backgroundColor: variables.btn_default_fill,
-        borderColor: variables.color_link
+        backgroundColor: '#FFFFFF',
+        borderColor: '#FE8F1D',
     },
     defaultTapSty: {
-        backgroundColor: variables.btn_default_fill_tap,
-        borderColor: variables.color_link_tap
-    },
-    defaultDisabledSty: {
-        // backgroundColor: variables.btn_default_disabled,
-        borderColor: variables.btn_default_disabled
+        backgroundColor: '#FE8F1D',
+        borderColor: '#FE8F1D'
     },
     defaultText: {
-        color: variables.color_link,
+        color: '#FE8F1D'
     },
     defaultTapText: {
-        color: variables.color_link_tap,
+        color: '#FFFFFF',
+    },
+    defaultDisabledSty: {
+        backgroundColor: '#C4C4C4',
+        borderColor: '#C4C4C4'
     },
     defaultDisabledText: {
-        color: variables.btn_default_disabled
+        color: '#FFFFFF'
     },
+    defaultSecondSty: {
+        backgroundColor: '#FFFFFF',
+        borderColor: '#757575',
+    },
+    defaultSecondText: {
+        color: '#212121'
+    },
+
     primarySty: {
-        backgroundColor: variables.btn_primary_fill,
-        borderColor: variables.color_link
+        backgroundColor: '#FE8F1D',
+        borderColor: '#FE8F1D'
     },
     primaryTapSty: {
-        backgroundColor: variables.btn_primary_fill_tap,
-        borderColor: variables.color_link_tap
+        backgroundColor: '#FE8F1D',
+        borderColor: '#FE8F1D'
     },
     primaryDisabledSty: {
-        backgroundColor: variables.btn_primary_disabled,
-        borderColor: variables.btn_primary_disabled
+        backgroundColor: '#FFFFFF',
+        borderColor: '#C4C4C4'
     },
     primaryText: {
-        color: variables.color_white,
+        color: '#FFFFFF',
     },
     primaryTapText: {
-        // color: variables.color_white,
+        
+    },
+    primarySecondSty: {
+        backgroundColor: 'rgba(254, 143, 29, 0.1)',
+        borderColor: 'rgba(254, 143, 29, 0.1)',
+    },
+    primarySecondText: {
+        color: '#FE8F1D'
     },
     primaryDisabledText: {
-        // color: variables.color_white,
+        color: '#FFFFFF'
     },
+
     warningSty: {
-        backgroundColor: variables.btn_warning_fill,
-        borderColor: variables.color_warning
+        backgroundColor: 'transparent',
+        borderColor: '#FF0000',
     },
     warningTapSty: {
-        backgroundColor: variables.btn_warning_fill_tap,
-        borderColor: variables.color_warning_tap,
+        backgroundColor: 'rgba(234,0,0,0.05)',
+        borderColor: '#EA0000',
+    },
+    warningSecondSty: {
+        
     },
     warningDisabledSty: {
         opacity: .3
     },
     warningText: {
-        color: variables.color_warning
+        color: '#FF0000',
     },
     warningTapText: {
-        color: variables.color_warning_tap
+        color: '#EA0000',
     },
+    
     largeSty: {
-        height: variables.btn_height,
-        paddingHorizontal: variables.btn_h_spacing_md,
+        height: 40,
+        paddingHorizontal: 12,
     },
     smallSty: {
-        height: variables.btn_height_sm,
-        paddingHorizontal: variables.btn_h_spacing_sm
+        height: 30,
+        paddingHorizontal: 10
     },
 
     largeText: {
-        fontSize: variables.btn_font_size,
+        fontSize: 18,
     },
     smallText: {
-        fontSize: variables.btn_font_size_sm,
+        fontSize: 14,
     },
     indicator: {
-        marginRight: variables.h_spacing_md
+        marginRight: 8
     },
     iconSty: {
-        marginRight: variables.h_spacing_md
+        marginRight: 8
     }
 })
