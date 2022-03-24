@@ -19,8 +19,6 @@ const show = (content: string | React.ReactElement<any>, options?: any) => {
         mask,
     } = options;
     const id: number = 0;
-    const animationEnd = () => {
-    };
     return id;
 };
 

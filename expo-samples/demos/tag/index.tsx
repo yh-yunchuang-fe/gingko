@@ -6,108 +6,109 @@ import React from 'react'
 import {
     Text,
     View,
+    StyleSheet
 } from 'react-native'
 import { Tag, WhiteSpace, WingBlank } from '../../../components'
 
 export default () => {
-    return (
+    return ( 
         <WingBlank>
-            <WhiteSpace/>
-            <View style={{flexDirection: 'row'}}>
-                <Text style={{fontSize: 20, color: '#333'}}>高一些</Text>
-                <Tag color="#FD7622" fill>zhangyi</Tag>
+            <Text style={style.tagText}>标签类型</Text>
+            <View style={style.tagList}>
+                <Tag color='FE8F1D' fill>标签</Tag>
+                <Tag color='orange'>标签</Tag>
+                <Tag color='orange' fill>标签</Tag>
             </View>
             <WhiteSpace/>
-            <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-                <Tag color="#24A8E8">外卖</Tag>
-                <Tag color="#FD7622">堂食</Tag>
-                <Tag color="#24A8E8" fill>配送</Tag>
-            </View>
-            <WhiteSpace/>
-            <View style={{flexDirection: 'row'}}>
-                <Text style={{fontSize: 20, color: '#333'}}>高一些</Text>
-                <Tag color="#FD7622" fill>扫码购</Tag>
-            </View>
 
-            <WhiteSpace/>
-            <Tag color="#589C3E" fill>门店</Tag>
-            <WhiteSpace/>
-            <View style={{flexDirection: 'row'}}>
-                <Tag
-                    color="#666"
-                    activeColor="#24A8E8"
-                    size="large"
-                    readonly={false}
-                >
-                    今天处理
-                </Tag>
-                <Text style={{marginLeft: 10}}>可点击</Text>
+            <View style={style.tagList}>
+                <Tag color='blue' fill>标签</Tag>
+                <Tag color='blue'>标签</Tag>
+                <Tag color='rgba(6, 157, 255, 0.1)' textColor='#069DFF' fill >标签</Tag>
             </View>
             <WhiteSpace/>
-            <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-                <Tag
-                    color="#666"
-                    activeColor="#24A8E8"
-                    size="large"
+
+            <View style={style.tagList}>
+                <Tag color='green' fill>标签</Tag>
+                <Tag color='green'>标签</Tag>
+                <Tag color='rgba(0, 191, 122, 0.1)' textColor='#00BF7A' fill >标签</Tag>
+            </View>
+            <WhiteSpace/>
+
+            <View style={style.tagList}>
+                <Tag color='red' fill>标签</Tag>
+                <Tag color='red'>标签</Tag>
+                <Tag color='rgba(255, 46, 46, 0.1)' textColor='#FF2E2E' fill >标签</Tag>
+            </View>
+            <WhiteSpace/>
+
+            <View style={style.tagList}>
+                <Tag fill>标签</Tag>
+                <Tag>标签</Tag>
+                <Tag color='rgba(158, 158, 158, 0.1)' textColor='#9E9E9E' fill >标签</Tag>
+            </View>
+            <WhiteSpace/>
+
+            <Text style={style.tagText}>大小</Text>
+            <View style={style.tagList}>
+                <Tag color='#FE8F1D' fill size='small'>标签</Tag>
+                <Tag color='#FE8F1D' fill>标签</Tag>
+                <Tag color='#FE8F1D' fill size='large'>标签</Tag>
+            </View>
+            <WhiteSpace/>
+            
+            <Text style={style.tagText}>可点击</Text>
+            <View style={style.tagList}>
+                <Tag size='large'
                     readonly={false}
-                    style={{
-                        paddingHorizontal: 24,
-                        paddingVertical: 8,
-                    }}
-                >
+                    style={style.tagItem} >
                     模版一
                 </Tag>
-                <Tag
-                    color="#666"
-                    activeColor="#24A8E8"
-                    size="large"
+                <Tag size='large'
                     readonly={false}
-                    style={{
-                        paddingHorizontal: 24,
-                        paddingVertical: 8,
-                    }}
-                >
+                    style={style.tagItem} >
                     模版二
                 </Tag>
                 <Tag
-                    color="#666"
-                    activeColor="#24A8E8"
-                    size="large"
+                    size='large'
                     readonly={false}
-                    style={{
-                        paddingHorizontal: 24,
-                        paddingVertical: 8,
-                    }}
-                >
+                    style={style.tagItem} >
                     模版三
                 </Tag>
             </View>
             <WhiteSpace/>
+
+            <Text style={style.tagText}>自定义</Text>
             <Tag
                 fill
-                color="#FFF3EC"
-                textColor="#FD7622"
-            >
-                请更换电池
-            </Tag>
-            <WhiteSpace/>
-            <Tag
-                fill
-                color="#E7F7FF"
-                textColor="#24A8E8"
-            >
+                color='#E7F7FF'
+                textColor='#24A8E8' >
                 已报障，等待维修
             </Tag>
             <WhiteSpace/>
             <Tag
-                color="#666"
-                activeColor="#24A8E8"
-                textStyle={{fontSize: 16}}
-                readonly={false}
-            >
-                16的字体
+                color='#666'
+                activeColor='#24A8E8'
+                textStyle={{fontSize: 10, lineHeight: 16}}
+                readonly={false} >
+                fontSize: 10，行高就是容器的高度
             </Tag>
             <WhiteSpace/>
         </WingBlank>
     )
 }
+
+const style = StyleSheet.create({
+    tagText: {
+        fontSize: 20, 
+        marginVertical: 12
+    },
+    tagList: {
+        flexDirection: 'row', 
+        justifyContent: 'space-around'
+    },
+    tagItem: {
+        paddingHorizontal: 24,
+        paddingVertical: 8,
+    },
+})

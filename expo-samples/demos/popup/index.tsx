@@ -22,14 +22,14 @@ export default () => {
             <WhiteSpace/>
             <WingBlank>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         setVisible(true)
                     }}
                 >basic</Button>
             </WingBlank>
             <Popup
                 visible={visible}
-                onClose={()=>{
+                onClose={()=> {
                     setVisible(false)
                 }}
             >
