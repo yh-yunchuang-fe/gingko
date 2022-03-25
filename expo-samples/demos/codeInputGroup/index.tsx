@@ -12,14 +12,13 @@ import {
     CodeInputGroup
 } from '../../../components/index'
 
-
 export default () => {
     const [value, setValue] = React.useState('')
 
     return <WingBlank>
         <WhiteSpace/>
         <CodeInputGroup
-            onChange={(val)=>{
+            onChange={(val)=> {
                 setValue(val)
             }}
         />

@@ -12,13 +12,12 @@ export default () => {
 
         <Body style={{paddingHorizontal: 20, paddingVertical: 10}}>
             <Body style={{backgroundColor: 'skyblue'}}>
-                    <Text>Body</Text>
+                <Text>Body</Text>
             </Body>
             <Body style={{backgroundColor: 'yellow'}}>
-                    <Text>Body</Text>
+                <Text>Body</Text>
             </Body>
         </Body>
-
 
         <Body style={{backgroundColor: '#24a8e8'}}>
             <Text>Body</Text>

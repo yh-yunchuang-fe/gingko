@@ -16,7 +16,7 @@ import {
     WhiteSpace,
 } from '../../../components/index'
 
-const alert = Modal.alert;
+const alert = Modal.alert
 
 export default () => {
     const [state, setState] = React.useState({
@@ -30,19 +30,19 @@ export default () => {
             <WhiteSpace/>
             <WingBlank>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         setState({ ...state, visibleBasic: true, animationType: 'none' })
                     }}
                 >basic</Button>
                 <WhiteSpace/>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         setState({ ...state, visibleInput: true, animationType: 'none' })
                     }}
                 >Modal TextInput</Button>
                 <WhiteSpace/>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         alert('Title', 'This is content???', [
                             { text: 'Cancel', onPress: () => console.log('cancel') },
                             { text: 'Ok', type: 'primary', onPress: () => console.log('ok') },
@@ -51,7 +51,7 @@ export default () => {
                 >alert</Button>
                 <WhiteSpace/>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         alert('', '确认后拣货单将进入配送流程请确认拣货完毕', [
                             { text: '知道了', type: 'primary', onPress: () => console.log('ok') },
                         ])}
@@ -61,7 +61,7 @@ export default () => {
 
             <Modal
                 visible={state.visibleBasic}
-                onClose={()=>{
+                onClose={()=> {
                     setState({ ...state, visibleBasic: false })
                 }}
                 title={'这是title'}
@@ -76,7 +76,7 @@ export default () => {
 
             <Modal
                 visible={state.visibleInput}
-                onClose={()=>{
+                onClose={()=> {
                     setState({ ...state, visibleInput: false })
                 }}
                 title={'这是title'}
@@ -94,7 +94,7 @@ export default () => {
                         borderColor: '#333',
                         borderWidth: StyleSheet.hairlineWidth
                     }}
-                    placeholder="文本框"/>
+                    placeholder='文本框'/>
                 <Text>content</Text>
             </Modal>
         </View>

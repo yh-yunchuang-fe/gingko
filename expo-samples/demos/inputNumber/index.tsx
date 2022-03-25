@@ -10,7 +10,7 @@ import {
     WhiteSpace,
     WingBlank,
     InputNumber
-} from "../../../components";
+} from '../../../components'
 
 export default () => {
     const [state, setState] = React.useState({
@@ -28,8 +28,8 @@ export default () => {
                 <InputNumber
                     width={175}
                     value={value1}
-                    unit="份"
-                    onChange={(value)=>{
+                    unit='份'
+                    onChange={(value)=> {
                         setState({
                             ...state,
                             value1: value
@@ -39,7 +39,7 @@ export default () => {
                 <WhiteSpace/>
                 <InputNumber
                     value={10}
-                    unit="份"
+                    unit='份'
                     disabled={true}
                 />
                 <WhiteSpace/>
@@ -49,8 +49,8 @@ export default () => {
                     min={100}
                     max={105}
                     step={5}
-                    unit="kg"
-                    onChange={(value)=>{
+                    unit='kg'
+                    onChange={(value)=> {
                         setState({
                             ...state,
                             value2: value
@@ -63,8 +63,8 @@ export default () => {
                     editable={false}
                     min={0}
                     max={20}
-                    unit="kg"
-                    onChange={(value)=>{
+                    unit='kg'
+                    onChange={(value)=> {
                         setState({
                             ...state,
                             value3: value

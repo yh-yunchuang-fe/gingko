@@ -16,31 +16,30 @@ export default () => {
         animationType: ''
     })
 
-
     return (
         <View>
             <WhiteSpace/>
             <WingBlank>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         setState({ visible: true, animationType: 'none' })
                     }}
                 >open Dialog</Button>
                 <WhiteSpace/>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         setState({ visible: true, animationType: 'fade' })
                     }}
                 >open fade Dialog</Button>
                 <WhiteSpace/>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         setState({ visible: true, animationType: 'slide-up' })
                     }}
                 >open slide-up Dialog</Button>
                 <WhiteSpace/>
                 <Button
-                    onClick={()=>{
+                    onClick={()=> {
                         setState({ visible: true, animationType: 'slide-down' })
                     }}
                 >open slide-up Dialog</Button>
@@ -54,7 +53,7 @@ export default () => {
                     alignItems: 'center',
                 }}
                 maskCloseable={true}
-                onClose={()=>{
+                onClose={()=> {
                     setState({ ...state, visible: false })
                 }}
             >

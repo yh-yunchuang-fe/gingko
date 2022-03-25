@@ -94,14 +94,14 @@ export default () => {
         <View>
             <WingBlank>
                 <InputItem
-                    type="phone"
+                    type='phone'
                     onChange={onChange}
                     onBlur={onBlur}
                     onFocus={onFocus}
                     ok={state.ok}
                     error={state.error}
                     errorHint={state.errorHint}
-                    placeholder="请输入正确的手机号码"
+                    placeholder='请输入正确的手机号码'
                     value={state.value}
                 >手机号码</InputItem>
                 <WhiteSpace />
@@ -112,13 +112,13 @@ export default () => {
                     ok={state.ok2}
                     error={state.error2}
                     errorHint={state.errorHint2}
-                    placeholder="请输入合适的用户名"
+                    placeholder='请输入合适的用户名'
                     value={state.value2}
                 >用户名</InputItem>
                 <WhiteSpace />
                 <InputItem
-                    type="password"
-                    placeholder="请输入密码"
+                    type='password'
+                    placeholder='请输入密码'
                     // ... value, onChange, onBlur, onFocus等等
                 >密码</InputItem>
             </WingBlank>
@@ -130,14 +130,14 @@ export default () => {
                         borderBottomWidth: StyleSheet.hairlineWidth,
                         borderColor: '#ddd'
                     }}
-                    type="phone"
+                    type='phone'
                     onChange={onChange}
                     onBlur={onBlur}
                     onFocus={onFocus}
                     ok={state.ok}
                     error={state.error}
                     errorHint={state.errorHint}
-                    placeholder="请输入正确的手机号码"
+                    placeholder='请输入正确的手机号码'
                     value={state.value}
                 >手机号码</InputItem>
             </View>

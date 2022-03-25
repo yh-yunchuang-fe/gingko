@@ -16,8 +16,8 @@ import {
 export default () => {
     const [value, setValue] = React.useState(0.1)
 
-    const changeValue = (value) => {
-        setValue(value)
+    const changeValue = (val: any) => {
+        setValue(val)
     }
 
     return (
@@ -25,12 +25,12 @@ export default () => {
             <WingBlank>
                 <WhiteSpace/>
                 <SearchInput
-                    placeholder="输入商品名称、条码或编号"
-                    onSubmit={(value) => {
-                        console.log('onSubmit value:', value)
+                    placeholder='输入商品名称、条码或编号'
+                    onSubmit={(val: any) => {
+                        console.log('onSubmit value:', val)
                     }}
-                    onChange={(value) => {
-                        console.log('onChange value:', value)
+                    onChange={(val: any) => {
+                        console.log('onChange value:', val)
                     }}
                     onFocus={() => {
                         console.log('onFocus')
@@ -44,14 +44,14 @@ export default () => {
                 />
                 <WhiteSpace/>
                 <SearchInput
-                    placeholder="输入商品名称、条码或编号"
-                    defaultValue="autoFocus"
+                    placeholder='输入商品名称、条码或编号'
+                    defaultValue='autoFocus'
                     autoFocus={true}
-                    onSubmit={(value) => {
-                        console.log('onSubmit value:', value)
+                    onSubmit={(val) => {
+                        console.log('onSubmit value:', val)
                     }}
-                    onChange={(value) => {
-                        console.log('onChange value:', value)
+                    onChange={(val) => {
+                        console.log('onChange value:', val)
                     }}
                     onFocus={() => {
                         console.log('onFocus')
@@ -67,12 +67,12 @@ export default () => {
                 <Slider value={value} onValueChange={changeValue}/>
                 <SearchInput
                     value={value.toString()}
-                    placeholder="value props"
-                    onSubmit={(value) => {
-                        console.log('onSubmit value:', value)
+                    placeholder='value props'
+                    onSubmit={(val) => {
+                        console.log('onSubmit value:', val)
                     }}
-                    onChange={(value) => {
-                        console.log('onChange value:', value)
+                    onChange={(val) => {
+                        console.log('onChange value:', val)
                     }}
                     onFocus={() => {
                         console.log('onFocus')
@@ -86,8 +86,8 @@ export default () => {
                 />
                 <WhiteSpace/>
                 <SearchInput
-                    placeholder="value测试"
-                    value="value值"
+                    placeholder='value测试'
+                    value='value值'
                 />
             </WingBlank>
         </View>

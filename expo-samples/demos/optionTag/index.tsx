@@ -11,19 +11,19 @@ import {
     WhiteSpace,
     WingBlank,
     OptionTag
-} from "../../../components";
+} from '../../../components'
 
 export default () => {
     const [optionsIndex, setOptionsIndex] = React.useState(0)
 
-    const options = ['水果二配', '蔬菜二配', '安徽'];
+    const options = ['水果二配', '蔬菜二配', '安徽']
 
-    const optionsNode = options.map((item, index)=>{
+    const optionsNode = options.map((item, index)=> {
         return (
             <OptionTag
                 key={index}
                 selected={index === optionsIndex}
-                onChange={(selected)=>{
+                onChange={(selected)=> {
                     if (selected) {
                         setOptionsIndex(index)
                     }
@@ -51,7 +51,7 @@ export default () => {
                 <Text>自定义Text内容</Text>
                 <View>
                     <OptionTag style={{marginTop: 10}} width={315}
-                        renderText={(selected)=>{
+                        renderText={(selected)=> {
                             return (
                                 <View style={{flexDirection: 'row'}}>
                                     <Text style={{
@@ -66,7 +66,7 @@ export default () => {
                         }}
                     />
                     <OptionTag style={{marginTop: 10}} width={315}
-                        renderText={(selected)=>{
+                        renderText={(selected)=> {
                             return (
                                 <View style={{flexDirection: 'row'}}>
                                     <Text style={{

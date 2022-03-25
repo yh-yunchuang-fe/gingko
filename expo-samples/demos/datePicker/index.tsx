@@ -132,7 +132,7 @@ export default () => {
             <DatePicker
                 visible={state.visible}
                 onOk={onOk}
-                mode="date"
+                mode='date'
                 date={state.date}
                 onDateChange={onDateChange}
                 onValueChange={onValueChange}
@@ -141,7 +141,7 @@ export default () => {
             <DatePicker
                 visible={state.visible2}
                 onOk={onOk}
-                mode="datetime"
+                mode='datetime'
                 date={state.date}
                 onDateChange={onDateChange}
                 onValueChange={onValueChange}
@@ -150,7 +150,7 @@ export default () => {
             <DatePicker
                 visible={state.visible3}
                 onOk={onOk}
-                mode="time"
+                mode='time'
                 date={state.date}
                 onDateChange={onDateChange}
                 onValueChange={onValueChange}
@@ -159,7 +159,7 @@ export default () => {
             <DatePicker
                 visible={state.visible4}
                 onOk={onOk}
-                mode="year"
+                mode='year'
                 date={state.date}
                 onDateChange={onDateChange}
                 onValueChange={onValueChange}
@@ -168,7 +168,7 @@ export default () => {
             <DatePicker
                 visible={state.visible5}
                 onOk={onOk}
-                mode="month"
+                mode='month'
                 date={state.date}
                 onDateChange={onDateChange}
                 onValueChange={onValueChange}
@@ -186,4 +186,3 @@ export default () => {
         </View>
     )
 }
-

@@ -14,7 +14,6 @@ import {
     WhiteSpace,
 } from '../../../components'
 
-
 export default () => {
     return (
         <ScrollView style={{ flex: 1 }}>
@@ -52,7 +51,7 @@ export default () => {
                     Toast.show(
                         'icon可以是一个functional组件,或者ReactElement',
                         {
-                            icon: <Icon name="eye-off" color="red" />
+                            icon: <Icon name='eye-off' color='red' />
                         }
                     )
                 }}>自定义Icon</Button>

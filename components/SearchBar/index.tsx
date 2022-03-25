@@ -144,10 +144,10 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
         const { value, showDelete } = this.state;
 
         const slide = {
-            marginRight: this.state.rightAnim.interpolate({
-                inputRange: [0, 1],
-                outputRange: [-50, 0]
-            })
+            // marginRight: this.state.rightAnim.interpolate({
+            //     inputRange: [0, 1],
+            //     outputRange: [-50, 0]
+            // })
         };
 
         return (

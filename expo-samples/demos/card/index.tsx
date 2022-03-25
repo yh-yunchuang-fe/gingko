@@ -14,7 +14,7 @@ import {
 export default () => {
     return <View>
         <WingBlank>
-            <WhiteSpace size="lg"/>
+            <WhiteSpace size='lg'/>
             <Card>
                 <Card.Header>
                     这是title
@@ -26,17 +26,17 @@ export default () => {
                     footer
                 </Card.Footer>
             </Card>
-            <WhiteSpace size="lg"/>
+            <WhiteSpace size='lg'/>
             <Card>
                 <Card.Body>
                     <View>
-                        <Icon name="camera" size={30} />
-                        <Icon name="scan" size={30} />
+                        <Icon name='camera' size={30} />
+                        <Icon name='scan' size={30} />
                         <Text>This is content</Text>
                     </View>
                 </Card.Body>
             </Card>
-            <WhiteSpace size="lg"/>
+            <WhiteSpace size='lg'/>
         </WingBlank>
 
         <Card full>
@@ -68,7 +68,7 @@ export default () => {
                     }}>
                         展开明细
                     </Text>
-                    <Icon name="chevron-down" color="#666" size="xs"/>
+                    <Icon name='chevron-down' color='#666' size='xs'/>
                 </TouchableOpacity>
             </Card.Footer>
         </Card>

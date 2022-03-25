@@ -28,33 +28,33 @@ export default () => {
     return (
         <View style={{backgroundColor: '#f8f8f8'}}>
             <SearchBar
-                placeholder="输入商品名称、条码或编号"
-                onSubmit={(value)=>{ console.log('onSubmit value:', value) }}
-                onChange={(value)=>{
+                placeholder='输入商品名称、条码或编号'
+                onSubmit={(value)=> { console.log('onSubmit value:', value) }}
+                onChange={(value)=> {
                     setState({ ...state, value })
                 }}
-                onFocus={()=>{ console.log('onFocus') }}
-                onBlur={()=>{ console.log('onBlur') }}
-                onCancel={()=>{ console.log('onCancel') }}
-                onClear={()=>{ console.log('onClear') }}
+                onFocus={()=> { console.log('onFocus') }}
+                onBlur={()=> { console.log('onBlur') }}
+                onCancel={()=> { console.log('onCancel') }}
+                onClear={()=> { console.log('onClear') }}
             />
             <WhiteSpace/>
             <SearchBar
-                placeholder="输入商品名称、条码或编号"
-                defaultValue="autoFocus"
+                placeholder='输入商品名称、条码或编号'
+                defaultValue='autoFocus'
                 autoFocus={true}
-                onSubmit={(value)=>{ console.log('onSubmit value:', value) }}
-                onChange={(value)=>{ console.log('onChange value:', value) }}
-                onFocus={()=>{ console.log('onFocus') }}
-                onBlur={()=>{ console.log('onBlur') }}
-                onCancel={()=>{ console.log('onCancel') }}
-                onClear={()=>{ console.log('onClear') }}
+                onSubmit={(value)=> { console.log('onSubmit value:', value) }}
+                onChange={(value)=> { console.log('onChange value:', value) }}
+                onFocus={()=> { console.log('onFocus') }}
+                onBlur={()=> { console.log('onBlur') }}
+                onCancel={()=> { console.log('onCancel') }}
+                onClear={()=> { console.log('onClear') }}
             />
             <WhiteSpace/>
             <Slider value={state.value2} onValueChange={changeValue}/>
             <SearchBar
                 value={state.value2.toString()}
-                placeholder="value props"
+                placeholder='value props'
             />
         </View>
     )

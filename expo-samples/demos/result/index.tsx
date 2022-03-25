@@ -10,7 +10,7 @@ import {
     WhiteSpace,
     Icon,
     Result
-} from "../../../components";
+} from '../../../components'
 
 export default () => {
     return (
@@ -19,13 +19,13 @@ export default () => {
             <Result/>
             <WhiteSpace/>
             <Result
-                img={<Icon name="checkmark" size={40}/>}
-                message="还没有订单记录哦"
+                img={<Icon name='checkmark' size={40}/>}
+                message='还没有订单记录哦'
             />
             <Result
-                img={<Icon name="checkmark" size={30}/>}
-                title="搜索结果"
-                message="还没有订单记录哦"
+                img={<Icon name='checkmark' size={30}/>}
+                title='搜索结果'
+                message='还没有订单记录哦'
             />
         </View>
     )

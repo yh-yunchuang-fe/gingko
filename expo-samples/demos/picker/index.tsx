@@ -1,17 +1,17 @@
 /**
  * Created by beilunyang on 2018/2/11
  */
-import React from 'react';
+import React from 'react'
 import {
     View,
     Text,
     StyleSheet,
-} from 'react-native';
+} from 'react-native'
 import {
     Button,
     WhiteSpace,
     Picker,
-} from '../../../components/index';
+} from '../../../components/index'
 
 const styles = StyleSheet.create({
     multiPicker: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     singlePicker: {
         backgroundColor: 'yellowgreen',
     },
-});
+})
 
 export default () => {
     const [state, setState] = React.useState({
@@ -36,26 +36,26 @@ export default () => {
             ...state,
             visible: false,
             visible2: false,
-        });
+        })
     }
 
     const handleOk = (value: any) => {
-        console.log('ok callback:', value);
-        handleDismiss();
-    };
+        console.log('ok callback:', value)
+        handleDismiss()
+    }
 
     const handlePicker = () => {
         setState({
             ...state,
             visible: true,
-        });
+        })
     }
 
     const handlePicker2 = () => {
         setState({
             ...state,
             visible2: true,
-        });
+        })
     }
 
     return (
@@ -70,7 +70,7 @@ export default () => {
             <WhiteSpace/>
             <Button onClick={handlePicker2}>单列Picker</Button>
             <Picker
-                title="多列"
+                title='多列'
                 visible={state.visible}
                 data={[ // label是可选的, 不设置就取value的值  label/value 可以是字符串或数字
                     [ 
@@ -98,7 +98,7 @@ export default () => {
                     setState({
                         ...state,
                         value: values,
-                    });
+                    })
                 }}
                 onOk={handleOk}
                 onDismiss={handleDismiss}
@@ -115,7 +115,7 @@ export default () => {
                 ]}
             />
             <Picker
-                title="单列"
+                title='单列'
                 visible={state.visible2}
                 onOk={handleOk}
                 style={styles.singlePicker}
@@ -125,13 +125,13 @@ export default () => {
                     setState({
                         ...state,
                         value2: val,
-                    });
+                    })
                 }}
             >
-                <Picker.Item value="gba" label="gba" />
-                <Picker.Item value="ps4" label="ps4" />
-                <Picker.Item value="ns" label="ns" />
-                <Picker.Item value="xbox" label="xbox" />
+                <Picker.Item value='gba' label='gba' />
+                <Picker.Item value='ps4' label='ps4' />
+                <Picker.Item value='ns' label='ns' />
+                <Picker.Item value='xbox' label='xbox' />
             </Picker>
             <WhiteSpace/>
             <Text>你也可以让组件自管理状态，即不传value prop,然后通过onOK和onChange回调来获取改变后的值</Text>

@@ -11,15 +11,15 @@ export default () => {
     return (
         <WingBlank>
             <WhiteSpace/>
-            <Indicator size="sm"/>
+            <Indicator size='sm'/>
             <WhiteSpace/>
             <Indicator/>
             <WhiteSpace/>
-            <Indicator size="lg"/>
+            <Indicator size='lg'/>
             <WhiteSpace/>
-            <Indicator size="xl"/>
+            <Indicator size='xl'/>
             <WhiteSpace/>
-            <Indicator text="Loading..."/>
+            <Indicator text='Loading...'/>
             <WhiteSpace/>
             <WhiteSpace/>
             <View style={{
@@ -32,9 +32,9 @@ export default () => {
                 borderRadius: 4
             }}>
                 <Indicator 
-                    size="lg" 
-                    color="white" 
-                    text="加载中"
+                    size='lg' 
+                    color='white' 
+                    text='加载中'
                     style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}
                     textStyle={{fontSize: 14, color: '#fff', marginTop: 8, marginLeft: 0}}
                 />

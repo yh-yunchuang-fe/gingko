@@ -97,7 +97,7 @@ export default () => {
         </View>
         <WhiteSpace/>
 
-        <Button icon='scan' onClick={()=>{ Alert.alert('button') }}>
+        <Button icon='scan' onClick={()=> { Alert.alert('button') }}>
             default button
         </Button>
         <WhiteSpace/>

@@ -11,7 +11,7 @@ import {
 import {
     WhiteSpace,
     Tabs
-} from "../../../components"
+} from '../../../components'
 
 const DefaultTabBar = Tabs.DefaultTabBar
 
@@ -35,7 +35,7 @@ export default () => {
                 tabs={tabs}
             >
                 {
-                    tabs.map((tab, index)=>{
+                    tabs.map((tab, index)=> {
                         return (
                             <View key={index} style={{
                                 justifyContent: 'center',
@@ -54,7 +54,7 @@ export default () => {
                 style={{
                     height: 250,
                 }}
-                tabBarFillColor="#ddd"
+                tabBarFillColor='#ddd'
                 tabs={[{ title: '全部分类' },{ title: '食品部' },{ title: '加工部' }]}
                 renderTabBar={(props: any) =>
                     <DefaultTabBar
