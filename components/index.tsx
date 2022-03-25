@@ -7,6 +7,7 @@ export { default as Checkbox } from './Checkbox'
 export { default as CodeInputGroup } from './CodeInputGroup'
 
 export { default as Dialog } from './Dialog'
+export { default as Divider } from './Divider'
 
 export { default as Grid } from './Grid'
 
@@ -25,6 +26,7 @@ export { default as OptionTag } from './OptionTag'
 export { default as Picker } from './Picker'
 export { default as Popup } from './Popup'
 
+export { default as Radio } from './Radio'
 export { default as RadioGroup } from './RadioGroup'
 export { default as Result } from './Result'
 

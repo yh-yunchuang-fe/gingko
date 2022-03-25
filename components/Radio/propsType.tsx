@@ -9,6 +9,7 @@ import {
 export interface ICheckbox {
     icon?: boolean | ((x?: any) => void)
     dir?: 'left' | 'right'
+    radio?: boolean
     checked?: boolean
     defaultChecked?: boolean
     onChange?: (checked?: boolean) => any

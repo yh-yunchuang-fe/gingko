@@ -15,37 +15,37 @@ export default () => {
         <WingBlank>
             <Text style={style.tagText}>标签类型</Text>
             <View style={style.tagList}>
-                <Tag color='FE8F1D' fill>标签</Tag>
+                <Tag color='#FE8F1D' fill>标签</Tag>
                 <Tag color='orange'>标签</Tag>
                 <Tag color='orange' fill>标签</Tag>
             </View>
             <WhiteSpace/>
 
             <View style={style.tagList}>
-                <Tag color='blue' fill>标签</Tag>
+                <Tag color='#069DFF' fill>标签</Tag>
                 <Tag color='blue'>标签</Tag>
-                <Tag color='rgba(6, 157, 255, 0.1)' textColor='#069DFF' fill >标签</Tag>
+                <Tag color='blue' fill >标签</Tag>
             </View>
             <WhiteSpace/>
 
             <View style={style.tagList}>
-                <Tag color='green' fill>标签</Tag>
+                <Tag color='#00BF7A' fill>标签</Tag>
                 <Tag color='green'>标签</Tag>
-                <Tag color='rgba(0, 191, 122, 0.1)' textColor='#00BF7A' fill >标签</Tag>
+                <Tag color='green' fill >标签</Tag>
             </View>
             <WhiteSpace/>
 
             <View style={style.tagList}>
-                <Tag color='red' fill>标签</Tag>
+                <Tag color='#FF2E2E' fill>标签</Tag>
                 <Tag color='red'>标签</Tag>
-                <Tag color='rgba(255, 46, 46, 0.1)' textColor='#FF2E2E' fill >标签</Tag>
+                <Tag color='red' fill >标签</Tag>
             </View>
             <WhiteSpace/>
 
             <View style={style.tagList}>
                 <Tag fill>标签</Tag>
                 <Tag>标签</Tag>
-                <Tag color='rgba(158, 158, 158, 0.1)' textColor='#9E9E9E' fill >标签</Tag>
+                <Tag color='gray' fill >标签</Tag>
             </View>
             <WhiteSpace/>
 

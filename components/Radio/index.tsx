@@ -11,9 +11,10 @@ import Icon from '../Icon'
 import styles from './style'
 import { ICheckbox } from './propsType'
 
-export default function Checkbox(props: ICheckbox) {
+export default function Radio(props: ICheckbox) {
     const {
         icon = true,
+        radio = false,
         dir = 'left',
         defaultChecked = false,
         onChange,
@@ -50,13 +51,13 @@ export default function Checkbox(props: ICheckbox) {
 
     const getCheckedColor = (check: boolean) => {
         if(disabled && check ) {
-            return {color: 'rgba(254, 143, 29, 0.5)', icon: 'checked'}
+            return {color: 'rgba(254, 143, 29, 0.5)', icon: 'radio-on'}
         } else if(disabled) {
             return {color: '#C4C4C4', icon: 'radio-off'}
         } else if(check) {
-            return {color: '#FE8F1D', icon: 'checked'}
+            return {color: '#FE8F1D', icon: 'radio-on'}
         } else {
-            return {color: '#C4C4C4', icon: 'radio-off'}
+            return {color: '#C4C4C4', icon: 'radio-on'}
         }
     }
 

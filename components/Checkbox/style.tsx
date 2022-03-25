@@ -4,7 +4,6 @@
 import {
     StyleSheet,
 } from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     container: { 
@@ -12,6 +11,6 @@ export default StyleSheet.create({
         alignItems: 'center' 
     },
     icon: {
-        marginRight: variables.h_spacing_sm * 2,
+        marginRight: 5 * 2,
     },
 })

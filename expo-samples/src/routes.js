@@ -7,6 +7,7 @@ import Checkbox from '../demos/checkbox'
 import codeInputGroup from '../demos/codeInputGroup'
 import DatePicker from '../demos/datePicker'
 import Dialog from '../demos/dialog'
+import Divider from '../demos/divider'
 import Grid from '../demos/grid'
 import Icon from '../demos/icon'
 import Indicator from '../demos/indicator'
@@ -18,7 +19,7 @@ import NoticeBar from '../demos/noticeBar'
 import OptionTag from '../demos/optionTag'
 import Picker from '../demos/picker'
 import Popup from '../demos/popup'
-import RadioGroup from '../demos/radioGroup'
+import Radio from '../demos/radio'
 import Result from '../demos/result'
 import SearchBar from '../demos/searchBar'
 import SearchInput from '../demos/searchInput'
@@ -74,9 +75,9 @@ export default [
         screen: InputNumber
     },
     {
-        title: 'RadioGroup',
-        description: '单选组',
-        screen: RadioGroup
+        title: 'Radio',
+        description: '单选',
+        screen: Radio
     },
     {
         title: 'NoticeBar',
@@ -117,6 +118,11 @@ export default [
         title: 'Dialog',
         description: '底层弹窗',
         screen: Dialog
+    },
+    {
+        title: 'Divider',
+        description: '底层弹窗',
+        screen: Divider
     },
     {
         title: 'Modal',

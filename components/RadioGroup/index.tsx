@@ -11,89 +11,71 @@ import {
     Text,
     TouchableOpacity,
 } from 'react-native'
-import styles from './style/index'
+import styles from './style'
 import RadioGroupProps from './propsType'
 
-export default class RadioGroup extends React.Component<RadioGroupProps, any> {
+export default function RadioGroup(props: RadioGroupProps) {
 
-    public static defaultProps = {
-        mode: 'button',
-        defaultIndex: 0,
-    };
+    const {
+        options = [], 
+        style,
+        mode = 'button',
+        defaultIndex = 0,
+    } = props
 
-    constructor(props) {
-        super(props);
-        const index = props.index ? props.index : (props.defaultIndex || 0);
-        this.state = {
-            activeIndex: index
-        };
+    const index = props.index ? props.index : (defaultIndex || 0)
+    const [activeIndex, setActiveIndex] = React.useState(index)
+
+    React.useEffect(() => {
+        if (props.index !== activeIndex) {
+            setActiveIndex(activeIndex)
+        }
+    }, [props.index])
+
+    if (mode !== 'button') {
+        console.warn('暂支持button模式')
+        return null
     }
 
-    public componentWillReceiveProps(nextProps: any) {
-        if (this.props.index != nextProps.index) {
-            this.setState({
-                index: nextProps.index
-            })
-        }
+    const onChange = (item: any, idx: any) => {
+        setActiveIndex(idx)
+        props.onChange && props.onChange(item, index)
     }
 
-    public onChange = (index: any, item: any) => {
-        const { onChange } = this.props;
-        this.setState({ activeIndex: index });
-        if (onChange) {
-            onChange(index, item);
-        }
-    };
+    const dom = options.map((item, idx) => {
+        let itemSty: any = null
+        let activeSty: any = null
+        let activeText: any = null
+        let cutLineSty: any = styles.cutLineSty
 
-    public render() {
-        const {
-            mode, radios, style,
-            ...restProps
-        } = this.props;
-
-        if (mode !== 'button') {
-            console.warn('暂支持button模式');
-            return null
+        if (idx === 0) {
+            itemSty = styles.firstRadioBtn
+        } else if (idx === options.length - 1) {
+            itemSty = styles.lastRadioBtn
+            cutLineSty = null
         }
 
-        const { activeIndex } = this.state;
-
-        const dom = radios.map((item, index) => {
-            let itemSty: any = null;
-            let activeSty: any = null;
-            let activeText: any = null;
-            let cutLineSty: any = styles.cutLineSty;
-
-            if (index === 0) {
-                itemSty = styles.firstRadioBtn;
-            } else if (index === radios.length - 1) {
-                itemSty = styles.lastRadioBtn;
-                cutLineSty = null;
-            }
-
-            if (activeIndex === index) {
-                activeSty = styles.activeRadioBtn;
-                activeText = styles.activeRadioBtnText
-            }
-
-            return (
-                <View style={cutLineSty} key={index}>
-                    <TouchableOpacity onPress={this.onChange.bind(this, index, item)}>
-                        <View style={[styles.radioBtn, itemSty, activeSty]}>
-                            <Text style={[styles.radioBtnText, activeText]}>
-                                { item }
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-            )
-        });
+        if (activeIndex === idx) {
+            activeSty = styles.activeRadioBtn
+            activeText = styles.activeRadioBtnText
+        }
 
         return (
-            <View style={[styles.radioGroup, style]}>
-                { dom }
+            <View style={cutLineSty} key={idx}>
+                <TouchableOpacity onPress={() => {onChange(item, idx)}}>
+                    <View style={[styles.radioBtn, itemSty, activeSty]}>
+                        <Text style={[styles.radioBtnText, activeText]}>
+                            { item }
+                        </Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         )
-    }
+    })
+
+    return (
+        <View style={[styles.radioGroup, style]}>
+            { dom }
+        </View>
+    )
 }

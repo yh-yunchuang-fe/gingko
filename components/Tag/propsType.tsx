@@ -7,7 +7,7 @@ export default interface TagProps {
     // 可以考虑以后做成可点击的
 
     size?: 'default' | 'large' | 'small'; // TODO 暂不支持
-    type?: 'default' | 'orange' | 'blue' | 'green' | 'red'
+    type?: 'default' | 'orange' | 'blue' | 'green' | 'red' | 'gray'
     closable?: boolean;
 
     readonly?: boolean;
