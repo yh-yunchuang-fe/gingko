@@ -21,6 +21,8 @@ export default function RadioGroup(props: RadioGroupProps) {
         style,
         mode = 'button',
         defaultIndex = 0,
+        itemStyle,
+        itemTextStyle,
     } = props
 
     const index = props.index ? props.index : (defaultIndex || 0)
@@ -39,7 +41,7 @@ export default function RadioGroup(props: RadioGroupProps) {
 
     const onChange = (item: any, idx: any) => {
         setActiveIndex(idx)
-        props.onChange && props.onChange(item, index)
+        props.onChange && props.onChange(item, idx)
     }
 
     const dom = options.map((item, idx) => {
@@ -61,10 +63,10 @@ export default function RadioGroup(props: RadioGroupProps) {
         }
 
         return (
-            <View style={cutLineSty} key={idx}>
+            <View style={[cutLineSty]} key={idx}>
                 <TouchableOpacity onPress={() => {onChange(item, idx)}}>
-                    <View style={[styles.radioBtn, itemSty, activeSty]}>
-                        <Text style={[styles.radioBtnText, activeText]}>
+                    <View style={[styles.radioBtn, itemSty, activeSty, itemStyle]}>
+                        <Text style={[styles.radioBtnText, activeText, itemTextStyle]}>
                             { item }
                         </Text>
                     </View>

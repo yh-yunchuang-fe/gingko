@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     View,
     Text,
@@ -16,33 +16,24 @@ export default () => {
         animationType: ''
     })
 
+    const openDialog = (type: string) => {
+        setState({ 
+            visible: true, 
+            animationType: type
+        })
+    }
+
     return (
         <View>
             <WhiteSpace/>
             <WingBlank>
-                <Button
-                    onClick={()=> {
-                        setState({ visible: true, animationType: 'none' })
-                    }}
-                >open Dialog</Button>
+                <Button onClick={() => {openDialog('none')}}>open Dialog</Button>
                 <WhiteSpace/>
-                <Button
-                    onClick={()=> {
-                        setState({ visible: true, animationType: 'fade' })
-                    }}
-                >open fade Dialog</Button>
+                <Button onClick={() => {openDialog('fade')}}>open fade Dialog</Button>
                 <WhiteSpace/>
-                <Button
-                    onClick={()=> {
-                        setState({ visible: true, animationType: 'slide-up' })
-                    }}
-                >open slide-up Dialog</Button>
+                <Button onClick={() => {openDialog('slide-up')}}>open slide-up Dialog</Button>
                 <WhiteSpace/>
-                <Button
-                    onClick={()=> {
-                        setState({ visible: true, animationType: 'slide-down' })
-                    }}
-                >open slide-up Dialog</Button>
+                <Button onClick={() => {openDialog('slide-down')}}>open slide-up Dialog</Button>
             </WingBlank>
 
             <Dialog
@@ -63,17 +54,10 @@ export default () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: '#fff',
-                    borderRadius: 4,
-                    shadowColor: '#333',
-                    shadowOffset: {
-                        width: 0,
-                        height: 0
-                    },
-                    shadowRadius: 3,
-                    shadowOpacity: .2,
+                    borderRadius: 8,
                     elevation: 10
                 }}>
-                    <Text>Loading</Text>
+                    <Text>内容宽高圆角自定义</Text>
                 </View>
             </Dialog>
         </View>

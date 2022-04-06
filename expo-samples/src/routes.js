@@ -1,3 +1,4 @@
+import Actionsheet from '../demos/actionsheet'
 import Badge from '../demos/badge'
 import Body from '../demos/body'
 import Button from '../demos/button'
@@ -24,11 +25,19 @@ import Result from '../demos/result'
 import SearchBar from '../demos/searchBar'
 import SearchInput from '../demos/searchInput'
 import Shadow from '../demos/shadow'
+import Sidebar from '../demos/sidebar'
+import Svg from '../demos/svg'
+import Switch from '../demos/switch'
 import Tag from '../demos/tag'
 import Tabs from '../demos/tabs'
 import Toast from '../demos/toast'
 
 export default [
+    {
+        title: 'Actionsheet',
+        description: '上拉菜单',
+        screen: Actionsheet
+    },
     {
         title: 'Colors',
         description: '颜色',
@@ -158,6 +167,21 @@ export default [
         title: 'Shadow',
         description: '投影',
         screen: Shadow
+    },
+    {
+        title: 'Sidebar',
+        description: '标签页',
+        screen: Sidebar
+    },
+    {
+        title: 'Svg',
+        description: '标签页',
+        screen: Svg
+    },
+    {
+        title: 'Switch',
+        description: '开关',
+        screen: Switch
     },
     {
         title: 'Checkbox',

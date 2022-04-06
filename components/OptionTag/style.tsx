@@ -3,23 +3,22 @@
  * @date 2018/4/20
  */
 import { StyleSheet } from 'react-native'
-import variables from '../../../src/style/variables'
 
-const borderDisabled = variables.border_color
-const textDisabled = '#ccc'
+const borderDisabled = '#DDDDDD'
+const textDisabled = '#CCCCCC'
 
 export default StyleSheet.create({
     wrap: {
-        borderRadius: variables.radius_sm,
+        borderRadius: 2,
         backgroundColor: 'transparent',
         flexDirection: 'row',
         overflow: 'visible',
     },
     content: {
-        backgroundColor: variables.fill_base,
-        borderWidth: variables.border_width,
-        borderColor: variables.border_color,
-        borderRadius: variables.radius_sm,
+        backgroundColor: '#FFFFFF',
+        borderWidth: 1,
+        borderColor: '#DDDDDD',
+        borderRadius: 2,
         justifyContent: 'center',
         alignItems: 'center',
         overflow: 'hidden',
@@ -28,27 +27,27 @@ export default StyleSheet.create({
         flexDirection: 'row',
     },
     text: {
-        fontSize: variables.font_size_base_sm,
-        color: variables.color_label
+        fontSize: 14,
+        color: '#666666'
     },
     active: {
-        backgroundColor: '#E7F7FF',
-        borderColor: '#E7F7FF'
+        backgroundColor: 'rgba(254, 143, 29, 0.1)',
+        borderWidth: 0
     },
     activeText: {
-        color: variables.color_link
+        color: '#FE8F1D'
     },
 
     disabled: {
         borderColor: borderDisabled,
-        backgroundColor: variables.fill_base
+        backgroundColor: '#FFFFFF'
     },
     disabledText: {
         color: textDisabled
     },
 
     multiple: {
-        backgroundColor: variables.color_link,
+        backgroundColor: '#FE8F1D',
         width: 26,
         height: 17,
         transform: [{

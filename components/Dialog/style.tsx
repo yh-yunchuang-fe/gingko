@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     wrap: {
@@ -9,8 +8,7 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     mask: {
-        backgroundColor: variables.fill_mask,
-        // opacity: .5
+        backgroundColor: 'rgba(33, 33, 33, 0.7)',
     },
     absolute: {
         position: 'absolute',

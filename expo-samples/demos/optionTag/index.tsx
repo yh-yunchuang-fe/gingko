@@ -2,7 +2,7 @@
  * @author zhangyi
  * @date 2018/4/20
  */
-import React, { Component } from 'react'
+import React from 'react'
 import {
     View,
     Text
@@ -24,6 +24,7 @@ export default () => {
                 key={index}
                 selected={index === optionsIndex}
                 onChange={(selected)=> {
+                    console.log('🌹🌹===',index, optionsIndex, selected, index === optionsIndex)
                     if (selected) {
                         setOptionsIndex(index)
                     }
@@ -33,20 +34,22 @@ export default () => {
     })
 
     return (
-        <View style={{flex: 1, backgroundColor: '#fff'}}>
+        <View style={{flex: 1, backgroundColor: '#fff', paddingVertical: 12}}>
             <WingBlank>
-                <WhiteSpace/>
+                <Text>单选</Text><WhiteSpace/>
                 <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
                     {optionsNode}
                 </View>
                 <WhiteSpace/>
-                <OptionTag disabled>不可点击</OptionTag>
-                <WhiteSpace/>
+                
+                <Text>多选</Text><WhiteSpace/>
                 <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
                     <OptionTag multiple>多选1</OptionTag>
                     <OptionTag multiple>多选2</OptionTag>
                     <OptionTag multiple>多选3</OptionTag>
                 </View>
+                <WhiteSpace/>
+                <OptionTag disabled>不可点击</OptionTag>
                 <WhiteSpace/>
                 <Text>自定义Text内容</Text>
                 <View>
@@ -58,9 +61,9 @@ export default () => {
                                         width: 58,
                                         marginRight: 15,
                                         textAlign: 'right',
-                                        color: selected ? '#049CDB' : '#666'
+                                        color: selected ? '#FE8F1D' : '#666'
                                     }}>我是</Text>
-                                    <Text style={{color: selected ? '#049CDB' : '#666'}}>从多到少</Text>
+                                    <Text style={{color: selected ? '#FE8F1D' : '#666'}}>从多到少</Text>
                                 </View>
                             )
                         }}
@@ -73,15 +76,15 @@ export default () => {
                                         width: 58,
                                         marginRight: 15,
                                         textAlign: 'right',
-                                        color: selected ? '#049CDB' : '#666'
+                                        color: selected ? '#FE8F1D' : '#666'
                                     }}>建议补货</Text>
-                                    <Text style={{color: selected ? '#049CDB' : '#666'}}>从多到少</Text>
+                                    <Text style={{color: selected ? '#FE8F1D' : '#666'}}>从多到少</Text>
                                 </View>
                             )
                         }}
                     />
                 </View>
-            </WingBlank>
+            </WingBlank> 
         </View>
     )
 }

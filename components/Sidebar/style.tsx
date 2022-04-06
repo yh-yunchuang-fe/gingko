@@ -3,47 +3,44 @@
  * @date 2018/3/25
  */
 import * as RN from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default {
-    Tabs: {
+    Side: {
         container: {
             flex: 1
         } as RN.ViewStyle,
         content: {
             flex: 1,
-            backgroundColor: variables.fill_base
+            backgroundColor: '#FFFFFF'
         } as RN.ViewStyle,
     },
 
-    TabBar: {
+    Sidebar: {
         container: {
-            // height: 43.5,
-            // width: 100,
-            // flex: 1,
+            
         } as RN.ViewStyle,
         tabs: {
             flex: 1,
             flexDirection: 'column',
-            // width: 100,
-            backgroundColor: '#fff',
+            backgroundColor: '#FFFFFF',
             justifyContent: 'space-around',
         } as RN.ViewStyle,
         tab: {
-            width: 100,
+            width: 96,
             alignItems: 'center',
             justifyContent: 'center',
-            paddingTop: 0,
-            paddingBottom: 0,
-            height: 53,
+            paddingVertical: 16,
+            paddingHorizontal: 14,
             flexDirection: 'row'
         } as RN.ViewStyle,
         textStyle: {
-            fontSize: 14,
+            fontSize: 16,
+            lineHeight: 24
         } as RN.ViewStyle,
-        activeTextColor: variables.color_base,
-        inactiveTextColor: variables.color_label,
-        activeFillColor: '#fff',
-        fillColor: '#f9f9f9'
+        disabledColor: '#9E9E9E',
+        activeTextColor: '#FE8F1D',
+        inactiveTextColor: '#212121',
+        activeFillColor: '#FFFFFF',
+        fillColor: '#F5F5F5'
     }
 }

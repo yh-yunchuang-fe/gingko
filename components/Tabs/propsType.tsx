@@ -1,46 +1,21 @@
 /**
- * @author zhangyi
- * @date 2018/3/25
+ * @author wudi
+ * @date 2022/04/02.
  */
-import React from 'react'
-import * as RN from 'react-native';
+import { SceneRendererProps } from 'react-native-tab-view/lib/typescript/types'
 
-export interface TabProps {
-    key?: string;
-    title: React.ReactNode
-}
-
-export interface TabBarProps {
-    tabs: TabProps[];
-    renderTab?: (tab: TabProps, isTabActive: boolean) => React.ReactNode;
-    activeTab: number;
-    tabBarPosition?: 'left';
-    onTabClick?: (tab: TabProps, index: number) => void;
-    goToTab: (index: number) => void;
-
-    tabBarFillColor?: string;
-    tabBarActionFillColor?: string;
-    tabBarActiveTextColor?: string;
-    tabBarInactiveTextColor?: string;
-    tabBarTextStyle?: React.CSSProperties | any;
-}
-
-export interface TabsProps {
-    // tab data [{key, title}]
-    tabs: TabProps[];
-    // position | default left
-    tabBarPosition?: 'left';
-    renderTabBar?: any;
-    initialPage?: number | string;
-    page?: number | string;
-    onChange?: (tab: TabProps, index: number) => void;
-    // on tab click
-    onTabClick?: (tab: TabProps, index: number) => void;
-    style?: RN.ViewStyle;
-
-    tabBarFillColor?: string;
-    tabBarActionFillColor?: string;
-    tabBarActiveTextColor?: string;
-    tabBarInactiveTextColor?: string;
-    tabBarTextStyle?: React.CSSProperties | any;
+export interface ITabsProps {
+    routes?: any
+    tabIndex?: any
+    tabBarStyle?: any
+    swipeEnabled?: boolean
+    scrollEnabled?: boolean
+    activeColor?: string
+    inactiveColor?: string
+    tabStyle?: any
+    tabBarLabelStyle?: any
+    tabBarIndicatorStyle?: any
+    renderScene?: (props: SceneRendererProps) => React.ReactNode
+    onIndexChange?: (x?: any) => void
+    renderLabel?: (x?: any) => void
 }

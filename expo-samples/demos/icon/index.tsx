@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import {
     ScrollView
 } from 'react-native'
@@ -52,19 +52,21 @@ const list = [
     'bell',
     'clock-circle-o',
     'store',
-];
+]
+
 export default () => {
-    const data = list.map((item)=>{
+    const data = list.map((item)=> {
         return {
-            icon: (<Icon name={item} size="md"/>),
+            icon: (<Icon name={item} size='md'/>),
             text: item
         }
     })
     
     return (
-        <ScrollView style={{flex: 1}}>
+        <ScrollView style={{flex: 1, backgroundColor: '#00FF00'}}>
             <Grid
                 data={data}
+                columnNum={4}
             />
         </ScrollView>
     )

@@ -1,130 +1,55 @@
 /**
- * @author zhangyi
- * @date 2018/4/9
+ * @author wudi
+ * @date 2022/04/02
  */
 import React from 'react'
-import {
-    View,
-    Text,
-    ScrollView
-} from 'react-native'
-import {
-    WhiteSpace,
-    Tabs
-} from '../../../components'
-
-const DefaultTabBar = Tabs.DefaultTabBar
+import { View, Text } from 'react-native'
+import { Tabs } from '../../../components'
 
 export default () => {
-    const tabs = [
-        { title: 't1' },
-        { title: 't2' },
-        { title: 't3' },
-        { title: 't4' },
-        { title: 't5' },
-    ]
+    const [listIndex, setlistIndex] = React.useState(1)
 
-    return (
-        <View>
-            <WhiteSpace/>
-            <Tabs
-                style={{
-                    width: '100%',
-                    height: 200,
-                }}
-                tabs={tabs}
-            >
-                {
-                    tabs.map((tab, index)=> {
-                        return (
-                            <View key={index} style={{
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                backgroundColor: '#999',
-                                flex: 1,
-                            }}>
-                                <Text>The content is {tab.title}</Text>
-                            </View>
-                        )
-                    })
-                }
-            </Tabs>
-            <WhiteSpace/>
-            <Tabs
-                style={{
-                    height: 250,
-                }}
-                tabBarFillColor='#ddd'
-                tabs={[{ title: '全部分类' },{ title: '食品部' },{ title: '加工部' }]}
-                renderTabBar={(props: any) =>
-                    <DefaultTabBar
-                        {...props}
-                        renderTab={(tab, isTabActive) => {
-                            return (
-                                <View style={{height: 20, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                                    {
-                                        isTabActive &&
-                                        <View style={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            left: 0,
-                                            width: 4,
-                                            height: '100%',
-                                            backgroundColor: '#24A8E8'
-                                        }}/>
-                                    }
-                                    <Text style={isTabActive ? {
-                                            color: '#24A8E8',
-                                            fontWeight: 'bold',
-                                        } : {
-                                            color: '#666',
-                                            fontWeight: 'normal'
-                                        }}>
-                                        { tab.title }
-                                    </Text>
-                                </View>
-                            )
-                        }}
-                    >
-                    </DefaultTabBar>
-                }
-            >
-                <View style={{
-                    paddingVertical: 15,
-                    paddingHorizontal: 20,
-                }}>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                </View>
-                <ScrollView style={{
-                    paddingVertical: 15,
-                    paddingHorizontal: 20,
-                }}>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                    <Text>222222</Text>
-                </ScrollView>
-                <View style={{
-                    paddingVertical: 15,
-                    paddingHorizontal: 20,
-                }}>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                    <Text>111111</Text>
-                </View>
-            </Tabs>
-        </View>
-    )
+    const onIndexChange = (index: number) => {
+        setlistIndex(index)
+    }
+
+    const renderScene = ({ route, jumpTo }: any) => {
+        return <Text key={route.key} style={{
+            textAlign: 'center', 
+            marginTop: 30}}>{route.title}</Text>
+    }
+
+    return <View style={{flex: 1}}>
+        <Tabs
+            tabIndex={listIndex}
+            onIndexChange={onIndexChange}
+            renderScene={renderScene}
+        />
+
+        <Tabs
+            tabIndex={listIndex}
+            routes={[
+                { key: 'index1', title: `未选` },
+                { key: 'index2', title: `已选` },
+            ]}
+            onIndexChange={onIndexChange}
+            renderScene={renderScene}
+        />
+
+        <Tabs
+            tabIndex={listIndex}
+            routes={[
+                { key: 'index1', title: `未选选项` },
+                { key: 'index2', title: `已选选项` },
+                { key: 'index3', title: `未选选项` },
+                { key: 'index3', title: `未选选项` },
+                { key: 'index3', title: `未选选项` },
+            ]}
+            onIndexChange={onIndexChange}
+            renderScene={renderScene}
+            tabStyle={{ width: 100 }}
+            scrollEnabled={true}
+        />
+    </View>
+
 }

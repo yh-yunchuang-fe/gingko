@@ -4,42 +4,66 @@
  */
 import React from 'react'
 import Dialog from '../Dialog'
-import IPopupProps from './propsType';
+import IPopupProps from './propsType'
 import styles from './style'
+import {
+    TouchableOpacity,
+    ScrollView,
+    View, Text } from 'react-native'
+import { Icon } from '../'
 
-export default class Popup extends React.Component<IPopupProps, any> {
+export default function Popup(props: IPopupProps) {
 
-    public static defaultProps = {
-        visible: false,
-        animateAppear: true,
-        animationDuration: 300,
-        maskClosable: true,
-        onClose: () => { },
-        onAnimationEnd: () => { },
-        style: {},
-    }
+    const {
+        visible = false,
+        animateAppear = true,
+        animationDuration = 300,
+        maskClosable = true,
+        onClose = () => { },
+        onChange = () => { },
+        onAnimationEnd = () => { },
+        style = {},
+        numberOfLines = 2,
+        children,
+        type = 'none',
+        title, // '主标题',
+        hint, // '这是提供二行注释, 通过信息澄清的方式，这是提供一行或二行注释'
+    } = props
 
-    public render() {
-        const {
-            visible, maskClosable, animateAppear, onAnimationEnd, onClose, style,
-            children, animationDuration
-        } = this.props;
-
-        return (
-            <Dialog
-                transparent
-                visible={visible}
-                animationType='slide-up'
-                animateAppear={animateAppear}
-                animationDuration={animationDuration}
-                onClose={onClose}
-                maskClosable={maskClosable}
-                onAnimationEnd={onAnimationEnd}
-                style={[style, styles.container]}
-            >
+    console.log
+    return (
+        <Dialog
+            transparent
+            visible={visible}
+            animationType='slide-up'
+            animateAppear={animateAppear}
+            animationDuration={animationDuration}
+            onClose={onClose}
+            maskClosable={maskClosable}
+            onAnimationEnd={onAnimationEnd}
+            style={[style, styles.container]}>
+            {(hint || title) && <View style={styles.hintWrap}>
+                {title && type === 'close' && <View style={styles.titleWrap}>
+                    <View style={{width: 30}} />
+                    <Text style={styles.titleText}>{title}</Text>
+                    <TouchableOpacity style={{width: 30}} onPress={onClose}>
+                        <Icon name='close' color='#9E9E9E' size={12} />
+                    </TouchableOpacity> 
+                </View>}
+                {title && type === 'cancel' && <View style={styles.titleWrap}>
+                    <TouchableOpacity onPress={onClose}>
+                        <Text style={styles.cancelText}>取消</Text>
+                    </TouchableOpacity>
+                    <Text style={styles.titleText}>{title}</Text>
+                    <TouchableOpacity onPress={onChange}>
+                        <Text style={styles.finishText}>完成</Text>
+                    </TouchableOpacity>
+                </View>}
+                {hint && <Text style={styles.hintText} numberOfLines={numberOfLines}>{hint}</Text>}
+            </View>}
+            <ScrollView>
                 { children }
-            </Dialog>
-
-        )
-    }
+            </ScrollView>
+        </Dialog>
+    )
 }

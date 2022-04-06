@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2022-03-04 13:56:33
+ * @LastEditTime: 2022-03-29 14:32:36
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /gingko/components/Icon/index.tsx
+ */
 import * as React from 'react'
 import {
     Text
@@ -56,6 +64,8 @@ const iconMap = {
     'clock-circle-o': '\ue92a',
     'store': '\ue92b',
 };
+
+// const newIconMap = {}
 
 export default class Icon extends React.Component<IconProps, any> {
     public static defaultProps = {

@@ -11,4 +11,5 @@ export default interface IDialogProps {
     onClose?: (x?: any) => void;
     onAnimationEnd?: (x?: any) => void;
     maskCloseable?: boolean
+    children?: any
 }

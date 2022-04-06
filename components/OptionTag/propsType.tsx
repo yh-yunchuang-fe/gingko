@@ -6,14 +6,15 @@ import React from 'react'
 import { ViewStyle } from 'react-native'
 
 export default interface OptionTagProps {
-    width?: string | number;
-    height?: string | number;
-    style?: ViewStyle;
-    textStyle?: ViewStyle;
-    disabled?: boolean;
-    multiple?: boolean;
+    width?: string | number
+    height?: string | number
+    style?: ViewStyle
+    textStyle?: ViewStyle
+    disabled?: boolean
+    multiple?: boolean
+    children?: any
 
-    selected?: boolean;
-    onChange?: (x: any) => void;
+    selected?: boolean
+    onChange?: (x: any) => void
     renderText?: (selected: boolean) => React.ReactNode
 }
