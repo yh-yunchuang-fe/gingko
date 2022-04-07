@@ -93,7 +93,6 @@ export default function Button(props: ButtonProps) {
         btnStyles[activeStyle ? `${type}TapSty` : `${type}Sty`],
     ) as any)?.backgroundColor
 
-    console.log('underlayColor===', underlayColor)
     let iconDom: any
     if (icon) {
         if (typeof icon === 'string') {

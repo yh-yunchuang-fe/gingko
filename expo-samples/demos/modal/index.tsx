@@ -16,8 +16,6 @@ import {
     WhiteSpace,
 } from '../../../components/index'
 
-const alert = Modal.alert
-
 export default () => {
     const [state, setState] = React.useState({
         visibleBasic: false,
@@ -43,16 +41,16 @@ export default () => {
                 <WhiteSpace/>
                 <Button
                     onClick={()=> {
-                        alert('Title', 'This is content???', [
-                            { text: 'Cancel', onPress: () => console.log('cancel') },
-                            { text: 'Ok', type: 'primary', onPress: () => console.log('ok') },
+                        Modal.alert('弹窗标题', '弹窗正文单行限制宽度超出后折行', [
+                            { text: '取消', onPress: () => console.log('cancel') },
+                            { text: '确定', type: 'primary', onPress: () => console.log('ok') },
                         ])}
                     }
                 >alert</Button>
                 <WhiteSpace/>
                 <Button
                     onClick={()=> {
-                        alert('', '确认后拣货单将进入配送流程请确认拣货完毕', [
+                        Modal.alert('', '弹窗正文单行限制宽度超出后折行弹窗正文单行限制宽度超出后折行', [
                             { text: '知道了', type: 'primary', onPress: () => console.log('ok') },
                         ])}
                     }
@@ -64,15 +62,13 @@ export default () => {
                 onClose={()=> {
                     setState({ ...state, visibleBasic: false })
                 }}
-                title={'这是title'}
-                footer={[{
-                    text: '知道了',
-                    type: 'primary'
-                }]}
-            >
-                <Text>这是内容</Text>
-                <Text>content</Text>
-            </Modal>
+                title={'弹窗标题'}
+                content={'此样式弹窗文案区最小高度100px'}
+                footer={[
+                    { text: '取消' },
+                    { text: '知道了', type: 'primary' },
+                ]}
+            />
 
             <Modal
                 visible={state.visibleInput}

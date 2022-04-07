@@ -2,36 +2,39 @@
  * @author zhangyi
  * @date 2018/2/28
  */
-import { StyleSheet } from 'react-native';
-import variables from '../../../src/style/variables';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
     container: {
-        borderRadius: variables.radius,
-        backgroundColor: variables.fill_base,
-        paddingHorizontal: variables.h_spacing_lg,
-        paddingVertical: variables.h_spacing_sm * 2,
-        width: variables.modal_main_width,
-        zIndex: variables.modal_main_zIndex,
+        borderRadius: 8,
+        backgroundColor: '#FFFFFF',
+        paddingHorizontal: 28,
+        paddingTop: 32,
+        paddingBottom: 28,
+        width: 300,
+        zIndex: 999,
     },
     header: {
         fontWeight: 'bold',
         textAlign: 'center',
-        fontSize: variables.font_size_caption,
-        color: variables.color_base,
-        marginTop: variables.v_spacing_lg,
-    },
-    body: {
-        paddingTop: variables.v_spacing_md,
-        paddingBottom: variables.v_spacing_lg,
-        paddingHorizontal: variables.h_spacing_lg,
+        fontSize: 18,
+        lineHeight: 26,
+        color: '#212121',
+        marginBottom: 8
     },
     btnGroup: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: variables.v_spacing_md,
+        marginTop: 28,
+        marginHorizontal: 4
     },
     singleBtn: {
         justifyContent: 'center',
+    },
+    modalText: {
+        fontSize: 16, 
+        color: '#212121', 
+        textAlign: 'center',
+        lineHeight: 24,
     },
 })

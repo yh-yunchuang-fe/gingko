@@ -2,73 +2,69 @@
  * @author zhangyi
  */
 import React from 'react'
-import {
-    Text,
-} from 'react-native'
-import Modal from './modal'
-import variables from '../../src/style/variables'
+import { Text } from 'react-native'
+import RootView from 'react-native-root-view'
+import Modal from './'
 import { IActionButton, IAlertProps } from './propsType'
 
-class Alert extends React.Component<IAlertProps, any> {
-    constructor(props) {
-        super(props)
-        this.state = {
-            visible: true,
-        }
+const Alert = (props: IAlertProps) => {
+    const [visible, setVisible] = React.useState(true)
+
+    const onClose = () => {
+        setVisible(false)
     }
 
-    public onClose = () => {
-        this.setState({
-            visible: false,
-        })
-    }
-
-    public render() {
-        const { title, actions, content, onAnimationEnd } = this.props
-        const footer = actions.map((button) => {
-            const originPress = button.onPress || (() => {})
-            button.onPress = () => {
-                const res: any = originPress()
-                if (res && (res as any).then) {
-                    (res as any).then(() => {
-                        this.onClose()
-                    })
-                } else {
-                    this.onClose()
-                }
+    const { title, actions, content, onAnimationEnd } = props
+    const footer = actions.map((button: any) => {
+        const originPress = button.onPress || (() => {})
+        button.onPress = () => {
+            const res: any = originPress()
+            if (res && (res as any).then) {
+                (res as any).then(() => {
+                    onClose()
+                })
+            } else {
+                onClose()
             }
-            return button
-        })
+        }
+        return button
+    })
 
-        return (
-            <Modal
-                transparent
-                title={title}
-                visible={this.state.visible}
-                footer={footer}
-                onAnimationEnd={onAnimationEnd}
-            >
-                {content ? <Text style={{
-                    textAlign: 'center',
-                    fontSize: variables.font_size_alert,
-                    lineHeight: 21
-                }}>{content}</Text> : null}
-            </Modal>
-        );
-    }
+    return <Modal
+        transparent
+        title={title}
+        visible={visible}
+        footer={footer}
+        onAnimationEnd={onAnimationEnd}
+    >
+        {content ? <Text style={{
+            textAlign: 'center',
+            fontSize: 15,
+            lineHeight: 21
+        }}>{content}</Text> : null}
+    </Modal>
+
 }
 
 type Reference = {
-   id: number | null
-};
+    id: number | null
+}
 
 const reference: Reference = {
     id: null
-};
+}
 
-export default function a(title: string, content: string, actions: IActionButton[] = [{ text: '确定' }]) {
-    const onAnimationEnd = (references: any, visible: any) => {
-        if (!visible) {
-        }
-    };
+export default function alert(title: string, content: string, actions: IActionButton[] = [{ text: '确定' }]) {
+    const onAnimationEnd = (data: { id: any }, visible: any) => {
+        !visible && RootView.remove(data.id)
+    }
+
+    reference.id = RootView.set(
+        <Alert
+            title={title}
+            content={content}
+            actions={actions}
+            onAnimationEnd={onAnimationEnd.bind(null, reference)}
+        />,
+    )
 }

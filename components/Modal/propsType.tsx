@@ -6,6 +6,8 @@
 export interface IModalProps {
     visible: boolean;
     title?: string;
+    content?: string;
+    contentStyle?: any;
     maskClosable?: boolean;
     footer?: Array<IActionButton>;
     onClose?: () => void;
@@ -16,6 +18,7 @@ export interface IModalProps {
     onAnimationEnd?: (x?: any) => void;
     style?: any;
     bodyStyle?: any;
+    children?: any
 }
 
 export interface IActionButton {

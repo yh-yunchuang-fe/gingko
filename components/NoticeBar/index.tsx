@@ -11,96 +11,86 @@ import {
 import NoticeBarProps from './propsType'
 import styles from './style/index'
 import Icon from '../Icon'
-import variables from '../../src/style/variables'
 
-export default class NoticeBar extends React.Component<NoticeBarProps, any> {
-    public static defaultProps = {
-        color: variables.color_label,
-        mode: '',
-        icon: '',
-        action: '',
-        bgColor: variables.fill_notice
-    };
+export default function NoticeBar(props: NoticeBarProps) {
+    const {
+        style,
+        color = '#666666',
+        mode = '',
+        icon = '',
+        action = '',
+        bgColor = '#FFF5CC',
+        children
+    } = props
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            show: true
-        }
-    }
+    const [show, setShow] = React.useState(true)
 
-    public onClick = () => {
-        const { mode, onClick } = this.props;
+    const onClick = () => {
+        const { mode, onClick } = props
         if (onClick) {
             onClick()
         }
         if (mode === 'closeable') {
-            this.setState({
-                show: false
-            })
+            setShow(false)
         }
-    };
+    }
 
-    public render() {
-        if (!this.state.show) {
-            return null
-        }
-        const {
-            children, icon, action, color, mode, style, bgColor
-        } = this.props;
+    if (!show) {
+        return null
+    }
 
-        let operationDom: any = null;
-        let actionDom: any = null;
-        const colorSty = color ? { color } : null;
+    let operationDom: any = null
+    let actionDom: any = null
+    const colorSty = color ? { color } : null
 
-        if (action) {
-            if (typeof action === 'string') {
-                actionDom = (
-                    <Text style={[styles.action, colorSty]}>{ action }</Text>
-                )
-            } else {
-                actionDom = action;
-            }
-        }
-
-        if (mode === 'link') {
-            operationDom = (
-                <View style={styles.actionWrap}>
-                    { action ? actionDom : <Icon name='chevron-right' size={12} style={colorSty}/>}
-                </View>
-            )
-        } else if(mode === 'closeable') {
-            operationDom = (
-                <TouchableWithoutFeedback onPress={this.onClick}>
-                    <View style={styles.actionWrap}>
-                        {action ? actionDom : <Icon name='close' size={12} style={colorSty}/>}
-                    </View>
-                </TouchableWithoutFeedback>
-            )
-        }
-
-        let childrenDom: any = null;
-        if (typeof children === 'string') {
-            childrenDom = (
-                <Text style={[styles.content, colorSty]}>{ children }</Text>
+    if (action) {
+        if (typeof action === 'string') {
+            actionDom = (
+                <Text style={[styles.action, colorSty]}>{ action }</Text>
             )
         } else {
-            childrenDom = children
+            actionDom = action
         }
-        const mainDom = (
-            <View style={[styles.noticeBar, style, {backgroundColor: bgColor}]}>
-                { icon ? <Icon name={icon} size={14} style={[styles.icon, colorSty]}/> : null }
-                <View style={styles.container}>
-                    { children ? childrenDom : null }
-                </View>
-                { operationDom }
-            </View>
-        );
-
-        return mode === 'link' ? (
-            <TouchableWithoutFeedback onPress={this.onClick}>
-                { mainDom }
-            </TouchableWithoutFeedback>
-        ) : mainDom;
     }
+
+    if (mode === 'link') {
+        operationDom = (
+            <View style={styles.actionWrap}>
+                { action ? actionDom : <Icon name='chevron-right' size={12} style={colorSty}/>}
+            </View>
+        )
+    } else if(mode === 'closeable') {
+        operationDom = (
+            <TouchableWithoutFeedback onPress={onClick}>
+                <View style={styles.actionWrap}>
+                    {action ? actionDom : <Icon name='close' size={12} style={colorSty}/>}
+                </View>
+            </TouchableWithoutFeedback>
+        )
+    }
+
+    let childrenDom: any = null
+    if (typeof children === 'string') {
+        childrenDom = (
+            <Text style={[styles.content, colorSty]}>{ children }</Text>
+        )
+    } else {
+        childrenDom = children
+    }
+    
+    const mainDom = (
+        <View style={[styles.noticeBar, style, {backgroundColor: bgColor}]}>
+            { icon ? <Icon name={icon} size={14} style={[styles.icon, colorSty]}/> : null }
+            <View style={styles.container}>
+                { children ? childrenDom : null }
+            </View>
+            { operationDom }
+        </View>
+    )
+
+    return mode === 'link' ? (
+        <TouchableWithoutFeedback onPress={onClick}>
+            { mainDom }
+        </TouchableWithoutFeedback>
+    ) : mainDom
 }

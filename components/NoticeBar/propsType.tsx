@@ -12,4 +12,5 @@ export default interface NoticeBarProps {
     icon?: string
     action?: string | React.ReactElement<any>
     onClick?: () => void
+    children?: any
 }
