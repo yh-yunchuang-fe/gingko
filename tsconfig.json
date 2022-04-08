@@ -14,7 +14,15 @@
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["components/*"],
+            "@src/*": ["src/*"],
+            "@style/*": ["src/style/*"],
+            "@utils/*": ["src/utils/*"],
+            "@assets/*": ["src/assets/*"],
+        },
     },
     "extends": "expo/tsconfig.base"
 }

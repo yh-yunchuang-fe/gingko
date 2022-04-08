@@ -76,7 +76,7 @@ export default function Checkbox(props: ICheckbox) {
 
                 return (
                     <View style={styles.icon}>
-                        <Icon name={iconName} color={checkColor?.color} />
+                        <Icon old name={iconName} color={checkColor?.color} />
                     </View>
                 )
             }

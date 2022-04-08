@@ -14,12 +14,12 @@ import {
 } from '../../../components'
 
 export default () => {
-    const iconData = [];
+    const iconData: any = [];
     for(let i = 0; i < 6; i++) {
         iconData.push({
             icon: (
                 <Badge text={i}>
-                    <View style={{width: 50, height: 50, backgroundColor: '#888'}}/>
+                    <View style={{width: 40, height: 40, backgroundColor: '#DDDDDD'}}/>
                 </Badge>
             ),
             text: `入口${i}`,
@@ -29,9 +29,7 @@ export default () => {
 
     return (
         <ScrollView style={{flex: 1}}>
-            <Grid
-                data={iconData}
-            />
+            <Grid data={iconData} />
             <WhiteSpace/>
             <Grid
                 data={iconData}

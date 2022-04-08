@@ -1,14 +1,15 @@
 /**
  * Created by beilunyang on 2018/3/27
  */
-import React from 'react';
-import Toast from './Toast';
+import React from 'react'
+import Toast from './Toast'
+import rootView from 'react-native-root-view'
 import {
     IBaseToastOptions,
     IShowToastOptions,
-} from './propsType';
+} from './propsType'
 
-const show = (content: string | React.ReactElement<any>, options?: any) => {
+const show = (content: string | React.ReactElement<any>, options: IShowToastOptions = {}) => {
     const {
         icon,
         type,
@@ -17,10 +18,27 @@ const show = (content: string | React.ReactElement<any>, options?: any) => {
         onClose,
         style,
         mask,
-    } = options;
-    const id: number = 0;
-    return id;
-};
+    } = options
+    let id:number = 0
+    const animationEnd = () => {
+        rootView.remove(id)
+    }
+    id = rootView.set(
+        <Toast
+            icon={icon}
+            type={type}
+            style={style}
+            content={content}
+            duration={duration}
+            position={position}
+            onClose={onClose}
+            mask={mask}
+            animationEnd={animationEnd}
+            key={Date.now() + Math.random()}
+        />
+    )
+    return id
+}
 
 export default {
     LONG: 3500,
@@ -32,7 +50,7 @@ export default {
             onClose,
             style,
             mask,
-        } = options as any;
+        } = options as any
         return show(content, {
             type: 'success',
             duration,
@@ -40,7 +58,7 @@ export default {
             onClose,
             style,
             mask,
-        });
+        })
     },
     fail(content: string | React.ReactElement<any>, options: IBaseToastOptions = {}) {
         const {
@@ -49,7 +67,7 @@ export default {
             onClose,
             style,
             mask,
-        } = options as any;
+        } = options as any
         return show(content, {
             type: 'fail',
             duration,
@@ -57,7 +75,7 @@ export default {
             onClose,
             style,
             mask,
-        });
+        })
     },
     warn(content: string | React.ReactElement<any>, options: IBaseToastOptions = {}) {
         const {
@@ -66,7 +84,7 @@ export default {
             onClose,
             style,
             mask,
-        } = options as any;
+        } = options as any
         return show(content, {
             type: 'warn',
             duration,
@@ -74,7 +92,7 @@ export default {
             onClose,
             style,
             mask,
-        });
+        })
     },
     loading(content: string | React.ReactElement<any>, options: IBaseToastOptions = {}) {
         const {
@@ -83,7 +101,8 @@ export default {
             onClose,
             style,
             mask,
-        } = options as any;
+        } = options as any
+        console.log('loading====', style)
         return show(content, {
             type: 'loading',
             duration,
@@ -91,10 +110,10 @@ export default {
             onClose,
             style,
             mask,
-        });
+        })
     },
     hide(id?: number) {
-        // rootView.remove(id);
+        rootView.remove(id)
     },
     show,
-};
+}

@@ -15,44 +15,41 @@ import {
 } from '../../../components'
 
 export default () => {
+    const onChangeToast = (type: string) => {
+        return Toast[type](`当前Toast类型：${type}`)
+    }
+
     return (
         <ScrollView style={{ flex: 1 }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={() => {
-                    Toast.success('我是success toast')
-                }}>success</Button>
+                <Button onClick={() => {onChangeToast('success')}}>成功提示</Button>
                 <WhiteSpace />
-                <Button onClick={() => {
-                    Toast.fail('我是fail toast')
-                }}>fail</Button>
+                <Button onClick={() => {onChangeToast('fail')}}>失败提示</Button>
                 <WhiteSpace />
+                <Button onClick={() => {onChangeToast('warn')}}>提示信息</Button>
+                <WhiteSpace />
+                <Button onClick={() => {onChangeToast('show')}}>默认提示</Button>
+                <WhiteSpace />
+
                 <Button onClick={() => {
-                    Toast.loading('我是loading toast\n并且默认永久存在,你可以将duration设置为大于0的值\n或者调用toast.hide使其消失')
+                    Toast.loading('我是loading toast\n并且默认永久存在,你可以将duration设置为大于0的值\n或者调用toast.hide使其消失', {
+                        style: {maxWidth: 300}
+                    })
                 }}>loading</Button>
                 <WhiteSpace />
-                <Button onClick={() => {
-                    Toast.warn('我是warn toast')
-                }}>warn</Button>
-                <WhiteSpace />
-                <Button onClick={() => {
-                    Toast.show('我是normal toast')
-                }}>normal</Button>
-                <WhiteSpace />
+               
                 <Button onClick={() => {
                     Toast.show(
-                        <View>
+                        <>
                             <Text style={{ color: 'blue' }}>toast内容可以是一个组件</Text>
                             <Text style={{ color: 'white' }}>其实应该说是ReactElement</Text>
-                        </View>
+                        </>
                     )
                 }}>自定义内容组件</Button>
                 <WhiteSpace />
                 <Button onClick={() => {
-                    Toast.show(
-                        'icon可以是一个functional组件,或者ReactElement',
-                        {
-                            icon: <Icon name='eye-off' color='red' />
-                        }
+                    Toast.show('icon可以是一个functional组件,或者ReactElement',
+                        { icon: <Icon name='eye-off' color='red' /> }
                     )
                 }}>自定义Icon</Button>
                 <WhiteSpace />
@@ -61,10 +58,10 @@ export default () => {
                         type: 'success',
                         duration: 0,
                     })
-                    setTimeout(() => {
-                        // remove manually
-                        Toast.hide(id)
-                    }, 10000)
+                    // setTimeout(() => {
+                    //     // remove manually
+                    //     Toast.hide(id)
+                    // }, 10000)
                 }}>永久显示Toast</Button>
                 <WhiteSpace />
                 <Button onClick={() => {

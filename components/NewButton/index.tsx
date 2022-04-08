@@ -98,13 +98,13 @@ export default function Button(props: ButtonProps) {
         if (typeof icon === 'string') {
             iconDom = (
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Icon name={icon} style={btnStyles.iconSty}/>
+                    <Icon old name={icon} style={btnStyles.iconSty}/>
                 </View>
             )
         } else if (typeof icon === 'object' && !!icon.name) {
             iconDom = (
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Icon name={icon.name} color={icon.color} size={icon.size} style={[btnStyles.iconSty, icon.style]}/>
+                    <Icon old name={icon.name} color={icon.color} size={icon.size} style={[btnStyles.iconSty, icon.style]}/>
                 </View>
             )
         }

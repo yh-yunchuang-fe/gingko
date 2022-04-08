@@ -6,32 +6,33 @@ import {
     Image,
     Dimensions
 } from 'react-native'
-import { GridProps } from './propsType'
+import { IGridProps } from './propsType'
 import styles from './style/index'
 
 const { width } = Dimensions.get('window')
 
-export default class Grid extends React.Component<GridProps, any> {
-    public static defaultProps = {
-        data: [],
-        columnNum: 3,
-        hasLine: true,
-        noWrap: false,
-        blankWidth: 0,
-        itemStyle: {},
-        onClick: () => {}
-    }
+export default function Grid(props: IGridProps) {
+    const {
+        data = [],
+        columnNum = 3,
+        hasLine = true,
+        noWrap = false,
+        blankWidth = 0,
+        itemStyle = {},
+        onClick = () => {},
+        buildItem
+    } = props
 
-    public getFlexItemStyle() {
-        const {columnNum = 3, blankWidth = 0} = this.props
+    const getFlexItemStyle = () => {
+        const {columnNum = 3, blankWidth = 0} = props
         return {
             width: (width - blankWidth * 2) / columnNum,
             height: (width - blankWidth * 2) / columnNum
         }
     }
 
-    public renderItem(item: any, index: number) {
-        const {renderItem } = this.props
+    const renderItem = (item: any, index: number) => {
+        const {renderItem } = props
         if (renderItem) {
             return renderItem(item, index)
         } else {
@@ -46,69 +47,65 @@ export default class Grid extends React.Component<GridProps, any> {
         }
     }
 
-    public render() {
-        const { data, hasLine, onClick, itemStyle, noWrap, buildItem, blankWidth = 0 } = this.props;
+    const columnNumber = columnNum || 0;
+    const dataLength = data && data.length || 0;
+    const rowCount = Math.ceil(dataLength/columnNumber);
+    const flexItemStyle = getFlexItemStyle();
 
-        const columnNum = this.props.columnNum || 0;
-        const dataLength = data && data.length || 0;
-        const rowCount = Math.ceil(dataLength/columnNum);
-        const flexItemStyle = this.getFlexItemStyle();
+    const rowsArr: any[] = [];
+    for (let i = 0; i < rowCount; i++) {
+        const arr: any[] = [];
+        for (let j = 0; j < columnNumber; j++) {
+            const index = i * columnNumber + j;
 
-        const rowsArr: any[] = [];
-        for (let i = 0; i < rowCount; i++) {
-            const arr: any[] = [];
-            for (let j = 0; j < columnNum; j++) {
-                const index = i * columnNum + j;
+            if (index < dataLength) {
+                const item = data && data[index] || {};
+                let paramItem = Object.assign({}, item)
+                if (typeof buildItem === 'function') {
+                    paramItem = buildItem(paramItem)
+                }
 
-                if (index < dataLength) {
-                    const item = data && data[index] || {};
-                    let paramItem = Object.assign({}, item)
-                    if (typeof buildItem === 'function') {
-                        paramItem = buildItem(paramItem)
-                    }
-
-                    arr.push(
-                        <TouchableOpacity
-                            key={j}
+                arr.push(
+                    <TouchableOpacity
+                        key={j}
+                        style={[
+                            styles.gridItem,
+                            { borderLeftWidth: hasLine && j !== 0 ? 1 : 0 },
+                            flexItemStyle,
+                            itemStyle
+                        ]}
+                        onPress={() => onClick && onClick(paramItem, index)}>
+                        { renderItem(item, index) }
+                    </TouchableOpacity>
+                )
+            } else {
+                arr.push(
+                    <View key={j}
                             style={[
                                 styles.gridItem,
                                 { borderLeftWidth: hasLine && j !== 0 ? 1 : 0 },
                                 flexItemStyle,
                                 itemStyle
                             ]}
-                            onPress={() => onClick && onClick(paramItem, index)}>
-                            { this.renderItem(item, index) }
-                        </TouchableOpacity>
-                    )
-                } else {
-                    arr.push(
-                        <View key={j}
-                              style={[
-                                  styles.gridItem,
-                                  { borderLeftWidth: hasLine && j !== 0 ? 1 : 0 },
-                                  flexItemStyle,
-                                  itemStyle
-                              ]}
-                        />
-                    )
-                }
+                    />
+                )
             }
-
-            const boxBorderStyle = {
-                borderTopWidth: hasLine && !noWrap && i === 0 ? 1 : 0,
-                borderBottomWidth: hasLine ? (noWrap && i === rowCount - 1 ? 0 : 1) : 0,
-            };
-            rowsArr.push(
-                <View key={i} style={[styles.gridRow, boxBorderStyle]}>
-                    {arr}
-                </View>
-            )
         }
 
-        return (
-            <View style={[styles.gridContainer, {paddingHorizontal: blankWidth}]}>
-                { rowsArr }
+        const boxBorderStyle = {
+            borderTopWidth: hasLine && !noWrap && i === 0 ? 1 : 0,
+            borderBottomWidth: hasLine ? (noWrap && i === rowCount - 1 ? 0 : 1) : 0,
+        };
+        rowsArr.push(
+            <View key={i} style={[styles.gridRow, boxBorderStyle]}>
+                {arr}
             </View>
         )
     }
+
+    return (
+        <View style={[styles.gridContainer, {paddingHorizontal: blankWidth}]}>
+            { rowsArr }
+        </View>
+    )
 }

@@ -1,19 +1,10 @@
-/*
- * @Author: your name
- * @Date: 2021-09-01 17:56:38
- * @LastEditTime: 2022-03-11 15:01:17
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /gingko/components/Toast/style/index.tsx
- */
 /**
  * Created by beilunyang on 2018/3/27
  */
 import {
     StyleSheet,
     Platform,
-} from 'react-native';
-import variables from '../../../src/style/variables';
+} from 'react-native'
 
 export default StyleSheet.create({
     container: {
@@ -24,20 +15,20 @@ export default StyleSheet.create({
         bottom: 0,
         backgroundColor: 'transparent',
         alignItems: 'center',
-        zIndex: variables.toast_zIndex,
+        zIndex: 1000,
     },
     innerContainer: {
-        backgroundColor: 'rgba(0, 0, 0, .8)',
-        borderRadius: variables.radius,
-        paddingHorizontal: 10,
-        paddingVertical: 8,
+        backgroundColor: 'rgba(33, 33, 33, 0.7)',
+        borderRadius: 6,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
         justifyContent: 'center',
         alignItems: 'center',
         minWidth: 90,
+        maxWidth: 140
     },
     iconContainer: {
-        paddingTop: 10,
-        paddingBottom: 8,
+        paddingVertical: 6,
     },
     textContainer: {
         minHeight: 20,
@@ -47,7 +38,7 @@ export default StyleSheet.create({
     contentText: {
         color: '#fff',
         fontSize: 14,
-        lineHeight: 21,
+        lineHeight: 20,
         textAlign: 'center',
     },
 })

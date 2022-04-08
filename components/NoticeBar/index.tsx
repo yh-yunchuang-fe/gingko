@@ -15,33 +15,31 @@ import Icon from '../Icon'
 export default function NoticeBar(props: NoticeBarProps) {
     const {
         style,
-        color = '#666666',
+        color = '#B97400',
         mode = '',
         icon = '',
         action = '',
-        bgColor = '#FFF5CC',
+        bgColor = '#FFEFD4',
         children
     } = props
 
     const [show, setShow] = React.useState(true)
 
-    const onClick = () => {
-        const { mode, onClick } = props
-        if (onClick) {
-            onClick()
-        }
-        if (mode === 'closeable') {
-            setShow(false)
-        }
-    }
-
     if (!show) {
         return null
     }
 
+    const onClick = () => {
+        props.onClick && props.onClick()
+
+        if (props.mode === 'closeable') {
+            setShow(false)
+        }
+    }
+
     let operationDom: any = null
     let actionDom: any = null
-    const colorSty = color ? { color } : null
+    const colorSty = color ? { color } : {}
 
     if (action) {
         if (typeof action === 'string') {
@@ -71,19 +69,15 @@ export default function NoticeBar(props: NoticeBarProps) {
 
     let childrenDom: any = null
     if (typeof children === 'string') {
-        childrenDom = (
-            <Text style={[styles.content, colorSty]}>{ children }</Text>
-        )
+        childrenDom = <Text style={[styles.content, colorSty]}>{ children }</Text>
     } else {
         childrenDom = children
     }
     
     const mainDom = (
         <View style={[styles.noticeBar, style, {backgroundColor: bgColor}]}>
-            { icon ? <Icon name={icon} size={14} style={[styles.icon, colorSty]}/> : null }
-            <View style={styles.container}>
-                { children ? childrenDom : null }
-            </View>
+            { !!icon && <Icon name={icon} size={14} style={[styles.icon, colorSty]}/> }
+            { !!children && <View style={styles.container}>{childrenDom}</View> }
             { operationDom }
         </View>
     )

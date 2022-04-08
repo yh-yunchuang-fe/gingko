@@ -74,17 +74,17 @@ const config = {
     // ---
     // 水平间距
     h_spacing_xs: 3,
-    h_spacing_sm: 5,
-    h_spacing_md: 8,
-    h_spacing_lg: 15,
+    h_spacing_sm: 6,
+    h_spacing_md: 9,
+    h_spacing_lg: 12,
 
     // 垂直间距
     // ---
     v_spacing_xs: 3,
     v_spacing_sm: 6,
     v_spacing_md: 9,
-    v_spacing_lg: 15,
-    v_spacing_xl: 21,
+    v_spacing_lg: 12,
+    v_spacing_xl: 16,
 
     // 字体尺寸
     // ---

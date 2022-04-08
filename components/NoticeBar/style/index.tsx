@@ -3,33 +3,36 @@
  * @date 2018/3/19
  */
 import { StyleSheet } from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     noticeBar: {
         overflow: 'hidden',
         flexDirection: 'row',
-        paddingVertical: 11,
-        paddingLeft: 15
+        paddingVertical: 6,
+        paddingLeft: 12
     },
     icon: {
         marginRight: 5,
+        marginTop: 2
     },
     container: {
         flex: 1,
         overflow: 'hidden',
-        marginRight: variables.h_spacing_lg
+        marginRight: 12
     },
     content: {
-        fontSize: variables.font_size_base_sm,
+        fontSize: 14,
+        lineHeight: 20
     },
     actionWrap: {
-        marginRight: variables.h_spacing_lg
+        alignItems: 'center',
+        flexDirection: 'row',
+        marginRight: 12
     },
     actionIcon: {
 
     },
     action: {
-        fontSize: variables.font_size_base_sm,
+        fontSize: 14,
     }
 })

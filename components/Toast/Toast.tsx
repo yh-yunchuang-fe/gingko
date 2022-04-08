@@ -1,172 +1,175 @@
 /**
  * Created by beilunyang on 2018/3/27
  */
-import React from 'react';
+import React from 'react'
 import {
     View,
     Text,
     Animated,
-} from 'react-native';
-import { IPropsType } from './propsType';
-import Icon from '../Icon';
-import Indicator from '../Indicator';
-import styles from './style';
+} from 'react-native'
+import { IPropsType }from './propsType'
+import Icon from '../Icon'
+import Indicator from '../Indicator'
+import styles from './style'
 
 export default class Toast extends React.Component<IPropsType, any> {
-    public static defaultProps = {
+    static defaultProps = {
         duration: 2000,
         animationEnd: () => {},
         onClose: () => {},
         position: 'center',
         mask: false,
         style: {},
-    };
+    }
 
-    public state = {
+    state = {
         fadeAnim: new Animated.Value(0),
-    };
+    }
 
-    public anim: any = null;
+    anim: any = null
 
-    public ownIcon = false;
+    ownIcon = false
 
-    public componentDidMount() {
+    componentDidMount() {
         const {
             type,
             onClose,
             duration,
             animationEnd,
-        } = this.props;
+        } = this.props
         if ((duration as number) < 0) {
-            console.warn('duration can not less than or equal to 0');
-            return;
+            console.warn('duration can not less than or equal to 0')
+            return
         }
         const start = Animated.timing(this.state.fadeAnim, {
             toValue: 1,
             duration: 200,
-            useNativeDriver: true // RN >= 0.64 添加
-        });
+            useNativeDriver: false
+        })
+        
         const end = Animated.timing(this.state.fadeAnim, {
             toValue: 0,
             duration: 200,
-            useNativeDriver: true // RN >= 0.64 添加
-        });
-        const survival = Animated.delay(duration!);
+            useNativeDriver: false
+        })
+        const survival = Animated.delay(duration!)
         if ((duration as number) > 0 && type !== 'loading') {
-            this.anim = Animated.sequence([start, survival, end]);
+            this.anim = Animated.sequence([start, survival, end])
         } else {
-            this.anim = Animated.sequence([start, survival]);
+            this.anim = Animated.sequence([start, survival])
         }
         this.anim.start(() => {
-            this.anim = null;
+            this.anim = null
             if ((duration as number) > 0 && type !== 'loading') {
-                onClose && onClose();
-                animationEnd && animationEnd();
+                onClose && onClose()
+                animationEnd && animationEnd()
             }
-        });
+        })
     }
 
-    public componentWillUnmount() {
+    componentWillUnmount() {
         if (this.anim) {
-            this.anim.stop();
-            this.anim = null;
+            this.anim.stop()
+            this.anim = null
         }
     }
 
-    public renderIcon() {
-        const { type, icon } = this.props;
+    renderIcon() {
+        const { type, icon } = this.props
 
         if (type === 'loading') {
             return (
                 <View style={styles.iconContainer}>
                     <Indicator size='xl' color='white' />
                 </View>
-            );
+            )
         }
 
-        let iconName = '';
+        let iconName = ''
         switch (type) {
             case 'success':
-                iconName = 'unchecked';
-                break;
+                iconName = 'unchecked'
+                break
             case 'fail':
-                iconName = 'close-circle-o';
-                break;
+                iconName = 'close-circle-o'
+                break
             case 'warn':
-                iconName = 'alert';
-                break;
+                iconName = 'alert'
+                break
         }
 
         if (iconName) {
-            this.ownIcon = true;
+            this.ownIcon = true
             return (
                 <View style={styles.iconContainer}>
                     <Icon
                         name={iconName}
                         color='#fff'
-                        size={32}
+                        size={44}
                     />
                 </View>
-            );
+            )
         }
 
+
         if (React.isValidElement(icon)) {
-            this.ownIcon = true;
+            this.ownIcon = true
             return (
                 <View style={styles.iconContainer}>{icon}</View>
-            );
+            )
         }
         if (typeof icon === 'function') {
-            const elements: any = icon();
+            const elements: any = icon()
             if (React.isValidElement(elements)) {
-                this.ownIcon = true;
+                this.ownIcon = true
                 return (
                     <View style={styles.iconContainer}>{elements}</View>
                 )
             }
-            console.warn('icon must a function that can render reactElements');
-            return null;
+            console.warn('icon must a function that can render reactElements')
+            return null
         }
-        return null;
+        return null
     }
 
-    public renderContent() {
-       const { content } = this.props;
-       if (typeof content === 'string') {
-           return (
-               <View style={[
-                   styles.textContainer,
-                   this.ownIcon ? { justifyContent: 'flex-start', paddingBottom: 4 } : null
-               ]}>
-                   <Text style={styles.contentText}>{content}</Text>
-               </View>
-           );
-       }
-       if (React.isValidElement(content)) {
-           return (
-               <View style={styles.textContainer}>{content}</View>
-           );
-       }
-       return null;
+    renderContent() {
+        const { content } = this.props
+        if (typeof content === 'string') {
+            return (
+                <View style={[
+                    styles.textContainer,
+                    this.ownIcon ? { justifyContent: 'flex-start', paddingBottom: 4 } : {}
+                ]}>
+                    <Text style={styles.contentText}>{content}</Text>
+                </View>
+            )
+        }
+        if (React.isValidElement(content)) {
+            return <View style={styles.textContainer}>{content}</View>
+        }
+        return null
     }
 
-    public render() {
+    render() {
         const {
             style,
             mask,
             position,
-        } = this.props;
-        let sty: any = null;
+        } = this.props
+        console.log('style===', style)
+        let sty: any = null
         switch (position) {
             case 'top':
-                sty = { position: 'absolute', top: 80 };
-                break;
+                sty = { position: 'absolute', top: 80 }
+                break
             case 'bottom':
-                sty = { position: 'absolute', bottom: 80 };
+                sty = { position: 'absolute', bottom: 80 }
+                break
         }
+
         return (
             <View
-                style={[styles.container, position === 'center' ? { justifyContent: 'center' } : null]}
+                style={[styles.container, position === 'center' ? { justifyContent: 'center' } : {}]}
                 pointerEvents={mask ? undefined : 'box-none'}
             >
                 <Animated.View style={[
@@ -179,6 +182,6 @@ export default class Toast extends React.Component<IPropsType, any> {
                     {this.renderContent()}
                 </Animated.View>
             </View>
-        );
+        )
     }
 }

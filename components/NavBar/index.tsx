@@ -42,7 +42,7 @@ export default class NarBar extends React.Component<NavBarProps, any> {
                 leftDom = leftContent
             }
         } else {
-            leftDom = (<Icon name={leftIcon} style={styles.leftIcon} size={20}/>)
+            leftDom = (<Icon old name={leftIcon} style={styles.leftIcon} size={20}/>)
         }
 
         leftDom = (

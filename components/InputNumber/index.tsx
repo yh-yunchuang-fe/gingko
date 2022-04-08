@@ -157,13 +157,13 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         let minusDom: any = null;
         if (!canMinus || disabled) {
             minusDom = (<View style={[styles.action]}>
-                <Icon name='minus' size={10} style={styles.actionDisabled}/>
+                <Icon old name='minus' size={10} style={styles.actionDisabled}/>
             </View>)
         } else {
             minusDom = (
                 <TouchableOpacity onPress={this.minus.bind(this, value, step)}>
                     <View style={[styles.action]}>
-                        <Icon name='minus' size={10} style={activeAction}/>
+                        <Icon old name='minus' size={10} style={activeAction}/>
                     </View>
                 </TouchableOpacity>
             )
@@ -172,13 +172,13 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         let plusDom: any = null;
         if (!canPlus || disabled) {
             plusDom = (<View style={[styles.action]}>
-                <Icon name='plus' size={10} style={styles.actionDisabled}/>
+                <Icon old name='plus' size={10} style={styles.actionDisabled}/>
             </View>)
         } else {
             plusDom = (
                 <TouchableOpacity onPress={this.plus.bind(this, value, step)}>
                     <View style={[styles.action]}>
-                        <Icon name='plus' size={10} style={activeAction}/>
+                        <Icon old name='plus' size={10} style={activeAction}/>
                     </View>
                 </TouchableOpacity>
             )

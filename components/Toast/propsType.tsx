@@ -16,7 +16,7 @@ export interface IBaseToastOptions {
 
 export interface IShowToastOptions extends IBaseToastOptions {
     type?: 'success' | 'fail' | 'warn' | 'loading'
-    icon?: React.ReactElement<any> | (() => void)
+    icon?: React.ReactElement<any> | (() => void) | null
 }
 
 export interface IPropsType extends IShowToastOptions {

@@ -1,19 +1,19 @@
 import React from 'react'
 
-export interface DataItem {
+export interface IDataItem {
     icon?: any;
     text?: any;
     [key: string]: any;
 }
 
-export interface GridProps {
-    data?: Array<DataItem | undefined>;
+export interface IGridProps {
+    data?: Array<IDataItem | undefined>;
     columnNum?: number;
     hasLine?: boolean;
     itemStyle?: any;
     noWrap?: boolean;
     blankWidth?: number;
-    onClick?: (dataItem: DataItem | undefined, itemIndex: number) => void;
-    renderItem?: (dataItem: DataItem | undefined, itemIndex: number) => React.ReactElement<any>;
-    buildItem?: (dataItem: DataItem | undefined) => any
+    onClick?: (dataItem: IDataItem | undefined, itemIndex: number) => void;
+    renderItem?: (dataItem: IDataItem | undefined, itemIndex: number) => React.ReactElement<any>;
+    buildItem?: (dataItem: IDataItem | undefined) => any
 }

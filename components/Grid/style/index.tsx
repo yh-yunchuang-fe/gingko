@@ -1,5 +1,4 @@
-import { StyleSheet } from 'react-native';
-import variables from '../../../src/style/variables';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
     gridContainer: {
@@ -8,11 +7,11 @@ export default StyleSheet.create({
     },
     gridRow: {
         flexDirection: 'row',
-        borderColor: variables.border_color_base,
+        borderColor: '#F2F2F2',
     },
     gridItem: {
-        borderColor: variables.border_color_base,
-        backgroundColor: variables.fill_base,
+        borderColor: '#F2F2F2',
+        backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -21,8 +20,9 @@ export default StyleSheet.create({
         height: 22,
     },
     text: {
-        fontSize: variables.font_size_caption_sm,
-        color: variables.color_base,
-        marginTop: variables.v_spacing_md,
+        fontSize: 14,
+        lineHeight: 20,
+        color: '#212121',
+        marginTop: 4
     }
 })

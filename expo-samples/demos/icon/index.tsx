@@ -1,71 +1,47 @@
 import React from 'react'
 import {
+    Text,
     ScrollView
 } from 'react-native'
 import {
     Icon,
     Grid,
 } from '../../../components/index'
-
-const list = [
-    'chevron-down',
-    'chevron-left',
-    'chevron-right',
-    'chevron-up',
-    'back-home',
-    'back',
-    'camera',
-    'close-circle',
-    'eye-off',
-    'more',
-    'unchecked',
-    'scan',
-    'search',
-    'checked',
-    'radio-on',
-    'radio-off',
-    'eye',
-    'alert',
-    'flash-circle',
-    'checkmark',
-    'chevron-left-circle',
-    'chevron-right-circle',
-    'trashcan',
-    'close',
-    'chevron-down-circle',
-    'edit',
-    'arrow-down',
-    'light-off',
-    'light-on',
-    'arrow-up',
-    'minus',
-    'order',
-    'plus',
-    'remark-active',
-    'remark',
-    'triangle-down',
-    'triangle-up',
-    'chevron-up-circle',
-    'close-circle-o',
-    'user-check',
-    'edit-plus',
-    'bell',
-    'clock-circle-o',
-    'store',
-]
+import newIcons from '@assets/svgs'
+import oldIcons from '../../../components/Icon/iconMap.json'
 
 export default () => {
-    const data = list.map((item)=> {
+    console.log('Object.keys(svgs)===', Object.keys(oldIcons), Object.keys(newIcons))
+    const newData = Object.keys(newIcons).map((item, index)=> {
         return {
-            icon: (<Icon name={item} size='md'/>),
+            icon: (<Icon key={index} name={item} size='md'/>),
+            text: item
+        }
+    })
+
+    const oldData = Object.keys(oldIcons).map((item, index)=> {
+        return {
+            icon: (<Icon key={index} name={item} old size='md'/>),
             text: item
         }
     })
     
+    const style = {
+        fontSize: 24,
+        paddingHorizontal: 12,
+        paddingVertical: 12
+    }
+
     return (
-        <ScrollView style={{flex: 1, backgroundColor: '#00FF00'}}>
+        <ScrollView style={{flex: 1}}>
+            <Text style={style}>new icon</Text>
             <Grid
-                data={data}
+                data={newData}
+                columnNum={3}
+            />
+            <Text style={style}>old icon</Text>
+            <Grid
+                data={oldData}
                 columnNum={4}
             />
         </ScrollView>
