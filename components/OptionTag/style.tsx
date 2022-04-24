@@ -59,8 +59,8 @@ export default StyleSheet.create({
     },
     multipleIcon: {
         position: 'absolute',
-        top: 1,
-        left: 8,
+        top: -2,
+        left: 6,
         transform: [{
             rotate: '35deg',
         }],

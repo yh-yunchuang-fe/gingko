@@ -5,12 +5,14 @@ import React from 'react'
 import {
     View,
     Text,
+    Image,
     Animated,
 } from 'react-native'
 import { IPropsType }from './propsType'
 import Icon from '../Icon'
 import Indicator from '../Indicator'
 import styles from './style'
+import variables from '@src/style'
 
 export default class Toast extends React.Component<IPropsType, any> {
     static defaultProps = {
@@ -80,7 +82,7 @@ export default class Toast extends React.Component<IPropsType, any> {
         if (type === 'loading') {
             return (
                 <View style={styles.iconContainer}>
-                    <Indicator size='xl' color='white' />
+                    <Indicator size={variables.width_toast_withicon_icon}/>
                 </View>
             )
         }
@@ -104,8 +106,8 @@ export default class Toast extends React.Component<IPropsType, any> {
                 <View style={styles.iconContainer}>
                     <Icon
                         name={iconName}
-                        color='#fff'
-                        size={44}
+                        color={variables.color_toast_icon}
+                        size={variables.width_toast_withicon_icon}
                     />
                 </View>
             )
@@ -156,7 +158,7 @@ export default class Toast extends React.Component<IPropsType, any> {
             mask,
             position,
         } = this.props
-        console.log('style===', style)
+
         let sty: any = null
         switch (position) {
             case 'top':

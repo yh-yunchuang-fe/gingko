@@ -1,8 +1,3 @@
-import React from 'react';
+/// <reference types="react" />
 import { CardHeaderProps } from './propsType';
-export default class CardHeader extends React.Component<CardHeaderProps, any> {
-    static defaultProps: {
-        style: {};
-    };
-    render(): JSX.Element;
-}
+export default function CardHeader({ style, children, ...restProps }: CardHeaderProps): JSX.Element;

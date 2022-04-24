@@ -5,22 +5,24 @@
 export interface IModalProps {
     visible: boolean;
     title?: string;
+    content?: string;
+    contentStyle?: any;
     maskClosable?: boolean;
     footer?: Array<IActionButton>;
     onClose?: () => void;
     transparent?: boolean;
     animationType?: 'none' | 'fade' | 'slide-up' | 'slide-down';
     animationDuration?: number;
-    animateAppear?: boolean;
     onAnimationEnd?: (x?: any) => void;
     style?: any;
     bodyStyle?: any;
+    children?: any;
 }
 export interface IActionButton {
     text: string;
     onPress?: () => void;
     style?: {};
-    type?: 'default' | 'primary' | 'warning';
+    type?: 'primary' | 'second' | 'disable';
 }
 export interface IAlertProps {
     title?: string;

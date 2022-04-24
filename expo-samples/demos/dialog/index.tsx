@@ -8,7 +8,7 @@ import {
     Button,
     WingBlank,
     WhiteSpace,
-} from '../../../components/index'
+} from '../../../components'
 
 export default () => {
     const [state, setState] = React.useState({
@@ -27,13 +27,13 @@ export default () => {
         <View>
             <WhiteSpace/>
             <WingBlank>
-                <Button onClick={() => {openDialog('none')}}>open Dialog</Button>
+                <Button line onClick={() => {openDialog('none')}}>open Dialog</Button>
                 <WhiteSpace/>
-                <Button onClick={() => {openDialog('fade')}}>open fade Dialog</Button>
+                <Button line onClick={() => {openDialog('fade')}}>open fade Dialog</Button>
                 <WhiteSpace/>
-                <Button onClick={() => {openDialog('slide-up')}}>open slide-up Dialog</Button>
+                <Button line onClick={() => {openDialog('slide-up')}}>open slide-up Dialog</Button>
                 <WhiteSpace/>
-                <Button onClick={() => {openDialog('slide-down')}}>open slide-up Dialog</Button>
+                <Button line onClick={() => {openDialog('slide-down')}}>open slide-up Dialog</Button>
             </WingBlank>
 
             <Dialog
@@ -53,7 +53,7 @@ export default () => {
                     height: 200,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    backgroundColor: '#fff',
+                    backgroundColor: '#FFFFFF',
                     borderRadius: 8,
                     elevation: 10
                 }}>

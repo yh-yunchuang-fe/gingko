@@ -6,34 +6,33 @@ import React from 'react'
 import {
     View,
 } from 'react-native'
-import { ISidebarProps, ISideProps } from './propsType'
-import DefaultSidebar from './DefaultSidebar'
+import { ISideBarProps, ISideProps } from './propsType'
+import DefaultSideBar from './DefaultSideBar'
 import styles from './style'
 
-export default class Tabs extends React.Component<ISidebarProps, any> {
-    public static DefaultSidebar = DefaultSidebar
+export default class SideBar extends React.Component<ISideBarProps, any> {
+    public static DefaultSideBar = DefaultSideBar
 
     public static defaultProps = {
         sidebarPosition: 'left',
         initialPage: 0,
         tabs: [],
         style: {}
-    } as ISidebarProps
+    } as ISideBarProps
 
     public nextCurrentTab: number = 0
     public tabCache: { [index: number]: React.ReactNode } = {}
     // isTabVertical: boolean = true
 
-    constructor(props: ISidebarProps) {
+    constructor(props: ISideBarProps) {
         super(props)
-        console.log('this.props:', props)
         this.state = {
             currentTab: this.getTabIndex(props)
         }
         this.nextCurrentTab = this.state.currentTab
     }
 
-    public getTabIndex(props: ISidebarProps) {
+    public getTabIndex(props: ISideBarProps) {
         const { page, initialPage, tabs } = props
         const param = (page !== undefined ? page : initialPage) || 0
 
@@ -71,7 +70,7 @@ export default class Tabs extends React.Component<ISidebarProps, any> {
         return true
     }
 
-    public getSidebarBaseProps() {
+    public getSideBarBaseProps() {
         const { currentTab } = this.state
         const {
             tabs,
@@ -135,11 +134,11 @@ export default class Tabs extends React.Component<ISidebarProps, any> {
         return component || null
     }
 
-    public renderSidebar(sidebarProps: any, renderSidebar: ((x?: any) => void) | undefined) {
-        if (renderSidebar) {
-            return renderSidebar(sidebarProps)
+    public renderSideBar(sidebarProps: any, renderSideBar: ((x?: any) => void) | undefined) {
+        if (renderSideBar) {
+            return renderSideBar(sidebarProps)
         } else {
-            return <DefaultSidebar {...sidebarProps}/>
+            return <DefaultSideBar {...sidebarProps}/>
         }
     }
 
@@ -154,17 +153,17 @@ export default class Tabs extends React.Component<ISidebarProps, any> {
 
     public render() {
         const {
-            style, renderSidebar
-        } = this.props as ISidebarProps
+            style, renderSideBar
+        } = this.props as ISideBarProps
 
-        const sidebarProps = this.getSidebarBaseProps()
+        const sidebarProps = this.getSideBarBaseProps()
 
         return (
             <View style={{
                 flexDirection: this.isTabVertical() ? 'row' : 'column',
                 ...style
             }}>
-                { this.renderSidebar(sidebarProps, renderSidebar) }
+                { this.renderSideBar(sidebarProps, renderSideBar) }
                 <View style={{
                     ...styles.Side.content
                 }}>

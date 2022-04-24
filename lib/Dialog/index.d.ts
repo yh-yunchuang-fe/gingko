@@ -13,7 +13,7 @@ export default class Dialog extends React.Component<IDialogProps, any> {
             alignItems: "center";
         };
         maskStyle: {
-            backgroundColor: any;
+            backgroundColor: string;
         };
         animationType: string;
         animationDuration: number;
@@ -31,9 +31,9 @@ export default class Dialog extends React.Component<IDialogProps, any> {
     componentWillReceiveProps(nextProps: any): void;
     shouldComponentUpdate(nextProps: any, nextState: any): boolean;
     componentDidUpdate(prevProps: any): void;
-    getOpacity: (visible: any) => 1 | 0;
-    getScale: (visible: any) => 1 | 1.05;
-    getPosition: (visible: any) => number;
+    getOpacity: (visible: boolean) => 1 | 0;
+    getScale: (visible: boolean) => 1 | 1.05;
+    getPosition: (visible: boolean) => number;
     onMaskClose: () => void;
     close: () => void;
     animateMask: (visible: any) => void;

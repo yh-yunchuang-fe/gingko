@@ -20,8 +20,7 @@ export default () => {
         <CodeInputGroup
             onChange={(val)=> {
                 setValue(val)
-            }}
-        />
+            }} />
         <WhiteSpace/>
         <Text>{ value }</Text>
     </WingBlank>

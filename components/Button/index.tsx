@@ -2,150 +2,138 @@ import React from 'react'
 import {
     View,
     Text,
-    StyleSheet,
     TouchableHighlight
 } from 'react-native'
 import { Indicator } from '../index'
-import ButtonProps from './propsType'
+import IButtonProps from './propsType'
 import btnStyles from './style'
 import Icon from '../Icon'
+import variables from '@src/style'
 
-export default class Button extends React.Component<ButtonProps, any> {
+export default function Button(props: IButtonProps) {
+    const {
+        size = 'md',
+        type = 'primary',
+        solid = true,
+        line = false,
+        link = false,
+        style = {},
+        textStyle = {},
+        loading = false,
+        activeStyle = {},
+        onClick = (x?: any) => {},
+        icon = {},
+        children,
+        ...restProps
+    }: any = props
 
-    public static defaultProps = {
-        size: 'large',
-        type: 'default',
-        second: false,
-        disabled: false,
-        style: {},
-        textStyle: {},
-        loading: false,
-        activeStyle: {},
-        onClick: (x?: any) => {},
-        onPressIn: (x?: any) => {},
-        onPressOut: (x?: any) => {},
-
-        icon: {}
-    }
-    constructor(props: ButtonProps) {
-        super(props)
-        this.state = {
-            pressIn: false,
+    const [state, setState] = React.useState({
+        pressIn: false,
             touchIt: false
+    })
+
+    const onPressIn = (...args: any[]) => {
+        setState({...state, pressIn: true})
+        if (props.onPressIn) {
+            (props.onPressIn as any)(...args)
         }
     }
 
-    public onPressIn = (...args: any[]) => {
-        this.setState({pressIn: true})
-        if (this.props.onPressIn) {
-            (this.props.onPressIn as any)(...args)
+    const onPressOut = (...args: any[]) => {
+        setState({...state, pressIn: false})
+        if (props.onPressOut) {
+            (props.onPressOut as any)(...args)
         }
     }
 
-    public onPressOut = (...args: any[]) => {
-        this.setState({pressIn: false})
-        if (this.props.onPressOut) {
-            (this.props.onPressOut as any)(...args)
+    const onShowUnderlay = (...arg: any[]) => {
+        setState({...state, touchIt: true })
+        if (props.onShowUnderlay) {
+            (props.onShowUnderlay as any)(...arg)
         }
     }
 
-    public onShowUnderlay = (...arg: any[]) => {
-        this.setState({ touchIt: true })
-        if (this.props.onShowUnderlay) {
-            (this.props.onShowUnderlay as any)(...arg)
+    const onHideUnderlay = (...arg: any[]) => {
+        setState({...state, touchIt: false })
+        if (props.onHideUnderlay) {
+            (props.onHideUnderlay as any)(...arg)
         }
     }
 
-    public onHideUnderlay = (...arg: any[]) => {
-        this.setState({ touchIt: false })
-        if (this.props.onHideUnderlay) {
-            (this.props.onHideUnderlay as any)(...arg)
+    ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
+        'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
+        if (restProps.hasOwnProperty(prop)) {
+            delete restProps[prop]
         }
-    }
+    })
 
-    public render() {
+    const currentBtn = props?.line ? 'line' : 'solid'
+    const wrapperSty = [
+        btnStyles.wrapperSty,
+        {
+            backgroundColor: link ? 'transparent' : variables[`color_btn_${currentBtn}_${type}_bg`],
+            borderColor: variables[`color_btn_${currentBtn}_${type}_border`],
+            borderRadius: variables[`radius_btn_${size}`],
+            paddingVertical: variables[`spacing_btn_paddingTop_${size}`],
+            paddingHorizontal: variables[`spacing_btn_paddingLeft_${size}`],
+        },
+        style,
+        activeStyle && state.touchIt && activeStyle,
+    ]
 
-        const {
-            size, type, style, textStyle, 
-            disabled, second,
-            activeStyle, onClick, loading,
-            icon, children, ...restProps
-        } = this.props;
+    const textSty = [
+        {
+            color: link ? variables[`color_btn_text_${type}_font`] : variables[`color_btn_${currentBtn}_${type}_font`],
+            fontSize: variables[`font_btn_size_${size}`],
+            lineHeight: variables[`font_btn_lineheight_${size}`],
+            fontWeight: variables.font_btn_weight
+        },
+        textStyle
+    ]
 
-        ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
-            'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
-            if (restProps.hasOwnProperty(prop)) {
-                delete restProps[prop]
-            }
-        })
+    const underlayColor = link ? `rgba(255,255,255, 0.1)` : variables[`color_btn_${currentBtn}_${type}_bg`]
 
-        const wrapperSty = [
-            btnStyles.wrapperSty,
-            btnStyles[`${size}Sty`],
-            btnStyles[`${type}Sty`],
-            second && btnStyles[`${type}SecondSty`],
-            disabled && btnStyles[`${type}DisabledSty`],
-            activeStyle && this.state.touchIt && activeStyle,
-            style
-        ]
-
-        const textSty = [
-            btnStyles[`${size}Text`],
-            btnStyles[`${type}Text`],
-            second && btnStyles[`${type}SecondText`],
-            disabled && btnStyles[`${type}DisabledText`],
-            this.state.pressIn && btnStyles[`${type}TapText`],
-            textStyle
-        ]
-
-        const underlayColor = (StyleSheet.flatten(
-            btnStyles[activeStyle ? `${type}TapSty` : `${type}Sty`],
-        ) as any).backgroundColor
-
-        let iconDom: any
-        if (icon) {
-            if (typeof icon === 'string') {
-                iconDom = (
-                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <Icon old name={icon} style={btnStyles.iconSty}/>
-                    </View>
-                )
-            } else if (typeof icon === 'object' && !!icon.name) {
-                iconDom = (
-                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <Icon old name={icon.name} color={icon.color} size={icon.size} style={[btnStyles.iconSty, icon.style]}/>
-                    </View>
-                )
-            }
-        }
-        let childrenDom: any
-        if (React.isValidElement(children)) {
-            childrenDom = children
-        } else {
-            childrenDom = <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
-        }
-
-        return (
-            <TouchableHighlight
-                activeOpacity={1}
-                underlayColor={underlayColor}
-                onPress={(e?: any)=> { onClick && onClick(e) }}
-                onPressIn={this.onPressIn}
-                onPressOut={this.onPressOut}
-                onShowUnderlay={this.onShowUnderlay}
-                onHideUnderlay={this.onHideUnderlay}
-                disabled={disabled}
-                style={wrapperSty}
-                {...restProps}
-                >
-                <View style={btnStyles.container}>
-                    {
-                        loading ? <Indicator style={btnStyles.indicator} color={type === 'primary' ? 'white' : 'blue'}/> : null
-                    }
-                    { iconDom }
-                    { childrenDom }
+    let iconDom: any
+    if (icon) {
+        if (typeof icon === 'string') {
+            iconDom = (
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Icon name={icon} style={btnStyles.iconSty}/>
                 </View>
-            </TouchableHighlight>
-        )
+            )
+        } else if (typeof icon === 'object' && !!icon.name) {
+            iconDom = (
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Icon name={icon.name} color={icon.color} size={icon.size} style={[btnStyles.iconSty, icon.style]}/>
+                </View>
+            )
+        }
     }
+    let childrenDom: any
+    if (React.isValidElement(children)) {
+        childrenDom = children
+    } else {
+        childrenDom = <Text style={[btnStyles.text, textSty]} numberOfLines={1}>{ children }</Text>
+    }
+
+    return (
+        <TouchableHighlight
+            activeOpacity={0.3}
+            underlayColor={underlayColor}
+            onPress={(e?: any)=> { onClick && onClick(e) }}
+            onPressIn={onPressIn}
+            onPressOut={onPressOut}
+            onShowUnderlay={onShowUnderlay}
+            onHideUnderlay={onHideUnderlay}
+            disabled={type === 'disable'}
+            style={wrapperSty}
+            {...restProps}
+            >
+            <View style={btnStyles.container}>
+                { loading && <Indicator style={btnStyles.indicator}/> }
+                { iconDom }
+                { childrenDom }
+            </View>
+        </TouchableHighlight>
+    )
 }

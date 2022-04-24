@@ -5,11 +5,11 @@ declare const _default: {
     };
     gridRow: {
         flexDirection: "row";
-        borderColor: any;
+        borderColor: string;
     };
     gridItem: {
-        borderColor: any;
-        backgroundColor: any;
+        borderColor: string;
+        backgroundColor: string;
         justifyContent: "center";
         alignItems: "center";
     };
@@ -18,9 +18,10 @@ declare const _default: {
         height: number;
     };
     text: {
-        fontSize: any;
-        color: any;
-        marginTop: any;
+        fontSize: number;
+        lineHeight: number;
+        color: string;
+        marginTop: number;
     };
 };
 export default _default;

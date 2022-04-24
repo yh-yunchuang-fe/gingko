@@ -6,60 +6,82 @@ import {
     View,
 } from 'react-native'
 
-export default class MultiPicker extends React.Component<any, any> {
-    public getValue = () => {
+export default function MultiPicker(props: any) {
+    const getValue = () => {
         const {
             children,
             value,
-        } = this.props;
+        } = props
 
         if (Array.isArray(value) && value.length > 0) {
-            return value;
+            return value
         }
 
         if (!children) {
-            return [];
+            return []
         }
 
         return React.Children.map(children, (col: any) => {
-            const items: any = React.Children.toArray(col.props.children);
-            return items[0] && items[0].props.value;
-        });
+            const items: any = React.Children.toArray(col.props.children)
+            return items[0] && items[0].props.value
+        })
     }
 
-    public onChange = (idx: any, val: any, cb: any) => {
-        const values: any = this.getValue()
-        values[idx] = val;
-        if (cb) {
-           cb(values, idx);
+    const onChange = (idx: any, val: any) => {
+        const values: any = getValue()
+        values[idx] = val
+        props.onChange && props.onChange(values, idx)
+    }
+
+    const {
+        children,
+        style,
+        itemStyle,
+        columnStyle,
+        ...rest
+    } = props
+    const value: any = getValue()
+    const elements = React.Children.map(children, (col: any, idx) => {
+        const dataLen = children.length
+        let currentType: any
+        if (dataLen === 1) {
+            currentType = ''
+        }else if (idx === 0) {
+            currentType = 'first'
+        } else if ((idx + 1) === dataLen) {
+            currentType = 'last'
+        } else {
+            currentType = 'center'
         }
-    }
 
-    public render() {
-        const {
-            children,
-            onChange,
-            style,
-            itemStyle,
-            columnStyle,
-            ...rest
-        } = this.props;
-        const value: any = this.getValue()
-        const elements = React.Children.map(children, (col: any, idx) => {
-            return React.cloneElement(col, {
-                ...rest,
-                selectedValue: value[idx],
-                onValueChange: (val: any) => {
-                    this.onChange(idx, val, onChange);
-                },
-                style: { flex: 1, ...columnStyle[idx] },
-                itemStyle: itemStyle[idx],
-            });
-        });
-        return (
-            <View style={[{ flexDirection: 'row',justifyContent: 'center' }, style]}>
-                {elements}
-            </View>
-        );
-    }
+        let fontSize = 18
+        if (dataLen === 3) {
+            fontSize = 16
+        } else if (dataLen === 5) {
+            fontSize = 14
+        }
+
+        return React.cloneElement(col, {
+            ...rest,
+            selectedValue: value[idx],
+            currentIndex: idx,
+            currentType: currentType,
+            onValueChange: (val: any) => {
+                onChange(idx, val)
+            },
+            style: { 
+                flex: 1,
+                marginHorizontal: -4, 
+                ...columnStyle[idx] },
+            itemStyle: {
+                fontSize: fontSize,
+                ...itemStyle[idx]
+            },
+        })
+    })
+    return (
+        <View style={[{ flexDirection: 'row',justifyContent: 'center' }, style]}>
+            {elements}
+        </View>
+    )
 }

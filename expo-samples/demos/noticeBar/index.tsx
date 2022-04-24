@@ -40,7 +40,7 @@ export default (props: any) => {
             <NoticeBar
                 mode='link'
                 color='#FD7622'
-                action={<Text style={{fontSize: 14, color: '#333'}}>去设置</Text>}
+                action={<Text style={{fontSize: 14, color: '#333333'}}>去设置</Text>}
                 onClick={()=> { props.navigation.goBack() }}>
                 这是一个单行的NoticeBar通告栏。
             </NoticeBar>
@@ -48,11 +48,11 @@ export default (props: any) => {
             
             <NoticeBar icon='bell'>
                 <View style={{flexDirection: 'column'}}>
-                    <Text style={{fontSize: 14, fontWeight: 'bold', color: '#333', marginBottom: 8}}>
+                    <Text style={{fontSize: 14, fontWeight: 'bold', color: '#333333', marginBottom: 8}}>
                         自定义内容自定义内容自定义内容
                     </Text>
-                    <Text style={{fontSize: 14, color: '#666', marginBottom: 8}}>自定义内容自定义内容自定义内容</Text>
-                    <Text style={{fontSize: 14, color: '#666'}}>自定义内容自定义内容自定义内容</Text>
+                    <Text style={{fontSize: 14, color: '#666666', marginBottom: 8}}>自定义内容自定义内容自定义内容</Text>
+                    <Text style={{fontSize: 14, color: '#666666'}}>自定义内容自定义内容自定义内容</Text>
                 </View>
             </NoticeBar>
         </View>

@@ -5,7 +5,8 @@
 import React from 'react'
 import {
     View,
-    Slider
+    Text,
+    StyleSheet
 } from 'react-native'
 import {
     WhiteSpace,
@@ -13,26 +14,17 @@ import {
 } from '../../../components/index'
 
 export default () => {
-    const [state, setState] = React.useState({
-        value: '',
-        value2: 0
-    })
-
-    const changeValue = (value) => {
-        setState({
-            ...state,
-            value2: value
-        })
-    }
+    const [val, setVal] = React.useState('')
 
     return (
         <View style={{backgroundColor: '#f8f8f8'}}>
+            <Text style={styles.description}>搜索页-跳转页</Text>
             <SearchBar
-                placeholder='输入商品名称、条码或编号'
                 onSubmit={(value)=> { console.log('onSubmit value:', value) }}
                 onChange={(value)=> {
-                    setState({ ...state, value })
+                    setVal(value)
                 }}
+                value={val}
                 onFocus={()=> { console.log('onFocus') }}
                 onBlur={()=> { console.log('onBlur') }}
                 onCancel={()=> { console.log('onCancel') }}
@@ -40,8 +32,7 @@ export default () => {
             />
             <WhiteSpace/>
             <SearchBar
-                placeholder='输入商品名称、条码或编号'
-                defaultValue='autoFocus'
+                cancelText='取消'
                 autoFocus={true}
                 onSubmit={(value)=> { console.log('onSubmit value:', value) }}
                 onChange={(value)=> { console.log('onChange value:', value) }}
@@ -51,11 +42,31 @@ export default () => {
                 onClear={()=> { console.log('onClear') }}
             />
             <WhiteSpace/>
-            <Slider value={state.value2} onValueChange={changeValue}/>
             <SearchBar
-                value={state.value2.toString()}
-                placeholder='value props'
+                cancelText='取消'
+                defaultValue={'带皮五花肉'}
+            />
+            <Text style={styles.description}>搜索页-当前页搜索</Text>
+            <SearchBar
+                searchText='搜索'
+            />
+            <WhiteSpace/>
+            <SearchBar
+                searchText='搜索'
+                value={'带皮五花肉'}
+                placeholder='placeholder'
             />
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    description: {
+        fontSize: 12,
+        lineHeight: 18,
+        color: '#FF4E23',
+        marginHorizontal: 20,
+        marginTop: 30,
+        marginBottom: 16
+    }
+})

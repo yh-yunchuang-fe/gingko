@@ -12,13 +12,13 @@ import styles from './style'
 import { IModalProps } from './propsType'
 import { IActionButton } from '../Modal/propsType'
 import Alert from './alert'
+import variables from '@src/style'
 
 function Modal(props: IModalProps) {
     const {
         visible = false,
         animationType = 'fade',
         animationDuration = 300,
-        animateAppear = false,
         transparent = true,
         maskClosable = true,
         onClose = () => {},
@@ -37,7 +37,6 @@ function Modal(props: IModalProps) {
 
     if (footer && footer.length) {
         if (footer.length === 1) {
-            // tslint:disable-next-line:no-shadowed-variable
             const { text, type, onPress, style, ...restProps } = footer[0] as IActionButton
             const onPressFn = () => {
                 onPress && onPress()
@@ -56,16 +55,19 @@ function Modal(props: IModalProps) {
 
         if (footer.length === 2) {
             const buttons = footer.map((button, idx) => {
-                // tslint:disable-next-line:no-shadowed-variable
                 const { text, type, onPress, style, ...restProps } = button as IActionButton
                 const onPressFn = () => {
                     onPress && onPress()
                     onClose && onClose()
                 }
+                const marginRight = (idx === 0) && {marginRight: variables.spacing_alert_btnGroup_gap}
                 return (
                     <Button {...restProps}     
                         type={type} key={idx}
-                        style={{ width: '48%', ...style }}
+                        style={{
+                            flex: 1, 
+                            ...marginRight,
+                            ...style }}
                         onClick={onPressFn}>{text}</Button>
                 )
             })

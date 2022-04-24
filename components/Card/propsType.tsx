@@ -13,6 +13,7 @@ export interface CardHeaderProps {
 export interface CardBodyProps {
     children?: any
     style?: any
+    line?: boolean
 }
 
 export interface CardFooterProps {

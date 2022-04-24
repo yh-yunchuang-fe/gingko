@@ -2,18 +2,18 @@ import React from 'react'
 import {
     View
 } from 'react-native'
+import { Divider } from '../'
 import {CardBodyProps} from './propsType'
 import styles from './style'
 
-export default class CardBody extends React.Component<CardBodyProps, any> {
-    public static defaultProps = {
-        style: {}
-    }
+export default function CardBody({
+    style = {},
+    line = true,
+    ...restProps
+}: CardBodyProps) {
 
-    public render() {
-        const { style, ...restProps } = this.props
-        return (
-            <View style={[styles.body, style]} {...restProps}/>
-        )
-    }
+    return <View style={style}>
+        {line && <Divider />}
+        <View style={styles.body} {...restProps}/>
+    </View>
 }

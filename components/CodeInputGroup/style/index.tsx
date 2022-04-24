@@ -3,7 +3,6 @@
  * @date 2018/5/5
  */
 import { StyleSheet } from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     wrap: {
@@ -19,16 +18,16 @@ export default StyleSheet.create({
         fontSize: 24,
         textAlign: 'center',
         opacity: 0,
-        borderBottomWidth: variables.border_width,
-        borderColor: variables.color_link,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderColor: '#FE8F1D',
     },
     inputWrap: {
         width: 45,
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderBottomWidth: variables.border_width,
-        borderColor: variables.color_link,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderColor: '#FE8F1D',
     },
     input: {
         fontSize: 24,

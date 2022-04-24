@@ -6,15 +6,16 @@ import {
 import {
     Icon,
     Grid,
+    Toast
 } from '../../../components/index'
 import newIcons from '@assets/svgs'
-import oldIcons from '../../../components/Icon/iconMap.json'
+import oldIcons from '@/Icon/iconMap.json'
 
 export default () => {
     console.log('Object.keys(svgs)===', Object.keys(oldIcons), Object.keys(newIcons))
     const newData = Object.keys(newIcons).map((item, index)=> {
         return {
-            icon: (<Icon key={index} name={item} size='md'/>),
+            icon: (<Icon key={index} name={item} size={30}/>),
             text: item
         }
     })
@@ -38,6 +39,10 @@ export default () => {
             <Grid
                 data={newData}
                 columnNum={3}
+                itemStyle={{height: 80}}
+                onClick={({icon}: any) => {
+                    Toast.show(icon.props.name || '--')
+                }}
             />
             <Text style={style}>old icon</Text>
             <Grid

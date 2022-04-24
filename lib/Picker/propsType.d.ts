@@ -9,7 +9,7 @@ export interface IItemProps {
 }
 export interface IPickerProps {
     data?: Array<IItemProps>[];
-    value?: number | string[];
+    value?: any;
     defaultValue?: number | string[];
     dismissText?: string;
     okText?: string;

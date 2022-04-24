@@ -5,7 +5,8 @@
 import React from 'react'
 import {
     View,
-    Text
+    Text,
+    StyleSheet
 } from 'react-native'
 import {
     WhiteSpace,
@@ -24,7 +25,6 @@ export default () => {
                 key={index}
                 selected={index === optionsIndex}
                 onChange={(selected)=> {
-                    console.log('🌹🌹===',index, optionsIndex, selected, index === optionsIndex)
                     if (selected) {
                         setOptionsIndex(index)
                     }
@@ -34,15 +34,14 @@ export default () => {
     })
 
     return (
-        <View style={{flex: 1, backgroundColor: '#fff', paddingVertical: 12}}>
+        <View style={{flex: 1, backgroundColor: '#FFFFFF', paddingVertical: 12}}>
             <WingBlank>
-                <Text>单选</Text><WhiteSpace/>
+                <Text style={styles.description}>单选</Text>
                 <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
                     {optionsNode}
                 </View>
-                <WhiteSpace/>
-                
-                <Text>多选</Text><WhiteSpace/>
+
+                <Text style={styles.description}>多选</Text>
                 <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
                     <OptionTag multiple>多选1</OptionTag>
                     <OptionTag multiple>多选2</OptionTag>
@@ -50,8 +49,8 @@ export default () => {
                 </View>
                 <WhiteSpace/>
                 <OptionTag disabled>不可点击</OptionTag>
-                <WhiteSpace/>
-                <Text>自定义Text内容</Text>
+                
+                <Text style={styles.description}>自定义Text内容</Text>
                 <View>
                     <OptionTag style={{marginTop: 10}} width={315}
                         renderText={(selected)=> {
@@ -61,9 +60,9 @@ export default () => {
                                         width: 58,
                                         marginRight: 15,
                                         textAlign: 'right',
-                                        color: selected ? '#FE8F1D' : '#666'
+                                        color: selected ? '#FE8F1D' : '#666666'
                                     }}>我是</Text>
-                                    <Text style={{color: selected ? '#FE8F1D' : '#666'}}>从多到少</Text>
+                                    <Text style={{color: selected ? '#FE8F1D' : '#666666'}}>从多到少</Text>
                                 </View>
                             )
                         }}
@@ -76,9 +75,9 @@ export default () => {
                                         width: 58,
                                         marginRight: 15,
                                         textAlign: 'right',
-                                        color: selected ? '#FE8F1D' : '#666'
+                                        color: selected ? '#FE8F1D' : '#666666'
                                     }}>建议补货</Text>
-                                    <Text style={{color: selected ? '#FE8F1D' : '#666'}}>从多到少</Text>
+                                    <Text style={{color: selected ? '#FE8F1D' : '#666666'}}>从多到少</Text>
                                 </View>
                             )
                         }}
@@ -88,3 +87,13 @@ export default () => {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    description: {
+        fontSize: 12,
+        lineHeight: 18,
+        textAlign: 'left',
+        color: '#FF4E23',
+        marginTop: 30,
+        marginBottom: 16
+    }
+})

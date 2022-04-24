@@ -13,72 +13,69 @@ import { Tag, WhiteSpace, WingBlank } from '../../../components'
 export default () => {
     return ( 
         <WingBlank>
-            <Text style={style.tagText}>标签类型</Text>
-            <View style={style.tagList}>
+            <View style={styles.tagWrap}>
+                <View style={styles.tagList}>
+                    <Tag color='orange' fill>标签</Tag>
+                    <Tag color='orange'>标签</Tag>
+                    <Tag color='orange' font>标签</Tag>
+                </View>
+
+                <View style={styles.tagList}>
+                    <Tag color='blue' fill>标签</Tag>
+                    <Tag color='blue'>标签</Tag>
+                    <Tag color='blue' font>标签</Tag>
+                </View>
+
+                <View style={styles.tagList}>
+                    <Tag color='green' fill>标签</Tag>
+                    <Tag color='green'>标签</Tag>
+                    <Tag color='green' font>标签</Tag>
+                </View>
+
+                <View style={styles.tagList}>
+                    <Tag color='red' fill>标签</Tag>
+                    <Tag color='red'>标签</Tag>
+                    <Tag color='red' font>标签</Tag>
+                </View>
+
+                <View style={styles.tagList}>
+                    <Tag fill>标签</Tag>
+                    <Tag>标签</Tag>
+                    <Tag color='gray' font>标签</Tag>
+                </View>
+            </View>
+            <WhiteSpace/>
+
+            <Text style={styles.tagText}>标签大小'sm'|'md'|'lg'</Text>
+            <View style={styles.tagListWrap}>
+                <Tag color='#FE8F1D' fill size='sm'>标签</Tag>
                 <Tag color='#FE8F1D' fill>标签</Tag>
-                <Tag color='orange'>标签</Tag>
-                <Tag color='orange' fill>标签</Tag>
-            </View>
-            <WhiteSpace/>
-
-            <View style={style.tagList}>
-                <Tag color='#069DFF' fill>标签</Tag>
-                <Tag color='blue'>标签</Tag>
-                <Tag color='blue' fill >标签</Tag>
-            </View>
-            <WhiteSpace/>
-
-            <View style={style.tagList}>
-                <Tag color='#00BF7A' fill>标签</Tag>
-                <Tag color='green'>标签</Tag>
-                <Tag color='green' fill >标签</Tag>
-            </View>
-            <WhiteSpace/>
-
-            <View style={style.tagList}>
-                <Tag color='#FF2E2E' fill>标签</Tag>
-                <Tag color='red'>标签</Tag>
-                <Tag color='red' fill >标签</Tag>
-            </View>
-            <WhiteSpace/>
-
-            <View style={style.tagList}>
-                <Tag fill>标签</Tag>
-                <Tag>标签</Tag>
-                <Tag color='gray' fill >标签</Tag>
-            </View>
-            <WhiteSpace/>
-
-            <Text style={style.tagText}>大小</Text>
-            <View style={style.tagList}>
-                <Tag color='#FE8F1D' fill size='small'>标签</Tag>
-                <Tag color='#FE8F1D' fill>标签</Tag>
-                <Tag color='#FE8F1D' fill size='large'>标签</Tag>
+                <Tag color='#FE8F1D' fill size='lg'>标签</Tag>
             </View>
             <WhiteSpace/>
             
-            <Text style={style.tagText}>可点击</Text>
-            <View style={style.tagList}>
-                <Tag size='large'
+            <Text style={styles.tagText}>可点击</Text>
+            <View style={styles.tagListWrap}>
+                <Tag size='lg'
                     readonly={false}
-                    style={style.tagItem} >
+                    style={styles.tagItem} >
                     模版一
                 </Tag>
-                <Tag size='large'
+                <Tag size='lg'
                     readonly={false}
-                    style={style.tagItem} >
+                    style={styles.tagItem} >
                     模版二
                 </Tag>
                 <Tag
-                    size='large'
+                    size='lg'
                     readonly={false}
-                    style={style.tagItem} >
+                    style={styles.tagItem} >
                     模版三
                 </Tag>
             </View>
             <WhiteSpace/>
 
-            <Text style={style.tagText}>自定义</Text>
+            <Text style={styles.tagText}>自定义</Text>
             <Tag
                 fill
                 color='#E7F7FF'
@@ -87,8 +84,8 @@ export default () => {
             </Tag>
             <WhiteSpace/>
             <Tag
-                color='#666'
-                activeColor='#24A8E8'
+                color='#666666'
+                activeColor='#FE8F1D'
                 textStyle={{fontSize: 10, lineHeight: 16}}
                 readonly={false} >
                 fontSize: 10，行高就是容器的高度
@@ -98,13 +95,24 @@ export default () => {
     )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     tagText: {
-        fontSize: 20, 
-        marginVertical: 12
+        color: '#FF4E23',
+        fontSize: 12, 
+        marginVertical: 18,
+        marginHorizontal: 12
+    },
+    tagWrap: {
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     tagList: {
-        flexDirection: 'row', 
+        height: 180,
+        flexDirection: 'column', 
+        justifyContent: 'space-around'
+    },
+    tagListWrap: {
+        flexDirection: 'row',
         justifyContent: 'space-around'
     },
     tagItem: {

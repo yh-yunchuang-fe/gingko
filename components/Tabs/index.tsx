@@ -6,28 +6,29 @@ import styles from './style'
 import { Text, Dimensions, Platform } from 'react-native'
 import { ITabsProps } from './propsType'
 import { TabView, TabBar } from 'react-native-tab-view'
+import variables from '@src/style'
 
-const width = Dimensions.get('screen').width
+const { width } = Dimensions.get('screen')
 
 export default class Tabs extends React.Component<ITabsProps, any> {
     public static defaultProps = {
-        tabStyle: null,
+        tabStyle: {},
         tabBarStyle: {},
         tabBarLabelStyle: {},
         tabBarIndicatorStyle: {},
-        onIndexChange: null,
+        onIndexChange: ()=> {},
         renderScene: null,
         renderTabBar: null,
         renderLabel: null,
         swipeEnabled: false,
         scrollEnabled: false,
-        activeColor: '#212121', 
-        inactiveColor: '#212121',
+        activeColor: variables.color_tabItem_font_selected, 
+        inactiveColor: variables.color_tabItem_font_unselect,
         tabIndex: 0,
         routes: [
-            { key: 'index1', title: `未选` },
-            { key: 'index2', title: `已选` },
-            { key: 'index3', title: `未选` },
+            { key: '1', title: `未选` },
+            { key: '2', title: `已选` },
+            { key: '3', title: `未选` },
         ]
     }
 
@@ -47,7 +48,9 @@ export default class Tabs extends React.Component<ITabsProps, any> {
     public renderLabel = ({ route, focused, color }: any) => {
         const fw = Platform.OS === 'ios' && focused
 
-        return <Text style={[styles.labelText, fw && { fontWeight: '600' }, { color }]}>
+        return <Text style={[styles.labelText, fw && { 
+            fontWeight: variables.font_tabItem_font_weight_selected
+            }, { color }]}>
             {route.title}
         </Text>
     }
@@ -76,7 +79,6 @@ export default class Tabs extends React.Component<ITabsProps, any> {
     public render() {
         const { routes, swipeEnabled, renderScene } = this.props
         const { tabIndex } = this.state
-        console.log('this.state.tabIndex===', tabIndex, this.state.tabIndex)
 
         return (
             <TabView

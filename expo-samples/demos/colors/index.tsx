@@ -10,7 +10,6 @@ import * as Clipboard from 'expo-clipboard'
 
 export default () => {
     const onCopy = (item: string) => {
-        console.log('onCopy===', item)
         Clipboard.setString(item)
     }
 

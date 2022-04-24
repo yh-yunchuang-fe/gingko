@@ -1,8 +1,9 @@
 /**
  * Created by beilunyang on 2018/2/28
  */
+import variables from '@src/style'
 import {
-    StyleSheet,
+    StyleSheet
 } from 'react-native'
 
 export default StyleSheet.create({
@@ -10,9 +11,7 @@ export default StyleSheet.create({
         position: 'absolute',
         left: 0,
         top: -99,
-        borderColor: '#aaa',
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderBottomWidth: StyleSheet.hairlineWidth,
+        backgroundColor: '#F5F5F5',
     } as any,
 
     scrollView: {
@@ -20,13 +19,13 @@ export default StyleSheet.create({
     },
 
     selectedItemText: {
-        color: '#333',
+        color: variables.color_picker_action_cancel_font,
     } as any,
 
     itemText: {
-        fontSize: 22,
-        lineHeight: 30,
-        color: '#999',
+        fontSize: variables.font_picker_item_size_selected,
+        lineHeight: 48,
+        color: variables.color_picker_item_font_selected,
         textAlign: 'center',
     } as any,
 })

@@ -12,12 +12,12 @@ export enum Mode {
 export interface IDatePickerProps {
     visible?: boolean
     mode?: any;
-    minDate?: Date;
-    maxDate?: Date;
+    minDate?: any;
+    maxDate?: any;
     onDateChange?: (val?: Date) => any;
     onValueChange?: (val?: any[], idx?: any) => any;
-    defaultDate?: Date;
-    date?: Date;
+    defaultDate?: any;
+    date?: any;
     title?: string;
     onOk?: (date?: any, val?: any[]) => void;
     onDismiss?: () => any;

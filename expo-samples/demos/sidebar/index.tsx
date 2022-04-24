@@ -11,10 +11,10 @@ import {
 } from 'react-native'
 import {
     WhiteSpace,
-    Sidebar
+    SideBar
 } from '../../../components'
 
-const DefaultSidebar = Sidebar.DefaultSidebar
+const DefaultSideBar = SideBar.DefaultSideBar
 
 export default () => {
     const tabs = [
@@ -24,12 +24,12 @@ export default () => {
         { title: '默认样式文字较多' },
     ]
 
-    const renderDefaultSidebar = (tab: any, isTabActive: boolean) => {
+    const renderDefaultSideBar = (tab: any, isTabActive: boolean) => {
         return (
             <View style={{height: 20, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                 {
                     isTabActive &&
-                    <View style={styles.defaultSidebarActive}/>
+                    <View style={styles.defaultSideBarActive}/>
                 }
                 <Text style={isTabActive ? styles.activeText : styles.text}>
                     { tab.title }
@@ -41,25 +41,25 @@ export default () => {
     return (
         <View>
             <WhiteSpace/>
-            <Sidebar style={styles.sidebar} tabs={tabs} >
+            <SideBar style={styles.sidebar} tabs={tabs} >
                 {
                     tabs.map((tab, index)=> (
                         <View key={index} style={styles.sidebarItemContent}>
-                            <Text>The content is {tab.title}</Text>
+                            <Text>!! {tab.title}</Text>
                         </View>
                     ))
                 }
-            </Sidebar>
+            </SideBar>
             <WhiteSpace/>
-            <Sidebar
+            <SideBar
                 style={styles.sidebar}
-                sidebarFillColor='#ddd'
+                sidebarFillColor='#DDDDDD'
                 tabs={[{ title: '全部分类' },{ title: '食品部' },{ title: '加工部' }]}
-                renderSidebar={(props: any) =>
-                    <DefaultSidebar
+                renderSideBar={(props: any) =>
+                    <DefaultSideBar
                         {...props}
                         sidebarTabStyle={{paddingHorizontal: 0}}
-                        renderTab={renderDefaultSidebar} />
+                        renderTab={renderDefaultSideBar} />
                 }
             >
                 <View style={{
@@ -70,17 +70,17 @@ export default () => {
                         Array(7).fill(1111111111).map((item, index) => <Text key={index}>{item}</Text>)
                     }
                 </View>
-                <ScrollView style={styles.defaultSidebar}>
+                <ScrollView style={styles.defaultSideBar}>
                     {
                         Array(20).fill(222222222222).map((item, index) => <Text key={index}>{item}</Text>)
                     }
                 </ScrollView>
-                <View style={styles.defaultSidebar}>
+                <View style={styles.defaultSideBar}>
                     {
                         Array(5).fill(333333333333).map((item, index) => <Text key={index}>{item}</Text>)
                     }
                 </View>
-            </Sidebar>
+            </SideBar>
         </View>
     )
 }
@@ -88,7 +88,7 @@ export default () => {
 const styles = StyleSheet.create({
     sidebar: {
         width: '100%',
-        height: 260,
+        height: 350,
     },
     sidebarItemContent: {
         justifyContent: 'center',
@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         flex: 1,
     },
-    defaultSidebar: {
+    defaultSideBar: {
         paddingVertical: 15,
         paddingHorizontal: 20,
     },
-    defaultSidebarActive: {
+    defaultSideBarActive: {
         position: 'absolute',
         top: 0,
         left: 0,
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     text: {
-        color: '#666',
+        color: '#666666',
         fontWeight: 'normal'
     }
 })

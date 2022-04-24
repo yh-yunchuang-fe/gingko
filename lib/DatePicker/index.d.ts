@@ -10,7 +10,7 @@ export default class DatePicker extends React.Component<IDatePickerProps, any> {
         maxDate: Date;
     };
     state: {
-        date: Date;
+        date: any;
     };
     componentWillReceiveProps(nextProps: any): void;
     getDateInMonth: (date: Date) => number;

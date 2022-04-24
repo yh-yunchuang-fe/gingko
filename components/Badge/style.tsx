@@ -1,23 +1,21 @@
 /**
  * Created by beilunyang on 2018/3/7
  */
+import variables from '@src/style/'
 import {
     StyleSheet,
     Platform
 } from 'react-native'
-import variables from '../../src/style/variables'
-
-const grid = 4
 
 export default StyleSheet.create({
     wrap: {
         flexDirection: 'row',
     },
     textDom: {
-        paddingVertical: 0.5 * grid,
-        paddingHorizontal: (Platform.OS === 'ios' ? 1.5 : 2) * grid,
-        backgroundColor: '#FF2E2E',
-        borderRadius: 4 * (variables.radius_sm + 1),
+        paddingVertical: variables.spacing_badge_number_paddingTop,
+        paddingHorizontal: variables.spacing_badge_number_paddingLeft, // (Platform.OS === 'ios' ? 1.5 : 2) * 4,
+        backgroundColor: variables.color_badge_fill,
+        borderRadius: 12,
         borderStyle: 'solid',
         position: 'absolute',
         top: Platform.OS === 'ios' ? -10 : 0,
@@ -26,22 +24,22 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     dot: {
-        width: 2 * grid,
-        height: 2 * grid,
-        borderRadius: grid,
-        backgroundColor: '#FF2E2E',
+        width: variables.width_badge_dot,
+        height: variables.width_badge_dot,
+        borderRadius: variables.width_badge_dot / 2,
+        backgroundColor: variables.color_badge_fill,
         position: 'absolute',
-        top: -1 * grid,
-        right: -1 * grid,
+        top: 0,
+        right: -4,
     },
     text: {
         textAlign: 'center',
-        color: '#FFFFFF',
-        fontSize: 12,
+        color: variables.color_badge_number_font,
+        fontSize: variables.font_badge_number_size,
     },
     imageTextDom: {
-        paddingVertical: 0,
-        paddingHorizontal: 0,
+        paddingVertical: variables.spacing_badge_number_paddingTop,
+        paddingHorizontal: variables.spacing_badge_number_paddingLeft,
         backgroundColor: 'transparent',
         borderRadius: 0
     },

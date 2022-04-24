@@ -3,6 +3,7 @@ import {
     View,
     Text,
     Alert,
+    StyleSheet,
     ScrollView
 } from 'react-native'
 import {
@@ -12,116 +13,126 @@ import {
 } from '../../../components/index'
 
 export default () => {
-    return <ScrollView style={{ paddingHorizontal: 12}}>
+    return <ScrollView style={{paddingHorizontal: 12, paddingVertical: 12}}>
         <View style={{flexDirection: 'row'}}>
-            <View style={{flex: 1}}>
-                <Button type='primary' primary size={'large'}>面性强调</Button>
+            <View>
+                <Button size={'lg'}>面性强调</Button>
                 <WhiteSpace/>
-                <Button type='primary' primary >面性强调</Button>
+                <Button>面性强调</Button>
                 <WhiteSpace/>
-                <Button type='primary' primary size={'small'}>面性强调</Button>
+                <Button size={'sm'}>面性强调</Button>
             </View>
             <WingBlank/>
-            <View style={{flex: 1}}>
-                <Button primary size={'large'}>面性次要</Button>
+            <View>
+                <Button size={'lg'} line>线性强调</Button>
                 <WhiteSpace/>
-                <Button primary>面性次要</Button>
+                <Button line>线性强调</Button>
                 <WhiteSpace/>
-                <Button primary size={'small'}>面性次要</Button>
+                <Button size={'sm'} line>线性强调</Button>
             </View>
         </View>
         <WhiteSpace/>
 
         <View style={{flexDirection: 'row'}}>
-            <View style={{flex: 1}}>
-                <Button type={'primary'} size={'large'}>线性强调</Button>
+            <View>
+                <Button type={'second'} size={'lg'}>面性次要</Button>
                 <WhiteSpace/>
-                <Button type={'primary'}>线性强调</Button>
+                <Button type={'second'}>面性次要</Button>
                 <WhiteSpace/>
-                <Button type={'primary'} size={'small'} >线性强调</Button>
+                <Button type={'second'} size={'sm'} >面性次要</Button>
             </View>
             <WingBlank/>
-            <View style={{flex: 1}}>
-                <Button size={'large'}>线性次要</Button>
+            <View>
+                <Button type={'second'} size={'lg'} line>线性次要</Button>
                 <WhiteSpace/>
-                <Button>线性次要</Button>
+                <Button type={'second'} line>线性次要</Button>
                 <WhiteSpace/>
-                <Button size={'small'}>线性次要</Button>
+                <Button type={'second'} size={'sm'} line>线性次要</Button>
             </View>
         </View>
         <WhiteSpace/>
 
         <View style={{flexDirection: 'row'}}>
-            <View style={{flex: 1}}>
-                <Button disabled type={'primary'} size={'large'}>面性禁用</Button>
+            <View>
+                <Button type={'disable'} size={'lg'}>面性禁用</Button>
                 <WhiteSpace/>
-                <Button disabled type={'primary'}>面性禁用</Button>
+                <Button type={'disable'}>面性禁用</Button>
                 <WhiteSpace/>
-                <Button disabled type={'primary'} size={'small'} >面性禁用</Button>
+                <Button type={'disable'} size={'sm'} >面性禁用</Button>
             </View>
             <WingBlank/>
-            <View style={{flex: 1}}>
-                <Button disabled size={'large'}>线性禁用</Button>
+            <View>
+                <Button type={'disable'} size={'lg'} line>线性禁用</Button>
                 <WhiteSpace/>
-                <Button disabled>线性禁用</Button>
+                <Button type={'disable'} line>线性禁用</Button>
                 <WhiteSpace/>
-                <Button disabled size={'small'}>线性禁用</Button>
+                <Button type={'disable'} size={'sm'} line>线性禁用</Button>
             </View>
         </View>
         <WhiteSpace/>
 
-        <View style={{flexDirection: 'row'}}>
-            <View style={{flex: 1}}>
-                <Button link type={'primary'} size={'large'}>文字强调</Button>
+        <View>
+            <View style={styles.btnRow}>
+                <Button link size={'lg'}>文字强调</Button>
                 <WhiteSpace/>
-                <Button link type={'primary'}>文字强调</Button>
+                <Button link>文字强调</Button>
                 <WhiteSpace/>
-                <Button link type={'primary'} size={'small'} >文字强调</Button>
+                <Button link size={'sm'} >文字强调</Button>
             </View>
             <WingBlank/>
-            <View style={{flex: 1}}>
-                <Button link size={'large'}>文字次要</Button>
+            <View style={styles.btnRow}>
+                <Button link type={'second'} size={'lg'}>文字次要</Button>
                 <WhiteSpace/>
-                <Button link>文字次要</Button>
+                <Button link type={'second'}>文字次要</Button>
                 <WhiteSpace/>
-                <Button link size={'small'}>文字次要</Button>
+                <Button link type={'second'} size={'sm'}>文字次要</Button>
             </View>
             <WingBlank/>
-            <View style={{flex: 1}}>
-                <Button link disabled type={'second'} size={'large'}>文字禁用</Button>
+            <View style={styles.btnRow}>
+                <Button link type={'disable'}  size={'lg'}>文字禁用</Button>
                 <WhiteSpace/>
-                <Button link disabled type={'second'}>文字禁用</Button>
+                <Button link type={'disable'} >文字禁用</Button>
                 <WhiteSpace/>
-                <Button link disabled type={'second'} size={'small'}>文字禁用</Button>
+                <Button link type={'disable'}  size={'sm'}>文字禁用</Button>
             </View>
         </View>
         <WhiteSpace/>
 
-        <Button icon='scan' onClick={()=> { Alert.alert('button') }}>
+        <Button icon='icon-footerScan' type='second' onClick={()=> { Alert.alert('button') }}>
             default button
         </Button>
         <WhiteSpace/>
         <Button
+            line
             icon={{
                 name: 'search',
-                color: '#fff',
+                color: '#FE8F1D',
                 size: 'lg'
-            }}
-            type='primary'>
+            }}>
             primary button
         </Button>
-
-        <Button loading>loading button</Button>
         <WhiteSpace/>
-        <Button type='primary' loading>下一步</Button>
+        <Button loading textStyle={{fontSize: 12, color: 'red'}}>loading button</Button>
         <WhiteSpace/>
-        <Button
-            type='primary'
-            style={{height: 60}} textStyle={{fontSize: 12, color: 'red'}}>
+        <Button>
             <View style={{flexDirection: 'column', alignItems: 'center'}}>
-                <Text style={{color: '#fff', marginBottom: 5, fontSize: 18}}>早班考勤</Text>
-                <Text style={{color: '#fff', fontSize: 12}}>请在7：45前考勤</Text>
+                <Text style={{color: '#FFFFFF', marginBottom: 5, fontSize: 18}}>早班考勤</Text>
+                <Text style={{color: '#FFFFFF', fontSize: 12}}>请在7：45前考勤</Text>
             </View>
         </Button>
+        <WhiteSpace/>
+        <View style={styles.btnRow}>
+            <Button size={'sm'}>默认宽度</Button>
+            <Button>默认宽度</Button>
+            <Button size={'lg'}>默认宽度</Button>
+        </View>
     </ScrollView>
 }
+
+const styles = StyleSheet.create({
+    btnRow: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    }
+})

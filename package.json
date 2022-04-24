@@ -11,6 +11,9 @@
     "svgs": "cd src/utils && node getSvg.js "
   },
   "dependencies": {
+    "@react-native-clipboard/clipboard": "^1.8.5",
+    "@react-native-community/slider": "4.1.12",
+    "@react-native-picker/picker": "2.2.1",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/stack": "^6.1.1",
     "expo": "~44.0.0",

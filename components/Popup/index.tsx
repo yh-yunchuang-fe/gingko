@@ -43,23 +43,29 @@ export default function Popup(props: IPopupProps) {
             onAnimationEnd={onAnimationEnd}
             style={[style, styles.container]}>
             {(hint || title) && <View style={styles.hintWrap}>
-                {title && type === 'close' && <View style={styles.titleWrap}>
+                {title && type === 'close' && <View style={[styles.headerWrap, styles.closeHeaderWrap]}>
                     <View style={{width: 30}} />
-                    <Text style={styles.titleText}>{title}</Text>
+                    <View style={styles.titleWrap}>
+                        <Text style={styles.titleText}>{title}</Text>
+                        {hint && <Text style={styles.hintText} numberOfLines={numberOfLines}>{hint}</Text>}
+                    </View>
                     <TouchableOpacity style={{width: 30}} onPress={onClose}>
                         <Icon name='close' color='#9E9E9E' size={12} />
                     </TouchableOpacity> 
                 </View>}
-                {title && type === 'cancel' && <View style={styles.titleWrap}>
+                {title && type === 'cancel' && <View style={[styles.headerWrap, styles.cancelHeaderWrap]}>
                     <TouchableOpacity onPress={onClose}>
                         <Text style={styles.cancelText}>取消</Text>
                     </TouchableOpacity>
-                    <Text style={styles.titleText}>{title}</Text>
+                    <View style={styles.titleWrap}>
+                        <Text style={styles.titleText}>{title}</Text>
+                        {hint && <Text style={styles.hintText} numberOfLines={numberOfLines}>{hint}</Text>}
+                    </View>
                     <TouchableOpacity onPress={onChange}>
                         <Text style={styles.finishText}>完成</Text>
                     </TouchableOpacity>
                 </View>}
-                {hint && <Text style={styles.hintText} numberOfLines={numberOfLines}>{hint}</Text>}
+                
             </View>}
             <ScrollView>
                 { children }

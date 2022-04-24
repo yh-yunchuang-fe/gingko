@@ -28,7 +28,7 @@ export default () => {
         <View>
             <WhiteSpace/>
             <WingBlank>
-                <Button onClick={()=> {
+                <Button line onClick={()=> {
                     setVisibleBasic(true)
                 }}>basic</Button>
             </WingBlank>
@@ -49,7 +49,7 @@ export default () => {
 
             <WhiteSpace/>
             <WingBlank>
-                <Button onClick={()=> {
+                <Button line onClick={()=> {
                     setVisibleClose(true)
                 }}>close</Button>
             </WingBlank>
@@ -66,7 +66,7 @@ export default () => {
 
             <WhiteSpace/>
             <WingBlank>
-                <Button onClick={()=> {
+                <Button line onClick={()=> {
                     setVisibleCancel(true)
                 }}>cancel</Button>
             </WingBlank>

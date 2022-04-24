@@ -2,36 +2,22 @@
  * @author zhangyi
  * @date 2018/3/9
  */
+import variables from '@src/style'
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
     wrap: {
-        borderRadius: 2,
+        borderRadius: variables.radius_tag,
         backgroundColor: 'transparent',
         flexDirection: 'row',
         overflow: 'visible',
     },
     content: {
-        borderColor: '#9E9E9E',
-        borderRadius: 2,
-        borderWidth: 1,
-        paddingHorizontal: 4,
+        borderRadius: variables.radius_tag,
+        borderWidth: variables.border_tag_thickness,
         flexDirection: 'row',
         overflow: 'hidden',
         justifyContent: 'center',
         alignItems: 'center'
-    },
-
-    textlargeSty: {
-        fontSize: 18,
-        lineHeight: 28
-    },
-    text: {
-        fontSize: 16,
-        lineHeight: 24
-    },
-    textsmallSty: {
-        fontSize: 14,
-        lineHeight: 20
     }
 })

@@ -34,7 +34,7 @@ export default () => {
         })
     }
 
-    return <View style={style.CheckboxContainer}>
+    return <View style={style.checkboxContainer}>
         <Checkbox defaultChecked={true}>多选已选</Checkbox>
         <WhiteSpace />
         <Checkbox>多选未选</Checkbox>
@@ -46,7 +46,7 @@ export default () => {
         <WhiteSpace />
 
         <Checkbox
-            style={{...style.CheckboxWrap, ...state.checkedStyle}}
+            style={{...style.checkboxWrap, ...state.checkedStyle}}
             onChange={onChangeChildrenCheckbox}>
             <View>
                 <Text style={{ marginBottom: 10 }}>李荣斌</Text>
@@ -62,7 +62,7 @@ export default () => {
             icon={false}
             onChange={onChangeIconCheckbox}>
             <Text style={{
-                backgroundColor: '#fff',
+                backgroundColor: '#FFFFFF',
                 paddingVertical: 15,
                 ...state.baiduStyle,
             }}>no icon, just a checkable component</Text>
@@ -73,13 +73,14 @@ export default () => {
 }
 
 const style = StyleSheet.create({
-    CheckboxContainer: {
+    checkboxContainer: {
         flex: 1,
         paddingVertical: 12,
-        paddingHorizontal: 12
+        paddingHorizontal: 12,
+        backgroundColor: '#FFFFFF'
     },
-    CheckboxWrap: {
-        backgroundColor: '#fff',
+    checkboxWrap: {
+        backgroundColor: '#F0F0F0',
         paddingVertical: 12,
         paddingHorizontal: 12,
     }

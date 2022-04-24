@@ -2,25 +2,28 @@ declare const _default: {
     container: {
         backgroundColor: any;
     };
-    dismiss: {
-        color: string;
-        fontSize: any;
-    };
     header: {
-        alignItems: "center";
-        backgroundColor: string;
-        flexDirection: "row";
         height: number;
+        backgroundColor: any;
+        alignItems: "center";
+        flexDirection: "row";
         justifyContent: "space-between";
-        paddingHorizontal: any;
+        paddingHorizontal: number;
+    };
+    dismiss: {
+        color: any;
+        fontSize: any;
+        fontWeight: "600";
     };
     ok: {
         color: any;
         fontSize: any;
+        fontWeight: "600";
     };
     title: {
         color: any;
         fontSize: any;
+        fontWeight: "600";
     };
 };
 export default _default;

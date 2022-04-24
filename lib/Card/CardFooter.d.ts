@@ -1,8 +1,3 @@
-import React from 'react';
+/// <reference types="react" />
 import { CardFooterProps } from './propsType';
-export default class CardFooter extends React.Component<CardFooterProps, any> {
-    static defaultProps: {
-        style: {};
-    };
-    render(): JSX.Element;
-}
+export default function CardFooter({ style, children, ...restProps }: CardFooterProps): JSX.Element;

@@ -25,7 +25,7 @@ export default function Actionsheet(props: IActionsheetProps) {
         children,
         close, // '取消',
         title, // '主标题',
-        hint, // '这是提供二行注释, 通过信息澄清的方式，这是提供一行或二行注释'
+        subTitle, // '这是提供二行注释, 通过信息澄清的方式，这是提供一行或二行注释'
     } = props
 
     return (
@@ -39,9 +39,9 @@ export default function Actionsheet(props: IActionsheetProps) {
             maskClosable={maskClosable}
             onAnimationEnd={onAnimationEnd}
             style={[style, styles.container]}>
-            {(hint || title) && <View style={styles.hintWrap}>
+            {(subTitle || title) && <View style={styles.subTitleWrap}>
                 {title && <Text style={styles.titleText}>{title}</Text>}
-                {hint && <Text style={styles.hintText} numberOfLines={numberOfLines}>{hint}</Text>}
+                {subTitle && <Text style={styles.subTitleText} numberOfLines={numberOfLines}>{subTitle}</Text>}
             </View>}
             { children }
 
@@ -53,7 +53,7 @@ export default function Actionsheet(props: IActionsheetProps) {
                 onChange={onChange}/>}
 
             {close && <Button link 
-                size='large' 
+                size='lg' 
                 style={styles.cancelArea}
                 onClick={onClose}>{close}</Button>}
         </Dialog>

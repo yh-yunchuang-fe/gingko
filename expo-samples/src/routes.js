@@ -9,11 +9,10 @@ import codeInputGroup from '../demos/codeInputGroup'
 import DatePicker from '../demos/datePicker'
 import Dialog from '../demos/dialog'
 import Divider from '../demos/divider'
+import Field from '../demos/field'
 import Grid from '../demos/grid'
 import Icon from '../demos/icon'
-import Indicator from '../demos/indicator'
-import InputItem from '../demos/inputItem'
-import InputNumber from '../demos/inputNumber'
+import Label from '../demos/label'
 import Modal from '../demos/modal'
 import NavBar from '../demos/navbar'
 import NoticeBar from '../demos/noticeBar'
@@ -21,13 +20,12 @@ import OptionTag from '../demos/optionTag'
 import Picker from '../demos/picker'
 import Popup from '../demos/popup'
 import Radio from '../demos/radio'
-import Result from '../demos/result'
+import Empty from '../demos/empty'
 import SearchBar from '../demos/searchBar'
-import SearchInput from '../demos/searchInput'
 import Shadow from '../demos/shadow'
-import Sidebar from '../demos/sidebar'
-import Svg from '../demos/svg'
+import SideBar from '../demos/sidebar'
 import Switch from '../demos/switch'
+import TabBar from '../demos/tabbar'
 import Tag from '../demos/tag'
 import Tabs from '../demos/tabs'
 import Toast from '../demos/toast'
@@ -64,24 +62,24 @@ export default [
         screen: Tabs
     },
     {
+        title: 'Field',
+        description: 'field',
+        screen: Field
+    },
+    {
         title: 'Grid',
         description: '宫格',
         screen: Grid
     },
     {
-        title: 'Result',
+        title: 'Empty',
         description: '结果页',
-        screen: Result
+        screen: Empty
     },
     {
         title: 'NavBar',
         description: '导航栏',
         screen: NavBar
-    },
-    {
-        title: 'InputNumber',
-        description: '数字输入框',
-        screen: InputNumber
     },
     {
         title: 'Radio',
@@ -109,19 +107,9 @@ export default [
         screen: Card
     },
     {
-        title: 'Indicator',
-        description: '指示器',
-        screen: Indicator
-    },
-    {
         title: 'Picker',
         description: '选择器',
         screen: Picker
-    },
-    {
-        title: 'InputItem',
-        description: '输入框',
-        screen: InputItem
     },
     {
         title: 'Dialog',
@@ -132,6 +120,11 @@ export default [
         title: 'Divider',
         description: '底层弹窗',
         screen: Divider
+    },
+    {
+        title: 'Label',
+        description: '标签',
+        screen: Label
     },
     {
         title: 'Modal',
@@ -149,14 +142,14 @@ export default [
         screen: Badge
     },
     {
+        title: 'TabBar',
+        description: '标签栏',
+        screen: TabBar
+    },
+    {
         title: 'Tag',
         description: '标签',
         screen: Tag
-    },
-    {
-        title: 'SearchInput',
-        description: '搜索框',
-        screen: SearchInput
     },
     {
         title: 'SearchBar',
@@ -169,14 +162,9 @@ export default [
         screen: Shadow
     },
     {
-        title: 'Sidebar',
+        title: 'SideBar',
         description: '标签页',
-        screen: Sidebar
-    },
-    {
-        title: 'Svg',
-        description: '标签页',
-        screen: Svg
+        screen: SideBar
     },
     {
         title: 'Switch',

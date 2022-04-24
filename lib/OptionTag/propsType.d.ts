@@ -11,6 +11,7 @@ export default interface OptionTagProps {
     textStyle?: ViewStyle;
     disabled?: boolean;
     multiple?: boolean;
+    children?: any;
     selected?: boolean;
     onChange?: (x: any) => void;
     renderText?: (selected: boolean) => React.ReactNode;

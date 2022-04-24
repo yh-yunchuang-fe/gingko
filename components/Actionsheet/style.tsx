@@ -1,15 +1,4 @@
-/*
- * @Author: your name
- * @Date: 2022-04-06 14:14:28
- * @LastEditTime: 2022-04-06 14:51:16
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /gingko/components/Actionsheet/style.tsx
- */
-/**
- * @author zhangyi
- * @date 2018/2/28
- */
+import variables from '@src/style/'
 import { StyleSheet, Dimensions } from 'react-native'
 
 const { width } = Dimensions.get('window')
@@ -18,55 +7,55 @@ export default StyleSheet.create({
     container: {
         position: 'absolute',
         bottom: 0,
-        backgroundColor: '#F5F5F5',
+        backgroundColor: variables.color_actionSheet_bg,
         width,
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
+        borderTopLeftRadius: variables.radius_actionSheet_header_topLeft,
+        borderTopRightRadius: variables.radius_actionSheet_header_topRight,
         overflow: 'hidden'
     },
-    hintWrap: {
-        backgroundColor: '#FFFFFF',
-        borderBottomWidth: 1,
-        borderBottomColor: '#F2F2F2',
-        paddingHorizontal: 16,
-        paddingVertical: 16,
+    subTitleWrap: {
+        backgroundColor: variables.color_actionSheet_header_bg,
+        borderBottomWidth: variables.width_acticonSheet_border_bottom,
+        borderBottomColor: variables.color_acticonSheet_border_bottom,
+        paddingHorizontal: variables.spacing_actionSheet_header_paddingLeft,
+        paddingVertical: variables.spacing_actionSheet_header_paddingBottom,
         alignItems: 'center'
     },
-    hintText: {
-        lineHeight: 20,
-        fontSize: 14,
-        color: '#757575',
+    subTitleText: {
+        lineHeight: variables.font_actionSheet_description_lineheight,
+        fontSize: variables.font_actionSheet_description_size,
+        color: variables.color_actionSheet_description_font,
         textAlign: 'center',
     },
     titleText: {
-        fontSize: 18,
-        lineHeight: 26,
-        color: '#212121',
-        marginBottom: 8,
-        fontWeight: '500'
+        fontSize: variables.font_actionSheet_title_size,
+        lineHeight: variables.font_actionSheet_title_lineheight,
+        color: variables.color_actionSheet_title_font,
+        marginBottom: variables.spacing_actionSheet_title_marginBottom,
+        fontWeight: '600'
     },
     cancelArea: {
         width,
-        height: 56,
-        marginTop: 12,
-        backgroundColor: '#FFFFFF',
+        height: variables.height_actionSheet_item_bg,
+        marginTop: variables.spacing_actionSheet_actionBottom_marginTop,
+        backgroundColor: variables.color_actionSheet_item_bg,
         bottom: 0,
     },
     radioGroupSty: {
         flexDirection: 'column',
     },
     radioGroupItemSty: {
-        height: 56,
+        height: variables.height_actionSheet_item_bg,
         borderTopWidth: 0,
         borderLeftWidth: 0,
         borderRightWidth: 0,
-        borderBottomColor: '#F2F2F2',
-        backgroundColor: '#FFFFFF',
+        borderBottomColor: variables.color_acticonSheet_border_bottom,
+        backgroundColor: variables.color_actionSheet_item_bg,
     },
     radioGroupItemTextSty: {
-        color: '#212121',
+        color: variables.color_actionSheet_action_font,
         textAlign: 'center',
-        fontSize: 18,
-        lineHeight: 26,
+        fontSize: variables.font_actionSheet_action_size,
+        lineHeight: variables.font_actionSheet_action_lineheight,
     }
 })

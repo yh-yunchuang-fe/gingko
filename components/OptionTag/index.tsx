@@ -29,7 +29,7 @@ export default function OptionTag(props: OptionTagProps) {
     const [isSelect, setSelected] = React.useState(selected)
 
     React.useEffect(() => {
-        if (props.selected !== isSelect) {
+        if (props.selected !== isSelect && !!props.selected) {
             setSelected(props.selected)
         }
     }, [props.selected])
@@ -61,7 +61,6 @@ export default function OptionTag(props: OptionTagProps) {
     let activeSty: any = null
     let activeTextSty: any = null
     let multipleNode: any = null
-    console.log('isSelect===', isSelect)
     
     if (isSelect) {
         activeSty = styles.active
@@ -69,7 +68,7 @@ export default function OptionTag(props: OptionTagProps) {
         if (multiple) {
             multipleNode = (
                 <View style={styles.multiple}>
-                    <Icon style={styles.multipleIcon} name='checkmark' size={6} color='#fff'/>
+                    <Icon style={styles.multipleIcon} size={14} name={'icon-checkmark'} color={'#FFFFFF'} />
                 </View>
             )
         }

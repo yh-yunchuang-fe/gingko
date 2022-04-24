@@ -1,7 +1,7 @@
 declare const _default: {
     card: {
-        borderRadius: any;
-        backgroundColor: any;
+        borderRadius: number;
+        backgroundColor: string;
         flexDirection: "column";
     };
     full: {
@@ -9,29 +9,28 @@ declare const _default: {
     };
     body: {
         flexGrow: number;
-        paddingVertical: any;
-        paddingHorizontal: any;
-        borderTopWidth: any;
-        borderColor: any;
+        paddingVertical: number;
+        paddingHorizontal: number;
+        overflow: "hidden";
     };
     headerTitle: {
         flexDirection: "row";
         alignItems: "center";
-        paddingVertical: any;
-        paddingHorizontal: any;
+        paddingVertical: number;
+        paddingHorizontal: number;
     };
     headerContent: {
-        color: any;
-        fontSize: any;
+        color: string;
+        fontSize: number;
     };
     footer: {
         flexDirection: "row";
-        paddingVertical: any;
-        paddingHorizontal: any;
+        paddingVertical: number;
+        paddingHorizontal: number;
     };
     footerContent: {
-        fontSize: any;
-        color: any;
+        fontSize: number;
+        color: string;
     };
 };
 export default _default;

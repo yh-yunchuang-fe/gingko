@@ -19,26 +19,23 @@ export default () => {
     const [visibleOptions, setVisibleOptions] = React.useState(false)
 
     const onChange = (item: any, idx: any) => {
-        console.log('onChange===', item, idx)
+        console.log('onChange', item, idx)
         setVisibleOptions(false)
     }
 
     return (
-        <View>
+        <WingBlank>
             <WhiteSpace/>
-            <WingBlank>
-                <Button onClick={()=> {
+                <Button line onClick={()=> {
                     setVisibleBasic(true)
                 }}>basic</Button>
-            </WingBlank>
             <WhiteSpace/>
 
             <Actionsheet
                 visible={visibleBasic}
                 onClose={()=> {
                     setVisibleBasic(false)
-                }}
-                >
+                }}>
                 <View style={{
                     height: 150,
                     justifyContent: 'center',
@@ -48,11 +45,9 @@ export default () => {
                 </View>
             </Actionsheet>
 
-            <WingBlank>
-                <Button onClick={()=> {
-                    setVisibleOptions(true)
-                }}>options</Button>
-            </WingBlank>
+            <Button line onClick={()=> {
+                setVisibleOptions(true)
+            }}>options</Button>
 
             <Actionsheet
                 visible={visibleOptions}
@@ -63,8 +58,8 @@ export default () => {
                 onChange={onChange}
                 options={['选项一', '选项二', '选项三', '选项四']}
                 title='主标题'
-                hint='这是提供二行注释, 通过信息澄清的方式，这是提供一行或二行注释'
+                subTitle='这是提供二行注释, 通过信息澄清的方式，这是提供一行或二行注释'
                 />
-        </View>
+        </WingBlank>
     )
 }

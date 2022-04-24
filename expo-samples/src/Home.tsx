@@ -20,7 +20,7 @@ const Home = (props: any) => {
         setTimeout(() => {
             setFontsLoaded(true)
         }, 500)
-    })
+    }, [])
 
     const toItem = (item: any) => {
         props.navigation.navigate(item.title)
@@ -31,7 +31,7 @@ const Home = (props: any) => {
             <TouchableOpacity onPress={() => {toItem(item)}}>
                 <View style={styles.item}>
                     <Text>{item.title} &nbsp; {item.description}</Text>
-                    <Icon name='chevron-right' size={12} color='#666'/>
+                    <Icon name='chevron-right' size={12} color='#666666'/>
                 </View>
             </TouchableOpacity>
         )
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
     listHeader: {
         height: hairlineWidth,
-        backgroundColor: '#ddd'
+        backgroundColor: '#DDDDDD'
     },
     item: {
         height: 50,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 20,
         borderBottomWidth: hairlineWidth,
-        borderColor: '#ddd',
+        borderColor: '#DDDDDD',
         flexDirection: 'row',
     }
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import variables from '../../src/style/variables'
+import variables from '@src/style'
 
 export interface WhiteSpaceProps {
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';

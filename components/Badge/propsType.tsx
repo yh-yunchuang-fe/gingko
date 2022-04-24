@@ -15,7 +15,7 @@ export interface IBadge {
     overflowCount?: number;
     dot?: boolean;
     image?: boolean;
-    source?: ImageURISource;
+    source?: any;
     cornerContent?: React.ReactNode;
     badgeStyle?: ViewStyle,
     badgeTextStyle?: ViewStyle,

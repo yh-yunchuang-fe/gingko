@@ -1,6 +1,5 @@
 /**
  * Created by beilunyang on 2018/3/2
- *
  * modify from https://github.com/react-component/m-picker/blob/master/src/PickerMixin.tsx
  */
 import React from 'react';

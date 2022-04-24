@@ -10,6 +10,7 @@ import {
 import Icon from '../Icon'
 import styles from './style'
 import { ICheckbox } from './propsType'
+import variables from '@src/style/'
 
 export default function Checkbox(props: ICheckbox) {
     const {
@@ -50,13 +51,13 @@ export default function Checkbox(props: ICheckbox) {
 
     const getCheckedColor = (check: boolean) => {
         if(disabled && check ) {
-            return {color: 'rgba(254, 143, 29, 0.5)', icon: 'checked'}
+            return {color: variables.color_checkbox_icon_selected_disable, icon: 'icon-checkbox-checked'}
         } else if(disabled) {
-            return {color: '#C4C4C4', icon: 'radio-off'}
+            return {icon: 'icon-unchecked-disabled'}
         } else if(check) {
-            return {color: '#FE8F1D', icon: 'checked'}
+            return {color: variables.color_checkbox_icon_selected_default, icon: 'icon-checkbox-checked'}
         } else {
-            return {color: '#C4C4C4', icon: 'radio-off'}
+            return {icon: 'icon-unchecked'}
         }
     }
 
@@ -76,7 +77,7 @@ export default function Checkbox(props: ICheckbox) {
 
                 return (
                     <View style={styles.icon}>
-                        <Icon old name={iconName} color={checkColor?.color} />
+                        <Icon name={iconName} color={checkColor?.color} />
                     </View>
                 )
             }
@@ -92,7 +93,7 @@ export default function Checkbox(props: ICheckbox) {
     }
 
     if (typeof children === 'string') {
-        elements = <Text style={textStyle}>{children}</Text>
+        elements = <Text style={[styles.checkboxText, textStyle]}>{children}</Text>
     }
 
     return (

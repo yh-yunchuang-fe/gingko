@@ -4,20 +4,23 @@
  */
 
 export default interface ISearchBarProps {
-    defaultValue?: string;
-    value?: string;
-    placeholder?: string;
-    style?: any;
-    wrapStyle?: any;
-    showCancel?: boolean;
-    cancelText?: string;
-    cancelColor?: string;
-    autoFocus?: boolean;
+    defaultValue?: string
+    value?: string
+    placeholder?: string
+    style?: any
+    wrapStyle?: any
+    showCancel?: boolean
+    searchText?: string
+    cancelText?: string
+    cancelColor?: string
+    selectionColor?: string
+    autoFocus?: boolean
 
-    onSubmit?: (x?: any) => void;
-    onChange?: (x?: any) => void;
-    onFocus?: () => void;
-    onBlur?: () => void;
-    onCancel?: (x?: any) => void;
-    onClear?: () => void;
+    onSubmit?: (x?: any) => void
+    onChange?: (x?: any) => void
+    onFocus?: () => void
+    onBlur?: () => void
+    onSearch?: (x?: any) => void
+    onCancel?: (x?: any) => void
+    onClear?: () => void
 }

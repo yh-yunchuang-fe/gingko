@@ -2,9 +2,9 @@
  * Created by beilunyang on 2018/3/7
  */
 import React from 'react';
-import { ViewStyle, ImageURISource } from 'react-native';
+import { ViewStyle } from 'react-native';
 export interface IBadge {
-    text?: string;
+    text?: any;
     children?: any;
     bgColor?: string;
     color?: string;
@@ -12,11 +12,11 @@ export interface IBadge {
     overflowCount?: number;
     dot?: boolean;
     image?: boolean;
-    source: ImageURISource;
+    source?: any;
     cornerContent?: React.ReactNode;
-    badgeStyle: ViewStyle;
-    badgeTextStyle: ViewStyle;
-    imageBadgeStyle: ViewStyle;
-    top: number;
-    right: number;
+    badgeStyle?: ViewStyle;
+    badgeTextStyle?: ViewStyle;
+    imageBadgeStyle?: ViewStyle;
+    top?: number;
+    right?: number;
 }

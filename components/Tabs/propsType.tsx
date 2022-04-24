@@ -15,7 +15,7 @@ export interface ITabsProps {
     tabStyle?: any
     tabBarLabelStyle?: any
     tabBarIndicatorStyle?: any
-    renderScene?: (props: SceneRendererProps) => React.ReactNode
+    renderScene?: any
     onIndexChange?: (x?: any) => void
     renderLabel?: (x?: any) => void
 }

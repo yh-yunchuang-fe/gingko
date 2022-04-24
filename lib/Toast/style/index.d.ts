@@ -7,20 +7,20 @@ declare const _default: {
         bottom: number;
         backgroundColor: string;
         alignItems: "center";
-        zIndex: any;
+        zIndex: number;
     };
     innerContainer: {
-        backgroundColor: string;
+        backgroundColor: any;
         borderRadius: any;
-        paddingHorizontal: number;
-        paddingVertical: number;
+        paddingHorizontal: any;
+        paddingVertical: any;
         justifyContent: "center";
         alignItems: "center";
-        minWidth: number;
+        minWidth: any;
+        maxWidth: any;
     };
     iconContainer: {
-        paddingTop: number;
-        paddingBottom: number;
+        paddingVertical: number;
     };
     textContainer: {
         minHeight: number;
@@ -28,10 +28,14 @@ declare const _default: {
         alignItems: "center";
     };
     contentText: {
-        color: string;
-        fontSize: number;
-        lineHeight: number;
+        color: any;
+        fontSize: any;
+        lineHeight: any;
         textAlign: "center";
+    };
+    loadingImg: {
+        width: any;
+        height: any;
     };
 };
 export default _default;

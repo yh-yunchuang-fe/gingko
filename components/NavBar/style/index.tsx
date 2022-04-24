@@ -3,13 +3,12 @@
  * @date 2018/3/25
  */
 import { StyleSheet } from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     navBar: {
+        height: 44,
+        backgroundColor: '#FFFFFF',
         flexDirection: 'row',
-        height: variables.nav_bar_height,
-        backgroundColor: variables.nav_bar_fill,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -19,26 +18,29 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     title: {
-        fontSize: variables.font_size_caption,
-        color: variables.color_base,
+        paddingHorizontal: 55,
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#000000',
+        textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center'
     },
     rightWrap: {
-        width: 50,
+        paddingHorizontal: 16,
         alignItems: 'center',
         justifyContent: 'center'
     },
     leftWrap: {
-        width: 50,
+        paddingHorizontal: 16,
         alignItems: 'center',
         justifyContent: 'center'
     },
     leftIcon: {
-        color: variables.color_base
+        color: '#333333'
     },
     leftText: {
-        fontSize: variables.font_size_base,
-        color: variables.color_base
+        fontSize: 16,
+        color: '#333333'
     }
 })

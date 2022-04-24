@@ -1,6 +1,7 @@
 /**
  * @author zhangyi
  */
+import variables from '@src/style'
 import React from 'react'
 import { Text } from 'react-native'
 import RootView from 'react-native-root-view'
@@ -39,8 +40,8 @@ const Alert = (props: IAlertProps) => {
     >
         {content ? <Text style={{
             textAlign: 'center',
-            fontSize: 15,
-            lineHeight: 21
+            fontSize: variables.font_alert_description_size,
+            lineHeight: variables.font_alert_description_lineheight
         }}>{content}</Text> : null}
     </Modal>
 

@@ -27,19 +27,19 @@ export default () => {
         <View>
             <WhiteSpace/>
             <WingBlank>
-                <Button
+                <Button line
                     onClick={()=> {
                         setState({ ...state, visibleBasic: true, animationType: 'none' })
                     }}
                 >basic</Button>
                 <WhiteSpace/>
-                <Button
+                <Button line
                     onClick={()=> {
                         setState({ ...state, visibleInput: true, animationType: 'none' })
                     }}
                 >Modal TextInput</Button>
                 <WhiteSpace/>
-                <Button
+                <Button line
                     onClick={()=> {
                         Modal.alert('弹窗标题', '弹窗正文单行限制宽度超出后折行', [
                             { text: '取消', onPress: () => console.log('cancel') },
@@ -48,7 +48,7 @@ export default () => {
                     }
                 >alert</Button>
                 <WhiteSpace/>
-                <Button
+                <Button line
                     onClick={()=> {
                         Modal.alert('', '弹窗正文单行限制宽度超出后折行弹窗正文单行限制宽度超出后折行', [
                             { text: '知道了', type: 'primary', onPress: () => console.log('ok') },
@@ -87,7 +87,7 @@ export default () => {
                     style={{
                         height: 28,
                         lineHeight: 28,
-                        borderColor: '#333',
+                        borderColor: '#333333',
                         borderWidth: StyleSheet.hairlineWidth
                     }}
                     placeholder='文本框'/>

@@ -9,17 +9,18 @@ import {
     TouchableWithoutFeedback
 } from 'react-native'
 import NoticeBarProps from './propsType'
-import styles from './style/index'
+import styles from './style'
 import Icon from '../Icon'
+import variables from '@src/style'
 
 export default function NoticeBar(props: NoticeBarProps) {
     const {
         style,
-        color = '#B97400',
+        color = variables.color_noticeBar_icon,
         mode = '',
         icon = '',
         action = '',
-        bgColor = '#FFEFD4',
+        bgColor = variables.color_noticeBar_bg,
         children
     } = props
 
@@ -76,7 +77,7 @@ export default function NoticeBar(props: NoticeBarProps) {
     
     const mainDom = (
         <View style={[styles.noticeBar, style, {backgroundColor: bgColor}]}>
-            { !!icon && <Icon name={icon} size={14} style={[styles.icon, colorSty]}/> }
+            { !!icon && <Icon name={icon} size={variables.font_noticeBar_size} style={[styles.icon, colorSty]}/> }
             { !!children && <View style={styles.container}>{childrenDom}</View> }
             { operationDom }
         </View>

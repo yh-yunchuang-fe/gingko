@@ -2,9 +2,10 @@
  * @author zhangyi
  * @date 2018/2/28
  */
+import variables from '@src/style'
 import { StyleSheet, Dimensions } from 'react-native'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
     container: {
@@ -12,56 +13,59 @@ export default StyleSheet.create({
         bottom: 0,
         backgroundColor: '#F5F5F5',
         width,
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
+        borderTopLeftRadius: variables.radius_popup_header_topLeft,
+        borderTopRightRadius: variables.radius_popup_header_topRight,
         overflow: 'hidden',
-        minHeight: height * 0.2,
-        maxHeight: height * 0.8,
+        minHeight: variables.height_popup_min,
+        maxHeight: variables.height_popup_max,
     },
     hintWrap: {
-        backgroundColor: '#FFFFFF',
-        borderBottomWidth: 1,
-        borderBottomColor: '#F2F2F2',
-        paddingHorizontal: 16,
-        paddingVertical: 16,
+        backgroundColor: variables.color_popup_header_bg,
+        paddingVertical: variables.spacing_popup_header_paddingTop,
         alignItems: 'center'
     },
     hintText: {
-        lineHeight: 20,
-        fontSize: 14,
-        color: '#757575',
+        lineHeight: variables.font_popup_description_lineheight,
+        fontSize: variables.font_popup_description_size,
+        fontWeight: '400',
+        color: variables.color_popup_description_font,
         textAlign: 'center',
     },
-    titleWrap: { 
+    headerWrap: { 
         width,
-        marginBottom: 8,
-        alignItems: 'center',
+        alignItems: 'flex-start',
         flexDirection: 'row', 
         justifyContent: 'space-between'
     },
+    closeHeaderWrap: {
+        paddingRight: variables.spacing_popup_header_withIcon_paddingRight
+    },
+    cancelHeaderWrap: {
+        paddingHorizontal: variables.spacing_popup_header_paddingBottom,
+    },
+    titleWrap: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: variables.spacing_popup_header_withIcon_title_marginBottom,
+        marginHorizontal: variables.spacing_popup_header_action_active_marginLeft
+    },
     titleText: {
-        fontSize: 18,
-        lineHeight: 26,
-        color: '#212121',
-        fontWeight: '500'
+        color: variables.color_popup_title_font,
+        fontSize: variables.font_popup_title_size,
+        fontWeight: '600',
+        lineHeight: variables.font_popup_title_lineheight,
     },
     cancelText: {
-        color: '#9E9E9E', 
-        fontSize: 16, 
-        lineHeight: 26,
-        paddingLeft: 16
+        color: variables.color_popup_action_cancel_font, 
+        fontSize: variables.font_popup_action_cancel_size, 
+        fontWeight: '600',
+        lineHeight: variables.font_popup_action_cancel_lineheight,
     },
     finishText: {
-        color: '#FE8F1D', 
-        fontSize: 16, 
-        lineHeight: 26,
-        paddingRight: 16
-    },
-    cancelArea: {
-        width,
-        height: 56,
-        marginTop: 12,
-        backgroundColor: '#FFFFFF',
-        bottom: 0,
+        color: variables.color_popup_action_active_font, 
+        fontSize: variables.font_popup_action_active_size, 
+        fontWeight: '600',
+        lineHeight: variables.font_popup_action_active_lineheight,
     }
 })

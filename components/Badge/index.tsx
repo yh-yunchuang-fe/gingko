@@ -9,7 +9,6 @@ import {
     Platform
 } from 'react-native'
 import styles from './style'
-import variables from '../../src/style/variables'
 import { IBadge } from './propsType'
 
 export default function Badge(props: IBadge) {
@@ -17,10 +16,10 @@ export default function Badge(props: IBadge) {
         style = {},
         dot = false,
         image = false,
-        source = '',
+        source,
         overflowCount = 99,
-        bgColor = variables.fill_badge,
-        color = variables.color_white,
+        bgColor = '#FF0000',
+        color = '#FFFFFF',
         cornerContent = null,
         badgeStyle = {},
         badgeTextStyle = {},
@@ -50,7 +49,7 @@ export default function Badge(props: IBadge) {
         if (overflowCount && typeof text === 'number' && text > overflowCount) {
             text = `${overflowCount}+`
         }
-
+        console.log('text===', text)
         if (dot) {
             contentElement = (
                 <View {...restProps} style={[styles.dot]}/>
@@ -68,7 +67,7 @@ export default function Badge(props: IBadge) {
                     <Text style={[styles.text, {color}, styles.imageTextBadge, badgeTextStyle]}>{text}</Text>
                 </View>
             )
-        } else {
+        } else if(!!text) {
             contentElement = (
                 <View {...restProps} style={[styles.textDom, textDomExtraStyle, { backgroundColor: bgColor }, badgeStyle]}>
                     <Text style={[styles.text, {color}, badgeTextStyle]}>{text}</Text>

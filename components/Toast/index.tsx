@@ -9,16 +9,15 @@ import {
     IShowToastOptions,
 } from './propsType'
 
-const show = (content: string | React.ReactElement<any>, options: IShowToastOptions = {}) => {
-    const {
-        icon,
-        type,
-        duration,
-        position,
-        onClose,
-        style,
-        mask,
-    } = options
+const show = (content: string | React.ReactElement<any>, {
+    icon,
+    type,
+    duration,
+    position,
+    onClose,
+    style,
+    mask,
+}: IShowToastOptions = {}) => {
     let id:number = 0
     const animationEnd = () => {
         rootView.remove(id)
@@ -43,14 +42,13 @@ const show = (content: string | React.ReactElement<any>, options: IShowToastOpti
 export default {
     LONG: 3500,
     SHORT: 2000,
-    success(content: string | React.ReactElement<any>, options: IBaseToastOptions = {}) {
-        const {
-            duration,
-            position,
-            onClose,
-            style,
-            mask,
-        } = options as any
+    success(content: string | React.ReactElement<any>, {
+        duration,
+        position,
+        onClose,
+        style,
+        mask,
+    }: IBaseToastOptions = {}) {
         return show(content, {
             type: 'success',
             duration,
@@ -60,14 +58,13 @@ export default {
             mask,
         })
     },
-    fail(content: string | React.ReactElement<any>, options: IBaseToastOptions = {}) {
-        const {
-            duration,
-            position,
-            onClose,
-            style,
-            mask,
-        } = options as any
+    fail(content: string | React.ReactElement<any>, {
+        duration,
+        position,
+        onClose,
+        style,
+        mask,
+    }: IBaseToastOptions = {}) {
         return show(content, {
             type: 'fail',
             duration,
@@ -77,14 +74,13 @@ export default {
             mask,
         })
     },
-    warn(content: string | React.ReactElement<any>, options: IBaseToastOptions = {}) {
-        const {
-            duration,
-            position,
-            onClose,
-            style,
-            mask,
-        } = options as any
+    warn(content: string | React.ReactElement<any>, {
+        duration,
+        position,
+        onClose,
+        style,
+        mask,
+    }: IBaseToastOptions = {}) {
         return show(content, {
             type: 'warn',
             duration,
@@ -94,15 +90,13 @@ export default {
             mask,
         })
     },
-    loading(content: string | React.ReactElement<any>, options: IBaseToastOptions = {}) {
-        const {
-            duration,
-            position,
-            onClose,
-            style,
-            mask,
-        } = options as any
-        console.log('loading====', style)
+    loading(content: string | React.ReactElement<any>, {
+        duration,
+        position,
+        onClose,
+        style,
+        mask,
+    }: IBaseToastOptions = {}) {
         return show(content, {
             type: 'loading',
             duration,

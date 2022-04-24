@@ -5,12 +5,14 @@ interface IconProps {
     size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number;
     style?: any;
 }
-export default interface IbuttonProps {
-    type?: 'default' | 'primary' | 'warning';
-    size?: 'default' | 'large' | 'small';
-    style?: React.CSSProperties;
-    textStyle?: React.CSSProperties;
-    disabled?: boolean;
+export default interface IButtonProps {
+    type?: 'primary' | 'second' | 'disable';
+    size?: 'md' | 'lg' | 'sm';
+    solid?: boolean;
+    line?: boolean;
+    style?: any;
+    textStyle?: any;
+    link?: boolean;
     activeStyle?: object;
     onClick?: (x?: any) => void;
     loading?: boolean;
@@ -18,6 +20,7 @@ export default interface IbuttonProps {
     onPressOut?: (x?: any) => void;
     onShowUnderlay?: (x?: any) => void;
     onHideUnderlay?: (x?: any) => void;
+    children: any;
     icon?: string | IconProps;
     iconStyle?: React.CSSProperties;
 }

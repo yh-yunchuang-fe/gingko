@@ -12,4 +12,5 @@ export interface ICheckbox {
     textStyle?: TextStyle;
     disabled?: boolean;
     name?: string;
+    children?: any;
 }

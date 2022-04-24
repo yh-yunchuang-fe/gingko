@@ -12,7 +12,7 @@ export interface ISideProps {
 
 }
 
-export interface IDefaultSidebarProps {
+export interface IDefaultSideBarProps {
     tabs: ISideProps[]
     activeTab: number
     sidebarPosition?: 'left'
@@ -28,10 +28,10 @@ export interface IDefaultSidebarProps {
     sidebarTabStyle?: React.CSSProperties | any
 }
 
-export interface ISidebarProps {
+export interface ISideBarProps {
     tabs: ISideProps[]
     sidebarPosition?: 'left'
-    renderSidebar?: (x?: any) => void
+    renderSideBar?: (x?: any) => void
     initialPage?: number | string
     page?: number | string
     onChange?: (tab: ISideProps, index: number) => void

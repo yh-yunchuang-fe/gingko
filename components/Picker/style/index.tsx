@@ -1,33 +1,36 @@
 /**
  * Created by beilunyang on 2018/2/9
  */
+import variables from '@src/style'
 import {
     StyleSheet,
 } from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     container: {
-        backgroundColor: variables.color_white,
-    },
-    dismiss: {
-        color: '#666',
-        fontSize: variables.btn_font_size_sm,
+        backgroundColor: variables.color_picker_body_bg,
     },
     header: {
+        height: 58,
+        backgroundColor: variables.color_picker_header_bg,
         alignItems: 'center',
-        backgroundColor: '#f4f5f6',
         flexDirection: 'row',
-        height: 42,
         justifyContent: 'space-between',
-        paddingHorizontal: variables.h_spacing_lg,
+        paddingHorizontal: 12,
+    },
+    dismiss: {
+        color: variables.color_picker_action_cancel_font,
+        fontSize: variables.font_picker_action_cancel_size,
+        fontWeight: '600',
     },
     ok: {
-        color: variables.color_link,
-        fontSize: variables.btn_font_size_sm,
+        color: variables.color_picker_action_active_font,
+        fontSize: variables.font_picker_action_active_size,
+        fontWeight: '600',
     },
     title: {
-        color: variables.color_base,
-        fontSize: variables.btn_font_size_sm,
+        color: variables.color_picker_title_font,
+        fontSize: variables.font_picker_title_size,
+        fontWeight: '600',
     },
 })

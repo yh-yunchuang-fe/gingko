@@ -14,62 +14,52 @@ import NavBarProps from './propsType'
 import styles from './style'
 import Icon from '../Icon'
 
-export default class NarBar extends React.Component<NavBarProps, any> {
-    public static defaultProps = {
-        style: null,
-        leftIcon: 'back',
-        leftContent: null,
-        rightContent: null,
-        onLeftClick: ()=> {}
+export default function NarBar({
+    style = null,
+    leftIcon = 'back', // 'home'
+    leftContent = null,
+    rightContent = null,
+    onLeftClick = ()=> {},
+    children,
+    ...restProps
+}: NavBarProps) {
+
+    let leftDom: any = null
+
+    if (leftContent) {
+        if (typeof leftContent === 'string') {
+            leftDom = (<Text style={styles.leftText}>{ leftContent }</Text>)
+        } else {
+            leftDom = leftContent
+        }
+    } else {
+        leftDom = (<Icon name={leftIcon} style={styles.leftIcon} size={16}/>)
     }
 
-    constructor(props: any) {
-        super(props)
-    }
-
-    public render() {
-        const {
-            style, leftIcon = 'home', leftContent, rightContent, onLeftClick, children,
-            ...restProps
-        } = this.props
-
-        let leftDom: any = null
-
-        if (leftContent) {
-            if (typeof leftContent === 'string') {
-                leftDom = (<Text style={styles.leftText}>{ leftContent }</Text>)
-            } else {
-                leftDom = leftContent
-            }
-        } else {
-            leftDom = (<Icon old name={leftIcon} style={styles.leftIcon} size={20}/>)
-        }
-
-        leftDom = (
-            <TouchableOpacity onPress={onLeftClick}>
-                <View style={styles.leftWrap}>
-                    {leftDom}
-                </View>
-            </TouchableOpacity>
-        )
-
-        let childDom: any = null
-        if (children && typeof children === 'string') {
-            childDom = (<Text style={styles.title}>{children}</Text>)
-        } else {
-            childDom = children
-        }
-
-        return (
-            <View style={[styles.navBar, style]} {...restProps}>
+    leftDom = (
+        <TouchableOpacity onPress={onLeftClick}>
+            <View style={styles.leftWrap}>
                 {leftDom}
-                <View style={styles.content}>
-                    { childDom }
-                </View>
-                <View style={styles.rightWrap}>
-                    {rightContent}
-                </View>
             </View>
-        )
+        </TouchableOpacity>
+    )
+
+    let childDom: any = null
+    if (children && typeof children === 'string') {
+        childDom = (<Text style={styles.title}>{children}</Text>)
+    } else {
+        childDom = children
     }
+
+    return (
+        <View style={[styles.navBar, style]} {...restProps}>
+            {leftDom}
+            <View style={styles.content}>
+                { childDom }
+            </View>
+            <View style={styles.rightWrap}>
+                {rightContent}
+            </View>
+        </View>
+    )
 }

@@ -5,6 +5,7 @@ import {
     StyleSheet,
     Platform,
 } from 'react-native'
+import variables from '@src/style'
 
 export default StyleSheet.create({
     container: {
@@ -18,14 +19,14 @@ export default StyleSheet.create({
         zIndex: 1000,
     },
     innerContainer: {
-        backgroundColor: 'rgba(33, 33, 33, 0.7)',
-        borderRadius: 6,
-        paddingHorizontal: 20,
-        paddingVertical: 10,
+        backgroundColor: variables.color_toast_bg,
+        borderRadius: variables.radius_toast,
+        paddingHorizontal: variables.spacing_toast_default_paddingLeft,
+        paddingVertical: variables.spacing_toast_default_paddingTop,
         justifyContent: 'center',
         alignItems: 'center',
-        minWidth: 90,
-        maxWidth: 140
+        minWidth: variables.width_toast_default_bg_min,
+        maxWidth: variables.width_toast_default_bg_max
     },
     iconContainer: {
         paddingVertical: 6,
@@ -36,9 +37,14 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     contentText: {
-        color: '#fff',
-        fontSize: 14,
-        lineHeight: 20,
+        color: variables.color_toast_font,
+        fontSize: variables.font_toast_default_size,
+        // fontWeight: variables.font_toast_weight,
+        lineHeight: variables.font_toast_default_lineheight,
         textAlign: 'center',
     },
+    loadingImg: {
+        width: variables.width_toast_withicon_icon, 
+        height: variables.width_toast_withicon_icon
+    }
 })

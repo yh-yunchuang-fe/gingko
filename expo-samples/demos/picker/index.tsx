@@ -3,32 +3,24 @@
  */
 import React from 'react'
 import {
-    View,
     Text,
     StyleSheet,
 } from 'react-native'
 import {
     Button,
-    WhiteSpace,
     Picker,
+    WhiteSpace,
+    WingBlank
 } from '../../../components/index'
-
-const styles = StyleSheet.create({
-    multiPicker: {
-        backgroundColor: 'red',
-        height: 217,
-    },
-    singlePicker: {
-        backgroundColor: 'yellowgreen',
-    },
-})
 
 export default () => {
     const [state, setState] = React.useState({
         value: ['2014', '2', '11'],
         value2: '',
+        value3: '',
         visible: false,
         visible2: false,
+        visible3: false,
     })
 
     const handleDismiss = () => {
@@ -36,6 +28,7 @@ export default () => {
             ...state,
             visible: false,
             visible2: false,
+            visible3: false,
         })
     }
 
@@ -44,33 +37,24 @@ export default () => {
         handleDismiss()
     }
 
-    const handlePicker = () => {
+    const handlePicker = (visible: string) => {
         setState({
             ...state,
-            visible: true,
-        })
-    }
-
-    const handlePicker2 = () => {
-        setState({
-            ...state,
-            visible2: true,
+            [visible]: true,
         })
     }
 
     return (
-        <View>
-            <Text style={{ fontSize: 24, color: '#000', textAlign: 'center', height: 40 }}>
-                {state.value}
-            </Text>
-            <Text style={{ fontSize: 24, color: '#000', textAlign: 'center', height: 40 }}>
-                {state.value2}
-            </Text>
-            <Button onClick={handlePicker}>多列Picker</Button>
+        <WingBlank>
             <WhiteSpace/>
-            <Button onClick={handlePicker2}>单列Picker</Button>
+            <Button line onClick={() => {handlePicker('visible2')}}>单列Picker-({state.value2})</Button>
+            <WhiteSpace/>
+            <Button line onClick={() => {handlePicker('visible')}}>多列Picker-({state.value})</Button>
+            <WhiteSpace/>
+            <Button line onClick={() => {handlePicker('visible3')}}>自定义Picker-({state.value})</Button>
+            <WhiteSpace/>
             <Picker
-                title='多列'
+                title='上拉窗标题栏'
                 visible={state.visible}
                 data={[ // label是可选的, 不设置就取value的值  label/value 可以是字符串或数字
                     [ 
@@ -91,7 +75,7 @@ export default () => {
                         { label: '11', value: '11' },
                         { label: '12', value: '12' },
                         { label: '13', value: '13' },
-                    ],
+                    ]
                 ]}
                 value={state.value}
                 onChange={(values, idx) => {
@@ -103,11 +87,6 @@ export default () => {
                 onOk={handleOk}
                 onDismiss={handleDismiss}
                 style={styles.multiPicker}
-                columnStyle={[
-                    {
-                        backgroundColor: 'yellow',
-                    },
-                ]}
                 itemStyle={[
                     { color: 'red' },
                     { color: 'gray' },
@@ -115,10 +94,10 @@ export default () => {
                 ]}
             />
             <Picker
-                title='单列'
+                title='上拉窗标题栏'
                 visible={state.visible2}
                 onOk={handleOk}
-                style={styles.singlePicker}
+                style={{}}
                 onDismiss={handleDismiss}
                 value={state.value2}
                 onChange={(val, idx) => {
@@ -135,6 +114,13 @@ export default () => {
             </Picker>
             <WhiteSpace/>
             <Text>你也可以让组件自管理状态，即不传value prop,然后通过onOK和onChange回调来获取改变后的值</Text>
-        </View>
+        </WingBlank>
     )
 }
+
+const styles = StyleSheet.create({
+    multiPicker: {
+        height: 217,
+        paddingHorizontal: -6,
+    }
+})

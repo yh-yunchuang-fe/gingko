@@ -3,29 +3,33 @@ declare const _default: {
         borderRadius: any;
         backgroundColor: any;
         paddingHorizontal: any;
-        paddingVertical: number;
-        width: any;
-        zIndex: any;
-    };
-    header: {
-        fontWeight: "bold";
-        textAlign: "center";
-        fontSize: any;
-        color: any;
-        marginTop: any;
-    };
-    body: {
         paddingTop: any;
         paddingBottom: any;
-        paddingHorizontal: any;
+        width: any;
+        zIndex: number;
+    };
+    header: {
+        fontWeight: "600";
+        textAlign: "center";
+        fontSize: any;
+        lineHeight: any;
+        color: any;
+        marginBottom: any;
     };
     btnGroup: {
         flexDirection: "row";
         justifyContent: "space-between";
         marginTop: any;
+        marginHorizontal: any;
     };
     singleBtn: {
         justifyContent: "center";
+    };
+    modalText: {
+        fontSize: any;
+        color: any;
+        textAlign: "center";
+        lineHeight: any;
     };
 };
 export default _default;

@@ -1,13 +1,21 @@
-/**
- * @author zhangyi
- * @date 2018/2/28
- */
-export default interface IModalProps {
-    visible: boolean;
-    maskClosable?: boolean;
-    onClose?: () => void;
+export default interface IDividerProps {
+    style?: any;
+    wrapStyle?: any;
+    maskStyle?: any;
+    type?: 'none' | 'close' | 'cancel';
+    animationType?: 'none' | 'fade' | 'slide-up' | 'slide-down' | string;
     animationDuration?: number;
     animateAppear?: boolean;
+    visible: boolean;
+    transparent?: boolean;
+    maskClosable?: boolean;
+    onChange?: (x?: any) => void;
+    onClose?: (x?: any) => void;
     onAnimationEnd?: (x?: any) => void;
-    style?: any;
+    maskCloseable?: boolean;
+    children?: any;
+    hint?: string;
+    title?: string;
+    close?: string;
+    numberOfLines?: number;
 }

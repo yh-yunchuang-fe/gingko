@@ -1,34 +1,53 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import { Shadow } from '../../../components/index'
+import { 
+    View, 
+    Text, 
+    StyleSheet, 
+    Dimensions } from 'react-native'
+import { 
+    Shadow, 
+    Card } from '../../../components/index'
+
+const { width } = Dimensions.get('window')
 
 export default () => {
-    return <View style={style.container}>
+    return <View style={styles.container}>
+        <Text style={styles.description}>投影（小）</Text>
         <Shadow type='small'>
-            <View style={style.shadowItem}></View>
+            <Card style={styles.shadowItem}/>
         </Shadow>
+        <Text style={styles.description}>投影（中）</Text>
         <Shadow>
-            <View style={style.shadowItem}></View>
+            <Card style={styles.shadowItem}/>
         </Shadow>
+        <Text style={styles.description}>投影（大）</Text>
         <Shadow type='large'>
-            <View style={style.shadowItem}></View>
+            <Card style={styles.shadowItem}/>
         </Shadow>
     </View>
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        paddingVertical: 12, 
-        paddingHorizontal: 12, 
         flex: 1,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#F5F5F5',
         alignItems: 'center'
     },
     shadowItem: {
-        width: 100,
+        width: width - 76,
         height: 100,
         backgroundColor: '#FFFFFF',
         marginBottom: 30,
         flexDirection: 'row'
+    },
+    description: {
+        fontSize: 12,
+        lineHeight: 18,
+        width: width - 76,
+        textAlign: 'left',
+        color: '#FF4E23',
+        marginHorizontal: 20,
+        marginTop: 30,
+        marginBottom: 16
     }
 })

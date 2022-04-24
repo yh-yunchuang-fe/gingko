@@ -1,8 +1,8 @@
 declare const _default: {
     navBar: {
+        height: number;
+        backgroundColor: string;
         flexDirection: "row";
-        height: any;
-        backgroundColor: any;
         justifyContent: "center";
         alignItems: "center";
     };
@@ -12,27 +12,30 @@ declare const _default: {
         alignItems: "center";
     };
     title: {
-        fontSize: any;
-        color: any;
+        paddingHorizontal: number;
+        fontSize: number;
+        fontWeight: "600";
+        color: string;
+        textAlign: "center";
         justifyContent: "center";
         alignItems: "center";
     };
     rightWrap: {
-        width: number;
+        paddingHorizontal: number;
         alignItems: "center";
         justifyContent: "center";
     };
     leftWrap: {
-        width: number;
+        paddingHorizontal: number;
         alignItems: "center";
         justifyContent: "center";
     };
     leftIcon: {
-        color: any;
+        color: string;
     };
     leftText: {
-        fontSize: any;
-        color: any;
+        fontSize: number;
+        color: string;
     };
 };
 export default _default;

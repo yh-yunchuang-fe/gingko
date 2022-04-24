@@ -2,20 +2,21 @@
  * @author zhangyi
  * @date 2018/4/9
  */
+import variables from '@src/style'
 import React from 'react'
 import {
     TouchableOpacity,
     View,
     Text, ScrollView,
 } from 'react-native'
-import { IDefaultSidebarProps, ISideProps } from './propsType'
+import { IDefaultSideBarProps, ISideProps } from './propsType'
 import styles from './style'
 
-export default class DefaultSidebar extends React.Component<IDefaultSidebarProps, any> {
+export default class DefaultSideBar extends React.Component<IDefaultSideBarProps, any> {
     public static defaultProps = {
         tabs: [],
         activeTab: 0,
-        sidebarBackgroundColor: '#fff',
+        sidebarBackgroundColor: variables.color_sideBar_bg,
         sidebarActiveTextColor: '',
         sidebarInactiveTextColor: '',
         sidebarTextStyle: {},
@@ -45,11 +46,11 @@ export default class DefaultSidebar extends React.Component<IDefaultSidebarProps
 
         const isTabActive = activeTab === index
         const textColor = isTabActive ?
-            (activeTextColor || styles.Sidebar.activeTextColor) :
-            (inactiveTextColor || styles.Sidebar.inactiveTextColor)
+            (activeTextColor || styles.SideBar.activeTextColor) :
+            (inactiveTextColor || styles.SideBar.inactiveTextColor)
         const bgColor = isTabActive ?
-            (activeFillColor || styles.Sidebar.activeFillColor) :
-            (fillColor || styles.Sidebar.fillColor)
+            (activeFillColor || styles.SideBar.activeFillColor) :
+            (fillColor || styles.SideBar.fillColor)
         const disabled = tab?.disabled
 
         return (
@@ -59,15 +60,15 @@ export default class DefaultSidebar extends React.Component<IDefaultSidebarProps
                 onPress={disabled ? () => {} : () => this.onPress(index)}
             >
                 <View style={{
-                    ...styles.Sidebar.tab,
+                    ...styles.SideBar.tab,
                     backgroundColor: bgColor,
                     ...tabStyle
                 }}>
                     {
                         renderTab ? renderTab(tab, isTabActive) :
                             <Text numberOfLines={2} style={{
-                                color: disabled ? styles.Sidebar.disabledColor : textColor,
-                                ...styles.Sidebar.textStyle,
+                                color: disabled ? styles.SideBar.disabledColor : textColor,
+                                ...styles.SideBar.textStyle,
                                 ...textStyle
                             }}>
                                 { tab.title }
@@ -86,8 +87,8 @@ export default class DefaultSidebar extends React.Component<IDefaultSidebarProps
 
         return (
             <View style={{
-                ...styles.Sidebar.container,
-                backgroundColor: sidebarFillColor || styles.Sidebar.fillColor
+                ...styles.SideBar.container,
+                backgroundColor: sidebarFillColor || styles.SideBar.fillColor
             }}>
                 <ScrollView
                     ref={(scrollView: any) => { this.scrollView = scrollView }}
@@ -97,8 +98,8 @@ export default class DefaultSidebar extends React.Component<IDefaultSidebarProps
                     scrollsToTop={false}
                 >
                     <View style={{
-                        ...styles.Sidebar.tabs,
-                        backgroundColor: sidebarFillColor || styles.Sidebar.fillColor
+                        ...styles.SideBar.tabs,
+                        backgroundColor: sidebarFillColor || styles.SideBar.fillColor
                     }}>
                         {
                             tabs.map((name, index) => {

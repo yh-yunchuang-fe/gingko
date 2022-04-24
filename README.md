@@ -1,16 +1,16 @@
 ## gingko
 
 #### 介绍
-gingko是基于React Native的UI组件库，为永辉云创RN项目提供支撑。
+    gingko是基于React Native的UI组件库，为永辉云创RN项目提供支撑。
 
 #### 预览
-需要在手机安装Expo应用，然后打开如下地址：https://expo.io/@zhangyi5638/gingko
-就可阅览
+    需要在手机安装Expo应用，然后打开如下地址就可阅览：https://expo.io/@zhangyi5638/gingko
+    
 
 <p align="center">
     <img src="http://owtrjd7fu.bkt.clouddn.com/expo-gingko.png" width = "200" alt="gingko" align=center />
+    打开手机Expo扫码阅览
 </p>
-<p align="center">打开手机Expo扫码阅览</p>
 
 
 ### 开发调试
@@ -29,8 +29,9 @@ npm run android
 ```
 
 #### 使用
-需要先在客户端设备上按照expo 然后去扫描终端上生产的二维码或打开如下地址：
-exp://localhost:19000
+    需要先在客户端设备上按照expo 然后去扫描终端上生产的二维码或打开如下地址：
+    exp://localhost:19000
+
 
 #### 组件列表
 - [x] Badge 徽标
@@ -42,14 +43,12 @@ exp://localhost:19000
 - [x] Icon 图表
 - [x] Indicator 指示器
 - [x] InputItem 输入框
-- [x] InputNumber 数字输入框
 - [x] Modal 模态窗
 - [x] NoticeBar 通知栏
 - [x] Picker 选择器
 - [x] Popup 底部弹窗窗
 - [x] RadioGroup 单选组
 - [x] SearchBar 搜索栏
-- [x] SearchInput 搜索框
 - [x] Tag 标签
 - [x] WhiteSpace 上下留白
 - [x] WingBlank 左右留白  

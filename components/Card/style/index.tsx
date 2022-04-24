@@ -1,10 +1,9 @@
 import { StyleSheet } from 'react-native'
-import variables from '../../../src/style/variables'
 
 export default StyleSheet.create({
     card: {
-        borderRadius: variables.radius,
-        backgroundColor: variables.fill_base,
+        borderRadius: 8,
+        backgroundColor: '#FFFFFF',
         flexDirection: 'column'
     },
     full: {
@@ -12,28 +11,27 @@ export default StyleSheet.create({
     },
     body: {
         flexGrow: 1,
-        paddingVertical: variables.v_spacing_md,
-        paddingHorizontal: variables.h_spacing_lg,
-        borderTopWidth: variables.border_width,
-        borderColor: variables.border_color_base,
+        paddingVertical: 12,
+        paddingHorizontal: 12,
+        overflow: 'hidden',
     },
     headerTitle: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: variables.v_spacing_md,
-        paddingHorizontal: variables.h_spacing_lg
+        paddingVertical: 9,
+        paddingHorizontal: 12
     },
     headerContent: {
-        color: variables.color_base,
-        fontSize: variables.font_size_caption,
+        color: '#333333',
+        fontSize: 18,
     },
     footer: {
         flexDirection: 'row',
-        paddingVertical: variables.v_spacing_sm,
-        paddingHorizontal: variables.h_spacing_lg,
+        paddingVertical: 6,
+        paddingHorizontal: 12,
     },
     footerContent: {
-        fontSize: variables.font_size_base,
-        color: variables.color_text_caption,
-    },
+        fontSize: 16,
+        color: '#888888',
+    }
 })

@@ -9,14 +9,15 @@ export declare enum Mode {
     Month = "month"
 }
 export interface IDatePickerProps {
-    mode: Mode;
-    minDate: Date;
-    maxDate: Date;
-    onDateChange: (val?: Date) => any;
-    onValueChange: (val?: any[], idx?: any) => any;
-    defaultDate: Date;
-    date: Date;
-    title: string;
-    onOk: (date?: any, val?: any[]) => void;
-    onDismiss: () => any;
+    visible?: boolean;
+    mode?: any;
+    minDate?: any;
+    maxDate?: any;
+    onDateChange?: (val?: Date) => any;
+    onValueChange?: (val?: any[], idx?: any) => any;
+    defaultDate?: any;
+    date?: any;
+    title?: string;
+    onOk?: (date?: any, val?: any[]) => void;
+    onDismiss?: () => any;
 }

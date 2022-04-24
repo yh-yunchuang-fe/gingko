@@ -8,6 +8,7 @@ import { IAndroidPickerProps } from './propsType';
 export interface IPickerProp {
     select: any;
     doScrollingComplete: any;
+    currentType: any;
 }
 declare const _default: {
     new (props: IAndroidPickerProps | Readonly<IAndroidPickerProps>): {

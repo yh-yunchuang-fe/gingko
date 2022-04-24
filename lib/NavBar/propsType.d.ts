@@ -6,6 +6,7 @@ export default interface NavBarProps {
     leftIcon?: string;
     leftContent?: any;
     rightContent?: any;
-    onLeftClick?: () => {};
+    onLeftClick?: (x?: any) => void;
     style?: any;
+    children?: any;
 }

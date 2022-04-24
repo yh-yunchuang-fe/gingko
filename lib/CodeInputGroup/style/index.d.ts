@@ -12,16 +12,16 @@ declare const _default: {
         fontSize: number;
         textAlign: "center";
         opacity: number;
-        borderBottomWidth: any;
-        borderColor: any;
+        borderBottomWidth: number;
+        borderColor: string;
     };
     inputWrap: {
         width: number;
         height: number;
         justifyContent: "center";
         alignItems: "center";
-        borderBottomWidth: any;
-        borderColor: any;
+        borderBottomWidth: number;
+        borderColor: string;
     };
     input: {
         fontSize: number;

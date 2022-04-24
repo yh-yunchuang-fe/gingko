@@ -13,10 +13,12 @@ import {
 import PickerMixin from './PickerMixin.android'
 import styles from './style/Picker.android'
 import { IAndroidPickerProps } from './propsType'
+import variables from '@src/style'
 
 export interface IPickerProp {
     select: any
     doScrollingComplete: any
+    currentType: any
 }
 
 class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
@@ -27,7 +29,8 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
     public contentRef: any
     public indicatorRef: any
 
-    public onItemLayout = (e) => {
+    public onItemLayout = (e: any) => {
+        
         const { height, width } = e.nativeEvent.layout
         if (this.itemWidth !== width) {
             this.itemWidth = width
@@ -35,7 +38,7 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
                 style: [
                     styles.indicator,
                     {
-                        top: height * 3,
+                        top: height * 2,
                         height,
                         width,
                     },
@@ -46,13 +49,13 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
             this.itemHeight = height
             this.scrollerRef.setNativeProps({
                 style: {
-                    height: height * 7,
+                    height: height * 5,
                 },
             })
             this.contentRef.setNativeProps({
                 style: {
-                    paddingTop: height * 3,
-                    paddingBottom: height * 3,
+                    paddingTop: height * 2,
+                    paddingBottom: height * 2,
                 },
             })
             // i do no know why!...
@@ -76,20 +79,20 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
         }
     }
 
-    public scrollTo = (y) => {
+    public scrollTo = (y: any) => {
         this.scrollerRef.scrollTo({
             y,
             animated: false,
         })
     }
 
-    public fireValueChange = (selectedValue) => {
+    public fireValueChange = (selectedValue: any) => {
         if (this.props.selectedValue !== selectedValue && this.props.onValueChange) {
             this.props.onValueChange(selectedValue)
         }
     }
 
-    public onScroll = (e) => {
+    public onScroll = (e: any) => {
         const { y } = e.nativeEvent.contentOffset
         this.clearScrollBuffer()
         this.scrollBuffer = setTimeout(() => {
@@ -99,7 +102,8 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
     }
 
     public render() {
-        const { children, selectedValue, itemStyle, style } = this.props
+        console.log('this.props===', this.props)
+        const { children, selectedValue, itemStyle, style, currentType } = this.props
         const items = React.Children.map(children, (item: any, index) => {
             const totalStyle = [styles.itemText]
             if (selectedValue === item.props.value) {
@@ -109,14 +113,26 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
             return (
                 <View
                     ref={(el) => this[`item${index}`] = el}
-                    onLayout={index === 0 ? this.onItemLayout : undefined}
+                    onLayout={index === 0 ? this.onItemLayout : () => {}}
                     key={item.key}>
                     <Text style={totalStyle} numberOfLines={1}>{item.props.label}</Text>
                 </View>
             )
         })
+        console.log('currentType===', currentType)
+        const bgRadius = currentType === 'first' ? {
+            borderTopLeftRadius: variables.radius_picker_item,
+            borderBottomLeftRadius: variables.radius_picker_item,
+        } : currentType === 'last' ? {
+            borderTopRightRadius: variables.radius_picker_item,
+            borderBottomRightRadius: variables.radius_picker_item,
+        } : currentType === 'center' ? {} : {
+            borderRadius: variables.radius_picker_item
+        }
+
         return (
             <View style={style}>
+                <View ref={(el) => this.indicatorRef = el} style={[styles.indicator, bgRadius]} pointerEvents='box-none' />
                 <ScrollView
                     style={styles.scrollView}
                     ref={(el) => this.scrollerRef = el}
@@ -127,7 +143,6 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
                         {items}
                     </View>
                 </ScrollView>
-                <View ref={(el) => this.indicatorRef = el} style={styles.indicator} pointerEvents='box-none' />
             </View>
         )
     }

@@ -5,23 +5,23 @@
 import React from 'react'
 import {
     View,
-    Text, TouchableWithoutFeedback,
+    Text, 
+    TouchableWithoutFeedback
 } from 'react-native'
 import styles from './style'
-import TagProps from './propsType'
+import ITagProps from './propsType'
+import variables from '@src/style'
 
-const colors = ['orange', 'blue', 'green', 'red', 'gray']
-
-export default function Tag(props: TagProps) {
-
+export default function Tag(props: ITagProps) {
     const {
         readonly = true,
         fill = false,
-        color = '#666',
+        font = false,
+        color = variables.color_tag_solid_bg_gray,
         textColor = '',
-        activeColor = '#24A8E8',
+        activeColor = variables.color_tag_solid_bg_orange,
         style = null,
-        size = 'default',
+        size = 'md',
         selected = false,
         textStyle,
         children,
@@ -46,43 +46,53 @@ export default function Tag(props: TagProps) {
         onChange && onChange(!isSelect)
     }
 
-    const getColor = () => {
-        switch(color) {
-            case 'orange':
-                return {text: '#FE8F1D', bgColor: 'rgba(254, 143, 29, 0.1)'}
-            case 'blue':
-                return {text: '#069DFF', bgColor: 'rgba(6, 157, 255, 0.1)'}
-            case 'green':
-                return {text: '#00BF7A', bgColor: 'rgba(0, 191, 122, 0.1)'}
-            case 'red':
-                return {text: '#FF2E2E', bgColor: 'rgba(255, 46, 46, 0.1)'}
-            case 'gray':
-                return {text: '#9E9E9E', bgColor: 'rgba(158, 158, 158, 0.1)'}
-
-        }
-    }
-
-    console.log('getColor===', getColor(), )
-
     let sty: object = {}
     let textSty: object  = {}
 
-    if (colors.includes(color) && fill) {
-        const currentColor = getColor()
+    const colors = ['orange', 'blue', 'green', 'red', 'gray']
+
+    if (fill) {
+        if (colors.includes(color)) {
+            sty = {
+                backgroundColor: variables[`color_tag_solid_bg_${color}`],
+                borderWidth: 0
+            }
+            textSty = {
+                color: variables.color_tag_font_inverse
+            }
+        } else {
+            sty = {
+                backgroundColor: isSelect ? activeColor : color,
+                borderWidth: 0
+            }
+            textSty = {
+                color: textColor ? textColor : variables.color_tag_font_inverse
+            }
+        }
+    } else if(font) {
+        if (colors.includes(color)) {
+            sty = {
+                backgroundColor: variables[`color_tag_solid_bg_light_${color}`],
+                borderWidth: 0
+            }
+            textSty = {
+                color: variables[`color_tag_solid_bg_${color}`],
+            }
+        } else {
+            sty = {
+                backgroundColor: isSelect ? activeColor : color,
+                borderWidth: 0
+            }
+            textSty = {
+                color: textColor ? textColor : variables.color_tag_font_inverse
+            }
+        }
+    } else if (colors.includes(color)) {
         sty = {
-            backgroundColor: currentColor?.bgColor,
-            borderWidth: 0
+            borderColor: isSelect ? activeColor : variables[`color_tag_solid_bg_${color}`],
         }
         textSty = {
-            color: currentColor?.text
-        }
-    } else if (fill) {
-        sty = {
-            backgroundColor: isSelect ? activeColor : color,
-            borderWidth: 0
-        }
-        textSty = {
-            color: textColor ? textColor : '#ffffff'
+            color: isSelect ? activeColor : variables[`color_tag_solid_bg_${color}`],
         }
     } else {
         sty = {
@@ -93,12 +103,21 @@ export default function Tag(props: TagProps) {
         }
     }
 
-    const textSizeSty = styles[`text${size}Sty`]
+    const contentSty = {
+        paddingHorizontal: variables[`spacing_tag_paddingLeft_${size}`],
+        paddingVertical: variables[`spacing_tag_paddingTop_${size}`]
+    }
+
+    const textSizeSty = {
+        fontSize: variables[`font_tag_size_${size}`],
+        lineHeight: variables[`font_tag_lineheight_${size}`],
+        fontWeight: variables.font_tag_weight_regular
+    }
 
     return <View style={styles.wrap}>
         <TouchableWithoutFeedback onPress={readonly ? () => {} : onClick}>
-            <View style={[styles.content, sty, style]} {...restProps}>
-                <Text style={[styles.text, textSizeSty, textSty, textStyle]}>
+            <View style={[styles.content, contentSty, sty, style]} {...restProps}>
+                <Text style={[textSizeSty, textSty, textStyle]}>
                     { children }
                 </Text>
             </View>

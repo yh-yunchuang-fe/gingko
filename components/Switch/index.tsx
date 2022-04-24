@@ -1,11 +1,12 @@
 /*
  * @Author: wudi
  * @Date: 2022-03-31 17:17:30
- * @LastEditTime: 2022-04-02 13:47:38
+ * @LastEditTime: 2022-04-21 14:50:14
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /gingko/components/Switch/index.tsx
  */
+import variables from '@src/style'
 import React from 'react'
 import { Animated, TouchableOpacity } from 'react-native'
 import ISwitchProps from './propsType'
@@ -13,12 +14,12 @@ import ISwitchProps from './propsType'
 class Switch extends React.Component<ISwitchProps, any> {
     public static defaultProps = {
         value: '',
-        width: 48,
-        height: 28,
-        size: 18,
-        color: '#FE8F1D',
-        bgColor: '#C4C4C4',
-        btnColor: '#FFFFFF',
+        width: variables.width_switch_bg,
+        height: variables.height_switch_bg,
+        size: variables.width_switch_circle,
+        color: variables.color_switch_bg_on,
+        bgColor: variables.color_switch_bg_off,
+        btnColor: variables.color_switch_circle,
         onValueChange: () => {}
     }
 
@@ -39,7 +40,6 @@ class Switch extends React.Component<ISwitchProps, any> {
   
     public componentDidMount() {
         const { value } = this.props
-        console.log('componentDidMount====', value)
         if(value) {
             this.setState({toggleOn:true})
             this.toggleOn()
@@ -52,7 +52,6 @@ class Switch extends React.Component<ISwitchProps, any> {
         const { onPress, useOnce, onValueChange } = this.props
         
         if(this.state.toggleOn && useOnce === undefined) {
-            console.log('toggleSwitch====true')
             this.setState({
                 toggleOn: false
             })
@@ -60,7 +59,6 @@ class Switch extends React.Component<ISwitchProps, any> {
 
             onValueChange && onValueChange(false)
         } else {
-            console.log('toggleSwitch====false')
             this.setState({
                 toggleOn: true
             })
@@ -95,14 +93,7 @@ class Switch extends React.Component<ISwitchProps, any> {
             useNativeDriver: false
         }).start()
     }
-  
-    // public componentWillReceiveProps(nextProps) {
-    //     console.log('this.props.value !== nextProps.value===', this.props.value !== nextProps.value)
-    //     if(this.props.value !== nextProps.value) {
-    //         this.toggleSwitch()
-    //     }
-    // }
-  
+
     public render() {
         const { 
             size, 

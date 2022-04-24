@@ -1,8 +1,3 @@
-import React from 'react';
+/// <reference types="react" />
 import { CardBodyProps } from './propsType';
-export default class CardBody extends React.Component<CardBodyProps, any> {
-    static defaultProps: {
-        style: {};
-    };
-    render(): JSX.Element;
-}
+export default function CardBody({ style, line, ...restProps }: CardBodyProps): JSX.Element;

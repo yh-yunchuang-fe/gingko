@@ -9,14 +9,16 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
     static defaultProps: {
         defaultValue: string;
         placeholder: string;
-        showCancel: boolean;
+        searchText: string;
         cancelText: string;
         cancelColor: any;
         autoFocus: boolean;
+        selectionColor: string;
         onSubmit: typeof noop;
         onChange: typeof noop;
         onFocus: typeof noop;
         onBlur: typeof noop;
+        onSearch: typeof noop;
         onCancel: typeof noop;
         onClear: typeof noop;
     };
@@ -29,6 +31,7 @@ export default class SearchBar extends React.Component<ISearchBarProps, any> {
     onFocus: () => void;
     onBlur: () => void;
     onCancel: () => void;
+    onSearch: () => void;
     onSubmit: (e: any) => void;
     render(): JSX.Element;
 }

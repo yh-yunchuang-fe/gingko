@@ -14,7 +14,6 @@ export interface IModalProps {
     transparent?: boolean;
     animationType?: 'none' | 'fade' | 'slide-up' | 'slide-down';
     animationDuration?: number;
-    animateAppear?: boolean;
     onAnimationEnd?: (x?: any) => void;
     style?: any;
     bodyStyle?: any;
@@ -25,7 +24,7 @@ export interface IActionButton {
     text: string;
     onPress?: () => void;
     style?: {};
-    type?: 'default' | 'primary' | 'warning';
+    type?: 'primary' | 'second' | 'disable'
 }
 
 export interface IAlertProps {

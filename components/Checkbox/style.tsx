@@ -1,6 +1,7 @@
 /**
  * Created by beilunyang on 2018/3/14
  */
+import variables from '@src/style/'
 import {
     StyleSheet,
 } from 'react-native'
@@ -10,7 +11,12 @@ export default StyleSheet.create({
         flexDirection: 'row', 
         alignItems: 'center' 
     },
+    checkboxText: {
+        fontSize: variables.font_checkbox_size,
+        lineHeight: variables.font_checkbox_lineheight,
+        color: variables.color_checkbox_font
+    },
     icon: {
-        marginRight: 5 * 2,
+        marginRight: variables.spacing_checkbox_gap,
     },
 })
