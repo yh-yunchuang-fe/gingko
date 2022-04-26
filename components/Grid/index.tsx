@@ -7,7 +7,7 @@ import {
     Dimensions
 } from 'react-native'
 import { IGridProps } from './propsType'
-import styles from './style/index'
+import styles from './style'
 
 const { width } = Dimensions.get('window')
 

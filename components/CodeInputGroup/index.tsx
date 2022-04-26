@@ -6,8 +6,8 @@ import React from 'react'
 import {
     View,
     TextInput, Text
-} from 'react-native';
-import styles from './style/'
+} from 'react-native'
+import styles from './style'
 import IProps from './propsType'
 
 function noop() {}
@@ -20,50 +20,49 @@ export default class CodeInputGroup extends React.Component<IProps, any> {
         onChange: noop,
         onFocus: noop,
         onBlur: noop,
-    };
+    }
 
     constructor(props: IProps | Readonly<IProps>) {
-        super(props);
-        const values = props.defaultValue+'' || '';
+        super(props)
+        const values = props.defaultValue+'' || ''
         this.state = {
             values
-        };
+        }
     }
 
     public onChangeText = (values: any) => {
-        const { onChange } = this.props;
-        const preValues = this.state.values;
+        const { onChange } = this.props
+        const preValues = this.state.values
         if (isNaN(values)) {
             values = preValues
         }
         this.setState({
             values
-        });
-        console.log('values----s: ', values);
+        })
         onChange && onChange(values)
-    };
+    }
 
     public onFocus = () => {
-        const { onFocus } = this.props;
+        const { onFocus } = this.props
         onFocus && onFocus()
-    };
+    }
 
     public onBlur = () => {
-        const { onBlur } = this.props;
+        const { onBlur } = this.props
         onBlur && onBlur()
-    };
+    }
 
     public render() {
         const {
             style, inputWrapStyle, inputStyle, size = 6, autoFocus,
             onChange,
             ...restProps
-        } = this.props;
+        } = this.props
 
-        const { values } = this.state;
-        const arrValues = values.split('');
+        const { values } = this.state
+        const arrValues = values.split('')
 
-        const node: Array<React.ReactNode> = [];
+        const node: Array<React.ReactNode> = []
         for(let i = 0; i < size; i++) {
             node.push(
                 <View style={[styles.inputWrap, inputWrapStyle]} key={i}>
