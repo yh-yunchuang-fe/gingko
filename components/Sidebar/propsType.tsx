@@ -8,7 +8,7 @@ import * as RN from 'react-native'
 export interface ISideProps {
     disabled?: boolean
     key?: string
-    title: React.ReactNode
+    title: any
 
 }
 

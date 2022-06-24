@@ -2,37 +2,37 @@
  * @author zhangyi
  * @date 2018/4/9
  */
-import variables from '@src/style'
+// import variables from '@src/style'
 import React from 'react'
 import {
     TouchableOpacity,
     View,
-    Text, ScrollView,
+    Text, 
+    ScrollView,
 } from 'react-native'
 import { IDefaultSideBarProps, ISideProps } from './propsType'
 import styles from './style'
 
-export default class DefaultSideBar extends React.Component<IDefaultSideBarProps, any> {
-    public static defaultProps = {
-        tabs: [],
-        activeTab: 0,
-        sidebarBackgroundColor: variables.color_sideBar_bg,
-        sidebarActiveTextColor: '',
-        sidebarInactiveTextColor: '',
-        sidebarTextStyle: {},
-    }
+function DefaultSideBar(props: IDefaultSideBarProps) {
+    const {
+        tabs = [],
+        // activeTab = 0,
+        sidebarFillColor,
+        // sidebarBackgroundColor = variables.color_sideBar_bg,
+        // sidebarActiveTextColor = '',
+        // sidebarInactiveTextColor = '',
+        // sidebarTextStyle = {},
+    }  = props
 
-    public scrollView = null
+    const isTabVertical = (sidebarPosition = (props.sidebarPosition)) => sidebarPosition === 'left'
 
-    public isTabVertical = (sidebarPosition = (this.props.sidebarPosition)) => sidebarPosition === 'left'
-
-    public onPress = (index: number) => {
-        const { onTabClick, tabs, goToTab } = this.props
+    const onPress = (index: number) => {
+        const { onTabClick, tabs, goToTab } = props
         onTabClick && onTabClick(tabs[index], index)
         goToTab && goToTab(index)
     }
 
-    public renderTab(tab: ISideProps, index: number) {
+    const renderTab = (tab: ISideProps, index: number) => {
         const {
             sidebarActiveTextColor: activeTextColor,
             sidebarInactiveTextColor: inactiveTextColor,
@@ -42,7 +42,7 @@ export default class DefaultSideBar extends React.Component<IDefaultSideBarProps
             sidebarTabStyle: tabStyle,
             activeTab,
             renderTab,
-        } = this.props
+        } = props
 
         const isTabActive = activeTab === index
         const textColor = isTabActive ?
@@ -57,8 +57,7 @@ export default class DefaultSideBar extends React.Component<IDefaultSideBarProps
             <TouchableOpacity
                 key={`${tab.title}_${index}`}
                 activeOpacity={disabled ? 1 : 0.5}
-                onPress={disabled ? () => {} : () => this.onPress(index)}
-            >
+                onPress={disabled ? () => {} : () => onPress(index)} >
                 <View style={{
                     ...styles.SideBar.tab,
                     backgroundColor: bgColor,
@@ -66,53 +65,47 @@ export default class DefaultSideBar extends React.Component<IDefaultSideBarProps
                 }}>
                     {
                         renderTab ? renderTab(tab, isTabActive) :
-                            <Text numberOfLines={2} style={{
-                                color: disabled ? styles.SideBar.disabledColor : textColor,
-                                ...styles.SideBar.textStyle,
-                                ...textStyle
-                            }}>
-                                { tab.title }
-                            </Text>
+                        <Text numberOfLines={2} style={{
+                            color: disabled ? styles.SideBar.disabledColor : textColor,
+                            ...styles.SideBar.textStyle,
+                            ...textStyle
+                        }}>
+                            { tab.title }
+                        </Text>
                     }
                 </View>
             </TouchableOpacity>
         )
     }
 
-    public render() {
-        const {
-            tabs,
-            sidebarFillColor,
-        } = this.props
-
-        return (
-            <View style={{
-                ...styles.SideBar.container,
-                backgroundColor: sidebarFillColor || styles.SideBar.fillColor
-            }}>
-                <ScrollView
-                    ref={(scrollView: any) => { this.scrollView = scrollView }}
-                    horizontal={!this.isTabVertical()}
-                    showsHorizontalScrollIndicator={false}
-                    showsVerticalScrollIndicator={false}
-                    scrollsToTop={false}
-                >
-                    <View style={{
-                        ...styles.SideBar.tabs,
-                        backgroundColor: sidebarFillColor || styles.SideBar.fillColor
-                    }}>
-                        {
-                            tabs.map((name, index) => {
-                                let tab = { title: name } as ISideProps
-                                if (tabs.length - 1 >= index) {
-                                    tab = tabs[index]
-                                }
-                                return this.renderTab(tab, index)
-                            })
-                        }
-                    </View>
-                </ScrollView>
-            </View>
-        )
-    }
+    return (
+        <View style={{
+            ...styles.SideBar.container,
+            backgroundColor: sidebarFillColor || styles.SideBar.fillColor
+        }}>
+            <ScrollView
+                horizontal={!isTabVertical()}
+                showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
+                scrollsToTop={false}
+            >
+                <View style={{
+                    ...styles.SideBar.tabs,
+                    backgroundColor: sidebarFillColor || styles.SideBar.fillColor
+                }}>
+                    {
+                        tabs.map((name, index) => {
+                            let tab: ISideProps = { title: name }
+                            if (tabs.length - 1 >= index) {
+                                tab = tabs[index]
+                            }
+                            return renderTab(tab, index)
+                        })
+                    }
+                </View>
+            </ScrollView>
+        </View>
+    )
 }
+
+export default DefaultSideBar

@@ -1,8 +1,8 @@
 /*
  * @Author: wudi
  * @Date: 2022-04-21 19:38:24
- * @LastEditTime: 2022-04-22 10:30:31
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-26 16:07:29
+ * @LastEditors: wudi wd_0315@163.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /gingko/components/Field/textArea.tsx
  */
@@ -30,7 +30,6 @@ export default function TextArea(props: any) {
         props.onChangeText && props.onChangeText(text)
     }
 
-    console.log('remark==', remark)
     const remarkStyle = { color: remark.length === maxLength ? '#FF2E2E' : '#9E9E9E' }
     
     return <View style={[styles.textAreaContainer, style]}>

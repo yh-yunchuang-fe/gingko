@@ -4,7 +4,7 @@ import {
     Text,
     TouchableHighlight
 } from 'react-native'
-import { Indicator } from '../index'
+import Indicator from '../Indicator'
 import IButtonProps from './propsType'
 import btnStyles from './style'
 import Icon from '../Icon'

@@ -2,7 +2,6 @@
  * @author wudi
  * @date 2022/04/02.
  */
-import { SceneRendererProps } from 'react-native-tab-view/lib/typescript/types'
 
 export interface ITabsProps {
     routes?: any

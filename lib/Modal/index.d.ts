@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IModalProps } from './propsType';
 import Alert from './alert';
 declare function Modal(props: IModalProps): JSX.Element;

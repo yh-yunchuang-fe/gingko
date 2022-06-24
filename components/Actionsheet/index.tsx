@@ -7,7 +7,8 @@ import Dialog from '../Dialog'
 import IActionsheetProps from './propsType'
 import styles from './style'
 import { View, Text } from 'react-native'
-import { Button, RadioGroup } from '..'
+import Button from '../Button'
+import RadioGroup from '../RadioGroup'
 
 export default function Actionsheet(props: IActionsheetProps) {
 

@@ -36,23 +36,17 @@ export default () => {
     }
 
     const onOk = (date: any, values: any) => {
-        console.log('ok_date', date)
-        console.log('ok_values', values)
         onDismiss()
     }
 
     const onDateChange = (date: any) => {
-        console.log('date:', date)
         setState({
             ...state,
             date,
         })
     }
 
-    const onValueChange = (values: any, idx: any) => {
-        console.log('changed values:', values)
-        console.log('changed value:', values[idx])
-    }
+    const onValueChange = (values: any, idx: any) => { }
 
     const format = (date: any) => {
         if (date instanceof Date) {

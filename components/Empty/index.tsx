@@ -5,14 +5,11 @@
 import React from 'react'
 import {
     Text,
-    View,
-    Image
+    View
 } from 'react-native'
 import styles from './style'
-import {
-    Button,
-    GingkoImage
-} from '../'
+import Button from '../Button'
+import GingkoImage from '../GingkoImage'
 
 interface IEmptyProps {
     source?: any

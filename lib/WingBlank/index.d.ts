@@ -1,12 +1,6 @@
-import React from 'react';
 export interface WingBlankProps {
-    size?: 'sm' | 'md' | 'lg';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     style?: any;
+    children?: any;
 }
-export default class WingBlank extends React.Component<WingBlankProps, any> {
-    static defaultProps: {
-        size: string;
-        style: {};
-    };
-    render(): JSX.Element;
-}
+export default function WingBlank(props: WingBlankProps): JSX.Element;

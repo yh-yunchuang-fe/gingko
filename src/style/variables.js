@@ -491,4 +491,18 @@ export default {
     spacing_popup_header_action_paddingRight: global.spacing_5,
     spacing_popup_header_action_cancel_marginRight: global.spacing_6,
     spacing_popup_header_action_active_marginLeft: global.spacing_6,
+
+    // WingBlank
+    h_spacing_xs: global.spacing_1,
+    h_spacing_sm: global.spacing_2,
+    h_spacing_md: global.spacing_3,
+    h_spacing_lg: global.spacing_4,
+    h_spacing_xl: global.spacing_5,
+
+    // WhiteSpace
+    v_spacing_xs: global.spacing_1,
+    v_spacing_sm: global.spacing_2,
+    v_spacing_md: global.spacing_3,
+    v_spacing_lg: global.spacing_4,
+    v_spacing_xl: global.spacing_5,
 }

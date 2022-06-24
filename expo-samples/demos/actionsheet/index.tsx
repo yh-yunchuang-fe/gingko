@@ -1,7 +1,3 @@
-/**
- * @author zhangyi
- * @date 2018/2/28
- */
 import React from 'react'
 import {
     View,
@@ -19,7 +15,6 @@ export default () => {
     const [visibleOptions, setVisibleOptions] = React.useState(false)
 
     const onChange = (item: any, idx: any) => {
-        console.log('onChange', item, idx)
         setVisibleOptions(false)
     }
 

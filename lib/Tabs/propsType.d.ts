@@ -1,3 +1,7 @@
+/**
+ * @author wudi
+ * @date 2022/04/02.
+ */
 export interface ITabsProps {
     routes?: any;
     tabIndex?: any;

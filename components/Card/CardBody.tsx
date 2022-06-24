@@ -1,8 +1,6 @@
 import React from 'react'
-import {
-    View
-} from 'react-native'
-import { Divider } from '../'
+import { View } from 'react-native'
+import Divider from '../Divider'
 import {CardBodyProps} from './propsType'
 import styles from './style'
 

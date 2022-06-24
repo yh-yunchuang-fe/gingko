@@ -88,7 +88,7 @@ export default () => {
 const styles = StyleSheet.create({
     sidebar: {
         width: '100%',
-        height: 350,
+        height: 300,
     },
     sidebarItemContent: {
         justifyContent: 'center',

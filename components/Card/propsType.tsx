@@ -1,3 +1,5 @@
+import { ReactNode } from "react"
+
 export interface CardProps {
     full?: boolean
     style?: any
@@ -17,6 +19,6 @@ export interface CardBodyProps {
 }
 
 export interface CardFooterProps {
-    children?: any
+    children?: ReactNode | string
     style?: any
 }

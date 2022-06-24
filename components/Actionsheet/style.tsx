@@ -1,4 +1,4 @@
-import variables from '@src/style/'
+import variables from '@src/style'
 import { StyleSheet, Dimensions } from 'react-native'
 
 const { width } = Dimensions.get('window')

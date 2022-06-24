@@ -10,9 +10,7 @@ import {
 import {
     Icon,
     Toast,
-    Button,
-    WhiteSpace,
-    WingBlank
+    Button
 } from '../../../components'
 
 export default () => {
@@ -55,9 +53,7 @@ export default () => {
             style: {
                 backgroundColor: 'red',
             },
-            onClose() {
-                console.log('onClose callback will be called when the animation ended')
-            }
+            onClose() { }
         })
     }
 

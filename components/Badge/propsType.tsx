@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {
-    ViewStyle, ImageURISource,
+    ViewStyle,
 } from 'react-native';
 
 export interface IBadge {

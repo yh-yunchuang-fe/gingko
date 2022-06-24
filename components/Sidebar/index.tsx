@@ -2,40 +2,26 @@
  * @author zhangyi
  * @date 2018/4/9
  */
-import React from 'react'
-import {
-    View,
-} from 'react-native'
+import React, { useState } from 'react'
+import { View } from 'react-native'
 import { ISideBarProps, ISideProps } from './propsType'
-import DefaultSideBar from './DefaultSideBar'
+import DefaultSideBar from './DefaultSidebar'
 import styles from './style'
 
-export default class SideBar extends React.Component<ISideBarProps, any> {
-    public static DefaultSideBar = DefaultSideBar
+function SideBar(props: ISideBarProps) {
+    
+    const {
+        sidebarPosition = 'left',
+        initialPage = 0,
+        tabs = [],
+        style = {},
+    }: ISideBarProps = props
 
-    public static defaultProps = {
-        sidebarPosition: 'left',
-        initialPage: 0,
-        tabs: [],
-        style: {}
-    } as ISideBarProps
+    let nextCurrentTab: number = 0
+    const tabCache: { [index: number]: React.ReactNode } = {}
 
-    public nextCurrentTab: number = 0
-    public tabCache: { [index: number]: React.ReactNode } = {}
-    // isTabVertical: boolean = true
-
-    constructor(props: ISideBarProps) {
-        super(props)
-        this.state = {
-            currentTab: this.getTabIndex(props)
-        }
-        this.nextCurrentTab = this.state.currentTab
-    }
-
-    public getTabIndex(props: ISideBarProps) {
-        const { page, initialPage, tabs } = props
-        const param = (page !== undefined ? page : initialPage) || 0
-
+    const getTabIndex = () => {
+        const param = (props.page !== undefined ? props.page : initialPage) || 0
         let index = 0
         if (typeof (param as any) === 'string') {
             tabs.forEach((t, i) => {
@@ -46,17 +32,22 @@ export default class SideBar extends React.Component<ISideBarProps, any> {
         } else {
             index = param as number || 0
         }
+
         return index < 0 ? 0 : index
     }
 
-    public isTabVertical = (sidebarPosition = (this.props.sidebarPosition)) => sidebarPosition === 'left'
+    const [currentTab, setCurrentTab] = useState(getTabIndex())
 
-    public goToTab(index: number) {
-        if (this.nextCurrentTab === index) {
+    nextCurrentTab = currentTab
+
+    const isTabVertical = (position = (sidebarPosition)) => position === 'left'
+
+    const goToTab = (index: number) => {
+        if (nextCurrentTab === index) {
             return false
         }
-        this.nextCurrentTab = index
-        const { onChange, tabs, page } = this.props
+        nextCurrentTab = index
+        const { onChange, tabs, page } = props
         if (index > 0 && index < tabs.length) {
             onChange && onChange(tabs[index], index)
             if (page !== undefined) {
@@ -64,14 +55,11 @@ export default class SideBar extends React.Component<ISideBarProps, any> {
             }
         }
 
-        this.setState({
-            currentTab: index,
-        })
+        setCurrentTab(index)
         return true
     }
 
-    public getSideBarBaseProps() {
-        const { currentTab } = this.state
+    const getSideBarBaseProps = () => {
         const {
             tabs,
             onTabClick,
@@ -82,13 +70,13 @@ export default class SideBar extends React.Component<ISideBarProps, any> {
             sidebarPosition,
             sidebarTextStyle,
             sidebarTabStyle
-        } = this.props
+        } = props
 
         return {
             activeTab: currentTab,
             tabs,
             onTabClick,
-            goToTab: this.goToTab.bind(this),
+            goToTab,
             sidebarFillColor,
             sidebarActionFillColor,
             sidebarActiveTextColor,
@@ -99,9 +87,9 @@ export default class SideBar extends React.Component<ISideBarProps, any> {
         }
     }
 
-    public getSubElements = () => {
-        const { children } = this.props
-        const subElements: { [key: string]: React.ReactNode } = {}
+    const getSubElements = () => {
+        const { children } = props
+        const subElements: { [key: string]: React.ReactElement } = {}
 
         return (defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') => {
             if (Array.isArray(children)) {
@@ -114,17 +102,18 @@ export default class SideBar extends React.Component<ISideBarProps, any> {
             } else if (children) {
                 subElements[allPrefix] = children
             }
+
             return subElements
         }
     }
 
-    public getSubElement(
+    const getSubElement = (
         tab: ISideProps,
         index: number,
         subElements: (defaultPrefix: string, allPrefix: string) => { [key: string]: any },
         defaultPrefix: string = '$i$-',
         allPrefix: string = '$ALL$'
-    ) {
+    ) => {
         const key = tab.key || `${defaultPrefix}${index}`
         const elements = subElements(defaultPrefix, allPrefix)
         let component = elements[key] || elements[allPrefix]
@@ -134,7 +123,7 @@ export default class SideBar extends React.Component<ISideBarProps, any> {
         return component || null
     }
 
-    public renderSideBar(sidebarProps: any, renderSideBar: ((x?: any) => void) | undefined) {
+    const renderSideBar = (sidebarProps: any, renderSideBar: any) => {
         if (renderSideBar) {
             return renderSideBar(sidebarProps)
         } else {
@@ -142,34 +131,25 @@ export default class SideBar extends React.Component<ISideBarProps, any> {
         }
     }
 
-    public renderContent(getSubElements = this.getSubElements()) {
-        const { tabs } = this.props
-        const { currentTab = 0 } = this.state
-        const tab = tabs[currentTab]
-        const node = this.tabCache[currentTab] || this.getSubElement(tab, currentTab, getSubElements)
+    const renderContent = (elements = getSubElements()) => {
+        const tab = props?.tabs[currentTab]
+        const node = tabCache[currentTab] || getSubElement(tab, currentTab, elements)
 
         return node
     }
 
-    public render() {
-        const {
-            style, renderSideBar
-        } = this.props as ISideBarProps
+    const sidebarProps = getSideBarBaseProps()
 
-        const sidebarProps = this.getSideBarBaseProps()
-
-        return (
-            <View style={{
-                flexDirection: this.isTabVertical() ? 'row' : 'column',
-                ...style
-            }}>
-                { this.renderSideBar(sidebarProps, renderSideBar) }
-                <View style={{
-                    ...styles.Side.content
-                }}>
-                    { this.renderContent() }
-                </View>
+    return (
+        <View style={{ flexDirection: isTabVertical() ? 'row' : 'column', ...style }}>
+            { renderSideBar(sidebarProps, renderSideBar) }
+            <View style={{ ...styles.Side.content }}>
+                { renderContent() }
             </View>
-        )
-    }
+        </View>
+    )
 }
+
+SideBar.DefaultSideBar = DefaultSideBar
+
+export default SideBar

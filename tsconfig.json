@@ -1,32 +1,44 @@
 {
-    "compilerOptions": {
-        "skipLibCheck": true,
-        "target": "es6",
-        "module": "commonjs",
-        "jsx": "react-native",
-        "declaration": true,
-        "sourceMap": true,
-        "outDir": "./lib",
-        "strict": true,
-        "noImplicitAny": false,
-        "strictNullChecks": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "resolveJsonModule": true,
-        "baseUrl": "./",
-        "paths": {
-            "@/*": ["components/*"],
-            "@src/*": ["src/*"],
-            "@style/*": ["src/style/*"],
-            "@utils/*": ["src/utils/*"],
-            "@assets/*": ["src/assets/*"],
-        },
-    },
-    "include": ["./components/"],
-    "exclude": [
-        "node_modules",
-        "expo-samples"
-    ]
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react-native",
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "outDir": "./lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "components/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ],
+      "@style/*": [
+        "src/style/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ]
+    }
+  },
+  "include": [
+    "./components/"
+  ],
+  "exclude": [
+    "node_modules",
+    "expo-samples",
+    "metro.config.js"
+  ]
 }

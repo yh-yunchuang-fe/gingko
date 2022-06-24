@@ -20,7 +20,6 @@ export default () => {
     const [visibleCancel, setVisibleCancel] = React.useState(false)
 
     const onChange = () => {
-        console.log('onChange===')
         setVisibleCancel(false)
     }
 

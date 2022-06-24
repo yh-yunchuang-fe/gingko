@@ -49,7 +49,7 @@ export default function Badge(props: IBadge) {
         if (overflowCount && typeof text === 'number' && text > overflowCount) {
             text = `${overflowCount}+`
         }
-        console.log('text===', text)
+
         if (dot) {
             contentElement = (
                 <View {...restProps} style={[styles.dot]}/>

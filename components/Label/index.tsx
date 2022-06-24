@@ -1,8 +1,8 @@
 /*
  * @Author: wudi
  * @Date: 2022-04-14 11:52:19
- * @LastEditTime: 2022-04-22 19:04:07
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-26 16:07:26
+ * @LastEditors: wudi wd_0315@163.com
  * @Description: Label组件
  * @FilePath: /gingko/components/Label/propsType.tsx
  */
@@ -34,7 +34,6 @@ export default function Label(props: ILabelProps) {
 
     let rightDom: any = null
     if (value){
-        console.log(React.isValidElement(value))
         if (React.isValidElement(value)) {
             rightDom = value
         } else {

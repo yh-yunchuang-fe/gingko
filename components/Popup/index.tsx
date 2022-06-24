@@ -10,7 +10,7 @@ import {
     TouchableOpacity,
     ScrollView,
     View, Text } from 'react-native'
-import { Icon } from '../'
+import Icon from '../Icon'
 
 export default function Popup(props: IPopupProps) {
 
@@ -30,7 +30,6 @@ export default function Popup(props: IPopupProps) {
         hint, // '这是提供二行注释, 通过信息澄清的方式，这是提供一行或二行注释'
     } = props
 
-    console.log
     return (
         <Dialog
             transparent

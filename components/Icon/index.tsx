@@ -1,12 +1,10 @@
 import * as React from 'react'
-import {
-    Text
-} from 'react-native'
+import { Text } from 'react-native'
 import iconMap from './iconMap.json'
-import SvgUri from '@utils/svgUri'
+import SvgUri from '@/Icon/svgUri'
 import svgs from '@src/assets/svgs'
 
-export default function Icon(props) {
+export default function Icon(props: any) {
     const {
         name, 
         size = 16,

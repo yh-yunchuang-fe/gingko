@@ -1,5 +1,8 @@
+import 'react-native-gesture-handler'
 import Samples from './expo-samples'
 
-export default function App() {
+const App = () => {
 	return <Samples />
 }
+
+export default App

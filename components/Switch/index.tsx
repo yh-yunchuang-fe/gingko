@@ -1,8 +1,8 @@
 /*
  * @Author: wudi
  * @Date: 2022-03-31 17:17:30
- * @LastEditTime: 2022-04-21 14:50:14
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-24 14:02:35
+ * @LastEditors: wudi wd_0315@163.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /gingko/components/Switch/index.tsx
  */
@@ -72,7 +72,6 @@ class Switch extends React.Component<ISwitchProps, any> {
     }
 
     public toggleOn = () => {
-        const { width, height } = this.props
         Animated.spring(this.toggerPostion, {
             toValue: this.sceneScale * (48 - 23),
             useNativeDriver: false

@@ -12,7 +12,6 @@ import newIcons from '@assets/svgs'
 import oldIcons from '@/Icon/iconMap.json'
 
 export default () => {
-    console.log('Object.keys(svgs)===', Object.keys(oldIcons), Object.keys(newIcons))
     const newData = Object.keys(newIcons).map((item, index)=> {
         return {
             icon: (<Icon key={index} name={item} size={30}/>),

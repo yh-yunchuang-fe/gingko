@@ -1,8 +1,8 @@
 /*
  * @Author: wudi
  * @Date: 2022-04-24 13:57:40
- * @LastEditTime: 2022-04-24 17:16:54
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-26 20:12:58
+ * @LastEditors: wudi wd_0315@163.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /gingko/components/TabBar/index.tsx
  */

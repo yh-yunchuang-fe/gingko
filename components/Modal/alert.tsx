@@ -5,7 +5,7 @@ import variables from '@src/style'
 import React from 'react'
 import { Text } from 'react-native'
 import RootView from 'react-native-root-view'
-import Modal from './'
+import Modal from './index'
 import { IActionButton, IAlertProps } from './propsType'
 
 const Alert = (props: IAlertProps) => {

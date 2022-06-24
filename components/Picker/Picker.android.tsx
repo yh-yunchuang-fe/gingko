@@ -102,7 +102,6 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
     }
 
     public render() {
-        console.log('this.props===', this.props)
         const { children, selectedValue, itemStyle, style, currentType } = this.props
         const items = React.Children.map(children, (item: any, index) => {
             const totalStyle = [styles.itemText]
@@ -119,7 +118,6 @@ class Picker extends React.Component<IPickerProp & IAndroidPickerProps, any> {
                 </View>
             )
         })
-        console.log('currentType===', currentType)
         const bgRadius = currentType === 'first' ? {
             borderTopLeftRadius: variables.radius_picker_item,
             borderBottomLeftRadius: variables.radius_picker_item,

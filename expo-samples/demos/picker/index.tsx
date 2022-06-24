@@ -33,7 +33,6 @@ export default () => {
     }
 
     const handleOk = (value: any) => {
-        console.log('ok callback:', value)
         handleDismiss()
     }
 

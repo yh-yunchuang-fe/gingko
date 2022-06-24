@@ -3,24 +3,23 @@ import { View } from 'react-native'
 import variables from '@src/style'
 
 export interface WingBlankProps {
-    size?: 'sm' | 'md' | 'lg';
-    style?: any;
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+    style?: any
+    children?: any
 }
 
-export default class WingBlank extends React.Component<WingBlankProps, any> {
-    public static defaultProps = {
-        size: 'md',
-        style: {}
-    };
+export default function WingBlank(props: WingBlankProps) {
+    const {
+        size = 'md',
+        style = {},
+        children
+    } = props
 
-    public render() {
-        const { size, style, children } = this.props;
-        const margin = variables[`h_spacing_${size}`];
+    const margin = variables[`h_spacing_${size}`]
 
-        return (
-            <View style={[{marginHorizontal: margin}, style]}>
-                { children }
-            </View>
-        )
-    }
+    return (
+        <View style={[{marginHorizontal: margin}, style]}>
+            { children }
+        </View>
+    )
 }
