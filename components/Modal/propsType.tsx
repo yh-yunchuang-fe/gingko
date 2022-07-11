@@ -17,10 +17,12 @@ export interface IModalProps {
     onAnimationEnd?: (x?: any) => void;
     style?: any;
     bodyStyle?: any;
-    children?: any
+    children?: any;
+    restProps?: any
 }
 
 export interface IActionButton {
+    line?: boolean;
     text: string;
     onPress?: () => void;
     style?: {};

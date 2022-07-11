@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 export interface CardProps {
     full?: boolean
@@ -8,7 +8,6 @@ export interface CardProps {
 
 export interface CardHeaderProps {
     children?: any
-    // extra?: any
     style?: any
 }
 
@@ -19,6 +18,6 @@ export interface CardBodyProps {
 }
 
 export interface CardFooterProps {
-    children?: ReactNode | string
+    children?: any
     style?: any
 }

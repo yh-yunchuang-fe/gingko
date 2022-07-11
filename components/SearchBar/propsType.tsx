@@ -15,6 +15,7 @@ export default interface ISearchBarProps {
     cancelColor?: string
     selectionColor?: string
     autoFocus?: boolean
+    restProps?: any
 
     onSubmit?: (x?: any) => void
     onChange?: (x?: any) => void

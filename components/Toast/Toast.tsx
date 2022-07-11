@@ -5,7 +5,6 @@ import React from 'react'
 import {
     View,
     Text,
-    Image,
     Animated,
 } from 'react-native'
 import { IPropsType }from './propsType'
@@ -114,7 +113,7 @@ export default class Toast extends React.Component<IPropsType, any> {
         }
 
 
-        if (React.isValidElement(icon)) {
+        if (!!icon) {
             this.ownIcon = true
             return (
                 <View style={styles.iconContainer}>{icon}</View>
@@ -122,7 +121,7 @@ export default class Toast extends React.Component<IPropsType, any> {
         }
         if (typeof icon === 'function') {
             const elements: any = icon()
-            if (React.isValidElement(elements)) {
+            if (!!elements) {
                 this.ownIcon = true
                 return (
                     <View style={styles.iconContainer}>{elements}</View>
@@ -146,7 +145,7 @@ export default class Toast extends React.Component<IPropsType, any> {
                 </View>
             )
         }
-        if (React.isValidElement(content)) {
+        if (!!content) {
             return <View style={styles.textContainer}>{content}</View>
         }
         return null

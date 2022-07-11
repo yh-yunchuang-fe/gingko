@@ -3,6 +3,7 @@
     "name": "gingko",
     "slug": "gingko",
     "version": "1.0.0",
+    "sdkVersion": "45.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
     "splash": {

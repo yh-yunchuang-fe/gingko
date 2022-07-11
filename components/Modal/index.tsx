@@ -17,20 +17,13 @@ import variables from '@src/style'
 function Modal(props: IModalProps) {
     const {
         visible = false,
-        animationType = 'fade',
-        animationDuration = 300,
-        transparent = true,
-        maskClosable = true,
         onClose = () => {},
-        onAnimationEnd = () => {},
-        style = {},
         bodyStyle = {},
         contentStyle = {},
         title = '',
         content = '',
         footer = [],
-        children,
-        ...restProps
+        children
     } = props
 
     let footerDom: any = null
@@ -55,15 +48,18 @@ function Modal(props: IModalProps) {
 
         if (footer.length === 2) {
             const buttons = footer.map((button, idx) => {
-                const { text, type, onPress, style, ...restProps } = button as IActionButton
+                const { text, type, onPress, style, line, ...restProps } = button as IActionButton
                 const onPressFn = () => {
                     onPress && onPress()
                     onClose && onClose()
                 }
+
                 const marginRight = (idx === 0) && {marginRight: variables.spacing_alert_btnGroup_gap}
                 return (
-                    <Button {...restProps}     
-                        type={type} key={idx}
+                    <Button {...restProps} 
+                        key={idx}  
+                        line={line}  
+                        type={type} 
                         style={{
                             flex: 1, 
                             ...marginRight,
@@ -88,8 +84,8 @@ function Modal(props: IModalProps) {
         <Dialog
             visible={visible}
             onClose={onClose}
-            {...restProps}>
-            <View style={[styles.container, style]}>
+            {...props?.restProps}>
+            <View style={[styles.container, props.style]}>
                 {title ? <Text style={styles.header}>{title}</Text> : null}
                 {content ? <Text style={[styles.modalText, contentStyle]}>{content}</Text> : null}
                 <View style={bodyStyle}>

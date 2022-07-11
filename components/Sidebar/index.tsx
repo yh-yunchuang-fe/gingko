@@ -47,7 +47,7 @@ function SideBar(props: ISideBarProps) {
             return false
         }
         nextCurrentTab = index
-        const { onChange, tabs, page } = props
+        const { onChange, page } = props
         if (index > 0 && index < tabs.length) {
             onChange && onChange(tabs[index], index)
             if (page !== undefined) {
@@ -61,13 +61,11 @@ function SideBar(props: ISideBarProps) {
 
     const getSideBarBaseProps = () => {
         const {
-            tabs,
             onTabClick,
             sidebarFillColor,
             sidebarActionFillColor,
             sidebarActiveTextColor,
             sidebarInactiveTextColor,
-            sidebarPosition,
             sidebarTextStyle,
             sidebarTabStyle
         } = props
@@ -89,21 +87,21 @@ function SideBar(props: ISideBarProps) {
 
     const getSubElements = () => {
         const { children } = props
-        const subElements: { [key: string]: React.ReactElement } = {}
+        const elements: any = {}
 
         return (defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') => {
             if (Array.isArray(children)) {
                 children.forEach((child: any, index) => {
                     if (child.key) {
-                        subElements[child.key] = child
+                        elements[child.key] = child
                     }
-                    subElements[`${defaultPrefix}${index}`] = child
+                    elements[`${defaultPrefix}${index}`] = child
                 })
             } else if (children) {
-                subElements[allPrefix] = children
+                elements[allPrefix] = children
             }
 
-            return subElements
+            return elements
         }
     }
 
@@ -123,11 +121,11 @@ function SideBar(props: ISideBarProps) {
         return component || null
     }
 
-    const renderSideBar = (sidebarProps: any, renderSideBar: any) => {
-        if (renderSideBar) {
-            return renderSideBar(sidebarProps)
+    const renderSideBar = (sidebarData: any, renderSide: any) => {
+        if (renderSide) {
+            return renderSide(sidebarData)
         } else {
-            return <DefaultSideBar {...sidebarProps}/>
+            return <DefaultSideBar {...sidebarData}/>
         }
     }
 

@@ -12,10 +12,10 @@ export default function CardFooter({
     ...restProps
 }: CardFooterProps) {
 
-    const node = React.isValidElement(children) ? (
-        <View style={{ flex: 1 }}>{children}</View>
-    ) : (
+    const node = typeof children === 'string' ? (
         <Text style={styles.footerContent}>{children}</Text>
+    ) : (
+        <View style={{ flex: 1 }}>{children}</View>
     )
 
     return (

@@ -2,17 +2,19 @@
  * Created by beilunyang on 2018/4/10
  */
 import * as React from 'react'
-import {
-    View,
-} from 'react-native'
+import { View } from 'react-native'
 
 export default function MultiPicker(props: any) {
-    const getValue = () => {
-        const {
-            children,
-            value,
-        } = props
+    const {
+        children,
+        value,
+        style,
+        itemStyle,
+        columnStyle,
+        ...rest
+    } = props
 
+    const getValue = () => {
         if (Array.isArray(value) && value.length > 0) {
             return value
         }
@@ -33,14 +35,7 @@ export default function MultiPicker(props: any) {
         props.onChange && props.onChange(values, idx)
     }
 
-    const {
-        children,
-        style,
-        itemStyle,
-        columnStyle,
-        ...rest
-    } = props
-    const value: any = getValue()
+    const vals: any = getValue()
     const elements = React.Children.map(children, (col: any, idx) => {
         const dataLen = children.length
         let currentType: any
@@ -63,9 +58,9 @@ export default function MultiPicker(props: any) {
 
         return React.cloneElement(col, {
             ...rest,
-            selectedValue: value[idx],
+            selectedValue: vals[idx],
             currentIndex: idx,
-            currentType: currentType,
+            currentType,
             onValueChange: (val: any) => {
                 onChange(idx, val)
             },
@@ -74,7 +69,7 @@ export default function MultiPicker(props: any) {
                 marginHorizontal: -4, 
                 ...columnStyle[idx] },
             itemStyle: {
-                fontSize: fontSize,
+                fontSize,
                 ...itemStyle[idx]
             },
         })

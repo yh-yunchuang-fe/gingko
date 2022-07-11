@@ -27,27 +27,49 @@ function DefaultSideBar(props: IDefaultSideBarProps) {
     const isTabVertical = (sidebarPosition = (props.sidebarPosition)) => sidebarPosition === 'left'
 
     const onPress = (index: number) => {
-        const { onTabClick, tabs, goToTab } = props
+        const { onTabClick, goToTab } = props
         onTabClick && onTabClick(tabs[index], index)
         goToTab && goToTab(index)
     }
 
+    const renderTabCOntent = (tab: ISideProps, isTabActive: boolean, index: number) => {
+        if (!!props.renderTab) {
+            props.renderTab(tab, isTabActive)
+        } else {
+            const {
+                sidebarActiveTextColor: activeTextColor,
+                sidebarInactiveTextColor: inactiveTextColor,
+                sidebarTextStyle: textStyle,
+                activeTab,
+            } = props
+    
+            // tslint:disable-next-line:no-shadowed-variable
+            const isTabActive = activeTab === index
+            const textColor = isTabActive ?
+                (activeTextColor || styles.SideBar.activeTextColor) :
+                (inactiveTextColor || styles.SideBar.inactiveTextColor)
+                
+            const disabled = tab?.disabled
+            return <Text numberOfLines={2} style={{
+                color: disabled ? styles.SideBar.disabledColor : textColor,
+                ...styles.SideBar.textStyle,
+                ...textStyle
+            }}>
+                { tab.title }
+            </Text>
+        }
+
+    }
+
     const renderTab = (tab: ISideProps, index: number) => {
         const {
-            sidebarActiveTextColor: activeTextColor,
-            sidebarInactiveTextColor: inactiveTextColor,
-            sidebarTextStyle: textStyle,
             sidebarFillColor: fillColor,
             sidebarActionFillColor: activeFillColor,
             sidebarTabStyle: tabStyle,
             activeTab,
-            renderTab,
         } = props
 
         const isTabActive = activeTab === index
-        const textColor = isTabActive ?
-            (activeTextColor || styles.SideBar.activeTextColor) :
-            (inactiveTextColor || styles.SideBar.inactiveTextColor)
         const bgColor = isTabActive ?
             (activeFillColor || styles.SideBar.activeFillColor) :
             (fillColor || styles.SideBar.fillColor)
@@ -63,16 +85,7 @@ function DefaultSideBar(props: IDefaultSideBarProps) {
                     backgroundColor: bgColor,
                     ...tabStyle
                 }}>
-                    {
-                        renderTab ? renderTab(tab, isTabActive) :
-                        <Text numberOfLines={2} style={{
-                            color: disabled ? styles.SideBar.disabledColor : textColor,
-                            ...styles.SideBar.textStyle,
-                            ...textStyle
-                        }}>
-                            { tab.title }
-                        </Text>
-                    }
+                    { renderTabCOntent(tab, isTabActive, index) }
                 </View>
             </TouchableOpacity>
         )

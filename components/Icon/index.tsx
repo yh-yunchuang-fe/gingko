@@ -12,7 +12,7 @@ export default function Icon(props: any) {
         ...restProps
     } = props
 
-    let svgXmlData = svgs[name]
+    const svgXmlData = svgs[name]
     
     if (!!svgXmlData) {
         const fill = !props.color ? {} : {fill: props.color}

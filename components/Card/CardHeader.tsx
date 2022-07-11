@@ -11,10 +11,10 @@ export default function CardHeader({
     children,
     ...restProps
 }: CardHeaderProps) {
-    const node = React.isValidElement(children) ? (
-        <View style={{ flex: 1 }}>{children}</View>
-    ) : (
+    const node = typeof children === 'string' ? (
         <Text style={styles.headerContent}>{children}</Text>
+    ) : (
+        <View style={{ flex: 1 }}>{children}</View>
     )
 
     return (

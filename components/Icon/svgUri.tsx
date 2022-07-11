@@ -1,3 +1,4 @@
+// @ts-nocheck
 // svgUri.js，原index.js
 import React, { useEffect, useState } from 'react';
 import { View, Image } from 'react-native';
@@ -276,6 +277,7 @@ function SvgUri(props: ISvgUriProps) {
 		// if have children process them.
 		// Recursive function.
 		if (node.childNodes && node.childNodes.length > 0) {
+			// tslint:disable-next-line:prefer-for-of
 			for (let i = 0; i < node.childNodes.length; i++) {
 				const isTextValue = node.childNodes[i].nodeValue;
 				if (isTextValue) {
@@ -320,10 +322,10 @@ function SvgUri(props: ISvgUriProps) {
 	const [state, setState] = useState({
 		fill: props.fill,
 		svgXmlData: props.svgXmlData,
-		createSVGElement: createSVGElement,
-		obtainComponentAtts: obtainComponentAtts,
-		inspectNode: inspectNode,
-		fetchSVGData: fetchSVGData,
+		createSVGElement,
+		obtainComponentAtts,
+		inspectNode,
+		fetchSVGData,
 		isComponentMounted: false,
 		// Gets the image data from an URL or a static file
 	})

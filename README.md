@@ -28,6 +28,11 @@ npm run ios
 npm run android
 ```
 
+#### 编译
+```
+npx tsc -p tsconfig.json --noEmit false
+```
+
 #### 使用
     需要先在客户端设备上按照expo 然后去扫描终端上生产的二维码或打开如下地址：
     exp://localhost:19000

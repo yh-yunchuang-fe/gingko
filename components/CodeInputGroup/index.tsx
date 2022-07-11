@@ -21,7 +21,7 @@ export default function CodeInputGroup(props: IProps) {
         ...restProps
     } = props
 
-    const defaultVal = `${props.defaultValue}` || ''
+    const defaultVal = !!props.defaultValue ? `${props.defaultValue}` : ''
     const [values, setValues] = useState(defaultVal)
 
     const onChangeText = (val: any) => {

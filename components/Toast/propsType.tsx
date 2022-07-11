@@ -1,10 +1,4 @@
-/**
- * Created by beilunyang on 2018/3/27
- */
-import React from 'react'
-import {
-    ViewStyle,
-} from 'react-native'
+import { ViewStyle } from 'react-native'
 
 export interface IBaseToastOptions {
     duration?: number
@@ -16,10 +10,10 @@ export interface IBaseToastOptions {
 
 export interface IShowToastOptions extends IBaseToastOptions {
     type?: 'success' | 'fail' | 'warn' | 'loading'
-    icon?: React.ReactElement<any> | (() => void) | null
+    icon?: any
 }
 
 export interface IPropsType extends IShowToastOptions {
-    content: string | React.ReactElement<any>
+    content: any
     animationEnd?: () => void
 }

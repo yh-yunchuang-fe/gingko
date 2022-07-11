@@ -29,8 +29,8 @@ export default function Empty({
     messageStyle,
 }: IEmptyProps) {
 
-    let imageUrl: any = !!source ? source : require('../../src/assets/imgs/empty-default.png')
-    let imgDom: any = <GingkoImage style={[styles.emptyImage, imgStyle]} source={imageUrl} />
+    const imageUrl: any = !!source ? source : require('@assets/imgs/empty-default.png')
+    const imgDom: any = <GingkoImage style={[styles.emptyImage, imgStyle]} source={imageUrl} />
 
     let messageDom: any = null
     if (message) {

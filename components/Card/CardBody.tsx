@@ -7,11 +7,11 @@ import styles from './style'
 export default function CardBody({
     style = {},
     line = true,
-    ...restProps
+    children,
 }: CardBodyProps) {
 
     return <View style={style}>
         {line && <Divider />}
-        <View style={styles.body} {...restProps}/>
+        <View style={styles.body}>{children}</View>
     </View>
 }

@@ -12,7 +12,7 @@ export default function Indicator(props: IndicatorProps) {
     const {
         text,
         size = 'md',
-        source = require('../../src/assets/imgs/loading.gif'),
+        source = require('@assets/imgs/loading.gif'),
         style = {},
         textStyle = {},
         imgStyle = {}

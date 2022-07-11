@@ -17,7 +17,7 @@ const GingkoImage = (props: any) => {
     
     let imageUrl: any = source
     if (!!imageType) {
-        imageUrl = !!errSource ? errSource : require('../../src/assets/imgs/loadImgError.png')
+        imageUrl = !!errSource ? errSource : require('@assets/imgs/loadImgError.png')
     }
 
     return <Image 

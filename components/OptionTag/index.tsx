@@ -45,14 +45,21 @@ export default function OptionTag(props: OptionTagProps) {
         height
     }
 
-    if (disabled) {
+    const renderDisabledText = () => {
+        if (!!props.renderText) {
+            props?.renderText(isSelect)
+        } else {
+            if (typeof children === 'string') {
+                return <Text style={[styles.text, textStyle, styles.disabledText]}>{ children }</Text>
+            }
+        }
+    }
+
+    if (!!disabled) {
         return (
             <View style={styles.wrap}>
                 <View style={[styles.content, style, styles.disabled, offsetSty]}>
-                    {
-                        renderText ? renderText(isSelect) :
-                            <Text style={[styles.text, textStyle, styles.disabledText]}>{ children }</Text>
-                    }
+                    {renderDisabledText()}
                 </View>
             </View>
         )
@@ -74,14 +81,21 @@ export default function OptionTag(props: OptionTagProps) {
         }
     }
 
+    const renderSelectText = () => {
+        if (!!props.renderText) {
+            props?.renderText(isSelect)
+        } else {
+            if (typeof children === 'string') {
+                return <Text style={[styles.text, textStyle, activeTextSty]}>{ children }</Text>
+            }
+        }
+    }
+
     return (
         <View style={styles.wrap}>
             <TouchableOpacity onPress={onChange}>
                 <View style={[styles.content, style, activeSty, offsetSty]} {...restProps}>
-                    {
-                        renderText ? renderText(isSelect) :
-                            <Text style={[styles.text, textStyle, activeTextSty]}>{ children }</Text>
-                    }
+                    { renderSelectText() }
                     { multipleNode }
                 </View>
             </TouchableOpacity>

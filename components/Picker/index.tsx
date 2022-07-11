@@ -64,7 +64,9 @@ export default class extends React.Component<IPickerProps, any> {
                     <Text style={styles.dismiss}>{dismissText}</Text>
                 </TouchableOpacity>
                 <Text style={styles.title}>{title}</Text>
-                <TouchableOpacity onPress={(onOk as Function).bind(null, this.state.value)}>
+                <TouchableOpacity onPress={() => {
+                    this.props.onOk && this.props.onOk(this.state.value)
+                }}>
                     <Text style={styles.ok}>{okText}</Text>
                 </TouchableOpacity>
             </View>
@@ -73,14 +75,15 @@ export default class extends React.Component<IPickerProps, any> {
 
     renderItems = (group: IItemProps[]) => {
         return group.map(({ label, value }, idx) => {
+            console.log('label===', label, value)
             if (label === undefined || label === null) {
-                return (
+                return (  // @ts-ignore
                     <Picker.Item label={String(value)} value={value} key={idx} />
                 )
+            } else {
+                // @ts-ignore
+                return <Picker.Item label={String(label)} value={value} key={idx} />
             }
-            return (
-                <Picker.Item label={String(label)} value={value} key={idx} />
-            )
         })
     }
 
@@ -124,13 +127,13 @@ export default class extends React.Component<IPickerProps, any> {
         } = this.props
         if (children) {
 
-            const itemSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle
-            const columnSty = Array.isArray(columnStyle) ? columnStyle[0] : columnStyle
+            const itemPickSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle
+            const columnPickSty = Array.isArray(columnStyle) ? columnStyle[0] : columnStyle
             return (
                 <Pick
                     {...rest}
-                    itemStyle={StyleSheet.flatten(itemSty)}
-                    style={StyleSheet.flatten([style, columnSty])}
+                    itemStyle={StyleSheet.flatten(itemPickSty)}
+                    style={StyleSheet.flatten([style, columnPickSty])}
                     onValueChange={this.onChange}
                     selectedValue={this.state.value}
                 >

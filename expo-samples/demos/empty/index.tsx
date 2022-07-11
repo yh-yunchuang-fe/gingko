@@ -16,10 +16,10 @@ export default () => {
     return (
         <ScrollView>
             <Text style={styles.description}>【样式1】图片+文字</Text>
-            <Empty message='文字描述' source={require('../../../src/assets/imgs/empty-scheduling.png')} />
+            <Empty message='文字描述' source={require('@assets/imgs/empty-scheduling.png')} />
             <Text style={styles.description}>【样式2】图片+文字+按钮</Text>
             <Empty 
-                source={require('../../../src/assets/imgs/empty-overtime.png')}
+                source={require('@assets/imgs/empty-overtime.png')}
                 message='文字描述'
                 btn='按钮'/>
         </ScrollView>

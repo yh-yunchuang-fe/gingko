@@ -42,8 +42,8 @@ export default () => {
                 <Button line
                     onClick={()=> {
                         Modal.alert('弹窗标题', '弹窗正文单行限制宽度超出后折行', [
-                            { text: '取消', onPress: () => console.log('cancel') },
-                            { text: '确定', type: 'primary', onPress: () => console.log('ok') },
+                            { text: '取消', line: true, onPress: () => console.log('cancel') },
+                            { text: '确定', onPress: () => console.log('ok') },
                         ])}
                     }
                 >alert</Button>
@@ -51,7 +51,7 @@ export default () => {
                 <Button line
                     onClick={()=> {
                         Modal.alert('', '弹窗正文单行限制宽度超出后折行弹窗正文单行限制宽度超出后折行', [
-                            { text: '知道了', type: 'primary', onPress: () => console.log('ok') },
+                            { text: '知道了', onPress: () => console.log('ok') },
                         ])}
                     }
                 >alert title empty</Button>
@@ -65,8 +65,8 @@ export default () => {
                 title={'弹窗标题'}
                 content={'此样式弹窗文案区最小高度100px'}
                 footer={[
-                    { text: '取消' },
-                    { text: '知道了', type: 'primary' },
+                    { text: '取消', line: true, },
+                    { text: '知道了' },
                 ]}
             />
 
@@ -77,8 +77,7 @@ export default () => {
                 }}
                 title={'这是title'}
                 footer={[{
-                    text: '知道了',
-                    type: 'primary'
+                    text: '知道了'
                 }]}
                 style={{top: -100}}
             >

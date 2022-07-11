@@ -2,7 +2,7 @@
  * @author zhangyi
  * @date 2018/3/15
  */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     View,
     Text,
@@ -16,191 +16,169 @@ import ISearchBarProps from './propsType'
 import Button from '../Button'
 import variables from '@src/style'
 
-function noop() {}
+export default function SearchBar(props: ISearchBarProps) {
+    const {
+        style,
+        // defaultValue = '',
+        placeholder = '搜索关键字',
+        searchText = '',
+        cancelText = '',
+        // cancelColor = variables.color_searchBar_icon_close_visible,
+        autoFocus = false,
+        selectionColor = '#FE8F1D',
+    } = props
 
-export default class SearchBar extends React.Component<ISearchBarProps, any> {
-    public static defaultProps = {
-        defaultValue: '',
-        placeholder: '搜索关键字',
-        searchText: '',
-        cancelText: '',
-        cancelColor: variables.color_searchBar_icon_close_visible,
-        autoFocus: false,
-        selectionColor: '#FE8F1D',
+    let searchInput: any
 
-        onSubmit: noop,
-        onChange: noop,
-        onFocus: noop,
-        onBlur: noop,
-        onSearch: noop,
-        onCancel: noop,
-        onClear: noop
-    }
+    const duration = 200
 
-    public searchInput: any
+    const value = (props.value || props.defaultValue) || ''
+    const showDelete = !!(value && props.autoFocus)
+    const [state, setState] = useState({
+        value,
+        showDelete,
+        focus: false,
+        rightAnim: new Animated.Value(0),
+    })
 
-    public duration = 200
-
-    constructor(props) {
-        super(props)
-        const value = (props.value || props.defaultValue) || ''
-        const showDelete = !!(value && this.props.autoFocus)
-        this.state = {
-            value,
-            showDelete,
-            focus: false,
-            rightAnim: new Animated.Value(0),
-        }
-    }
-
-    public componentWillReceiveProps(nextProps) {
-        if (nextProps.value && nextProps.value !== this.state.value) {
-            this.setState({
-                value: nextProps.value,
-                showDelete: nextProps.value != ''
+    useEffect(() => {
+        if (props.value && props.value !== state.value) {
+            setState({
+                ...state,
+                value: props.value,
+                showDelete: props.value != ''
             })
         }
-    }
+    }, [props.value])
 
-    public clearInput = () => {
-        const { onClear } = this.props
-        this.setState({
+    const clearInput = () => {
+        setState({
+            ...state,
             value: '',
             showDelete: false
         })
-        onClear && onClear()
+        !!props.onClear && props.onClear()
     }
 
-    public onChangeText = (value: any) => {
-        const { onChange } = this.props
-        if (value != '') {
-            this.setState({
-                value,
+    const onChangeText = (val: any) => {
+        if (val != '') {
+            setState({
+                ...state,
+                value: val,
                 showDelete: true
             })
         } else {
-            this.setState({
-                value,
+            setState({
+                ...state,
+                value: val,
                 showDelete: false
             })
         }
-        onChange && onChange(value)
+        !!props.onChange && props.onChange(value)
     }
 
-    public onFocus = () => {
-        this.setState({
+    const onFocus = () => {
+        setState({
+            ...state,
             focus: true
         })
 
         Animated.timing(
-            this.state.rightAnim,
+            state.rightAnim,
             {
                 toValue: 1,
-                duration: this.duration,
+                duration,
                 useNativeDriver: true
             }
         ).start()
-        if (this.props.onFocus) {
-            this.props.onFocus()
-        }
+
+        !!props.onFocus && props.onFocus()
     }
 
-    public onBlur = () => {
-        this.setState({
+    const onBlur = () => {
+        setState({
+            ...state,
             focus: false
         })
-        this.searchInput.blur()
+        searchInput.blur()
         Animated.timing(
-            this.state.rightAnim,
+            state.rightAnim,
             {
                 toValue: 0,
-                duration: this.duration,
+                duration,
                 useNativeDriver: true
             }
         ).start()
-        if (this.props.onBlur) {
-            this.props.onBlur()
+
+        !!props.onBlur && props.onBlur()
+    }
+
+    const onCancel = () => {
+        onBlur()
+
+        !!props.onCancel && props.onCancel(state.value)
+    }
+
+    const onSearch = () => {
+        onBlur()
+        if (props.onSearch) {
+            props.onSearch(state.value)
         }
     }
 
-    public onCancel = () => {
-        this.onBlur()
-        if (this.props.onCancel) {
-            this.props.onCancel(this.state.value)
-        }
-    }
-
-    public onSearch = () => {
-        this.onBlur()
-        if (this.props.onSearch) {
-            this.props.onSearch(this.state.value)
-        }
-    }
-
-    public onSubmit = (e: any) => {
+    const onSubmit = (e: any) => {
         e.preventDefault()
-        if (this.props.onSubmit) {
-            this.props.onSubmit(this.state.value)
-        }
+
+        !!props.onSubmit && props.onSubmit(state.value)
     }
 
-    public render() {
-        const {
-            placeholder, searchText, selectionColor, cancelText, cancelColor, style, autoFocus,
-            onChange, onSubmit, onFocus, onBlur, onCancel, onClear,
-            ...restProps
-        } = this.props
-
-        const { value, showDelete } = this.state
-
-        return (
-            <View style={styles.wrapper}>
-                <View style={styles.inputWrapper}>
-                    <View style={styles.searchIcon}>
-                        <Icon 
-                            name='icon-search' 
-                            color={variables.color_searchBar_icon_search}
-                            size={variables.width_searchBar_icon_search}/>
-                    </View>
-                    <TextInput
-                        {...restProps}
-                        ref={(searchInput)=> { this.searchInput = searchInput }}
-                        autoFocus={autoFocus}
-                        value={value}
-                        placeholder={placeholder}
-                        selectionColor={selectionColor}
-                        style={[styles.input, style]}
-                        underlineColorAndroid='transparent'
-                        clearButtonMode='never'
-                        onChangeText={this.onChangeText}
-                        onFocus={this.onFocus}
-                        onBlur={this.onBlur}
-                        onSubmitEditing={this.onSubmit}
-                    />
-                    {
-                        showDelete &&
-                        <TouchableOpacity onPress={this.clearInput} style={styles.deleteIcon}>
-                            <Icon 
-                                name='icon-closeText' 
-                                size={variables.width_searchBar_icon_close} 
-                                color={variables.color_searchBar_icon_close_visible}/>
-                        </TouchableOpacity>
-                    }
+    return (
+        <View style={styles.wrapper}>
+            <View style={styles.inputWrapper}>
+                <View style={styles.searchIcon}>
+                    <Icon 
+                        name='icon-search' 
+                        color={variables.color_searchBar_icon_search}
+                        size={variables.width_searchBar_icon_search}/>
                 </View>
-                
-                {!!cancelText && <TouchableOpacity 
-                    onPress={this.onCancel} 
-                    style={styles.cancelBtn}>
-                    <Text>{cancelText}</Text>
-                </TouchableOpacity>}
-
-                {!!searchText && <Button 
-                    size='sm' 
-                    onClick={this.onSearch} 
-                    style={styles.searchBtn}>
-                        {searchText}
-                    </Button>}
+                <TextInput
+                    {...props?.restProps}
+                    ref={(input)=> { searchInput = input }}
+                    autoFocus={autoFocus}
+                    value={state.value}
+                    placeholder={placeholder}
+                    selectionColor={selectionColor}
+                    style={[styles.input, style]}
+                    underlineColorAndroid='transparent'
+                    clearButtonMode='never'
+                    onChangeText={onChangeText}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    onSubmitEditing={onSubmit}
+                />
+                {
+                    !!state.showDelete &&
+                    <TouchableOpacity onPress={clearInput} style={styles.deleteIcon}>
+                        <Icon 
+                            name='icon-closeText' 
+                            size={variables.width_searchBar_icon_close} 
+                            color={variables.color_searchBar_icon_close_visible}/>
+                    </TouchableOpacity>
+                }
             </View>
-        )
-    }
+            
+            {!!cancelText && <TouchableOpacity 
+                onPress={onCancel} 
+                style={styles.cancelBtn}>
+                <Text>{cancelText}</Text>
+            </TouchableOpacity>}
+
+            {!!searchText && <Button 
+                size='sm' 
+                onClick={onSearch} 
+                style={styles.searchBtn}>
+                    {searchText}
+                </Button>}
+        </View>
+    )
 }
