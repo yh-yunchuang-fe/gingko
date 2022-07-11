@@ -1,7 +1,7 @@
 /**
  * Created by beilunyang on 2018/3/14
  */
-import * as React from 'react'
+import React from 'react'
 import {
     View,
     Text,
@@ -26,12 +26,7 @@ export default function Radio(props: ICheckbox) {
         ...restProps
     } = props
 
-    let initChecked: boolean = false
-    if (typeof props.checked === 'boolean') {
-        initChecked = props.checked
-    } else {
-        initChecked = defaultChecked!
-    }
+    const initChecked: boolean = (typeof props.checked === 'boolean') ? props.checked : defaultChecked!
 
     const [checked, setChecked] = React.useState(initChecked)
 
@@ -45,9 +40,8 @@ export default function Radio(props: ICheckbox) {
         if (!(typeof props.checked === 'boolean')) {
             setChecked(!checked)
         }
-        if (props.onChange) {
-            props.onChange(!checked)
-        }
+
+        !!props.onChange && props.onChange(!checked)
     }
 
     const getCheckedColor = (check: boolean) => {
@@ -66,6 +60,7 @@ export default function Radio(props: ICheckbox) {
         if (typeof icon === 'function') {
             // tslint:disable-next-line:no-shadowed-variable
             const elements: any = icon({ checked })
+
             if (React.isValidElement(elements)) {
                 return elements
             }
@@ -73,6 +68,7 @@ export default function Radio(props: ICheckbox) {
 
         if (typeof icon === 'boolean' && icon) {
             const defaultIcon = (check: any) => {
+
                 const checkColor = getCheckedColor(check)
                 const iconName = checkColor?.icon
 
@@ -88,24 +84,24 @@ export default function Radio(props: ICheckbox) {
         return null
     }
 
-    let elements: any = null
-    if (React.isValidElement(children)) {
-        elements = children
-    }
-
-    if (typeof children === 'string') {
-        elements = <Text style={textStyle}>{children}</Text>
+    const renderElement = () => {
+        if (React.isValidElement(children)) {
+            return children
+        }
+    
+        if (typeof children === 'string') {
+            return <Text style={textStyle}>{children}</Text>
+        }
     }
 
     return (
         <TouchableOpacity
             {...restProps}
             onPress={handleClick}
-            disabled={disabled}
-        >
+            disabled={disabled} >
             <View style={[styles.container, style]}>
                 {dir === 'left' && renderIcon()}
-                {elements}
+                {renderElement()}
                 {dir === 'right' && renderIcon()}
             </View>
         </TouchableOpacity>

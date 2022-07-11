@@ -1,7 +1,7 @@
 /**
  * Created by beilunyang on 2018/4/10
  */
-import * as React from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 export default function MultiPicker(props: any) {

@@ -1,7 +1,7 @@
 /**
  * Created by beilunyang on 2018/3/14
  */
-import * as React from 'react'
+import React from 'react'
 import {
     View,
     Text,
@@ -35,7 +35,7 @@ export default function Checkbox(props: ICheckbox) {
     const [checked, setChecked] = React.useState(initChecked)
 
     React.useEffect(() => {
-        if (typeof props.checked === 'boolean') {
+        if (!!props.checked && (props.checked !== checked)) {
             setChecked(props.checked)
         }
     }, [props.checked])
@@ -44,9 +44,7 @@ export default function Checkbox(props: ICheckbox) {
         if (!(typeof props.checked === 'boolean')) {
             setChecked(!checked)
         }
-        if (props.onChange) {
-            props.onChange(!checked)
-        }
+        !!props.onChange && props.onChange(!checked)
     }
 
     const getCheckedColor = (check: boolean) => {
@@ -83,8 +81,6 @@ export default function Checkbox(props: ICheckbox) {
             }
             return defaultIcon(checked)
         }
-
-        return null
     }
 
     let elements: any = null
@@ -100,8 +96,7 @@ export default function Checkbox(props: ICheckbox) {
         <TouchableOpacity
             {...restProps}
             onPress={handleClick}
-            disabled={disabled}
-        >
+            disabled={disabled} >
             <View style={[styles.container, style]}>
                 {dir === 'left' && renderIcon()}
                 {elements}

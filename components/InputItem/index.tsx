@@ -1,7 +1,7 @@
 /**
  * Created by beilunyang on 2018/2/9
  */
-import * as React from 'react'
+import React, { useRef } from 'react'
 import {
     View,
     Text,
@@ -20,6 +20,7 @@ const fixControlledValue = (value: any): string => {
 }
 
 export default function InputItem(props: IInputItemProps) {
+    const inputRef = useRef<any>(null)
     const {
         title = '',
         ok = false,
@@ -36,14 +37,9 @@ export default function InputItem(props: IInputItemProps) {
         inputStyle,
         ...restProps
     } = props
-    
-    let inputRef: any
 
     const clear = () => {
-        const { onChange } = props
-        if (onChange && typeof onChange === 'function') {
-            onChange('')
-        }
+        !!props.onChange && props.onChange('')
     }
 
     const onChange = (text: any) => {
@@ -64,21 +60,14 @@ export default function InputItem(props: IInputItemProps) {
     }
 
     const onInputBlur = () => {
-        const { onBlur, value } = props
-        onBlur && onBlur(value)
+        !!props.onBlur && props.onBlur(props.value)
     }
 
     const onInputFocus = () => {
-        const { onFocus, value } = props
-        onFocus && onFocus(value)
+        !!props.onFocus && props.onFocus(props.value)
     }
 
     const renderIcon = () => {
-        const {
-            ok,
-            error,
-            value,
-        } = props
         if (error) {
             return (
                 <Icon name='alert' color='#f00' size='lg' />
@@ -138,7 +127,7 @@ export default function InputItem(props: IInputItemProps) {
                         placeholderTextColor='#ddd'
                         style={styles.textInput}
                         underlineColorAndroid='transparent'
-                        ref={(ref) => inputRef = ref}
+                        ref={inputRef}
                     />
                     {renderIcon()}
                 </View>

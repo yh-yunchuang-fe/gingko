@@ -47,7 +47,7 @@ export default function OptionTag(props: OptionTagProps) {
 
     const renderDisabledText = () => {
         if (!!props.renderText) {
-            props?.renderText(isSelect)
+            return props.renderText(isSelect)
         } else {
             if (typeof children === 'string') {
                 return <Text style={[styles.text, textStyle, styles.disabledText]}>{ children }</Text>
@@ -59,7 +59,7 @@ export default function OptionTag(props: OptionTagProps) {
         return (
             <View style={styles.wrap}>
                 <View style={[styles.content, style, styles.disabled, offsetSty]}>
-                    {renderDisabledText()}
+                    { renderDisabledText() }
                 </View>
             </View>
         )
@@ -83,7 +83,7 @@ export default function OptionTag(props: OptionTagProps) {
 
     const renderSelectText = () => {
         if (!!props.renderText) {
-            props?.renderText(isSelect)
+            return props.renderText(isSelect)
         } else {
             if (typeof children === 'string') {
                 return <Text style={[styles.text, textStyle, activeTextSty]}>{ children }</Text>

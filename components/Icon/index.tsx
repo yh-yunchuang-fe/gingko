@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text } from 'react-native'
 import iconMap from './iconMap.json'
 import SvgUri from '@/Icon/svgUri'
@@ -12,7 +12,12 @@ export default function Icon(props: any) {
         ...restProps
     } = props
 
-    const svgXmlData = svgs[name]
+    const [svgXmlData, setSvgXmlData] = useState(svgs[name])
+
+    useEffect(() => {
+        setSvgXmlData(svgs[props.name])
+    }, [ props.name ])
+
     
     if (!!svgXmlData) {
         const fill = !props.color ? {} : {fill: props.color}

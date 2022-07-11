@@ -15,8 +15,8 @@ import {
 
 export default () => {
     const [state, setState] = React.useState({
-        value: ['2014', '2', '11'],
-        value2: '',
+        value: '',
+        value2: ['2014', '2', '11'],
         value3: '',
         visible: false,
         visible2: false,
@@ -43,18 +43,44 @@ export default () => {
         })
     }
 
+    console.log('state===', state.value2)
+
     return (
         <WingBlank>
             <WhiteSpace/>
-            <Button line onClick={() => {handlePicker('visible2')}}>单列Picker-({state.value2})</Button>
+            <Button line onClick={() => {handlePicker('visible')}}>单列Picker-({state.value})</Button>
             <WhiteSpace/>
-            <Button line onClick={() => {handlePicker('visible')}}>多列Picker-({state.value})</Button>
+            <Button line onClick={() => {handlePicker('visible2')}}>多列Picker-({state.value2})</Button>
             <WhiteSpace/>
-            <Button line onClick={() => {handlePicker('visible3')}}>自定义Picker-({state.value})</Button>
+            <Button line onClick={() => {handlePicker('visible3')}}>自定义Picker-({state.value3})</Button>
             <WhiteSpace/>
             <Picker
                 title='上拉窗标题栏'
                 visible={state.visible}
+                data={[
+                    [
+                        { value: '选项一' },
+                        { value: '选项二' },
+                        { value: '选项三' },
+                        { value: '选项四' },
+                        { value: '选项五' },
+                        { value: '选项六' },
+                    ]
+                ]}
+                onOk={handleOk}
+                style={{}}
+                onDismiss={handleDismiss}
+                value={state.value}
+                onChange={(val, idx) => {
+                    setState({
+                        ...state,
+                        value: val,
+                    })
+                }}
+            />
+            <Picker
+                title='上拉窗标题栏'
+                visible={state.visible2}
                 data={[ // label是可选的, 不设置就取value的值  label/value 可以是字符串或数字
                     [ 
                         { value: '2010' },
@@ -76,11 +102,11 @@ export default () => {
                         { label: '13', value: '13' },
                     ]
                 ]}
-                value={state.value}
+                value={state.value2}
                 onChange={(values, idx) => {
                     setState({
                         ...state,
-                        value: values,
+                        value2: values,
                     })
                 }}
                 onOk={handleOk}
@@ -94,15 +120,15 @@ export default () => {
             />
             <Picker
                 title='上拉窗标题栏'
-                visible={state.visible2}
+                visible={state.visible3}
                 onOk={handleOk}
                 style={{}}
                 onDismiss={handleDismiss}
-                value={state.value2}
+                value={state.value3}
                 onChange={(val, idx) => {
                     setState({
                         ...state,
-                        value2: val,
+                        value3: val,
                     })
                 }}
             >

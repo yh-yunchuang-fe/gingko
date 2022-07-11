@@ -1,7 +1,7 @@
 /**
  * Created by beilunyang on 2018/3/7
  */
-import * as React from 'react'
+import React from 'react'
 import {
     View,
     Text,
