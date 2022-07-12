@@ -1,7 +1,7 @@
 /**
  * Created by beilunyang on 2018/2/9
  */
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Text,
     View,
@@ -9,7 +9,7 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from 'react-native'
-import { Picker } from '@react-native-picker/picker'
+import { Picker as RNPicker } from '@react-native-picker/picker'
 import AndroidPicker from './Picker.android'
 import MultiPicker from './MultiPicker'
 import Popup from '../Popup'
@@ -21,110 +21,84 @@ import styles from './style'
 
 const isAndroid = Platform.OS === 'android'
 
-export default class extends React.Component<IPickerProps, any> {
+function Picker(props: IPickerProps) {
+    const {
+        dismissText = '取消',
+        okText = '完成',
+        onDismiss = () => {},
+        title = '',
+        data = [],
+        style = {},
+        itemStyle = [],
+        columnStyle = [],
+        visible = false,
+    } = props
 
-    static Item = Picker.Item
+    const [state, setState] = useState({
+        value: props.value || props.defaultValue
+    })
 
-    static defaultProps: IPickerProps = {
-        dismissText: '取消',
-        okText: '完成',
-        onDismiss: () => {},
-        onOk: () => {},
-        title: '',
-        data: [],
-        style: {},
-        itemStyle: [],
-        columnStyle: [],
-        visible: false,
-    }
-
-    state = {
-        value: this.props.value || this.props.defaultValue,
-    }
-
-    componentWillReceiveProps(nextProps: any) {
-        if ('value' in nextProps) {
-            this.setState({
-                value: nextProps.value,
-            })
+    useEffect(() => {
+        if (props.value !== state.value) {
+            setState(props.value)
         }
-    }
+    }, [props.value])
 
-    renderHeader = () => {
-        const {
-            dismissText,
-            onOk,
-            onDismiss,
-            okText,
-            title,
-        } = this.props
-        return (
-            <View style={styles.header}>
-                <TouchableOpacity onPress={onDismiss}>
-                    <Text style={styles.dismiss}>{dismissText}</Text>
-                </TouchableOpacity>
-                <Text style={styles.title}>{title}</Text>
-                <TouchableOpacity onPress={() => {
-                    this.props.onOk && this.props.onOk(this.state.value)
-                }}>
-                    <Text style={styles.ok}>{okText}</Text>
-                </TouchableOpacity>
-            </View>
-        )
-    }
-
-    renderItems = (group: IItemProps[]) => {
+    const renderHeader = () => (
+        <View style={styles.header}>
+            <TouchableOpacity onPress={onDismiss}>
+                <Text style={styles.dismiss}>{dismissText}</Text>
+            </TouchableOpacity>
+            <Text style={styles.title}>{title}</Text>
+            <TouchableOpacity onPress={() => {
+                props.onOk && props.onOk(state.value)
+            }}>
+                <Text style={styles.ok}>{okText}</Text>
+            </TouchableOpacity>
+        </View>
+    )
+    const renderItems = (group: IItemProps[]) => {
         return group.map(({ label, value }, idx) => {
-            console.log('label===', label, value)
             if (label === undefined || label === null) {
                 return (  // @ts-ignore
-                    <Picker.Item label={String(value)} value={value} key={idx} />
+                    <RNPicker.Item label={String(value)} value={value} key={idx} />
                 )
             } else {
                 // @ts-ignore
-                return <Picker.Item label={String(label)} value={value} key={idx} />
+                return <RNPicker.Item label={String(label)} value={value} key={idx} />
             }
         })
     }
 
-    renderCols = () => {
-        const { data } = this.props
+    const renderCols = () => {
         if (Array.isArray(data)) {
-            const Pick: any = isAndroid ? AndroidPicker : Picker
-            return data.map((group, idx) => {
-                return (
-                    <Pick key={idx}>
-                        {this.renderItems(group)}
-                    </Pick>
-                )
-            })
+            const Pick: any = isAndroid ? AndroidPicker : RNPicker
+            return data.map((group, idx) => (
+                <Pick key={idx}>
+                    {renderItems(group)}
+                </Pick>
+            ))
         }
         return null
     }
 
-    onChange = (values: any, idx: any) => {
-        const { onChange } = this.props
-        if (!('value' in this.props)) {
-            this.setState({
+    const onChange = (values: any, idx: any) => {
+        if (!('value' in props)) {
+            setState({
                 value: values,
             })
         }
-        if (onChange) {
-            onChange(values, idx)
-        }
+
+        !!props.onChange && props.onChange(values, idx)
     }
 
-    renderPicker = () => {
-        const Pick: any = isAndroid ? AndroidPicker : Picker
+    const renderPicker = () => {
+        const Pick: any = isAndroid ? AndroidPicker : RNPicker
         const {
             value,
-            onChange,
             children,
-            style,
-            itemStyle,
-            columnStyle,
             ...rest
-        } = this.props
+        } = props
         if (children) {
 
             const itemPickSty = Array.isArray(itemStyle) ? itemStyle[0] : itemStyle
@@ -134,8 +108,8 @@ export default class extends React.Component<IPickerProps, any> {
                     {...rest}
                     itemStyle={StyleSheet.flatten(itemPickSty)}
                     style={StyleSheet.flatten([style, columnPickSty])}
-                    onValueChange={this.onChange}
-                    selectedValue={this.state.value}
+                    onValueChange={onChange}
+                    selectedValue={state.value}
                 >
                     {children}
                 </Pick>
@@ -150,23 +124,24 @@ export default class extends React.Component<IPickerProps, any> {
                 style={style}
                 itemStyle={itemSty}
                 columnStyle={columnSty}
-                onChange={this.onChange}
-                value={this.state.value}
+                onChange={onChange}
+                value={state.value}
             >
-                {this.renderCols()}
+                {renderCols()}
             </MultiPicker>
         )
     }
 
-    render() {
-        const { visible } = this.props
-        return (
-            <Popup visible={visible as boolean}>
-                <View style={styles.container}>
-                    {this.renderHeader()}
-                    {this.renderPicker()}
-                </View>
-            </Popup>
-        )
-    }
+    return (
+        <Popup visible={visible as boolean}>
+            <View style={styles.container}>
+                {renderHeader()}
+                {renderPicker()}
+            </View>
+        </Popup>
+    )
 }
+
+Picker.Item = RNPicker.Item
+
+export default Picker

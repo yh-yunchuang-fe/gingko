@@ -1,7 +1,7 @@
 /**
  * Created by suki on 2018/12/13.
  */
-import * as React from 'react'
+import React from 'react'
 import IBodyProps from './propdType'
 import { View } from 'react-native'
 import styles from './style'
