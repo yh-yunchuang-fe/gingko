@@ -6,7 +6,7 @@
     "@types/react-test-renderer": "^16.0.0",
     "babel-preset-expo": "^4.0.0",
     "metro-react-native-babel-preset": "^0.46.0",
-    "react-native-scripts": "1.11.1",
+    "react-native-scripts": "1.14.1",
     "react-native-typescript-transformer": "^1.2.3",
     "typescript": "^3.0.3"
   },
